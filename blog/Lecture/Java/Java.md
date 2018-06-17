@@ -1,20 +1,14 @@
 ---
-layout: post
-title: Lecture
-summary: Lecture is my utility space way to lecture our company employee. 
-featured-img: Next
-
+layout: page
+title: Java
+permalink: /Lecture/Java
 ---
----
-##### Table of Contents  
-* [Java](#java) 
-* [Machine Learning](#machine)  
-* [Deep Learning](#deep)  
----
-<a name="java"/>
 
-## [Java]
+## Java
 
+### 1. 개발환경 Setting
+
+### 2. Syllabus
 1. 지난 학습 정리
 * 코딩을 배워야 하는 이유(동영상)
 * 미래의 언어 코딩(동영상)
@@ -32,11 +26,6 @@ featured-img: Next
 * Neural Network 예측(아라한 문서)
 * 링크 소프트웨어 세상(동영상)
 
-<a name="machine"/>
-
-## [Machine Learning]
-
-
-<a name="deep"/>
-
-## [Deep Learning]
+### 3. 기초
+```Java
+```
