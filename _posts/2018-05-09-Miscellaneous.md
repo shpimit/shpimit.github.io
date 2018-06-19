@@ -10,7 +10,8 @@ mathjax: true
 * [Github 연동](#gihtub) 
 * [Visual Studio Code](#vsc) 
 * [Python](#python)  
-* [Jupyter](#jupyter)  
+* [Jupyter](#jupyter) 
+* [Book](#book) 
 
 ---
 <a name="github"/>
@@ -50,3 +51,8 @@ mathjax: true
 
 ## 마크다운 Table
 * 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables
+
+<a name="book"/>
+
+## Book
+* [Do it! 쉽게 배우는 R 데이터 분석](https://github.com/youngwoos/Doit_R/#4)

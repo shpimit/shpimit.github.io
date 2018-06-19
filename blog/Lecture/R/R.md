@@ -51,7 +51,6 @@ table(mpg$manufacturer) # 오라클 테이블 아님, 데이터 distinct정보
 mpg1 <- mpg      # 데이터 복사
 ```
 ### 6. 외부파일
-* excel data : bit.ly/doit_ra
 ```R
 install.packages("readxl")
 library(readxl)
@@ -113,6 +112,7 @@ pythagoras <- function(a,b) {
 pythagoras(3,4)
 ```
 * 데이터 중 결측지 제거 함수 만들기
+
 ```R
 na_data <- c(1,2,NA,3,4,NA,5,6,6)
 sum(na_data)
@@ -123,6 +123,7 @@ fn_na <- function(a) {
 na_data1 <- fn_na(na_data)
 ```
 * mpg 데이터를 이용한 실습
+
 ```R
 mpg1 <- mpg
 avg_mileage <- (mpg1$cty+ mpg1$hwy) /2 
@@ -142,6 +143,7 @@ mpg1$grade <- ifelse(mpg1$avg_mileage >= 30, "A", ifelse(mpg1$avg_mileage >=20, 
 table(mpg1$grade)
 ```
 * midwest 데이터를 이용한 실습
+
 ```R
 midwest
 nrow(midwest)
@@ -169,12 +171,12 @@ qplot(midwest1$group)
 ```
 * MySQL 설치
 https://kldp.net/apmsetup/
+
 ```SQL
 create table test1 ( kor int, eng int);
 insert into test1 values(90,80);
 insert into test1 values(100,80);
-```
-```R
+
 install.packages("DBI")
 install.packages("RODBC")
 install.packages("RMySQL")
@@ -188,14 +190,16 @@ library(rJava)
 library(RJDBC)
 
 # 대소문자 주의
-Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_171')
-drv <- JDBC(driverClass = "com.mysql.jdbc.Driver", classPath="C:\\r_temp\\mysql-connector-java-5.1.46.jar")
+# Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_171')
+#drv <- JDBC(driverClass = "com.mysql.jdbc.Driver", classPath="C:\\r_temp\\mysql-connector-java-5.1.46.jar")
 
 # 아래 내용 실행과정에서 오류가 발생시에는 R을 껐다가 다시 킨다.
-conn <- dbConnect(drv,"jdbc:mysql://127.0.0.1:3306/abc","root","apmsetup")
+#conn <- dbConnect(drv,"jdbc:mysql://127.0.0.1:3306/abc","root","apmsetup")
+
 query <- "select * from test1"
 test <- dbGetQuery(conn,"select * from test1")
 ```
+
 * 우편주소 테스트 하기
 * MySQL 관리 화면 들어가기 http://127.0.0.1/myadmin/
 ```SQL
@@ -222,7 +226,9 @@ t1 <- table(post$sido)
 t1
 barplot(t1)
 ```
+
 * dplyr 실습
+
 ```R
 head(post)
 post %>% filter(unq > 100 & unq <=110)   # filter는 오라클 where 조건

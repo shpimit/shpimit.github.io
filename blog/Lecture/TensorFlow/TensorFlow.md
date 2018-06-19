@@ -54,6 +54,7 @@ a.reshape(2,4)
 print(a)
 ```
 * 엑셀 읽기
+
 ```python
 import numpy as np
 import pandas as pd
@@ -63,6 +64,7 @@ data.head(5)
 ```
 
 * MySQL 연결하기
+
 ```python
 # python3
 conda install pymysql
