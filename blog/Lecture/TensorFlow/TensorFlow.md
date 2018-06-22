@@ -22,6 +22,8 @@ permalink: /Lecture/TensorFlow
 * (tensorflow) $ conda install cx_Oracle → Oracle 연동 라이브러리
 #### 1.4 Jupyter Notebook 설치
 * (tensorflow) $ conda install jupyter
+* (tensorflow) $ conda install -c conda-forge jypyterlab
+
 #### 1.5 Theano -> Tensorflow 변경
 * ~\Anaconda3\envs\tensorflow\etc\conda\activate.d 내에 있는 Keras Backend가 혹시
 theano로 설정되어 있으면 이를 tensorflow로 변경
