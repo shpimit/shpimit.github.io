@@ -86,3 +86,13 @@ conn = engine.connect()
 data = pd.read_sql_table('test1', conn)
 data.head()
 ```
+
+* 데이터 프레임 합치기
+
+```python
+jumsu1 = pd.DataFrame({"name":("Kim","Lee"), "kor":(70,90)})
+jumsu2 = pd.DataFrame({"name":("Kim","Lee"), "eng":(80,90)})
+pd.merge(jumsu1,jumsu2,on="name")
+```
+
+
