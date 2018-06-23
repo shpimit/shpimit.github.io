@@ -478,15 +478,79 @@ head(r3)
 nrow(r3)
 top10 <- r3 %>% arrange(desc(mean_income)) %>% head(10)
 ggplot(data=top10, aes(x=job,y=mean_income))+geom_col()+coord_flip()
+ggplot(data=top10, aes(x=reorder(job,mean_income),y=mean_income))+geom_col()+coord_flip()
 tail10 <- r3 %>% arrange(desc(mean_income)) %>% tail(10)
 ggplot(data=tail10, aes(x=reorder(job,mean_income),y=mean_income))+geom_col()+coord_flip()
+head20 <- r3 %>% arrange(desc(mean_income)) %>% head(20) %>% tail(10)           #  11~20 번째 직업을 선택함.
+ggplot(data=head20, aes(x=reorder(job,mean_income),y=mean_income))+geom_col()+coord_flip()
+```
 
-ggplot(data=top10, aes(x=reorder(job,mean_income),y=mean_income))+geom_col()+coord_flip()
+* 구글차트 활용하기
+
+```R
+install.packages("googleVis")
+library("googleVis")
+
+df = data.frame(country=c("US","GB","BR"),eng=c(70,90,80),kor=c(60,80,70))
+
+# Line Chart
+Line <- gvisLineChart(df)
+plot(Line)
+
+# Bar Chart
+Bar <- gvisBarChart(df)
+plot(Bar)
+
+# Column Chart
+Column <- gvisColumnChart(df)
+plot(Column)
+
+# Area Char
+Area <- gvisAreaChart(df)
+plot(Area)
+
+# 과일 판매 데이터 정보를 이용한 그래프
+# Motion Chart
+Fruits
+Fruits1 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+plot(Fruits1)
+
+# 지하철 이용 승객현황 데이터를 이용한 그래프
+line <- read.csv("C:\\r_temp\\1-4호선승하차승객수.csv", header=T, sep=",")
+names(line)
+t1 <- gvisMotionChart(line, idvar="노선번호", timevar="시간", options=list(width=1000,height=500))
+options(encoding="UTF-8")
+plot(t1)
 
 
-
-
-
-
+#import pandas as pd
+#import numpy as np
+#import matplotlib.pyplot as plt
+#
+#exam = pd.read_csv("C:\\r_temp\\csv_exam.csv")
+#exam.info()
+#exam.head(10)
+#
+#exam.columns
+#exam.values
+#exam.index
+#exam.describe()
+#exam.sort_values(by='math', ascending=False)
+#
+#exam['english']
+#
+#
+#jumsu1 = pd.DataFrame({"name":("Kim","Lee"), "kor":(70,90)})
+#jumsu2 = pd.DataFrame({"name":("Kim","Lee"), "eng":(80,90)})
+#pd.merge(jumsu1,jumsu2,on="name")
+#
+#
+#### https://blog.naver.com/httyu
+#### https://blog.naver.com/townpharm/220974789738
+#### http://action.news/watch?v=zkoLrEiU8NA
+#### 구글visualization https://github.com/google/google-visualization-python
+#### 임영환
+#list_job = pd.read_excel('C:\\r_temp\\Koweps_Codebook.xlsx',sheetname='2')
 
 ```
+[구글차트](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html)
