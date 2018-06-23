@@ -5,6 +5,11 @@ permalink: /Lecture/R
 ---
 ## R
 ### 1. 기초
+
+* Ctrl+l       : console지우기
+* Ctrl+Enter   : 스크립트 명령어 실행
+* Ctrl+Shift+c :  comment toggle
+
 ```R
 a <- c(1,2,3,4,5,1,2)
 summary(a)
@@ -292,6 +297,33 @@ exam %>% group_by(class) %>% summarise(평균=mean(math),총합=sum(math),중간
 jumsu1 <- data.frame(name=c("Kim","Lee"), eng=c(80,90))
 jumsu2 <- data.frame(name=c("Kim","Lee"), kor=c(70,90))
 left_join(jumsu1, jumsu2, by="name")
+```
 
+* 그래프 만들기
+
+```R
+# ggplot 실습하기
+ggplot(data=mpg,aes(x=displ,y=hwy))+geom_point()
+ggplot(data=mpg,aes(x=displ,y=hwy))+geom_col()
+ggplot(data=mpg,aes(x=displ,y=hwy))+geom_line()
+ggplot(data=mpg,aes(x=displ,y=hwy))+xlim(0,8)+ylim(10,30)
+
+# myschool 정보 이용한 출력
+library(readxl)
+exam_all <- read_excel("C:\\r_temp\\exam_all.xlsx",col_names=T)
+exam_all
+aa <- ifelse(exam_all$loc == '1',"강남", 
+      ifelse(exam_all$loc == '2',"강북", 
+      ifelse(exam_all$loc == '3',"강동","강서")))
+exam_all$loc2 <- aa
+ggplot(data=exam_all,aes(x=loc2,y=kor))+geom_col()
+
+# economics를 이용한 출력
+ggplot(data=economics,aes(x=date,y=unemploy))+geom_line()
+ggplot(data=economics,aes(x=date,y=psavert))+geom_line()
+
+# 상자그림
+ggplot(data=mpg,aes(x=drv,y=hwy))+geom_boxplot()
 
 ```
+
