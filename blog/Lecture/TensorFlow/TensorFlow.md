@@ -77,7 +77,10 @@ conda install sqlalchemy
 import pandas as pd
 from sqlalchemy import create_engine
 
-engine = create_engine('mysql://root:apmsetup@localhost/abc', convert_unicode=True)
+#engine = create_engine('mysql://root:apmsetup@localhost/abc', convert_unicode=True)
+# 우리가 설치한 mysql 모듈을 써주어야 정상 작동합니다.
+engine = create_engine('mysql+pymysql://root:apmsetup@localhost/abc', convert_unicode=True)
+
 conn = engine.connect()
 
 data = pd.read_sql_table('test1', conn)
