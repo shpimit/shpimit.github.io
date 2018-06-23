@@ -325,5 +325,43 @@ ggplot(data=economics,aes(x=date,y=psavert))+geom_line()
 # 상자그림
 ggplot(data=mpg,aes(x=drv,y=hwy))+geom_boxplot()
 
+table(mpg$drv)
+a <- mpg %>% select(drv, hwy) %>% filter(drv==4)
+mean(a$hwy)
+summary(a$hwy)
+quantile(a$hwy)
+quantile(a$hwy,1/4)
+quantile(a$hwy,1/5)
+quantile(a$hwy,1/9)
+nrow(mpg %>% select(drv,hwy))
+
+# 4륜구동에대한 정보를 수치로 출력해본다
+mpg %>% select(drv,hwy) %>% filter(drv==4)
+# hwp에 대한 그룹을 지워 개수를 출력해본다
+mpg %>% group_by(hwy) %>% count()
+
 ```
 
+* 실제 데이터 분석
+
+```R
+# '한국복지패널데이터' 분석
+install.packages("foreign")   # spss 데이터를 읽을수 있는 라이브러리
+library(foreign)
+
+r1 <- read.spss(file="C:\\r_temp\\Koweps_hpc10_2015_beta1.sav",to.data.frame = T)
+dim(r1)
+class(r1)
+names(r1)
+head(r1)
+r2 <- rename(r1,
+             gender = h10_g3,          # 성별
+             birth  = h10_g4,          # 생일
+             marriage = h10_g10,       # 혼인상태  
+             religion = h10_g11,       # 종교
+             income = p1002_8aq1,      # 급여
+             code_job = h10_eco9,      # 직업     
+             code_region = h10_reg7)   # 지역
+
+
+```
