@@ -346,7 +346,7 @@ mpg %>% group_by(hwy) %>% count()
 
 ```R
 # '한국복지패널데이터' 분석
-install.packages("foreign")   # spss 데이터를 읽을수 있는 라이브러리
+install.packages("foreign")   # spss, sas, stata등 다양한 통계분석 소프트웨어 데이터를 읽을수 있는 라이브러리
 library(foreign)
 
 r1 <- read.spss(file="C:\\r_temp\\Koweps_hpc10_2015_beta1.sav",to.data.frame = T)
@@ -363,5 +363,19 @@ r2 <- rename(r1,
              code_job = h10_eco9,      # 직업     
              code_region = h10_reg7)   # 지역
 
+table(r2$gender)    # 그룹형태의 데이터 갯수 distinct유사
+str(r2$gender)      # 저장된 data가 number값임을 알수 있다.
 
+# filter를 이용한 검토(성별에 1 또는 2 이외의 데이터가 있는지 검사 )
+r2 %>% filter(gender != '1' & gender != '2') %>% count()
+
+# 성별 데이터 값을 변경(1->M, 2->F)
+r2$gender <- ifelse(r2$gender==1,"M","F")
+table(r2$gender)
+qplot(r2$gender)
+
+# 요약정보
+summary(r2$income)
+table(is.na(r2$income))
+head(r2$income)
 ```
