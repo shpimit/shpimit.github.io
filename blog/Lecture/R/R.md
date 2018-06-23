@@ -249,3 +249,10 @@ exam %>% arrange(math)
 exam %>% arrange(desc(math))
 exam %>% arrange(class,math)
 ```
+
+* filter함수
+
+```R
+exam <- read.csv("C:\\r_temp\\csv_exam.csv")
+dim(exam)
+```
