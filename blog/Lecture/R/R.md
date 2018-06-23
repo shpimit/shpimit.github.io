@@ -349,6 +349,7 @@ mpg %>% group_by(hwy) %>% count()
 install.packages("foreign")   # spss, sas, stata등 다양한 통계분석 소프트웨어 데이터를 읽을수 있는 라이브러리
 library(foreign)
 
+# 데이터 준비
 r1 <- read.spss(file="C:\\r_temp\\Koweps_hpc10_2015_beta1.sav",to.data.frame = T)
 dim(r1)
 class(r1)
@@ -378,4 +379,114 @@ qplot(r2$gender)
 summary(r2$income)
 table(is.na(r2$income))
 head(r2$income)
+
+# 급여에 들어가 있는 0 또는 9999 값을 NA로 바꾸는 작업을 한다
+r2$income <- ifelse(r2$income %in% c(0,9999),NA,r2$income)
+
+# [분석1] 성별로 분류하여 급여분석
+# 1. 성별을 기준으로 각각의 평균 출력
+r2 %>% group_by(gender) %>% summarise(incodem_avg=mean(income))
+r2 %>% filter(!is.na(income)) %>% group_by(gender) %>% summarise(incodem_avg=mean(income))
+# 2. 위의 결과를 gender_income에 담는다.
+gender_income <- r2 %>% filter(!is.na(income)) %>% group_by(gender) %>% summarise(income_avg=mean(income))
+gender_income$income_avg
+class(gender_income)
+gender_income <- as.data.frame(gender_income)
+
+# [분석2] 나이와 월급의 관계분석
+summary(r2$birth)
+qplot(r2$birth)
+table(is.na(r2$birth))  #결측치 확인
+r2$age <- 2015 - r2$birth + 1  # 한국나이 파생변수 생성
+summary(r2$age)
+#나이가 젤 많은 사람의 생년월일, 성별, 급여를 출력하시오
+r2 %>% select(birth, gender, income) %>% filter(!is.na(income)) %>% arrange(birth) %>% head(1)
+# 나이에 따른 평균표 만들기
+age_income <- r2 %>% filter(!is.na(income)) %>% group_by(age) %>% summarise(income_avg=mean(income))
+class(age_income)
+age_income <- as.data.frame(age_income)
+ggplot(data=age_income, aes(x=age,y=income_avg))+geom_line()
+
+# [분석3] 연령대에 대한 급여 차이 분석
+# 연령대를 3분류로 나누어서 급여차이를 분석한다.
+# 1. 연령대 컬럼을 추가한다 young/ middle/ old로 분류된 파행 변수 생성
+ageg = ifelse(r2$age >= 60,"old", ifelse(r2$age >=30, "middle","young"))
+table(ageg)
+r2$ageg <- ageg
+table(r2$ageg)
+qplot(ageg)
+# 2. 연령대를 기준으로 평균급여 출력
+ageg_income <- r2 %>% filter(!is.na(income)) %>% group_by(ageg) %>% summarise(income_avg=mean(income))
+ageg_income <- as.data.frame(ageg_income)
+head(ageg_income)
+ggplot(data=ageg_income, aes(x=ageg,y=income_avg))+geom_point()
+ggplot(data=ageg_income, aes(x=ageg,y=income_avg))+geom_col()
+
+# [분석4] 연령대 및 성별 분석차이
+# 1. 연령대 및 성별별 분류
+sex_income <- r2 %>% filter(!is.na(income)) %>% group_by(ageg,gender) %>% summarise(mean_ageg_income=mean(income))
+sex_income <- as.data.frame(sex_income)
+ggplot(data=sex_income, aes(x=ageg,y=mean_ageg_income,fill=gender))+geom_col()+scale_x_discrete(limits=c("young","middle","old"))
+ggplot(data=sex_income, aes(x=ageg,y=mean_ageg_income,fill=gender))+geom_col(position="dodge")+scale_x_discrete(limits=c("young","middle","old"))
+# 2. 나이대 및 성별 급여 차이
+# 나이대별 분류 파행변수 생성
+age_band <- ifelse(r2$age>=90, 90,
+            ifelse(r2$age>=80, 80,
+            ifelse(r2$age>=70, 70,
+            ifelse(r2$age>=60, 60,
+            ifelse(r2$age>=50, 50,
+            ifelse(r2$age>=40, 40,
+            ifelse(r2$age>=30, 30,
+            ifelse(r2$age>=20, 20,10))))))))
+r2$age_band <- age_band
+table(r2$age_band)
+# 나이대별 성별 분류
+ab_income <- r2 %>% filter(!is.na(income)) %>% group_by(age_band,gender) %>% summarise(mean_ab_income=mean(income))
+ab_income <- as.data.frame(ab_income
+ggplot(data=ab_income, aes(x=age_band,y=mean_ab_income,fill=gender))+geom_col()
+ggplot(data=ab_income, aes(x=age_band,y=mean_ab_income,fill=gender))+geom_col(position="dodge")
+ggplot(data=ab_income, aes(x=age_band,y=mean_ab_income,fill=gender))+geom_col(position="dodge")+coord_flip()
+# 2. 나이 및 성별 급여 차이 - 선그래프
+# 각 나이의 그룹에 성별을 분류하여 급여 평균 값을 가진 변수 생성
+gender_age <- r2 %>% filter(!is.na(income)) %>% group_by(age,gender) %>% summarise(mean_income=mean(income))
+gender_age <- as.data.frame(gender_age)
+ggplot(data=gender_age, aes(x=age,y=mean_income,fill=gender))+geom_line()
+
+# 선그래프 심플 예정
+head(airquality)
+str(airquality)
+# 결측값 여부 확인
+table(is.na(airquality$Ozone))
+table(is.na(airquality$Solar.R))
+table(is.na(airquality$Wind))
+table(is.na(airquality$Temp))
+# [분석1] 주제 : 5월의 온도를 날짜별로 시계열 그래프 출력
+air5 <- airquality %>% filter(Month == 5)
+ggplot(data=air5, aes(x=Day,y=Temp))+geom_line()+ylim(0,100)
+# [분석2] 주제 : 직업별 급여 차이
+head(r2$code_job)
+table(r2$code_job)
+list_job <- read_excel("C:\\r_temp\\Koweps_Codebook.xlsx",col_names = T, sheet=2)
+head(list_job)
+dim(list_job)
+r2 <- left_join(r2, list_job, id="code_job")
+head(r2$job)
+head(r2 %>% select(code_job, job))
+r3 <- r2 %>% filter(!is.na(code_job) & !is.na(income)) %>% group_by(job) %>% summarise(mean_income = round(mean(income),2))
+r3 <- as.data.frame(r3)
+head(r3)
+nrow(r3)
+top10 <- r3 %>% arrange(desc(mean_income)) %>% head(10)
+ggplot(data=top10, aes(x=job,y=mean_income))+geom_col()+coord_flip()
+tail10 <- r3 %>% arrange(desc(mean_income)) %>% tail(10)
+ggplot(data=tail10, aes(x=reorder(job,mean_income),y=mean_income))+geom_col()+coord_flip()
+
+ggplot(data=top10, aes(x=reorder(job,mean_income),y=mean_income))+geom_col()+coord_flip()
+
+
+
+
+
+
+
 ```
