@@ -250,9 +250,48 @@ exam %>% arrange(desc(math))
 exam %>% arrange(class,math)
 ```
 
-* filter함수
+* 조건에 맞는 데이터만 추출하기 
 
 ```R
+# filter함수
 exam <- read.csv("C:\\r_temp\\csv_exam.csv")
 dim(exam)
+mean(exam$math)
+sum(exam$math)
+summary(exam)
+exam %>% filter(class==1)
+exam %>% filter(class != 1) # !는 부정
+exam %>% fileter(math>= 50)
+exam %>% filter(math >=90 | english >50)
+exam %>% filter(class %in% c(1,3,5))
+class1_all  <-  exam %>% filter(class==1)
+mean(class1_all$math)
+
+# select 함수
+exam %>% select(english)                               #python exam['english']
+exam %>% select(class, math, english)
+exam %>% select(-english)
+exam %>% select(class,math) %>% filter(math>=60)
+exam %>% select(class,math) %>% filter(math>=60) %>% count()
+exam %>% select(english) %>% head(2)
+
+# arrange함수  ---> sort
+exam %>% arrange(math)
+exam %>% arrange(desc(math))
+exam %>% arrange(class,math)
+exam %>% select(class, math) %>% arrange(desc(class))   #python exam.sort_values(by='math', ascending=False)
+
+# 혼합사용
+exam %>% select(class, math) %>% filter(math>=60) %>% arrange(desc(math))
+
+# 집단별 함수
+exam %>% group_by(class) %>% summarise(수학평균=mean(math))   #python exam.describe()
+exam %>% group_by(class) %>% summarise(평균=mean(math),총합=sum(math),중간=median(math))
+
+# Left join 실습하기
+jumsu1 <- data.frame(name=c("Kim","Lee"), eng=c(80,90))
+jumsu2 <- data.frame(name=c("Kim","Lee"), kor=c(70,90))
+left_join(jumsu1, jumsu2, by="name")
+
+
 ```
