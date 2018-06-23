@@ -20,6 +20,8 @@ permalink: /Lecture/TensorFlow
 * (tensorflow) $ conda install --channel https://conda.anaconda.org/conda-forge keras
 * (tensorflow) $ conda install h5py
 * (tensorflow) $ conda install cx_Oracle → Oracle 연동 라이브러리
+* (tensorflow) $ conda install pymysql   → MySQL 연동 라이브러리
+
 #### 1.4 Jupyter Notebook 설치
 * (tensorflow) $ conda install jupyter
 * (tensorflow) $ conda install -c conda-forge jypyterlab
