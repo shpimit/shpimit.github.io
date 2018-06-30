@@ -556,3 +556,61 @@ plot(t1)
 [구글차트](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html)
 
 #### https://www.slideshare.net/dahlmoon/20160623-63318427?next_slideshow=1
+
+## 시험문제
+```R
+empno <- c(101,102,103,104,105)
+bonus <- c(0.1,0.1,0.12,0.15,0)
+pay201801 <- data.frame(empno, pay, bonus)
+
+total <- pay201801$pay + (pay201801$pay * pay201801$bonus)
+pay201801 <- cbind(pay201801, total)
+
+ggplot(data=pay201801, aes(x=empno, y=pay)) + geom_col()
+ggplot(data=pay201801, aes(x=reorder(empno,pay), y=pay)) + geom_col()    # 순서적으로 출력
+ggplot(data=pay201801, aes(x=reorder(empno,-pay), y=pay)) + geom_col()   # 역순으로 출력
+
+pay201801 %>% select(empno, total) %>% filter(pay >= 300)
+
+deptno <- c(1,2,1,2,2)
+
+pay201801$deptno <- deptno
+
+pay201801 %>% group_by(deptno) %>% summarise(mean_total=mean(total))
+
+```
+## 그래프 정리
+
+### hist
+
+```R
+# 히스토그램(도수분포표)
+# 특정 수치(숫자) 범위의 밀도 표현
+# 문자는 안됨( 예: > b <- c('a',b',c','a') , hist(b))
+a <- c(55,60,62,36,92,96)
+hist(a)
+hist(a,xlim=c(0,100), ylim=c(0,3), breaks = 10, main = "테스트")
+players <- read.csv("c:/r_temp/PGA_Players_Converted.csv",stringsAsFactors = FALSE)
+hist(players$Ht, main = "PGA Players Heights", ylim=c(0,250), xlab = "cm", ylab = "count", col="#80fd3d")
+
+par(mfrow=c(2,3))  # 화면분할
+continent <- unique(players$Continent) # unique 하나만 출력하는 함수
+
+# subset(데이터, 조건) 조건만큼 가져오는 함수
+for(i in 1:length(continent)) {
+  currPlayers <- subset(players, Continent == continent[1])
+  hist(currPlayers$Ht, main = continent[i], breaks=160:200, xlab="cm", border = "#ffffff", col = "#999999", lwd=0.4)
+}
+
+par(mfrow=c(1,1))
+```
+
+### plot
+
+```R
+
+```
+### qlot
+```R
+```
+
