@@ -697,8 +697,198 @@ wordcloud(words        = df_word$word,     # 단어
           scale        = c(3,0.2),         # 단어 크기
           colors       = pal               # 색상목록
           )
+          
+# 상위 10개만 추출하여 막대그래프로 표현하시오
+library(ggplot2)
+df_word10 <- df_word %>% arrange(desc(freq)) %>% head(10)
+ggplot(data=df_word10, aes(x=word,y=freq)) + geom_col()
+ggplot(data=df_word10, aes(x=reorder(word,freq),y=freq)) + geom_col()
+ggplot(data=df_word10, aes(x=reorder(word,-freq),y=freq)) + geom_col()
+ggplot(data=df_word10, aes(x=reorder(word,freq),y=freq)) + geom_col()+coord_flip()   # 가로로 그래프 만들기
 
 
+```
 
+### 난수에 대한 값을 같게 나오게 하는것
+
+```R
+runif(1)
+runif(3)
+
+set.seed(3)
+runif(3)
+
+set.seed(3)
+runif(3)
+```
+
+### 2. 국정원 트윗
+
+```R
+# 데이터 준비
+twitter <- read.csv("c:/r_temp/twitter.csv",header = T, stringsAsFactors = F, fileEncoding = "UTF-8")
+names(twitter)                                  # [1] "X"        "번호"     "계정이름" "작성일"   "내용"
+twitter %>% select(X) %>% head(10)
+names(twitter %>% select(-X))
+twitter <- twitter %>% select(-X)               # [1] "번호"     "계정이름" "작성일"   "내용"
+twitter <- rename(twitter,no=번호,id=계정이름,date=작성일,content=내용)
+names(twitter)
+twitter$content
+
+# 전처리
+library(stringr)
+twitter$content <- str_replace_all(twitter$content,"\\W"," ")
+nouns <- extractNoun(twitter$content)
+
+df_word2 <- data.frame(table(unlist(nouns)), stringsAsFactors = F)
+tw_top20 <- df_word2 %>% arrange(desc(freq)) %>% head(25)
+tw_top20
+
+pal <- brewer.pal(8, "Dark2")
+set.seed(1234)
+wordcloud(words=df_word2$word,   # 단어
+          freq = df_word2$freq, # 빈도
+          min.freq =2,        # 최소단어빈도
+          max.words=200,       # 표현단어수
+          random.order = F,    # 고빈도 단어 중앙배치(고빈도 단어가 주용하지 않으면 T)
+          rot.per = 0.1,       # 회전 단어 비율
+          scale=c(6,0.2),     # 단어 크기
+          colors=pal          # 색상목록
+         )
+```
+
+### 3. 서울 신라호텔 이용 후기 분석하기
+
+```R
+# 데이터 준비
+```
+
+### 4. 지도 시각화
+
+```R
+install.packages("ggiraphExtra")
+library(ggiraphExtra)
+
+install.packages("stringi")
+install.packages("devtools")
+devtools::install_github("cardiomoon/kormaps2014")   # github 특정폴더에서 데이터 가져오기
+library(kormaps2014)
+
+# 시도별 인구 데이터 준비
+
+str(changeCode(korpop1))                   # utf-8로 되어 있는 데이터이므로 changeCode를 사용하여 기본인코딩인 CP949로 변환하여 출력한다.
+korpop1 <- rename(korpop1, pop=총인구_명, name=행정구역별_읍면동)
+str(changeCode(kormap1))
+ggChoropleth(data=korpop1,
+             aes(fill=pop, map_id=code, tooltip=name),
+             map=kormap1,
+             interactive=T)
+```
+
+
+### 5. 인터랙티브 그래프
+
+```R
+install.packages("plotly")
+library(plotly)
+library(ggplot2)
+# displ : 구동방식, hwy : 고속도로연비, drv:도시연비
+p <- ggplot(data=mpg, aes(x=displ, y=hwy, col=drv))+geom_point()
+ggplotly(p)
+
+# diamonds 데이터를 이용한 막대 그래프
+p <- ggplot(data=diamonds, aes(x=cut, fill=clarity)) + geom_bar(position="dodge")
+ggplotly(p)
+
+# dygraphs
+# ggplo2에 내장된 economics(실업자 수, 저축률 등 1967~2015의 미국 월별 경제 지표) 데이터 이용한다.
+# dygraphs 패키지를 이용해 시계열 그래프를 만들려면 데이터가 시간 순서 속성을 지니는 ''xts 데이터 타입''(시계열 데이터) 으로 되어 있어야 한다
+install.packages("dygraphs")
+library(dygraphs)
+economics
+library(xts)
+eco1 <- xts(economics$unemploy, order.by=economics$date)  # xts는  날짜 문자 type을  날짜 데이터 type으로 변경해서 시계열 데이터 생성 가능
+head(eco1)
+dygraph(eco1)
+```
+
+### 6. 유의성 테스트(유의 확률 - p-value)
+
+```R
+a <- data.frame(aa=c(1,2,3,4,5,1,2,3,4,5), bb=c(1,1,1,1,1,2,2,2,2,2))
+t.test(data=a, aa~bb, var.equal=T)
+
+a <- data.frame(aa=c(1,2,3,4,5,1,2,3,4,6), bb=c(1,1,1,1,1,2,2,2,2,2))
+t.test(data=a, aa~bb, var.equal=T)
+
+a <- data.frame(aa=c(1,2,3,4,5,1,2,3,4,1000), bb=c(1,1,1,1,1,2,2,2,2,2))
+t.test(data=a, aa~bb, var.equal=T)
+
+a <- data.frame(aa=c(1,7,8,9,10,1,2,3,4,6), bb=c(1,1,1,1,1,2,2,2,2,2))
+t.test(data=a, aa~bb, var.equal=T)
+
+a <- data.frame(aa=c(11,7,8,9,10,1,2,3,4,6), bb=c(1,1,1,1,1,2,2,2,2,2))
+t.test(data=a, aa~bb, var.equal=T)
+```
+
+### 7. 상관분석
+
+```R
+# 놀이동산의 만족도 분석 데이터
+# -주말이용여부, 동반자녀수, 놀이공원까지의 거리, 놀이기구의 만족도, 대기시간 만족도, 청결상태의 만족도
+df1 <-read.csv('c:/r_temp/gData.csv')
+str(df1)
+
+# 결측치 확인
+colSums(is.na(df1))
+# weekend num.child  distance     rides     games      wait     clean overall 
+#       0         0         0         0         0         0         0       0 
+
+# 산점도
+# 상관계수를 파악하기 전에 우선, 산점도(scatterplot)으로부터 두 변수간에 관련성을 시각적으로 파악함.
+head(df1)
+head(df1$weekend)
+head(weekend)
+attach(df1)    # df1을 전역변수화, detach(df1) 전역변수 해제
+head(weekend)
+
+plot(y=df1$overall, x=df1$rides, col="red")
+plot(df1$overall~df1$rides, col="red")
+plot(overall~rides, col="red")
+plot(overall~clean, col="red")
+plot(overall, rides, col="red",main = "놀이기구와 전체만족도")
+plot(overall, rides, col="red",main = "놀이기구와 전체만족도",ylab="전체",xlab="놀이기구")
+
+# 공분산(Covariance) 및 상관계수(Correlation Coefficient)
+# 공분산은 2개의 변수의 상관정도를 나타내는 값인데, 만약 2개의 변수 중 하나의 값이 상승하는 경향을 보일때
+# 다른 값도 상승하면 공분산의 값은 양수, 반대로 다른값이 하강하는 경향을 보이면 공분산의 값은 음수가 나온다
+cov(overall, rides)
+# 양수이므로 두 변수간의 상관관계는 상승하는 경향이라 할 수 있겠다.
+# 값이 1 또는 -1에 가까울수록 관계가 깊다고 볼수 있음
+cor(df1[,4:8])
+x <- cor(df1[,4:8])
+install.packages("corrplot")
+library(corrplot)
+corrplot(x)
+```
+
+### 8. 회귀분석
+
+```R
+# 일정한 패턴을 확인후 무엇인가를 예측하는 분석
+lm(overall~rides)
+
+# Call:
+# lm(formula = overall ~ rides)
+
+# Coefficients:
+# (Intercept)        rides  
+#    -94.962        1.703
+
+# overall = -94.962 + 1.703*rides라는 회귀식을 구할 수 있고
+# 놀이기구에 대한 만족도(rides)가 1 증가할 대마다 전체만족도(overall)이 1.703 증가한다고 볼수 있다
+m1 <- lm(overall~rides)
+plot(overall~rides)
+abline(m1, col='blue')
 
 ```
