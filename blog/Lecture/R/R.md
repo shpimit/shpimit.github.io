@@ -608,9 +608,97 @@ par(mfrow=c(1,1))
 ### plot
 
 ```R
+# x와 y의 2개출을 기준으로 좌표를 찍듯이 그리는 컨셉을 가진 함수
+a <- c(55,60,62,36,92,96)
+plot(a)
 
+test1 <- read.csv("c:/r_temp/2013_baseball.csv")
+plot(test1$code, test1$타율, main ="타율", col="red", xlim=c(100,110))
+grid() # grid 표현
 ```
-### qlot
+
+### qplot
+
 ```R
+# ggplot2 패키지 함수
+# plot 기능처럼 x축과 y축을 이용한 표현 및 hist 기능처럼 양적이 표현도 가능
+b <- data.frame(aa=c(10,11,12),bb=c(10,20,30))
+qplot(x=b$aa, y=b$bb)
+
+test1 <- c(10,20,30,10)
+qplot(test1)
+
 ```
 
+
+### ggplot
+
+```R
+# ggplot2 패키지 함수
+# plot기능처럼 x축과 y축을 이용한 표현
+```
+
+## Text Mining (256p)
+
+### 1. 음악 가사 텍스트 분석
+
+```R
+# package 준비
+install.packages("rJava")
+install.packages("memoise")
+install.packages("KoNLP")
+install.packages("stringr")
+library(stringr)
+library(KoNLP)
+library(dplyr)
+
+# 데이터 준비
+txt <- readLines("c:/r_temp/hiphop.txt")
+head(txt)
+# Tip : 한글이 깨질 경우 options(encoding="UTF-8")
+
+# 특수문자 제거( "\\W" : 모든 특수문자('," 등)를 제거)
+txt <- str_replace_all(txt,"\\W"," ")
+
+# 명사 추출하기
+# KoNLP의 extractNoun()를 이용한다.
+extractNoun("대한민국의 수도가 서울인가?")
+extractNoun("미국의 수도가 워싱턴입니다.")
+
+nouns <- extractNoun(txt)          # list type
+class(noun s)                      # [1] "list"
+wordcount <- table(unlist(nouns))  # list
+head(wordcount)
+class(wordcount)                   # [1] "table"
+df_word <- as.data.frame(wordcount,stringsAsFactors = F)  # stringsAsFactors = F : 백터(vector)로 가져오지 않고 string 형태로 가져옴
+names(df_word)
+df_word <- rename(df_word, word=Var1,freq=Freq)  # rename 컬럼명 변경
+
+# 자주 사용되는 단어 빈도표 만들기
+# 한개의단어로 구성된 요소 제거
+df_word <- filter(df_word, nchar(word) >= 2)
+# df_word %>% arrange(desc(freq)) %>% head(20)
+
+# wordcoud만들기
+# set.seed(1234) 랜덤하게 출력하게 하기 위하여
+install.packages("wordcloud")
+library(wordcloud)
+library(RColorBrewer)
+pal <- brewer.pal(8, "Dark2")
+# set.seed(1234)
+# wordcloud(words=df_word$word, freq=df_word$freq)  # 테스트
+
+wordcloud(words=df_word$word,     # 단어
+          freq = df_word$freq,    # 빈도
+          min.freq =2,            # 최소단어빈도
+          max.words=200,          # 표현단어수
+          random.order = F,       # 고빈도 단어 중앙배치(고빈도 단어가 주용하지 않으면 T)
+          rot.per = .1,           # 회전 단어 비율
+          scale=c(3,0.2),         # 단어 크기
+          colors=pal              # 색상목록
+          )
+
+
+
+
+```
