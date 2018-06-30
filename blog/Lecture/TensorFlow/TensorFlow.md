@@ -66,6 +66,10 @@ import pandas as pd
 
 data = pd.read_excel("c:/r_temp/excel_exam.xlsx")
 data.head(5)
+
+import xlrd
+
+list_job = pd.read_excel('C:\\r_temp\\Koweps_Codebook.xlsx')
 ```
 
 * MySQL 연결하기
