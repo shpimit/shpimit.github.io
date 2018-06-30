@@ -688,14 +688,14 @@ pal <- brewer.pal(8, "Dark2")
 # set.seed(1234)
 # wordcloud(words=df_word$word, freq=df_word$freq)  # 테스트
 
-wordcloud(words=df_word$word,     # 단어
-          freq = df_word$freq,    # 빈도
-          min.freq =2,            # 최소단어빈도
-          max.words=200,          # 표현단어수
-          random.order = F,       # 고빈도 단어 중앙배치(고빈도 단어가 주용하지 않으면 T)
-          rot.per = .1,           # 회전 단어 비율
-          scale=c(3,0.2),         # 단어 크기
-          colors=pal              # 색상목록
+wordcloud(words        = df_word$word,     # 단어
+          freq         = df_word$freq,     # 빈도
+          min.freq     = 2,                # 최소단어빈도
+          max.words    = 200,              # 표현단어수
+          random.order = F,                # 고빈도 단어 중앙배치(고빈도 단어가 주용하지 않으면 T)
+          rot.per      = .1,               # 회전 단어 비율
+          scale        = c(3,0.2),         # 단어 크기
+          colors       = pal               # 색상목록
           )
 
 
