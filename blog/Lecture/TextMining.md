@@ -128,8 +128,17 @@ plt.show()  # 그린것을  보여준다..
 
 - [참조사이트](https://matplotlib.org/gallery/index.html)
 - 설치할 목록
-```python3
+```python
 pip install pytagcloud
 pip install pygame
 pip install simplejson
+```
+- font.json 수정하기
+C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\pytagcloud\fonts 로 copy한다
+```json
+	{
+		"name": "korean",
+		"ttf": "malgun.ttf",
+		"web": "http://fonts.googleapis.com/css?family=Nobile"
+	},
 ```
