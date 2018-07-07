@@ -25,7 +25,7 @@ permalink: /Lecture/TensorFlow
 
 #### 1.4 Jupyter Notebook 설치
 * (tensorflow) $ conda install jupyter
-* (tensorflow) $ conda install -c conda-forge jypyterlab
+* (tensorflow) $ conda install -c conda-forge juyterlab
 
 #### 1.5 Theano -> Tensorflow 변경
 * ~\Anaconda3\envs\tensorflow\etc\conda\activate.d 내에 있는 Keras Backend가 혹시
@@ -99,5 +99,3 @@ jumsu1 = pd.DataFrame({"name":("Kim","Lee"), "kor":(70,90)})
 jumsu2 = pd.DataFrame({"name":("Kim","Lee"), "eng":(80,90)})
 pd.merge(jumsu1,jumsu2,on="name")
 ```
-
-
