@@ -98,7 +98,7 @@ for myitem in malist:
 
 ### matplotlib 모듈
 
-[참조사이트](https://matplotlib.org/gallery/index.html)
+- [참조사이트](https://matplotlib.org/gallery/index.html)
 ```python
 # font_manager 글꼴 관리자
 # rc 함수 : 전역적으로 사용하고 싶을때
@@ -122,4 +122,14 @@ plt.xlabel('x축 한글 표시')
 plt.ylabel('y축 한글 표시')
 plt.title('matplotlib 활용')
 plt.show()  # 그린것을  보여준다..
+```
+
+### Word Cloud 
+
+- [참조사이트](https://matplotlib.org/gallery/index.html)
+- 설치할 목록
+```python3
+pip install pytagcloud
+pip install pygame
+pip install simplejson
 ```
