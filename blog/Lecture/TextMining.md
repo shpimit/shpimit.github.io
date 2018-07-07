@@ -183,3 +183,97 @@ print(keys)
 keys = sorted(word_dic.items(), key=lambda x : x[1], reverse =True)
 print(keys)
 ```
+
+#### 데이터 정렬
+```python
+mydict = {'a':20,'b':30, 'c':10}
+
+# 값(value) 가장 큰것부터 역순으로 정렬
+byValues = sorted(mydict.values(), reverse=True)
+print(byValues)
+
+# 키를 기준으로 역순으로 정렬
+byKeys = sorted(mydict.keys(), reverse=True)
+print(byKeys)
+
+# 키를 기준으로 역순으df로 정렬
+keyortByVals = sorted(mydict,key=mydict.get, reverse=True)
+print(keyortByVals)
+```
+#### 국립국어원
+-[참조하기](https://ithub.korean.go.kr/user/main.do)
+```python
+import codecs # 파일의 인코딩과 디코딩을 위한 모듈
+import pytagcloud # 워드 클라우드를 만들어 주는 패키지
+import webbrowser
+import matplotlib
+import matplotlib.pyplot as plt
+
+from matplotlib import font_manager, rc
+from bs4 import BeautifulSoup
+from konlpy.tag import Twitter
+
+fp = codecs.open("BEXX0003.txt", 'r', encoding='utf-8')
+soup = BeautifulSoup(fp, "html.parser")
+body = soup.select_one("body > text")
+text = body.getText()
+# print(text)
+
+twitter  = Twitter()
+
+word_dic = {}
+
+lines = text.split('\n\r')
+
+for line in lines:
+    malist = twitter.pos(line)
+    for word in malist:              # word는 tuple 자료구조이다. 2번째 요소에 품사 정보가 들어있다.
+        if word[1] == "Noun":        # 명사 확인하기
+            if not(word[0] in word_dic): # 새롭게 들어온 명사이면
+                word_dic[word[0]] = 0    # 사전에 추가하기
+            word_dic[word[0]] += 1       # 카운트하기
+
+# 많이 사용된 명사 출력하기        
+keys = sorted(word_dic.items(), key=lambda x:x[1], reverse=True)        
+ 
+print(keys)
+
+def saveWordCloud(wordInfo):
+    taglist = pytagcloud.make_tags(dict(wordInfo).items(), maxsize=80)
+    print(type(taglist)) #<class 'list'>
+    filename = 'wordcloun.png'
+    pytagcloud.create_tag_image(taglist, filename, size=(640,480), fontname='korean', rectangular=False)
+    webbrowser.open(filename)
+
+def showGraph(wordInfo):
+    font_location = 'c:/Windows/fonts/malgun.ttf'  # \는 \\를 사용한다
+    font_name = font_manager.FontProperties(fname=font_location).get_name()
+    plt.rc('font',family=font_name)
+    
+    plt.xlabel('주요 단어')
+    plt.ylabel('빈도 수')
+    plt.grid(True)
+    
+    barcount = 10 # 10개만 그리겠다.
+    
+    Sorted_Dict_Values = sorted(wordInfo.values(), reverse=True)
+    print(Sorted_Dict_Values)
+    print('dd')
+    plt.bar(range(barcount), Sorted_Dict_Values[0:barcount], align='center')
+    
+    Sorted_Dict_Values = sorted(wordInfo, key=wordInfo.get, reverse=True)
+    plt.xticks(range(barcount), list(Sorted_Dict_Values)[0:barcount], rotation='70')
+    
+    plt.show()
+
+wordInfo = dict()
+for word, count in keys[:500]:              # word: 해당 명사, count: 명사의 빈도 수
+#     print("{0}({1})".format(word, count), end="")
+    if(count >= 60) and len(word) >= 2:
+        wordInfo[word] = count
+
+saveWordCloud(wordInfo)
+showGraph(wordInfo)
+
+print(wordInfo) 
+```
