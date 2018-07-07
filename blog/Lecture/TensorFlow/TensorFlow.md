@@ -25,7 +25,7 @@ permalink: /Lecture/TensorFlow
 
 #### 1.4 Jupyter Notebook 설치
 * (tensorflow) $ conda install jupyter
-* (tensorflow) $ conda install -c conda-forge juyterlab
+* (tensorflow) $ conda install -c conda-forge jupyterlab
 
 #### 1.5 Theano -> Tensorflow 변경
 * ~\Anaconda3\envs\tensorflow\etc\conda\activate.d 내에 있는 Keras Backend가 혹시
