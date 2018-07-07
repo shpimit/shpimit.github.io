@@ -142,3 +142,44 @@ C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\
 		"web": "http://fonts.googleapis.com/css?family=Nobile"
 	},
 ```
+#### 말뭉치 파일 단어 빈도 분석
+
+- 정규 표현식을 실습해본다.
+```python
+import re  # 정규표현식 regular
+
+# sub : 대체
+# [^\w] : ^는 \w를 제외하고 \w : 영소문자, 숫자, 한글
+text = '[특종]대한민구 통일됨(후후후)\n\n#조아  #아주 조아 #cheeze'
+
+newtext = re.sub(r'[^\w]','',text)
+
+print(newtext) 
+```
+
+#### 자료형 이해
+```python
+word_dic = {}
+malist = [('사랑','Noun'),('이','조사'),('사랑','Noun'),('바보','Noun')]
+
+for word in malist:
+    if word[1] == "Noun":
+        if not(word[0] in word_dic):
+            word_dic[word[0]] = 0
+        word_dic[word[0]] += 1  # 카운트하기
+        
+print(word_dic)
+print(word_dic.items())     
+
+# 키를 이용한 오름차순 정렬
+keys = sorted(word_dic.items(), reverse=False)
+print(keys)
+
+# 키를 이용한 내림차순 정렬
+keys = sorted(word_dic.items(), reverse=True)
+print(keys)
+
+# 값(1번째 인덱스)을 이용한 역순 정렬
+keys = sorted(word_dic.items(), key=lambda x : x[1], reverse =True)
+print(keys)
+```
