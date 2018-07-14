@@ -176,3 +176,7 @@ print('-' * 50)
 somedata = model.most_similar(positive=['집'], topn=5)
 print(somedata)
 ```
+
+* [마크다운](http://www.kwangsiklee.com/ko/tag/마크다운/)
+* https://www.slideshare.net/JackLee27/markdown-ppt-102809485
+* [Gitbook](https://tinydew4.gitbooks.io/gitbook/ko/pages.html)
