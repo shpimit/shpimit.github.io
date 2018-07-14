@@ -89,5 +89,5 @@ if __name__ == '__main__':
     main()
 ```
 
-## ensim 라이브러리
+## Gensim 라이브러리
 [Skip-Gram 모델 참조문서](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/)
