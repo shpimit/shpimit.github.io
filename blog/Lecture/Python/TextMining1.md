@@ -6,7 +6,7 @@ permalink: /Lecture/TextMining1
 # TextMining
 
 ## 페이스북 crawling 해서 분석하기
-```python
+```python3
 from matplotlib import font_manager, rc
 import matplotlib.pyplot as plt
 
