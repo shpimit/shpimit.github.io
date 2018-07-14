@@ -421,3 +421,140 @@ ElementTree(blog).write(xmlFile, encoding='utf-8')
 
 print('작업완료')
 ```
+```python3
+from xml.etree.ElementTree import Element, SubElement, ElementTree
+
+# 다음 사전을 이용하여 xml 파일을 만드세요
+mydict = {'kim':('김철수',30,'남자','마표공덕동'), 'park':('박영희','40','여자','용산 도원동')}
+print('사전 내역: ', mydict)
+
+# Element('앨리먼트 이름')
+members = Element('members')
+
+# 엘리먼트객체.attrib['속성이름'] = '속성에 들어갈 값'
+members.attrib['date'] = '20180714'
+
+# SubElement(상위엘리먼트 객체, '태그이름').text = '들어갈 글자 내용'
+for key, mytuple in mydict.items():
+    mem = SubElement(members, 'member')
+    mem.attrib['id'] = key # 속성 부여하기
+    
+    # 하위 엘리먼트
+    SubElement(mem, 'name').text = mytuple[0]
+    SubElement(mem, 'age').text =str( mytuple[1])
+    SubElement(mem, 'gender').text = mytuple[2]
+    SubElement(mem, 'address').text = mytuple[3]
+
+def indent(elem, level=0):
+    mytab = '\t'
+    i = '\n' + level * mytab
+     
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + mytab
+ 
+        if not elem.tail or not elem.tail.strip():
+            elem.tail= i
+             
+        for elem in elem:
+            indent(elem, level +1)
+             
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+    else :
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = i        
+             
+indent(members)
+
+xmlFile = 'xmlEx02.xml'
+
+# ElementTree(엘리먼트객체).write(저장할 xml 파일 이름)
+ElementTree(members).write(xmlFile, encoding='utf-8')
+
+print('작업완료')
+ 
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<가족들 설명="호호호" 코멘트="여러 가족들">
+	<가족>
+		<아부지>
+			<이름>김말똥</이름>
+			<나이>60</나이>
+		</아부지>
+		<어머니>
+			<이름 정보="순악질">이순자</이름>
+			<나이>55</나이>
+			<blood>A형</blood>
+		</어머니>
+		<나 이름="김철식" 나이 ="30"/>
+	</가족>
+	<가족>
+		<아부지>
+			<이름>심형래</이름>
+			<나이>38</나이>
+		</아부지>
+		<어머니>
+			<이름 정보="abcd">김미화</이름>
+			<나이>35</나이>
+			<blood>A형</blood>
+		</어머니>
+		<나 이름="심수봉" 나이 ="3"/>
+	</가족>
+</가족들>
+```
+
+```python3
+from xml.etree.ElementTree import parse
+
+tree = parse('xmlEx03.xml')
+myroot = tree.getroot()
+
+print(type(myroot))
+
+# 속성 읽어 오기
+print('속성 읽기 1: ', end=' ')
+print(myroot.keys())
+print('속성 읽기 2: ', end=' ')
+print(myroot.items())
+print('속성 읽기 3: ', end=' ')
+print(myroot.get('설명'))
+print('속성 읽기 4: ', end=' ')
+print(myroot.get('foo','미존재시기본값'))
+print()
+
+family1 = myroot.findall('가족')
+print('finaall는 일치하는 모든 태그를 리스트로 반환한다.')
+print(family1)
+print('findtext는 일치하는 1번재 태그의 택스트 값을 반환한다.')
+family2 = myroot.findtext('가족')
+print(family2)
+
+print('find는 일치하는 1번재 태그를 리턴한다.')
+family = myroot.find('가족')
+print(family)
+print()
+
+# childs = family.getiterator()
+childs = family.getiterator()
+print(childs)
+
+# childs : 아부지, 어머니, 나
+for onesaram in childs:
+    print('엘리먼트 정보:', end=' ')
+    print(onesaram)
+    elem = onesaram.getchildren()
+    
+    for item in elem:
+        print('하위 엘리먼트 정보:', end=' ')
+        print(item, end=' ')
+        print(item.text, end=' ')
+        if item.text == '이순자':
+            print(item.attrib['정보'])
+        else:
+            print()
+    print()
+print()    
+```
