@@ -4,6 +4,8 @@ title: R
 permalink: /Lecture/TextMining
 ---
 
+---
+
 <!-- *template: gaia -->
 
 # Introducing `NLP` !!
@@ -22,58 +24,63 @@ permalink: /Lecture/TextMining
 
 ---
 
-
 <!-- *template: invert -->
 
 # Contents
 
-- **`Table of Contents`**   
+* **`Table of Contents`**   
   [0. Install](#install)  
-  [1. Java](#java)  
-  [2. Machine Learning](#machine)  
-  [3. Deep Learning](#deep)  
-  [4. R](/Lecture/R)  
-  [5. TensorFlow](/Lecture/TensorFlow) 
+  [1. WebCrawling](#WebCrawling)  
+  [2. Text Mining](#text)  
+  [3. Graph & Chart](#matplotlib)  
+  [4. Word Cloud](#wordcloud)  
 
 ---
 
 <!-- *template: gaia -->
 
 ## Introduce Install !!  
-<a name="install"/>
-
-# 1. Install
+# 환경 설정
 
 ---
 
-<!--# <a name="install"/>-->
+<!-- page_number: true -->
+<a name="install"/>
 
 # Install
 
-## 1. 설치하기
+#### **[1. Pydev]**
+* [eclipse 설치](https://www.eclipse.org)
+* pydev 플러그인 설치(메뉴 help - eclipse marketplace)
+* pydev 입력후 검색
+* sysdm.cpl 명령어로 들어가기
+* 고급 탭 - 환경변수 버튼 클리
+* 시스템 변수의 path의 가장 앞 단에 다음 항목 추가 하기
+* 이클립스와 python 연동
+* 메뉴 window - preferences에서 
+* pydev - interpreters - python interpreter
+* 인코딩 설정
+  General -> Workspace -> Textfile encoding -> Other 에서 utf-8로 설정    
+* 프로젝트 생성
+   메뉴  file - new - pydev project
 
-### [이클립스](https://www.eclipse.org)
-- pydev 플러그인 설치(메뉴 help - eclipse marketplace)
-- pydev 입력후 검색
-- sysdm.cpl 명령어로 들어가기
-- 고급 탭 - 환경변수 버튼 클리
-- 시스템 변수의 path의 가장 앞 단에 다음 항목 추가 하기
-- 이클립스와 python 연동
-- 메뉴 window - preferences에서 
-- pydev - interpreters - python interpreter
+#### **[2. Anaconda]**(https://www.anaconda.com/)
 
-- 인코딩 설정
-  General -> Workspace -> Textfile encoding -> Other 에서 utf-8로 설정
-  
-- 프로젝트 생성
-   메뉴  file - new - pydev project  
+---
 
-### [아나콘다](https://www.anaconda.com/)
+<!-- *template: gaia -->
 
-## 2. WebCrawling(네이버 영화제목 뽑기)
+## Introduce WebCrawling ll !!  
+# WebCrawling
 
-- Beautifulsoup
-- 네이버 영화제목 뽑기
+---
+
+<!-- page_number: true -->
+<a name="WebCrawling"/>
+
+# WebCrawling (네이버 영화제목 뽑기)
+
+* 네이버 영화제목 뽑기  
 ```python
 import urllib.request   # import 모듈이름
 from bs4 import BeautifulSoup
@@ -95,19 +102,38 @@ for tag in tags :
     # []을 이용한 형식은 자바 스크립트 문법을 이용한 기법이다.
     print(url_header + tag.a['href'])
 ```    
-    
-## 3. 텍스트 마이닝
 
-- jpype 설치
+---
+
+<!-- *template: gaia -->
+
+## Introduce Text Mining !!  
+
+# Text Mining
+
+---
+
+<!-- page_number: true -->
+<a name="text"/>
+
+# Text Mining
+
+* jpype 설치
 [jpype](https://www.lfd.uci.edu/~gohlke/pythonlibs/#jpype)
 
-- 수동설치 JPype1-0.6.3-cp36-cp36m-win_amd64.whl
+* 수동설치 JPype1-0.6.3-cp36-cp36m-win_amd64.whl
 cmd 창에서 해당 폴더로 이동 후
 pip install JPype1-0.6.3-cp36-cp36m-win_amd64.whl 엔터
 
+---
+
+<!-- page_number: true -->
+
+## Text Mining
+
 ### KoNLPy의 트위터 형태소 분석기
 
-- [참조사이트](http://konlpy.org/ko/latest/api/konlpy.tag/)
+* [참조사이트](http://konlpy.org/ko/latest/api/konlpy.tag/)
 ```python
 from konlpy.tag import Twitter
 
@@ -141,9 +167,21 @@ for myitem in malist:
     print("픔사:", myitem[1])
 ```
 
+---
+
+<!-- *template: gaia -->
+
+## Introduce Graph & Chart !!  
+# matplotlib
+
+---
+
+<!-- page_number: true -->
+<a name="matplotlib"/>
+
 ### matplotlib 모듈
 
-- [참조사이트](https://matplotlib.org/gallery/index.html)
+* [참조사이트](https://matplotlib.org/gallery/index.html)  
 ```python
 # font_manager 글꼴 관리자
 # rc 함수 : 전역적으로 사용하고 싶을때
@@ -169,16 +207,28 @@ plt.title('matplotlib 활용')
 plt.show()  # 그린것을  보여준다..
 ```
 
+---
+
+<!-- *template: gaia -->
+
+## Introduce word cloud !!  
+# Word Cloud
+
+---
+
+<!-- page_number: true -->
+<a name="wordcloud"/>
+
 ### Word Cloud 
 
-- [참조사이트](https://matplotlib.org/gallery/index.html)
-- 설치할 목록
+* [참조사이트](https://matplotlib.org/gallery/index.html)
+* 설치할 목록  
 ```python
 pip install pytagcloud
 pip install pygame
 pip install simplejson
 ```
-- font.json 수정하기
+* font.json 수정하기
 C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\pytagcloud\fonts 로 copy한다
 ```json
 	{
@@ -187,9 +237,14 @@ C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\
 		"web": "http://fonts.googleapis.com/css?family=Nobile"
 	},
 ```
+
+---
+
+<!-- page_number: true -->
+
 #### 말뭉치 파일 단어 빈도 분석
 
-- 정규 표현식을 실습해본다.
+*  정규 표현식을 실습해본다.
 ```python
 import re  # 정규표현식 regular
 
@@ -201,6 +256,10 @@ newtext = re.sub(r'[^\w]','',text)
 
 print(newtext) 
 ```
+
+---
+
+<!-- page_number: true -->
 
 #### 자료형 이해
 ```python
@@ -229,6 +288,10 @@ keys = sorted(word_dic.items(), key=lambda x : x[1], reverse =True)
 print(keys)
 ```
 
+---
+
+<!-- page_number: true -->
+
 #### 데이터 정렬
 ```python
 mydict = {'a':20,'b':30, 'c':10}
@@ -245,8 +308,13 @@ print(byKeys)
 keyortByVals = sorted(mydict,key=mydict.get, reverse=True)
 print(keyortByVals)
 ```
+
+---
+
+<!-- page_number: true -->
+
 #### 국립국어원
--[참조하기](https://ithub.korean.go.kr/user/main.do)
+* [참조하기](https://ithub.korean.go.kr/user/main.do)
 ```python
 import codecs # 파일의 인코딩과 디코딩을 위한 모듈
 import pytagcloud # 워드 클라우드를 만들어 주는 패키지
