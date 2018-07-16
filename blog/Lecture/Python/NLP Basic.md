@@ -78,7 +78,7 @@ permalink: /Lecture/TextMining
 <!-- page_number: true -->
 <a name="WebCrawling"/>
 
-# WebCrawling (네이버 영화제목 뽑기)
+# WebCrawling
 
 * 네이버 영화제목 뽑기  
 ```python
