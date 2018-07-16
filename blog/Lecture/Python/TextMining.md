@@ -6,12 +6,49 @@ permalink: /Lecture/TextMining
 
 <!-- *template: gaia -->
 
-## Introducing ==NLP==!!
-#### Natural Language Processing
+# Introducing `NLP` !!
+##### (Natural Language Processing)
 ###### Created by [푸르지오 (@shpimit)](https://github.com/shpimit)
+
 ---
 
-# TextMining
+<!-- $theme: gaia -->
+
+# Overview
+
+> 자연어 처리는 **KoNLpy**등의 처리를 통해서 형태소를 구별하여 단어/문장등에서 의미를 발견하는 작업이다. 
+>
+> <small>-- *[Gaia (mythology) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gaia_%28mythology%29)*</small>
+
+---
+
+
+<!-- *template: invert -->
+
+# Contents
+
+- **`Table of Contents`**   
+  [0. Install](#install)  
+  [1. Java](#java)  
+  [2. Machine Learning](#machine)  
+  [3. Deep Learning](#deep)  
+  [4. R](/Lecture/R)  
+  [5. TensorFlow](/Lecture/TensorFlow) 
+
+---
+
+<!-- *template: gaia -->
+
+## Introduce Install !!  
+<a name="install"/>
+
+# 1. Install
+
+---
+
+<!--# <a name="install"/>-->
+
+# Install
 
 ## 1. 설치하기
 
