@@ -6,14 +6,12 @@ permalink: /Lecture/TensorFlow
 
 ## TensorFlow
 ### 1. 개발환경 Setting
-#### 1.1 Anaconda3 5.2 설치(Python 3.6 기반)
-* https://repo.continuum.io/archive/
-#### 1.2 TensorFlow 설치
-* https://www.tensorflow.org/install/install_windows
+#### 1.1 [Anaconda3 5.2 설치(Python 3.6 기반)](https://www.anaconda.com/download/#windows)
+#### 1.2 [TensorFlow 설치](https://www.tensorflow.org/install/install_windows)
 * conda create -n tensorflow pip python=3.6
+* activate tensorflow
 * pip install --ignore-installed --upgrade tensorflow 
 #### 1.3 Python 필요 패키지설치
-* activate tensorflow
 * (tensorflow) $ conda install scikit-learn → 파이썬 대표 머신러닝 라이브러리
 * (tensorflow) $ conda install pillow
 * (tensorflow) $ conda install seaborn
