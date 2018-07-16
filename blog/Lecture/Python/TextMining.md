@@ -3,6 +3,14 @@ layout: page
 title: R
 permalink: /Lecture/TextMining
 ---
+
+<!-- *template: gaia -->
+
+## Introducing ==NLP==!!
+#### Natural Language Processing
+###### Created by [푸르지오 (@shpimit)](https://github.com/shpimit)
+---
+
 # TextMining
 
 ## 1. 설치하기
