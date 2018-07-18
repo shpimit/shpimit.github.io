@@ -1,7 +1,7 @@
 ---
 layout: page
 title: R
-permalink: /Lecture/TextMining
+permalink: /Lecture/NLP
 ---
 
 ---
@@ -30,12 +30,15 @@ permalink: /Lecture/TextMining
 
 <a name="contents"/>
 
-* **`Table of Contents`**   
-  [0. Install](#install)  
-  [1. WebCrawling](#WebCrawling)  
-  [2. Text Mining](#text)  
-  [3. Graph & Chart](#matplotlib)  
-  [4. Word Cloud](#wordcloud)  
+* **Table of Contents**   
+
+|No|Titile|Explain|
+|--:|:-:|:--|
+|0|[Install](#install)|환경설정|
+|1|[WebCrawling](#WebCrawling)|웹 크롤링|
+|2|[Text Mining](#text)|텍스트 마이닝|
+|3|[Graph & Chart](#matplotlib)|그래프 & 차트|
+|4|[Word Cloud](#wordcloud)|워드 클라우드|
 
 ---
 
@@ -52,11 +55,10 @@ permalink: /Lecture/TextMining
 
 ### Install
 
-<span style="font-size:11pt">  
-  
 ##### **1. Pydev**
 
-```
+<span style="font-size:16pt">  
+
 * [eclipse 설치](https://www.eclipse.org)  
 * pydev 플러그인 설치(메뉴 help - eclipse marketplace)  
 * pydev 입력후 검색  
@@ -70,7 +72,6 @@ permalink: /Lecture/TextMining
   General -> Workspace -> Textfile encoding -> Other 에서 utf-8로 설정      
 * 프로젝트 생성  
    메뉴  file - new - pydev project  
-```
 
 ##### **[2. Anaconda](https://www.anaconda.com/)**
 
@@ -85,11 +86,12 @@ permalink: /Lecture/TextMining
 
 <!-- *template: invert -->
 <!-- page_number: true -->
+
 <a name="WebCrawling"/>
 
 ### WebCrawling
 
-<span style="font-size:14pt">  
+<span style="font-size:18pt">  
 
 * 네이버 영화제목 뽑기  
 ```python
@@ -106,7 +108,7 @@ tags = soup.findAll('div', attrs={'class':'tit3'})
 print(len(tags))
 ```
 
-- 앵커의 href 속성값 뽑아오기
+* 앵커의 href 속성값 뽑아오기  
 ```python
 url_header = 'https://movie.naver.com'    
 for tag in tags : 
@@ -131,8 +133,6 @@ for tag in tags :
 
 ### Text Mining 
 
-<span style="font-size:14pt">  
-  
 * jpype 설치
 [jpype](https://www.lfd.uci.edu/~gohlke/pythonlibs/#jpype)
 
@@ -185,6 +185,8 @@ for myitem in malist:
     print("픔사:", myitem[1])
 ```
 
+###### [go to main](#contents)
+
 ---
 
 <!-- *template: gaia -->
@@ -200,7 +202,7 @@ for myitem in malist:
 
 ### matplotlib 모듈
 
-<span style="font-size:12pt"> 
+<span style="font-size:18pt"> 
   
 * [참조사이트](https://matplotlib.org/gallery/index.html)  
 ```python
@@ -228,6 +230,8 @@ plt.title('matplotlib 활용')
 plt.show()  # 그린것을  보여준다..
 ```
 
+###### [go to main](#contents)
+
 ---
 
 <!-- *template: gaia -->
@@ -243,7 +247,7 @@ plt.show()  # 그린것을  보여준다..
 
 ### Word Cloud 
 
-<span style="font-size:14pt"> 
+<span style="font-size:18pt"> 
 
 * [참조사이트](https://matplotlib.org/gallery/index.html)
 * 설치할 목록  
@@ -269,7 +273,6 @@ C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\
 
 #### 말뭉치 파일 단어 빈도 분석
 
-<span style="font-size:14pt"> 
 
 *  정규 표현식을 실습해본다.
 ```python
@@ -291,7 +294,7 @@ print(newtext)
 
 #### 자료형 이해
 
-<span style="font-size:17pt"> 
+<span style="font-size:18pt"> 
 
 ```python
 word_dic = {}
@@ -349,7 +352,7 @@ print(keyortByVals)
 
 #### 국립국어원
 
-<span style="font-size:7pt">
+<span style="font-size:6.5pt">
   
 * [참조하기](https://ithub.korean.go.kr/user/main.do)
 ```python
@@ -427,3 +430,4 @@ showGraph(wordInfo)
 
 print(wordInfo) 
 ```
+###### [go to main](#contents)
