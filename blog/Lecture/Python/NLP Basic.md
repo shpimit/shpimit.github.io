@@ -7,6 +7,8 @@ permalink: /Lecture/NLP
 ---
 
 <!-- *template: gaia -->
+<!-- page_number: false -->
+
 
 # Introducing `NLP` !!
 ##### (Natural Language Processing)
@@ -15,8 +17,10 @@ permalink: /Lecture/NLP
 ---
 
 <!-- $theme: gaia -->
+<!-- page_number: true -->
 
-# Overview
+## Overview
+
 
 > 자연어 처리는 **KoNLpy**등의 처리를 통해서 형태소를 구별하여 단어/문장등에서 의미를 발견하는 작업이다. 
 >
@@ -26,7 +30,7 @@ permalink: /Lecture/NLP
 
 <!-- *template: invert -->
 
-# Contents
+## Contents
 
 <a name="contents"/>
 
@@ -43,6 +47,8 @@ permalink: /Lecture/NLP
 ---
 
 <!-- *template: gaia -->
+<!-- page_number: false -->
+
 
 ## Introduce Install !!  
 # 환경 설정
@@ -53,9 +59,9 @@ permalink: /Lecture/NLP
 <!-- page_number: true -->
 <a name="install"/>
 
-### Install
+#### 0. Install
 
-##### **1. Pydev**
+###### **1. Pydev**
 
 <span style="font-size:16pt">  
 
@@ -78,6 +84,8 @@ permalink: /Lecture/NLP
 ---
 
 <!-- *template: gaia -->
+<!-- page_number: false -->
+
 
 ## Introduce **WebCrawling** ll !!  
 # WebCrawling
@@ -89,7 +97,7 @@ permalink: /Lecture/NLP
 
 <a name="WebCrawling"/>
 
-### WebCrawling
+#### 1. WebCrawling
 
 <span style="font-size:18pt">  
 
@@ -115,11 +123,13 @@ for tag in tags :
     # []을 이용한 형식은 자바 스크립트 문법을 이용한 기법이다.
     print(url_header + tag.a['href'])
 ```    
-###### [go to main](#contents)
+###### <U>[Go to Contents](#contents)</U>
 
 ---
 
 <!-- *template: gaia -->
+<!-- page_number: false -->
+
 
 ## Introduce Text Mining !!  
 
@@ -131,7 +141,7 @@ for tag in tags :
 <!-- page_number: true -->
 <a name="text"/>
 
-### Text Mining 
+#### 2. Text Mining 
 
 * jpype 설치
 [jpype](https://www.lfd.uci.edu/~gohlke/pythonlibs/#jpype)
@@ -145,13 +155,12 @@ pip install JPype1-0.6.3-cp36-cp36m-win_amd64.whl 엔터
 <!-- *template: invert -->
 <!-- page_number: true -->
 
-### Text Mining
+###### 2-1. KoNLPy의 트위터 형태소 분석기
 
-##### KoNLPy의 트위터 형태소 분석기
+<span style="font-size:14pt"> 
 
-<span style="font-size:12pt"> 
+* [참조사이트](http://konlpy.org/ko/latest/api/konlpy.tag/) 
 
-* [참조사이트](http://konlpy.org/ko/latest/api/konlpy.tag/)
 ```python
 from konlpy.tag import Twitter
 
@@ -185,11 +194,12 @@ for myitem in malist:
     print("픔사:", myitem[1])
 ```
 
-###### [go to main](#contents)
+###### <U>[Go to Contents](#contents)</U>
 
 ---
 
 <!-- *template: gaia -->
+<!-- page_number: false -->
 
 ## Introduce Graph & Chart !!  
 # matplotlib
@@ -200,7 +210,7 @@ for myitem in malist:
 <!-- page_number: true -->
 <a name="matplotlib"/>
 
-### matplotlib 모듈
+#### 3. Grpah(matplotlib 모듈)
 
 <span style="font-size:18pt"> 
   
@@ -230,11 +240,12 @@ plt.title('matplotlib 활용')
 plt.show()  # 그린것을  보여준다..
 ```
 
-###### [go to main](#contents)
+###### <U>[Go to Contents](#contents)</U>
 
 ---
 
 <!-- *template: gaia -->
+<!-- page_number: false -->
 
 ## Introduce word cloud !!  
 # Word Cloud
@@ -245,7 +256,7 @@ plt.show()  # 그린것을  보여준다..
 <!-- page_number: true -->
 <a name="wordcloud"/>
 
-### Word Cloud 
+#### 4. Word Cloud 
 
 <span style="font-size:18pt"> 
 
@@ -271,7 +282,7 @@ C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\
 <!-- *template: invert -->
 <!-- page_number: true -->
 
-#### 말뭉치 파일 단어 빈도 분석
+###### 4.1 말뭉치 파일 단어 빈도 분석
 
 
 *  정규 표현식을 실습해본다.
@@ -292,7 +303,7 @@ print(newtext)
 <!-- *template: invert -->
 <!-- page_number: true -->
 
-#### 자료형 이해
+###### 4.2 자료형 이해
 
 <span style="font-size:18pt"> 
 
@@ -327,7 +338,7 @@ print(keys)
 <!-- *template: invert -->
 <!-- page_number: true -->
 
-#### 데이터 정렬
+###### 4.3 데이터 정렬
 
 ```python
 mydict = {'a':20,'b':30, 'c':10}
@@ -350,7 +361,7 @@ print(keyortByVals)
 <!-- *template: invert -->
 <!-- page_number: true -->
 
-#### 국립국어원
+###### 4.4 국립국어원
 
 <span style="font-size:6.5pt">
   
@@ -430,4 +441,5 @@ showGraph(wordInfo)
 
 print(wordInfo) 
 ```
-###### [go to main](#contents)
+###### <U>[Go to Contents](#contents)</U>
+
