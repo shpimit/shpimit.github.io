@@ -61,9 +61,9 @@ permalink: /Lecture/NLP
 
 #### 0. Install
 
-###### **1. Pydev**
+<span style="font-size:16pt">
 
-<span style="font-size:16pt">  
+###### **1. Pydev**
 
 * [eclipse 설치](https://www.eclipse.org)  
 * pydev 플러그인 설치(메뉴 help - eclipse marketplace)  
@@ -99,9 +99,10 @@ permalink: /Lecture/NLP
 
 #### 1. WebCrawling
 
-<span style="font-size:18pt">  
+<span style="font-size:18pt">
 
 * 네이버 영화제목 뽑기  
+
 ```python
 import urllib.request   # import 모듈이름
 from bs4 import BeautifulSoup
@@ -157,7 +158,7 @@ pip install JPype1-0.6.3-cp36-cp36m-win_amd64.whl 엔터
 
 ###### 2-1. KoNLPy의 트위터 형태소 분석기
 
-<span style="font-size:14pt"> 
+<span style="font-size:14pt">
 
 * [참조사이트](http://konlpy.org/ko/latest/api/konlpy.tag/) 
 
@@ -212,8 +213,8 @@ for myitem in malist:
 
 #### 3. Grpah(matplotlib 모듈)
 
-<span style="font-size:18pt"> 
-  
+<span style="font-size:18pt">
+
 * [참조사이트](https://matplotlib.org/gallery/index.html)  
 ```python
 # font_manager 글꼴 관리자
@@ -258,23 +259,27 @@ plt.show()  # 그린것을  보여준다..
 
 #### 4. Word Cloud 
 
-<span style="font-size:18pt"> 
+<span style="font-size:18pt">
+
 
 * [참조사이트](https://matplotlib.org/gallery/index.html)
 * 설치할 목록  
+
 ```python
 pip install pytagcloud
 pip install pygame
 pip install simplejson
 ```
+
 * font.json 수정하기
 C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\pytagcloud\fonts 로 copy한다
+
 ```json
-	{
-		"name": "korean",
-		"ttf": "malgun.ttf",
-		"web": "http://fonts.googleapis.com/css?family=Nobile"
-	},
+{
+	"name": "korean",
+	"ttf": "malgun.ttf",
+	"web": "http://fonts.googleapis.com/css?family=Nobile"
+},
 ```
 
 ---
@@ -284,6 +289,7 @@ C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\
 
 ###### 4.1 말뭉치 파일 단어 빈도 분석
 
+<span style="font-size:18pt">
 
 *  정규 표현식을 실습해본다.
 ```python
@@ -305,7 +311,7 @@ print(newtext)
 
 ###### 4.2 자료형 이해
 
-<span style="font-size:18pt"> 
+<span style="font-size:18pt">
 
 ```python
 word_dic = {}
