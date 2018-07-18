@@ -28,6 +28,8 @@ permalink: /Lecture/TextMining
 
 # Contents
 
+<a name="contents"/>
+
 * **`Table of Contents`**   
   [0. Install](#install)  
   [1. WebCrawling](#WebCrawling)  
@@ -44,41 +46,50 @@ permalink: /Lecture/TextMining
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 <a name="install"/>
 
-# Install
+### Install
 
-#### **[1. Pydev]**
-* [eclipse 설치](https://www.eclipse.org)
-* pydev 플러그인 설치(메뉴 help - eclipse marketplace)
-* pydev 입력후 검색
-* sysdm.cpl 명령어로 들어가기
-* 고급 탭 - 환경변수 버튼 클리
-* 시스템 변수의 path의 가장 앞 단에 다음 항목 추가 하기
-* 이클립스와 python 연동
-* 메뉴 window - preferences에서 
-* pydev - interpreters - python interpreter
-* 인코딩 설정
-  General -> Workspace -> Textfile encoding -> Other 에서 utf-8로 설정    
-* 프로젝트 생성
-   메뉴  file - new - pydev project
+<span style="font-size:11pt">  
+  
+##### **1. Pydev**
 
-#### **[2. Anaconda]**(https://www.anaconda.com/)
+```
+* [eclipse 설치](https://www.eclipse.org)  
+* pydev 플러그인 설치(메뉴 help - eclipse marketplace)  
+* pydev 입력후 검색  
+* sysdm.cpl 명령어로 들어가기  
+* 고급 탭 - 환경변수 버튼 클리  
+* 시스템 변수의 path의 가장 앞 단에 다음 항목 추가 하기  
+* 이클립스와 python 연동  
+* 메뉴 window - preferences에서   
+   pydev - interpreters - python interpreter  
+* 인코딩 설정  
+  General -> Workspace -> Textfile encoding -> Other 에서 utf-8로 설정      
+* 프로젝트 생성  
+   메뉴  file - new - pydev project  
+```
+
+##### **[2. Anaconda](https://www.anaconda.com/)**
 
 ---
 
 <!-- *template: gaia -->
 
-## Introduce WebCrawling ll !!  
+## Introduce **WebCrawling** ll !!  
 # WebCrawling
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 <a name="WebCrawling"/>
 
-# WebCrawling
+### WebCrawling
+
+<span style="font-size:14pt">  
 
 * 네이버 영화제목 뽑기  
 ```python
@@ -102,6 +113,7 @@ for tag in tags :
     # []을 이용한 형식은 자바 스크립트 문법을 이용한 기법이다.
     print(url_header + tag.a['href'])
 ```    
+###### [go to main](#contents)
 
 ---
 
@@ -113,11 +125,14 @@ for tag in tags :
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 <a name="text"/>
 
-# Text Mining
+### Text Mining 
 
+<span style="font-size:14pt">  
+  
 * jpype 설치
 [jpype](https://www.lfd.uci.edu/~gohlke/pythonlibs/#jpype)
 
@@ -127,11 +142,14 @@ pip install JPype1-0.6.3-cp36-cp36m-win_amd64.whl 엔터
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 
-## Text Mining
+### Text Mining
 
-### KoNLPy의 트위터 형태소 분석기
+##### KoNLPy의 트위터 형태소 분석기
+
+<span style="font-size:12pt"> 
 
 * [참조사이트](http://konlpy.org/ko/latest/api/konlpy.tag/)
 ```python
@@ -176,11 +194,14 @@ for myitem in malist:
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 <a name="matplotlib"/>
 
 ### matplotlib 모듈
 
+<span style="font-size:12pt"> 
+  
 * [참조사이트](https://matplotlib.org/gallery/index.html)  
 ```python
 # font_manager 글꼴 관리자
@@ -216,10 +237,13 @@ plt.show()  # 그린것을  보여준다..
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 <a name="wordcloud"/>
 
 ### Word Cloud 
+
+<span style="font-size:14pt"> 
 
 * [참조사이트](https://matplotlib.org/gallery/index.html)
 * 설치할 목록  
@@ -240,9 +264,12 @@ C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 
 #### 말뭉치 파일 단어 빈도 분석
+
+<span style="font-size:14pt"> 
 
 *  정규 표현식을 실습해본다.
 ```python
@@ -259,9 +286,13 @@ print(newtext)
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 
 #### 자료형 이해
+
+<span style="font-size:17pt"> 
+
 ```python
 word_dic = {}
 malist = [('사랑','Noun'),('이','조사'),('사랑','Noun'),('바보','Noun')]
@@ -290,9 +321,11 @@ print(keys)
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 
 #### 데이터 정렬
+
 ```python
 mydict = {'a':20,'b':30, 'c':10}
 
@@ -311,9 +344,13 @@ print(keyortByVals)
 
 ---
 
+<!-- *template: invert -->
 <!-- page_number: true -->
 
 #### 국립국어원
+
+<span style="font-size:7pt">
+  
 * [참조하기](https://ithub.korean.go.kr/user/main.do)
 ```python
 import codecs # 파일의 인코딩과 디코딩을 위한 모듈
