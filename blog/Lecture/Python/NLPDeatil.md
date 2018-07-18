@@ -1,12 +1,50 @@
 ---
 layout: page
 title: R
-permalink: /Lecture/TextMining1
+permalink: /Lecture/NLPDetail
 ---
-# TextMining
 
-## 페이스북 crawling 해서 분석하기
-```python3
+---
+
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+# Introducing `NLP2` !!
+##### (Natural Language Processing)
+###### Created by [푸르지오 (@shpimit)](https://github.com/shpimit)
+
+---
+
+<!-- $theme: gaia -->
+<!-- *template: invert -->
+
+## Contents
+
+<a name="contents"/>
+
+* **Table of Contents**   
+
+|No|Titile|Explain|
+|--:|:-:|:--|
+|1|[Facebook Crawling](#1)|페이스 북 크롤링|
+|2|[Gensim](#2)|유사도|
+|3|[Basian](#3)|베이지안 정리|
+|4|[Wikipedia](#4)|위키피디아 데이터 분석하기|
+|5|[XML](#5)|XML 데이터 분석하기|
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+<a name="1"/>
+
+#### 1. Facebook Crawling
+
+###### 1.1 페이스북 crawling 해서 분석하기
+
+<span style="font-size:16pt">
+
+```python
 from matplotlib import font_manager, rc
 import matplotlib.pyplot as plt
 
@@ -32,8 +70,16 @@ def showGraph(wordInfo):
     print(Sorted_Dict_Keys)
     plt.xticks(range(len(wordInfo)), list(Sorted_Dict_Keys), rotation='70')
     
-    plt.show()        
+    plt.show()
+```
+---
 
+<!-- *template: invert -->
+<!-- page_number: true -->
+
+###### 1.2 페이스북 crawling 해서 분석하기 2
+
+```python
 # 워드 클라우드 그려주는 함수
 def saveWordCloud(wordInfo, filename):
     taglist = pytagcloud.make_tags(dict(wordInfo).items(), maxsize=80)
@@ -46,7 +92,18 @@ import re
 
 from konlpy.tag import Twitter
 from collections import Counter
+```
 
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+
+###### 1.3 페이스북 crawling 해서 분석하기 3
+
+<span style="font-size:12pt">
+
+```python
 # 메인 함수
 def main():
     openFileName = 'jtbcnews_facebook_2016-10-01_2017-03-12.json'
@@ -89,12 +146,24 @@ if __name__ == '__main__':
     main()
 ```
 
-## Gensim 라이브러리
+###### <U>[Go to Contents](#contents)</U>
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+<a name="2"/>
+
+###### 2. Gensim 라이브러리
+
 [Gensim](https://radimrehurek.com/gensim/models/word2vec.html)
 [Skip-Gram 모델 참조문서](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/)
 
 `토지 파일 분석 word2vec=toji`  
-```python3
+
+<span style="font-size:6pt">
+
+```python
 import warnings
 warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')
 
@@ -141,8 +210,17 @@ model.save(saved_model_name)
 
 print('파일', saved_model_name, ' fininshed')   
 ```
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+
 `모델 불러오기 toji_model_test`
-```python3
+
+<span style="font-size:6pt">
+
+```python
 import matplotlib.pyplot as plt
 
 from matplotlib import font_manager, rc
@@ -178,13 +256,25 @@ somedata = model.most_similar(positive=['집'], topn=5)
 print(somedata)
 ```
 
+###### <U>[Go to Contents](#contents)</U>
+
+---
+
 * [마크다운](http://www.kwangsiklee.com/ko/tag/마크다운/)
 * https://www.slideshare.net/JackLee27/markdown-ppt-102809485
 * [Gitbook](https://tinydew4.gitbooks.io/gitbook/ko/pages.html)
 
-## 베이지안 정리
+---
 
-```python3
+<!-- *template: invert -->
+<!-- page_number: true -->
+<a name="3"/>
+
+###### 3. 베이지안 정리
+
+<span style="font-size:6pt">
+
+```python
 '''
 bayes_test.py
 '''
@@ -338,8 +428,19 @@ print('결과: ', pre)
 print(scorelist)
 ```
 
-## 위키피디아 데이터 분석하기  
-```python3
+###### <U>[Go to Contents](#contents)</U>
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+<a name="4"/>
+
+###### 4. 위키피디아 데이터 분석하기  
+
+<span style="font-size:6pt">
+
+```python
 from gensim.models import word2vec
 
 filename = 'wiki.model'
@@ -375,8 +476,19 @@ print('-' * 50)
 print(result)
 ```
 
-## XML 데이터 분석하기
-```python3
+###### <U>[Go to Contents](#contents)</U>
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+<a name="5"/>
+
+###### 5.XML 데이터 분석하기
+
+<span style="font-size:6pt">
+
+```python
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 # Element('앨리먼트 이름')
@@ -412,8 +524,6 @@ def indent(elem, level=0):
             
 indent(blog)
 
-
-
 xmlFile = 'xmlEx01.xml'
 
 # 파일 저장
@@ -421,7 +531,14 @@ ElementTree(blog).write(xmlFile, encoding='utf-8')
 
 print('작업완료')
 ```
-```python3
+
+###### <U>[Go to Contents](#contents)</U>
+
+---
+
+<span style="font-size:6pt">
+
+```python
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 # 다음 사전을 이용하여 xml 파일을 만드세요
@@ -476,6 +593,10 @@ print('작업완료')
  
 ```
 
+---
+
+<span style="font-size:6pt">
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <가족들 설명="호호호" 코멘트="여러 가족들">
@@ -506,7 +627,11 @@ print('작업완료')
 </가족들>
 ```
 
-```python3
+---
+
+<span style="font-size:6pt">
+
+```python
 from xml.etree.ElementTree import parse
 
 tree = parse('xmlEx03.xml')
@@ -558,3 +683,5 @@ for onesaram in childs:
     print()
 print()    
 ```
+
+###### <U>[Go to Contents](#contents)</U>

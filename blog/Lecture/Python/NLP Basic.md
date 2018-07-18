@@ -9,7 +9,6 @@ permalink: /Lecture/NLP
 <!-- *template: gaia -->
 <!-- page_number: false -->
 
-
 # Introducing `NLP` !!
 ##### (Natural Language Processing)
 ###### Created by [푸르지오 (@shpimit)](https://github.com/shpimit)
