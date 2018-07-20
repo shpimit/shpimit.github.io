@@ -48,7 +48,6 @@ permalink: /Lecture/NLP
 <!-- *template: gaia -->
 <!-- page_number: false -->
 
-
 ## Introduce Install !!  
 # 환경 설정
 

@@ -34,6 +34,14 @@ permalink: /Lecture/NLPDetail
 
 ---
 
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+## Introduce Facebook Crawling !!  
+# 페이스 북 크롤링
+
+---
+
 <!-- *template: invert -->
 <!-- page_number: true -->
 <a name="1"/>
@@ -150,6 +158,14 @@ if __name__ == '__main__':
 
 ---
 
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+## Introduce Gensim !!  
+# 유사도
+
+---
+
 <!-- *template: invert -->
 <!-- page_number: true -->
 <a name="2"/>
@@ -263,6 +279,14 @@ print(somedata)
 * [마크다운](http://www.kwangsiklee.com/ko/tag/마크다운/)
 * https://www.slideshare.net/JackLee27/markdown-ppt-102809485
 * [Gitbook](https://tinydew4.gitbooks.io/gitbook/ko/pages.html)
+
+---
+
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+## Introduce Basian !!  
+# 베이지안 정리
 
 ---
 
@@ -432,6 +456,14 @@ print(scorelist)
 
 ---
 
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+## Introduce Wikypedia !!  
+# 위키피디아
+
+---
+
 <!-- *template: invert -->
 <!-- page_number: true -->
 <a name="4"/>
@@ -477,6 +509,14 @@ print(result)
 ```
 
 ###### <U>[Go to Contents](#contents)</U>
+
+---
+
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+## Introduce XML 데이터 분석 !!  
+# XML 데이터
 
 ---
 

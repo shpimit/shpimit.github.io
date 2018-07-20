@@ -5,23 +5,53 @@ summary: Miscellaneous is my miscellaneous space about IT new technology.
 featured-img: closing
 mathjax: true
 ---
----
-##### Table of Contents  
-* [Github 연동](#gihtub) 
-* [Visual Studio Code](#vsc) 
-* [Python](#python)  
-* [Jupyter](#jupyter) 
-* [Book](#book) 
 
 ---
+
+<!-- $theme: gaia -->
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+# Introducing `Miscellaneous` !!
+##### Miscellaneous is my miscellaneous space about IT new technology.
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+<a name="contents"/>
+
+* **Table of Contents**   
+
+<span style="font-size:16pt">
+  
+|No|Titile|Explain|YMD|
+|--:|:--:|:-:|:--|
+|1|[Github 연동](#gihtub)|Github|18-05-09|
+|2|[Visual Studio Code](#vsc) |Visual Studio Code|18-05-09|
+|3|[Python](#python) |파이썬|18-05-09|
+|4|[Jupyter](#jupyter) |주피터|18-05-09|
+|5|[Book](#book) |책|18-05-09|
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
 <a name="github"/>
 
 ## GitHub 연동
 * [editor on GitHub](https://github.com/shpimit/space/edit/master/README.md) 
 
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
 <a name="vsc"/>
 
-## VSCode-GitHub 연동
+<span style="font-size:16pt">
+
+##### VSCode-GitHub 연동
+
 1. VSCode를 설치한다.
 2. Git-SCM을 설치한다.
 * 처음에는 이해 안됬으나.. 결과적으로  일단 먼저 Git-SCM을 깔고나서, Git-Hub 연동해야된다.
@@ -36,23 +66,36 @@ mathjax: true
 
 * [VSCode-GitHub 연동](http://www.ruokit.com/index.php/2017/10/28/vscode-github/)
 
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
 <a name="python"/>
 
-## Python
-### 윈도우10, Anaconda, TensorFlow, PyCharm 환경설정
+##### Python
+###### 윈도우10, Anaconda, TensorFlow, PyCharm 환경설정  
 * [윈도우10에서 Anaconda 기반의 TensorFlow 라이브러리 설치 및 PyCharm을 이용한 개발 환경 구성](http://agiantmind.tistory.com/176)
 
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
 <a name="jupyter"/>
 
-## Jupyter Oracle연동
+##### Jupyter Oracle연동
+
 1. [Jupyter Oracle연동](https://db-blog.web.cern.ch/blog/luca-canali/2016-06-ipythonjupyter-notebooks-oracle)
 2. [github](https://github.com/LucaCanali/Miscellaneous/blob/master/Oracle_Jupyter/Oracle_IPython_cx_Oracle_pandas.ipynb)
 
 
-## 마크다운 Table
+##### 마크다운 Table
 * 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables
 
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
 <a name="book"/>
 
-## Book
+##### Book
 * [Do it! 쉽게 배우는 R 데이터 분석](https://github.com/youngwoos/Doit_R/#4)
