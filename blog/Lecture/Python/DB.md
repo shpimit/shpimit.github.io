@@ -525,11 +525,11 @@ font_name = font_manager.FontProperties(fname=font_location).get_name()
 plt.rc('font',family=font_name)
  
  
-chartData = Series(data=data, index=newindex)
+chartData = Series(data=data, index=myindex)
 chartData.plot(kind='barh', rot=18, alpha=0.7, title='지역별 범죄 발생 빈도(5~8위)') 
 plt.show()
 
-# chartData = Series(data=data, index=newindex)
+chartData = Series(data=data, index=newindex)
 chartData.plot(kind='pie', title='지역별 범죄 발생 빈도(5~8위)') 
 plt.show()
 
