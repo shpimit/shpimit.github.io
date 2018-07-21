@@ -1,6 +1,6 @@
 ---
 layout: page
-title: R
+title: 자연어 처리1
 permalink: /Lecture/NLP
 ---
 
