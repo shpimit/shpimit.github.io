@@ -195,6 +195,8 @@ if __name__ == '__main__':
     getUrlInfo()
 ```
 
+###### <U>[Go to Contents](#contents)</U>
+
 ---
 
 <!-- page_number: false -->
@@ -210,9 +212,9 @@ if __name__ == '__main__':
 
 #### 1. Oracle
 
-[오라클](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
-[오라클 instant](http://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html)
-[SQL Developer](https://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html)
+[오라클](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)  
+[오라클 instant](http://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html)  
+[SQL Developer](https://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html)  
 
 <span style="font-size:12pt">
 	
@@ -310,8 +312,6 @@ plt.show()
 cur.close()
 conn.close()
 ```
-
-###### <U>[Go to Contents](#contents)</U>
 
 ---
 
@@ -538,5 +538,3 @@ conn.close()
 ```
 
 ###### <U>[Go to Contents](#contents)</U>
-
-
