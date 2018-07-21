@@ -2,6 +2,7 @@
 layout: post
 title: Machine Learning
 summary: Machine Learning is space to learn machine learning algorithm & theory. 
+permalink: /Lecture/ML
 ---
 
 ---
