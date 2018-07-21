@@ -6,6 +6,7 @@ permalink: /Lecture/DBConnect
 
 ---
 
+<!-- $theme: gaia -->
 <!-- *template: gaia -->
 <!-- page_number: false -->
 
@@ -14,7 +15,6 @@ permalink: /Lecture/DBConnect
 
 ---
 
-<!-- $theme: gaia -->
 <!-- *template: invert -->
 
 ## Contents
@@ -33,7 +33,6 @@ permalink: /Lecture/DBConnect
 
 ---
 
-<!-- *template: gaia -->
 <!-- page_number: false -->
 
 ## Introduce Json !!  
@@ -43,6 +42,7 @@ permalink: /Lecture/DBConnect
 
 <!-- *template: invert -->
 <!-- page_number: true -->
+
 <a name="1"/>
 
 #### 1. Json
@@ -77,6 +77,8 @@ print(type(json_data2))       # <class 'dict'>  사전으로 변경됨. Game Ove
 ```
 
 ---
+
+<!-- *template: invert -->
 
 <span style="font-size:16pt">
 
@@ -124,37 +126,120 @@ d5 = mydata['web']['id']
 print('cafename: '+ d4 + ', id: ' + d5)
 
 ```
-
+[Weka](http://myeonguni.tistory.com/1568)
 ---
 
 <!-- *template: invert -->
-<!-- page_number: true -->
 
-###### 1.2 페이스북 crawling 해서 분석하기 2
+###### 1.2 공공기관 api를 사용해서..
+
+[서울시 공공 API](http://openapi.seoul.go.kr:8088/sample/json/SeoulLibraryTime/1/5)
+[Json Parser Site](http://json.parser.online.fr/)
+
+###### Web site의 특정 url에서 제공하는 json 파일 내용을 읽어서 정보들을 출력
 
 ```python
-# 워드 클라우드 그려주는 함수
-def saveWordCloud(wordInfo, filename):
-    taglist = pytagcloud.make_tags(dict(wordInfo).items(), maxsize=80)
-    print(type(taglist)) #<class 'list'>
-    pytagcloud.create_tag_image(taglist, filename, size=(640,480), fontname='korean', rectangular=False)
-    webbrowser.open(filename)
-
 import json
-import re
+import requests
 
-from konlpy.tag import Twitter
-from collections import Counter
+def getUrlInfo():
+    url = 'http://openapi.seoul.go.kr:8088/sample/json/SeoulLibraryTime/1/5'
+    source_code = requests.get(url)
+#     print(type(source_code))
+    text = source_code.text
+    json_data = json.loads(text)
+    print(json_data)
+    print(type(json_data))
+    
+    print(json_data['SeoulLibraryTime']['RESULT']['CODE'])
+    print('-'*200)
+    print(json_data['SeoulLibraryTime']['row'][0]['LBRRY_NAME'])
+    pass
+
+if __name__ == '__main__':
+    getUrlInfo()
 ```
 
 ---
 
 <!-- *template: invert -->
-<!-- page_number: true -->
 
-###### 1.3 페이스북 crawling 해서 분석하기 3
+#####  folium 지도 시각화 라이브러리
+###### 숙제 : 지도(위도/경도) 표시
+http://ibos.kr/Sunxr9
+
+```python
+import json
+import requests
+
+def getUrlInfo():
+    url = 'http://openapi.seoul.go.kr:8088/sample/json/SeoulLibraryTime/1/5'
+    source_code = requests.get(url)
+#     print(type(source_code))
+    text = source_code.text
+    json_data = json.loads(text)
+    print(json_data)
+    print(type(json_data))
+    
+    print(json_data['SeoulLibraryTime']['RESULT']['CODE'])
+    print('-'*200)
+    print(json_data['SeoulLibraryTime']['row'][0]['LBRRY_NAME'])
+    
+    print('***** 도서관 목록  *****')
+    mylength = range(len(json_data['SeoulLibraryTime']['row']))
+#     print(mylength)
+    
+    for i in mylength:
+        print(json_data['SeoulLibraryTime']['row'][i]['LBRRY_NAME'])
+    
+    pass
+
+if __name__ == '__main__':
+    getUrlInfo()
+```
+
+---
+
+<!-- *template: invert -->
+
+###### 1.3 오라클 연동해서 분석하기 
+
+[오라클](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
+[오라클 instant](http://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html)
+[SQL Developer](https://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html)
 
 <span style="font-size:12pt">
+	
+```SQL
+sqlplus as / sysdba
+
+select name from v$database;  -- 결과 확인 XE
+
+create user oraman identified by oracle account unlock;
+alter user oraman default tablespace users;
+grant connect, resource to oraman;
+grant create view to oraman;
+-- 사용자가 제대로 생성되었는 지 확인하기
+select username from dba_users order by username;
+
+create table myterror(
+    eventid number,
+    iyear number,
+    imonth number,
+    iday number,
+    country number,
+    country_txt varchar2(255),
+    region number,
+    region_txt varchar2(255),
+    provstate varchar2(255),
+    city varchar2(255),
+    latitude number,
+    longitude number
+);
+
+select * from tab;
+
+```
 
 ```python
 # 메인 함수
