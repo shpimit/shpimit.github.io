@@ -181,7 +181,9 @@ https://kldp.net/apmsetup/
 create table test1 ( kor int, eng int);
 insert into test1 values(90,80);
 insert into test1 values(100,80);
+```
 
+```R
 install.packages("DBI")
 install.packages("RODBC")
 install.packages("RMySQL")
