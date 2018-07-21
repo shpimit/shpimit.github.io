@@ -241,617 +241,296 @@ select * from tab;
 
 ```
 
-```python
-# 메인 함수
-def main():
-    openFileName = 'jtbcnews_facebook_2016-10-01_2017-03-12.json'
-    cloudImagePath = openFileName + '.jpg'
-    
-    rfile = open(openFileName, mode='r', encoding='utf-8-sig')
-    rfile = rfile.read()  # 메모리상에 바이트로 만들어 주는 함수
-
-    jsonData = json.loads(rfile)
-    
-#     print(jsonData)
-    
-    message = ''
-    for item in jsonData :
-        message = message + re.sub(r'[^\w]','', item['message'])
-
-
-#     print(message)
-    nlp = Twitter()
-    nouns = nlp.nouns(message)
-    
-    count = Counter(nouns)
-    print('count 개수:', count)
-    
-    wordInfo= dict()
-    
-    for key, value in count.most_common(20):
-        if(len(str(key)) > 1):
-            wordInfo[key] = value
-            print(key, '/', value)
-            
-    showGraph(wordInfo)
-    saveWordCloud(wordInfo, cloudImagePath)       
-            
-'''
-외부에서 이파일을 실행하면  이값은 false
- 스스로 실행하면 true 가 됨
-'''
-if __name__ == '__main__':
-    main()
+```
+load data
+infile 'myterror.csv'
+insert into table myterror
+fields terminated by ','
+trailing nullcols(
+    eventid char,
+    iyear char,
+    imonth char,
+    iday char,
+    country char,
+    country_txt char,
+    region char,
+    region_txt char,
+    provstate char,
+    city char,
+    latitude char,
+    longitude char
+)
 ```
 
-###### <U>[Go to Contents](#contents)</U>
-
----
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
-## Introduce Gensim !!  
-# 유사도
-
----
-
-<!-- *template: invert -->
-<!-- page_number: true -->
-<a name="2"/>
-
-###### 2. Gensim 라이브러리
-
-[Gensim](https://radimrehurek.com/gensim/models/word2vec.html)
-[Skip-Gram 모델 참조문서](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/)
-
-`토지 파일 분석 word2vec=toji`  
-
-<span style="font-size:6pt">
-
-```python
-import warnings
-warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')
-
-import codecs
-
-from bs4 import BeautifulSoup
-from konlpy.tag import Twitter
-from gensim.models import word2vec
-
-fp = codecs.open(filename='BEXX0003.txt', mode='r', encoding='utf-8')
-soup = BeautifulSoup(fp, 'html.parser')
-body = soup.select_one('body > text')
-text = body.getText()
-print(text)
-
-twitter = Twitter()
-results = []
-
-lines = text.split('\r\n')
-
-for line in lines:
-    malist = twitter.pos(line, norm=True, stem=True)
-    r = []
-    for word in malist:
-        if not word[1] in ['Josa', 'Eomi', 'Punctuation']:
-            r.append(word[0])
-            
-    r1 = (" ".join(r)).strip()
-    results.append(r1)
-    
-# 파일로 출력하기
-output_file = 'toji.out'
-
-with open(output_file, 'w', encoding='utf-8') as fp:
-    fp.write('\n'.join(results))
-    
-# Word2Vec 모델 만들기
-data = word2vec.LineSentence(output_file)
-model = word2vec.Word2Vec(data, size=200, window=10, hs=1, min_count=2, sg=1)
-
-saved_model_name = 'toji.model'
-
-model.save(saved_model_name)
-
-print('파일', saved_model_name, ' fininshed')   
+```
+sqlldr.exe userid=oraman/oracle control=myterror.ctl
 ```
 
 ---
 
-<!-- *template: invert -->
-<!-- page_number: true -->
-
-`모델 불러오기 toji_model_test`
-
-<span style="font-size:6pt">
-
 ```python
+import cx_Oracle
 import matplotlib.pyplot as plt
-
 from matplotlib import font_manager, rc
-from gensim.models import word2vec
 
-def showGraph(somedata): # 유사도 그래프
-    su = len(somedata)   # 전체 데이터 수
-    # 축에 보여질 항목 이름들
-    item = list(item[0] for item in somedata)   # 항목이름
-    count = list(item[1] for item in somedata)  # 확률
+# Series : 동일 타입의 데이터를 담고 있는 1차원 배열과 유사 형태의 자료 구조
+from pandas.core.series import Series
+
+conn = cx_Oracle.connect('oraman/oracle@DESKTOP-D3MO1PU:1521/XE')
+
+cur = conn.cursor()
+
+cur.execute('select * from country_summary_top_10')
+
+data = [] # 숫자형 데이터를 저장할 리스트
+myindex = [] # 축에 놓일 국가 이름
+
+for result in cur:
+    print(result)
+    data.append(result[1])
+    myindex.append(result[0])
+#     print(type(result))   # 튜플 <class 'tuple'> 예 ('Iraq', 12875)
+
+font_location = 'c:/Windows/fonts/malgun.ttf'  # \는 \\를 사용한다
+font_name = font_manager.FontProperties(fname=font_location).get_name()
+plt.rc('font',family=font_name)    
     
-    font_location = 'c:/Windows/fonts/malgun.ttf'  # \는 \\를 사용한다
-    font_name = font_manager.FontProperties(fname=font_location).get_name()
-    plt.rc('font',family=font_name)    
+chartData = Series(data=data, index=myindex)  # ctrl+space를 치면 입력할 수 있는 문법 형식이 나온다.
+# print(chartData)
+chartData.plot(kind='bar', rot=18, grid=True,title='범죄 빈도수 Top 10 국가', alpha=0.7)
+
+plt.show()
     
-    plt.barh(range(su), count, align='center')  # 수평막대 그래프
-    plt.yticks(range(su), item, rotation='10')
-    plt.xlim(0.8, 0.86) # x축의 하한 값과 상한값을 작게 설정하여 차트의 효과를 극대화 시켰다.
-    plt.grid(True)
-    plt.show()
-
-filename = 'toji.model'
-
-model = word2vec.Word2Vec.load(filename)
-
-somedata = model.most_similar(positive=['땅'])
-print(somedata)
-
-showGraph(somedata)
-
-print('-' * 50)
-somedata = model.most_similar(positive=['집'], topn=5)
-print(somedata)
+cur.close()
+conn.close()
 ```
 
 ###### <U>[Go to Contents](#contents)</U>
-
----
-
-* [마크다운](http://www.kwangsiklee.com/ko/tag/마크다운/)
-* https://www.slideshare.net/JackLee27/markdown-ppt-102809485
-* [Gitbook](https://tinydew4.gitbooks.io/gitbook/ko/pages.html)
-
----
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
-## Introduce Basian !!  
-# 베이지안 정리
 
 ---
 
 <!-- *template: invert -->
-<!-- page_number: true -->
-<a name="3"/>
-
-###### 3. 베이지안 정리
 
 <span style="font-size:6pt">
-
-```python
-'''
-bayes_test.py
-'''
-from konlpy.tag import Twitter
-import math, sys
-
-class BayesianFilter():
-    def __init__(self):
-        self.category_dict = {}
-        self.word_dict = {}
-        self.words = set()
-        print('생성자 호출됨')
-        
-    def bayes_split(self, text):
-        results = []
-        twitter = Twitter()
-        
-        # 단어의 기본형 사용
-        textlist = twitter.pos(text, norm=True, stem=True)
-        
-        for word in textlist:
-            # 조사, 어미, 구둣점은 제외하고...
-            if not word[1] in ['Josa','Eomi', 'Punctuation']:
-                results.append(word[0])
-                
-        return results
-    
-    # 단어와 카테고릐의 출현 횟수 세기
-    def increase_word(self, word, category): # 예시 : word('세일'), category('광고')
-        # 단어를 카테고리에 추가하기
-        if not category in self.word_dict:
-            self.word_dict[category] = {}
-        if not word in self.word_dict[category]:
-            self.word_dict[category][word] = 0
-        self.word_dict[category][word] += 1
-        self.words.add(word)                 # 단어들 모음집에 추가
-    
-    def increase_category(self, category):
-        # 카테고리 계산하기    
-        if not category in self.category_dict:
-            self.category_dict[category] = 0
-        self.category_dict[category] += 1
-        
-    def fit(self, text, category):
-        # word_list : 단어들을 저장하고 있는 리스트
-        word_list = self.bayes_split(text)
-        print(word_list)
-        
-        for word in word_list:
-            self.increase_word(word, category)
-        self.increase_category(category)
-        
-#         print('\n fit 함수 실행 결과')
-#         print('\n [categoryp_dict 사전 내용]')
-#         print('=' * 200)
-#         print(self.category_dict)
-#         print('\n [word 집한 내용]')
-#         print('=' * 200)
-#         print(self.words)
-#         print('\n [word_dict 사전 values]')
-#         print('=' * 200)
-#         print(self.word_dict)
-
-    # 단어 리스트에 점수 매기기        
-    def score(self, words, category):   # 예시: words(['무료','배송']), categroy('광고')
-        score = math.log(self.get_category_probablity(category))
-        
-        for word in words:
-            score += math.log(self.get_word_probablity(word, category))
-            
-        return score    
-    
-    # 카테고리 계산
-    def get_category_probablity(self, category):
-        sum_categories = sum(self.category_dict.values())
-        category_v = self.category_dict[category]
-        
-        print('모든 카데고리들의 빈도수 총합')
-        print(sum_categories)
-        print('해당 카테고리의 빈도 수')
-        print(category_v)
-        
-        return category_v / sum_categories
-    
-
-    # 카테고리 내부의 단어 출현 횟수 구하기
-    def get_word_count(self, word, category):
-        if word in self.word_dict[category]:
-            return self.word_dict[category][word]
-        else:
-            return 0
-        
-    # 카테고리 내부의 단어 출현 비율 계산
-    def get_word_probablity(self, word, category):
-        # 없는 다어이면 n=0인테 이렇게 되면 확률이 0이 되므로 1을 의도적으로 +1 시킨다.    
-        # 0이면  확률이  0가 나오니까......+1 은  엄첨나게 많은 데이터에.. 무시해도 될 수준.
-        n = self.get_word_count(word, category) + 1
-        # 같은 확률이라고 해도 가중치를  주기 위해서
-        # 1/2  ==   100/200 -> 1/(2+2)   100/(200+200)  그래서 +len(self.words)
-        d = sum(self.word_dict[category].values()) + len(self.words)
-        
-        return n / d 
-
-    def predict(self, text):
-        best_category = None
-        max_score = -sys.maxsize # 시스템이  가질 수 있는 가장 큰 정수(2**63-1)
-        words = self.bayes_split(text)
-        score_list = []
-        
-        # 사전에 들어 있는 카테고리 수만큼 반복 ...
-        for category in self.category_dict.keys():
-            score = self.score(words, category) # 이 단어들과 카테고리에 대하여...
-            score_list.append((category, score))
-            print('스코어')
-            print(score)
-            print(max_score)
-            
-            if score > max_score: # 시스템이 가질수 있는 최대 정수값
-                max_score = score
-                best_category = category
-                
-        print('베스트 카테고리')
-        print(best_category)
-        
-        return best_category, score_list
-        
-
-bf = BayesianFilter()
-
-# 보통 엑셀의 5000줄을  읽어서.. fit 5000번 호출
-bf.fit('세일 무료 배송 할인', '광고')
-bf.fit('일정 확인','중요')
-bf.fit('백화점 세일', '광고')
-bf.fit('파격 세일 하일', '광고')
-bf.fit('프로젝트 진행 상황', '중요')
-bf.fit('쿠폰 선물 & 무료 배송', '광고')
-bf.fit('봄과 함께 찾아온 따뜻한 신제품 소식', '광고')
-bf.fit('인기 제품 기간 한정 세일', '광고')
-bf.fit('계약 잘 부탁드립니다.', '중요')
-bf.fit('회의 일정이 등록되었습니다.', '중요')
-bf.fit('오늘 일정이 없습니다.', '중요')
-
-print('-' * 50)
-pre, scorelist = bf.predict('무료 배송')
-print('결과: ', pre)
-print(scorelist)
- 
-print('-' * 50)
-pre, scorelist = bf.predict('일정 확인')
-print('결과: ', pre)
-print(scorelist)
+	
+```SQL
+create or replace view three_country
+as
+select country_txt, iyear, count(*) as cnt
+from myterror
+where country_txt in ('Iraq','Pakistan', 'Afghanistan')
+group by country_txt, iyear
+order by country_txt desc, iyear asc;
 ```
+	
+```python
+import cx_Oracle
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
 
-###### <U>[Go to Contents](#contents)</U>
+# Series : 동일 타입의 데이터를 담고 있는 1차원 배열과 유사 형태의 자료 구조
+from pandas.core.series import Series
 
----
+conn = cx_Oracle.connect('oraman/oracle@DESKTOP-D3MO1PU:1521/XE')
 
-<!-- *template: gaia -->
-<!-- page_number: false -->
+cur = conn.cursor()
 
-## Introduce Wikypedia !!  
-# 위키피디아
+cur.execute('select * from three_country')
+
+data0  = []   # 국가이름
+data1  = []   # 테러 발생 년동
+data2  = []   # 테러 발생 빈도
+
+for result in cur:
+    data0.append(result[0])
+    data1.append(result[1])
+    data2.append(result[2])
+
+
+# MultiIndex를 이용하여 시리즈 만들기
+myseries = Series(data=data2, index=[data0, data1])
+
+print(myseries)
+print(type(myseries))
+
+# 인덱스 중 하나를 컬럼으로 이동시켜 데이터 프레임을 만들어 준다. (Series -> DataFrame)
+df = myseries.unstack()
+print(df)
+print('-'*200)
+df = myseries.unstack(0)
+print(df)
+print('-'*200)
+df = myseries.unstack(1)
+print(df)
+print('-'*200)
+print(type(df))
+ 
+font_location = 'c:/Windows/fonts/malgun.ttf'  # \는 \\를 사용한다
+font_name = font_manager.FontProperties(fname=font_location).get_name()
+plt.rc('font',family=font_name)
+ 
+df.plot(kind='barh', rot=0) # barh의 h는 horizental 의이
+plt.title("3개국 테러 발생 현황")
+
+plt.show()
+cur.close()
+conn.close()
+```
 
 ---
 
 <!-- *template: invert -->
-<!-- page_number: true -->
-<a name="4"/>
 
-###### 4. 위키피디아 데이터 분석하기  
+##### 국가와는 상관없이 분기별로 집계회 놓은 테이블 bungitable을 이용하여 Pie 그래프 그리기
 
 <span style="font-size:6pt">
+	
+```SQL
+create table bungitable
+as
+select result as bungi, count(*) as myaccount, ordering
+from
+(
+select country_txt,
+case  
+     when imonth in (1,2,3) then '일사분기'
+     when imonth in (4,5,6) then '이사분기'
+     when imonth in (7,8,9) then '삼사분기'
+     when imonth in (10,11,12) then '사사분기'
+end as result, 
+case  
+     when imonth in (1,2,3) then 1
+     when imonth in (4,5,6) then 2
+     when imonth in (7,8,9) then 3
+     when imonth in (10,11,12) then 4
+end as ordering  
+from myterror
+)
+group by result, ordering
+order by ordering
+```
 
 ```python
-from gensim.models import word2vec
+import cx_Oracle
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
 
-filename = 'wiki.model'
+# Series : 동일 타입의 데이터를 담고 있는 1차원 배열과 유사 형태의 자료 구조
+from pandas.core.series import Series
 
-model = word2vec.Word2Vec.load(filename)
+conn = cx_Oracle.connect('oraman/oracle@DESKTOP-D3MO1PU:1521/XE', encoding='utf-8')
 
-result = model.most_similar(positive=['Python','파이썬'])
-print('-' * 50)
-print(result)
-result = model.most_similar(positive=['아빠','여성'], negative=['남성'])[0]
-print('-' * 50)
-print(result)
-result = model.most_similar(positive=['왕자','여성'], negative=['남성'])[0:5]
-print('-' * 50)
-print(result)
-result = model.most_similar(positive=['서울','일본'], negative=['한국'])[0:5]
-print('-' * 50)
-print(result)
-result = model.most_similar(positive=['서울','중국'], negative=['한국'])
-print('-' * 50)
-print(result)
-result = model.most_similar(positive=['오른쪽','남자'], negative=['왼쪽'])[0]
-print('-' * 50)
-print(result)
-result = model.most_similar(positive=['서울','맛집'])[0:5]
-print('-' * 50)
-print(result)
-result = model['고양이']
-print('-' * 50)
-print(result)
-result = model['강아지']
-print('-' * 50)
-print(result)
+cur = conn.cursor()
+
+cur.execute('select bungi, mycount from bungitable order by ordering')
+
+data     = []   # 데이터
+myindex  = []   # 사사분기 이름
+total    = 0
+
+for result in cur:
+    myindex.append(result[0])
+    data.append(result[1])
+    total += result[1]
+
+print(total)
+
+newindex = []
+ 
+for idx in range(len(myindex)):
+    newindex.append(myindex[idx] + '\n(' + str(round(100 * data[idx]/total, 2)) + '%)')
+
+font_location = 'c:/Windows/fonts/malgun.ttf'  # \는 \\를 사용한다
+font_name = font_manager.FontProperties(fname=font_location).get_name()
+plt.rc('font',family=font_name)
+ 
+chartData = Series(data=data, index=newindex)
+chartData.plot(kind='pie', title='분기별 범죄 빈도') 
+
+
+plt.show()
+cur.close()
+conn.close()
 ```
 
 ###### <U>[Go to Contents](#contents)</U>
-
----
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
-## Introduce XML 데이터 분석 !!  
-# XML 데이터
 
 ---
 
 <!-- *template: invert -->
-<!-- page_number: true -->
-<a name="5"/>
 
-###### 5.XML 데이터 분석하기
+###### 지역별 범죄 발생 빈도 확인해보기
 
 <span style="font-size:6pt">
 
+지역별 범죄 발생 빈도에서 상위 5~8위까지의 데이터럴 이용하여 차틀 그리기(수명막대, 파이그래프)
+	
+```SQL
+create table region_summary
+as
+select region_txt, count(*) as cnt from myterror
+group by region_txt
+order by cnt desc;
+
+create table region_summary_ranking
+as
+select region_txt, cnt
+from (
+    select region_txt, cnt, rank() over(order by cnt desc) as ranking
+    from region_summary
+)
+where ranking between 5 and 8;
+
+select * from region_summary_ranking
+```
+
 ```python
-from xml.etree.ElementTree import Element, SubElement, ElementTree
+import cx_Oracle
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
 
-# Element('앨리먼트 이름')
-blog = Element('blog')
+# Series : 동일 타입의 데이터를 담고 있는 1차원 배열과 유사 형태의 자료 구조
+from pandas.core.series import Series
 
-# 엘리먼트객체.attrib['속성이름'] = '속성에 들어갈 값'
-blog.attrib['date'] = '20180714'
+conn = cx_Oracle.connect('oraman/oracle@DESKTOP-D3MO1PU:1521/XE', encoding='utf-8')
 
-# SubElement(상위엘리먼트 객체, '태그이름').text = '들어갈 글자 내용'
-SubElement(blog, 'subject').text = '파이썬 잼있어'
-SubElement(blog, 'author').text = '홍길동'
-SubElement(blog, 'content').text = '파이썬으로 xml 다루기'
+cur = conn.cursor()
 
-def indent(elem, level=0):
-    mytab = '\t'
-    i = '\n' + level * mytab
-    
-    if len(elem):
-        if not elem.text or not elem.text.strip():
-            elem.text = i + mytab
+cur.execute('select * from region_summary_ranking')
 
-        if not elem.tail or not elem.tail.strip():
-            elem.tail= i
-            
-        for elem in elem:
-            indent(elem, level +1)
-            
-        if not elem.tail or not elem.tail.strip():
-            elem.tail = i
-    else :
-        if level and (not elem.tail or not elem.tail.strip()):
-            elem.tail = i        
-            
-indent(blog)
+data     = []   # 데이터
+myindex  = []   # 사사분기 이름
+total    = 0
 
-xmlFile = 'xmlEx01.xml'
+for result in cur:
+    myindex.append(result[0])
+    data.append(result[1])
+    total += result[1]
 
-# 파일 저장
-ElementTree(blog).write(xmlFile, encoding='utf-8')
+print(total)
 
-print('작업완료')
+newindex = []
+ 
+for idx in range(len(myindex)):
+    newindex.append(myindex[idx] + '\n(' + str(round(100 * data[idx]/total, 2)) + '%)')
+
+font_location = 'c:/Windows/fonts/malgun.ttf'  # \는 \\를 사용한다
+font_name = font_manager.FontProperties(fname=font_location).get_name()
+plt.rc('font',family=font_name)
+ 
+ 
+chartData = Series(data=data, index=newindex)
+chartData.plot(kind='barh', rot=18, alpha=0.7, title='지역별 범죄 발생 빈도(5~8위)') 
+plt.show()
+
+# chartData = Series(data=data, index=newindex)
+chartData.plot(kind='pie', title='지역별 범죄 발생 빈도(5~8위)') 
+plt.show()
+
+cur.close()
+conn.close()
 ```
 
 ###### <U>[Go to Contents](#contents)</U>
 
----
 
-<span style="font-size:6pt">
-
-```python
-from xml.etree.ElementTree import Element, SubElement, ElementTree
-
-# 다음 사전을 이용하여 xml 파일을 만드세요
-mydict = {'kim':('김철수',30,'남자','마표공덕동'), 'park':('박영희','40','여자','용산 도원동')}
-print('사전 내역: ', mydict)
-
-# Element('앨리먼트 이름')
-members = Element('members')
-
-# 엘리먼트객체.attrib['속성이름'] = '속성에 들어갈 값'
-members.attrib['date'] = '20180714'
-
-# SubElement(상위엘리먼트 객체, '태그이름').text = '들어갈 글자 내용'
-for key, mytuple in mydict.items():
-    mem = SubElement(members, 'member')
-    mem.attrib['id'] = key # 속성 부여하기
-    
-    # 하위 엘리먼트
-    SubElement(mem, 'name').text = mytuple[0]
-    SubElement(mem, 'age').text =str( mytuple[1])
-    SubElement(mem, 'gender').text = mytuple[2]
-    SubElement(mem, 'address').text = mytuple[3]
-
-def indent(elem, level=0):
-    mytab = '\t'
-    i = '\n' + level * mytab
-     
-    if len(elem):
-        if not elem.text or not elem.text.strip():
-            elem.text = i + mytab
- 
-        if not elem.tail or not elem.tail.strip():
-            elem.tail= i
-             
-        for elem in elem:
-            indent(elem, level +1)
-             
-        if not elem.tail or not elem.tail.strip():
-            elem.tail = i
-    else :
-        if level and (not elem.tail or not elem.tail.strip()):
-            elem.tail = i        
-             
-indent(members)
-
-xmlFile = 'xmlEx02.xml'
-
-# ElementTree(엘리먼트객체).write(저장할 xml 파일 이름)
-ElementTree(members).write(xmlFile, encoding='utf-8')
-
-print('작업완료')
- 
-```
-
----
-
-<span style="font-size:6pt">
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<가족들 설명="호호호" 코멘트="여러 가족들">
-	<가족>
-		<아부지>
-			<이름>김말똥</이름>
-			<나이>60</나이>
-		</아부지>
-		<어머니>
-			<이름 정보="순악질">이순자</이름>
-			<나이>55</나이>
-			<blood>A형</blood>
-		</어머니>
-		<나 이름="김철식" 나이 ="30"/>
-	</가족>
-	<가족>
-		<아부지>
-			<이름>심형래</이름>
-			<나이>38</나이>
-		</아부지>
-		<어머니>
-			<이름 정보="abcd">김미화</이름>
-			<나이>35</나이>
-			<blood>A형</blood>
-		</어머니>
-		<나 이름="심수봉" 나이 ="3"/>
-	</가족>
-</가족들>
-```
-
----
-
-<span style="font-size:6pt">
-
-```python
-from xml.etree.ElementTree import parse
-
-tree = parse('xmlEx03.xml')
-myroot = tree.getroot()
-
-print(type(myroot))
-
-# 속성 읽어 오기
-print('속성 읽기 1: ', end=' ')
-print(myroot.keys())
-print('속성 읽기 2: ', end=' ')
-print(myroot.items())
-print('속성 읽기 3: ', end=' ')
-print(myroot.get('설명'))
-print('속성 읽기 4: ', end=' ')
-print(myroot.get('foo','미존재시기본값'))
-print()
-
-family1 = myroot.findall('가족')
-print('finaall는 일치하는 모든 태그를 리스트로 반환한다.')
-print(family1)
-print('findtext는 일치하는 1번재 태그의 택스트 값을 반환한다.')
-family2 = myroot.findtext('가족')
-print(family2)
-
-print('find는 일치하는 1번재 태그를 리턴한다.')
-family = myroot.find('가족')
-print(family)
-print()
-
-# childs = family.getiterator()
-childs = family.getiterator()
-print(childs)
-
-# childs : 아부지, 어머니, 나
-for onesaram in childs:
-    print('엘리먼트 정보:', end=' ')
-    print(onesaram)
-    elem = onesaram.getchildren()
-    
-    for item in elem:
-        print('하위 엘리먼트 정보:', end=' ')
-        print(item, end=' ')
-        print(item.text, end=' ')
-        if item.text == '이순자':
-            print(item.attrib['정보'])
-        else:
-            print()
-    print()
-print()    
-```
-
-###### <U>[Go to Contents](#contents)</U>
