@@ -25,11 +25,8 @@ permalink: /Lecture/DBConnect
 
 |No|Titile|Explain|
 |--:|:-:|:--|
-|1|[Json](#1)|Javasript Object Notations|
-|2|[Gensim](#2)|유사도|
-|3|[Basian](#3)|베이지안 정리|
-|4|[Wikipedia](#4)|위키피디아 데이터 분석하기|
-|5|[XML](#5)|XML 데이터 분석하기|
+|1|[Json](#json)|Javasript Object Notations|
+|2|[Oracle](#oracle)|오라클|
 
 ---
 
@@ -43,7 +40,7 @@ permalink: /Lecture/DBConnect
 <!-- *template: invert -->
 <!-- page_number: true -->
 
-<a name="1"/>
+<a name="json"/>
 
 #### 1. Json
 
@@ -200,9 +197,18 @@ if __name__ == '__main__':
 
 ---
 
+<!-- page_number: false -->
+
+## Introduce Oracle Connecting !!  
+# 오라클 연동
+
+---
+
+<a name="oracle"/>
+
 <!-- *template: invert -->
 
-###### 1.3 오라클 연동해서 분석하기 
+#### 1. Oracle
 
 [오라클](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
 [오라클 instant](http://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html)
