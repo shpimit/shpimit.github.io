@@ -55,6 +55,7 @@ theano로 설정되어 있으면 이를 tensorflow로 변경
 ###### 4. [Anaconda 환경에서 R 설치하기](http://yahwang.tk/posts/27)
 
 > conda install r-irkernel
+> jupyter 커널 참조 : https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
 
 ---
 
