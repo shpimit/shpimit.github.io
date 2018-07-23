@@ -38,9 +38,11 @@ permalink: /Lecture/BlockChain
 <a name="site"/>
 
 #### [Reference Site]  
-* [허민석 머신러닝](https://youtu.be/hO9SVW6nnhM)
-<!-- * Gradle
-* [Lecture](/Lecture/Java)
+* [비트코인 블록 탐색기](https://www.blockchain.com/explorer)
+* [비트코인 체굴](https://bitnodes.earn.com/nodes/live-map/)
+* [WPS](https://www.wps.com/office-free)
+* [Radpid Miner](http://www.rapidminer.co.kr/rapidminer-studio)
+* [이더스캔](https://etherscan.io/)
 -->
 
 ---
