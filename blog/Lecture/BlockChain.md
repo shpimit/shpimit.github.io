@@ -147,6 +147,9 @@ contract SimpleAuction {
         return true;
     }
     
+    // 블록체인에서는 시간이 지난다고 자동으로 경매가 종료 되지 않음
+    // 타 프로그램에서 아래의 함수를 호출해서, 또는 remix에서 아래 함수를 실행해서 경매 물건이
+    // 최종 낙찰자에게 전달 해야 함.
     function auctionEnd() public {
         require(now >= auctionEnd);
         require(!ended);
