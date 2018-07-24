@@ -59,7 +59,7 @@ permalink: /Lecture/BlockChain
 > Naive Baisan, 유사도 측정 가능 유무
 > Solidity 실행
 
-```sol
+```solidity
 pragma solidity ^0.4.18;
 
 contract payment {
