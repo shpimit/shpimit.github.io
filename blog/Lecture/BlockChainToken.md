@@ -1060,40 +1060,11 @@ contract Escrow is Owned {
 ```solidity
 pragma solidity ^0.4.8;
 
-
-contract TransactionLog {
-
-    mapping (string => mapping (string => string)) private tranlog;
-
-
-    function setTransaction(string user_id, string project_id, string tran_data) public{
-        if(bytes(tranlog[user_id][project_id]).length != 0){ //(*) Q5. 이미 등록된 경우 예외처리
-            throw;
-        }
-        tranlog[user_id][project_id] = tran_data;
-    }
-    
- 
-    function getTransaction(string user_id, string project_id) public constant returns (string tran_data)   {
-        return tranlog[user_id][project_id];
-    }
-}
-
-```
-
----
-
-* 난수 생성 계약
-
-```solidity
-pragma solidity ^0.4.8;
-
 contract RandomNumber {
     address owner;
     uint numberMax;
 
     struct draw {
-        // (1) 예약할 때 마지막 블록 번호만 유지
         uint blockNumber;
     }
 
@@ -1104,7 +1075,6 @@ contract RandomNumber {
 
     mapping (address => draws) requests;
 
-    // (2) request()의 반환 값 참조용 이벤트에 정의 
     event ReturnNextIndex(uint _index);
 
     function RandomNumber(uint _max) {
@@ -1120,19 +1090,22 @@ contract RandomNumber {
         return _nextIndex;
     }
 
-    // (3) 난수 값 계산 결과를 저장하지 않게끔 변경하고 constant 함수로 변경
-    function get(uint _index) constant returns (int status, bytes32 blockhash, uint drawnNumber){
+    // (1) 디버깅용으로 blockhash와 seed 값을 반환하도록 변경
+    function get(uint _index) constant returns (int status, bytes32 blockhash, bytes32 seed, uint drawnNumber){
         if(_index >= requests[msg.sender].numDraws){
-            return (-2, 0, 0);
+            return (-2, 0, 0, 0);
         }else{
             uint _nextBlockNumber = requests[msg.sender].draws[_index]. blockNumber + 1;
             if (_nextBlockNumber >= block.number) {
-                return (-1, 0, 0);
+                return (-1, 0, 0, 0);
             }else{
-                // (4) 매번 블록 번호로부터 블록 해시를 참조해 반환 
                 bytes32 _blockhash = block.blockhash(_nextBlockNumber);
-                uint _drawnNumber = uint(_blockhash) % numberMax + 1;
-                return (0, _blockhash, _drawnNumber);
+// (2) 블록 해시 값, 사용자 주소, 예약 번호를 바탕으로 seed 값 계산
+                bytes32 _seed = sha256(_blockhash, msg.sender, _index); // seed를 계산하는 함수
+		// (3) seed 값을 바탕으로 난수 계산
+                uint _drawnNumber = uint(_seed) % numberMax + 1;
+		// (4) 상태, 블록 해시 값, 난수 계산의 기반이 되는 seed 값, 계산된 난수를 반환
+                return (0, _blockhash, _seed, _drawnNumber);
             }
         }
     }
