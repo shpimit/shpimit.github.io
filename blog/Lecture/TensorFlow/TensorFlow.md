@@ -47,6 +47,7 @@ theano로 설정되어 있으면 이를 tensorflow로 변경
 
 ###### 3. Tensorflow 설치
 
+> python -m pip install --upgrade pip
 > 아나콘다 배포판에는 텐서플로 최신 버전이 늦게 포함되므로 파이썬 기본 패키지 관리자인 pip로 텐서플로우를 설치합니다.
 > pip install tensorflow
 > 만약 AVX를 지원하지 않는 CPU를 사용하고 있다면 다음과 같이 1.5 버전을 설치합니다.
