@@ -4,6 +4,14 @@ title: R
 permalink: /Lecture/R
 ---
 ## R
+
+### 0. 설치
+
+* [R](http://www.r-project.org)
+* [RStudio](http://www.rstudio.com/)
+
+---
+
 ### 1. 기초
 
 * Ctrl+l       : console지우기
