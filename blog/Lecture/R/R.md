@@ -3,16 +3,59 @@ layout: page
 title: R
 permalink: /Lecture/R
 ---
-## R
 
-### 0. 설치
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+# Introducing R !!
+##### (Data Mining Language)
+
+---
+
+<!-- $theme: gaia -->
+<!-- page_number: true -->
+
+## Overview
+
+
+> R은 오픈소스 프로그램으로 통계/데이터 마이닝 및 그래프를 위한 언어이다.
+> R은 주로 연구 및 산업별 응용 프로그램으로 많이 사용되고 있으며, 최근에는 기업들이 많이들 사용하기 시작했다. 
+> <small>-- *빅데이터 분석을 목적으로 주목을 받고 있으며, 5000개가 넘는 패키지(일종의 애플리케이션)들이 다양한 기능을 지원하고 있다.* </small>
+
+---
+
+<!-- *template: invert -->
+
+## Contents
+
+<a name="contents"/>
+
+* **Table of Contents**   
+
+|No|Titile|Explain|
+|--:|:-:|:--|
+|0|[Install](#install)|환경설정|
+|1|[BasicCommand](#basic)|기초명령어|
+<!--|2|[Text Mining](#text)|텍스트 마이닝|
+|3|[Graph & Chart](#matplotlib)|그래프 & 차트|
+|4|[Word Cloud](#wordcloud)|워드 클라우드|-->
+
+---
+
+<!-- *template: invert -->
+<!-- page_number: true -->
+<a name="install"/>
+
+##### 0. 설치
 
 * [R](http://www.r-project.org)
 * [RStudio](http://www.rstudio.com/)
 
 ---
 
-### 1. 기초
+###### 1. 기초
+
+<span style="font-size:16pt">
 
 * Ctrl+l       : console지우기
 * Ctrl+Enter   : 스크립트 명령어 실행
@@ -23,16 +66,21 @@ a <- c(1,2,3,4,5,1,2)
 summary(a)
 m <- matrix(a, nrow=2)
 ```
-### 2. 패키지 설치
+
+###### 2. 패키지 설치
+
 ```R
 install.packages
 ```
-### 3. 핵심 라이브러리
+
+###### 3. 핵심 라이브러리
+
 ```R
 library(ggplot2)  # qplot 라이브러리
 library(dplyr)    # 데이터 프레임 rename
 ```
-#### 3.1 문자열 관련 함수(stringr)
+
+####### 3.1 문자열 관련 함수(stringr)
 ```R
 install.packages("stringr")
 library(stringr)
@@ -44,7 +92,7 @@ str_extract(str,"[0-9]{4}") # [1] "2015"
 str_extract_all(str,"[0-9]{4}") # [1] "2015" "2016" "2017"
 str_locate(str,"linux")  # [1,]    10  14
 ```
-### 4. 데이터 프레임(data.frame)
+###### 4. 데이터 프레임(data.frame)
 ```R
 var1 <- c(70,80,90)
 var2 <- c(70,80,80)
@@ -57,13 +105,16 @@ df1 <- rename(df1, mat=var3)
 names(df1)       # 컬럼명 확인
 summary(df1$kor) # 데이터 확인
 ```
-### 5. R 제공 샘플데이터
+###### 5. R 제공 샘플데이터
+
 ```R
 mpg
 table(mpg$manufacturer) # 오라클 테이블 아님, 데이터 distinct정보
 mpg1 <- mpg      # 데이터 복사
 ```
-### 6. 외부파일
+
+###### 6. 외부파일
+
 ```R
 install.packages("readxl")
 library(readxl)
@@ -822,7 +873,9 @@ head(eco1)
 dygraph(eco1)
 ```
 
-### 6. 유의성 테스트(유의 확률 - p-value)
+---
+
+###### 6. 유의성 테스트(유의 확률 - p-value)
 
 ```R
 a <- data.frame(aa=c(1,2,3,4,5,1,2,3,4,5), bb=c(1,1,1,1,1,2,2,2,2,2))
@@ -841,7 +894,9 @@ a <- data.frame(aa=c(11,7,8,9,10,1,2,3,4,6), bb=c(1,1,1,1,1,2,2,2,2,2))
 t.test(data=a, aa~bb, var.equal=T)
 ```
 
-### 7. 상관분석
+---
+
+###### 7. 상관분석
 
 ```R
 # 놀이동산의 만족도 분석 데이터
@@ -882,7 +937,9 @@ library(corrplot)
 corrplot(x)
 ```
 
-### 8. 회귀분석
+---
+
+###### 8. 회귀분석
 
 ```R
 # 일정한 패턴을 확인후 무엇인가를 예측하는 분석
