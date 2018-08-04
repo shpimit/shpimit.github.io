@@ -76,8 +76,12 @@ mathjax: true
 ##### Jupyter Oracle연동
 
 1. [Jupyter Oracle연동](https://db-blog.web.cern.ch/blog/luca-canali/2016-06-ipythonjupyter-notebooks-oracle)
-2. [github](https://github.com/LucaCanali/Miscellaneous/blob/master/Oracle_Jupyter/Oracle_IPython_cx_Oracle_pandas.ipynb)
-
+2. [github](https://github.com/LucaCanali/Miscellaneous/blob/master/Oracle_Jupyter/Oracle_IPython_cx_Oracle_pandas.ipynb)  
+3. [Jupyter Home 경로 바꾸기](http://luke77.tistory.com/52)  
+* .jupyter 폴더 진입
+* jupyter_notebook_config.py 열기
+* #c.NotebookApp.notebook_dir = '' 열찾기 (179 번째 line 정도)
+* '' 란 안에 원하는 폴더의 절대 경로 삽입. 단 \ --> / 로 변경 (c:\temp --> c:/temp)
 
 ##### 마크다운 Table
 * 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables

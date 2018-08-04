@@ -92,36 +92,11 @@ library(dplyr)    # 데이터 프레임 rename
 
 |No|Titile|Explain|
 |--:|:-:|:--|
-|0|[data](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R)|공공데이터|
-|1|[src](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R)|기초명령어|
+|0|[data](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/stringr.ipynb)|문자열 패키지(stringr)|
+|1|[src](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
 
 ---
 
-####### 3.1 문자열 관련 함수(stringr)
-```R
-install.packages("stringr")
-library(stringr)
-str <- "java,jsp,linux,2015,2016,2017"
-str_length(str)
-str_split(str,',')     # 나누는 함수
-str_replace(str,'linux','abc')
-str_extract(str,"[0-9]{4}") # [1] "2015"
-str_extract_all(str,"[0-9]{4}") # [1] "2015" "2016" "2017"
-str_locate(str,"linux")  # [1,]    10  14
-```
-###### 4. 데이터 프레임(data.frame)
-```R
-var1 <- c(70,80,90)
-var2 <- c(70,80,80)
-df1 <- data.frame(var1, var2)
-var3 <- c(50,60,66)
-df1 <- cbind(df1, var3)
-df1 <- rename(df1, kor=var1)
-df1 <- rename(df1, eng=var2)
-df1 <- rename(df1, mat=var3)
-names(df1)       # 컬럼명 확인
-summary(df1$kor) # 데이터 확인
-```
 ###### 5. R 제공 샘플데이터
 
 ```R
