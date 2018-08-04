@@ -58,6 +58,7 @@ theano로 설정되어 있으면 이를 tensorflow로 변경
 > conda install r-irkernel
 > jupyter 커널 참조 : https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
 
+###### 5. [주피터 설치가능 커널](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
 ---
 
 ### 2. 기초
