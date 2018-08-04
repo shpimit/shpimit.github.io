@@ -92,8 +92,8 @@ library(dplyr)    # 데이터 프레임 rename
 
 |No|Titile|Explain|
 |--:|:-:|:--|
-|0|[data](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/stringr.ipynb)|문자열 패키지(stringr)|
-|1|[src](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
+|0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/stringr.ipynb)|문자열 패키지(stringr)|
+|1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
 
 ---
 
