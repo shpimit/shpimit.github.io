@@ -5,7 +5,7 @@ permalink: /Lecture/TensorFlow
 ---
 
 ## TensorFlow
-### 1. 개발환경 Setting
+### 1. [개발환경 Setting](https://tensorflow.blog/윈도우즈에-아나콘다-텐서플로우-설치하기/) 
 #### 1.1 [Anaconda3 5.2 설치(Python 3.6 기반)](https://www.anaconda.com/download/#windows)
 #### 1.2 [TensorFlow 설치](https://www.tensorflow.org/install/install_windows)
 * conda create -n tensorflow pip python=3.6
