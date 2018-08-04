@@ -27,20 +27,11 @@ mathjax: true
   
 |No|Titile|Explain|YMD|
 |--:|:--:|:-:|:--|
-|1|[Github 연동](#gihtub)|Github|18-05-09|
-|2|[Visual Studio Code](#vsc) |Visual Studio Code|18-05-09|
-|3|[Python](#python) |파이썬|18-05-09|
-|4|[Jupyter](#jupyter) |주피터|18-05-09|
-|5|[Book](#book) |책|18-05-09|
-
----
-
-<!-- *template: invert -->
-<!-- page_number: true -->
-<a name="github"/>
-
-## GitHub 연동
-* [editor on GitHub](https://github.com/shpimit/space/edit/master/README.md) 
+|1|[Java](/Lecture/Java)|Spring|18.8.4|
+|2|[Book](#book) |책|18-05-09|
+|3|[Visual Studio Code](#vsc) |Visual Studio Code|18-05-09|
+|4|[Python](#python) |파이썬|18-05-09|
+|5|[Jupyter](#jupyter) |주피터|18-05-09|
 
 ---
 

@@ -80,6 +80,23 @@ library(ggplot2)  # qplot 라이브러리
 library(dplyr)    # 데이터 프레임 rename
 ```
 
+---
+
+<!-- *template: invert -->
+
+## Data & Source 
+
+<a name="data"/>
+
+* **Table of Data Explain**   
+
+|No|Titile|Explain|
+|--:|:-:|:--|
+|0|[data](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R)|공공데이터|
+|1|[src](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R)|기초명령어|
+
+---
+
 ####### 3.1 문자열 관련 함수(stringr)
 ```R
 install.packages("stringr")
