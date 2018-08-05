@@ -94,6 +94,7 @@ library(dplyr)    # 데이터 프레임 rename
 |--:|:-:|:--|
 |0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/stringr.ipynb)|문자열 패키지(stringr)|
 |1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
+|2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
 
 ---
 
@@ -108,35 +109,6 @@ mpg1 <- mpg      # 데이터 복사
 ###### 6. 외부파일
 
 ```R
-install.packages("readxl")
-library(readxl)
-df_ex1 <- read_excel("c:/r_temp/excel_exam.xlsx")
-nrow(df_ex1) # 마지막 행번호
-ncol(df_ex1)
-dim(df_ex1)  # 행렬 정보
-str(df_ex1)
-summary(df_ex1)
-df_ex2 <- df_ex1
-hap <- df_ex2$math + df_ex2$english + df_ex2$science
-df_ex2$hap <- hap
-head(df_ex2)
-avg <- df_ex2$hap / 3
-avg <- round(avg,2)
-df_ex2$avg <- avg
-df_ex2$math <- as.integer(df_ex2$math)  # 모두 integer 처리 한다(형변환)
-write.csv(df_ex2, file="c:/r_temp/df_ex2.csv") # 저장하기
-save(df_ex2, file="c:/r_temp/df_rda1.rda") # rdata로 저장 및 불러오기
-rm(df_ex2)
-load("c:/r_temp/df_rda1.rda")
-df_ex2
-str(df_ex2)
-df_ex3 <- as.data.frame(df_ex2)
-str(df_ex3)
-df_ex3
-df_ex10 <- read_excel("c:/r_temp/excel_exam_novar.xlsx") # 1행의 타이블 없는 데이터
-head(df_ex10)
-df_ex10 <- read_excel("c:/r_temp/excel_exam_novar.xlsx", col_names = F)
-hist(df_ex2$math)
 score <- scan()   # 입력받기 Default integer 타입으로 받음.
 if(score >= 60) {
   cat("success")
@@ -148,35 +120,6 @@ ifelse(score == 'M',"남자","여자")  # 삼항연산자
 switch("name",id="kim",pwd="1234",name="홍길동") # 컬럼 search
 name<-c("kim","lee","choi")                  
 which(name=="lee")                              # 데이터 search
-```
-```R
-# 반복문
-i <- c(1:10)
-    cat(n, 'x', 10, '=', n*10, '\n')
-}
-i=0
-while(i<5) {
-     i <- i+1
-     print(i)
-}
-```
-```R
-pythagoras <- function(a,b) {
-  c <- a^2 + b^2
-  cat(a,b,c)
-}
-pythagoras(3,4)
-```
-* 데이터 중 결측지 제거 함수 만들기
-
-```R
-na_data <- c(1,2,NA,3,4,NA,5,6,6)
-sum(na_data)
-fn_na <- function(a) {
-  value <-ifelse(!is.na(a),a,0)
-  print(value)
-}
-na_data1 <- fn_na(na_data)
 ```
 * mpg 데이터를 이용한 실습
 
