@@ -52,6 +52,8 @@ permalink: /Lecture/R
 
 ###### 1. 기초
 
+<a name="basic"/>
+
 <span style="font-size:16pt">
 
 * Ctrl+l       : console지우기
@@ -94,6 +96,7 @@ library(dplyr)    # 데이터 프레임 rename
 |2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
 |3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/mpg.ipynb)|연비데이터|
 |4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/midwest.ipynb)|중서부인고통계 데이터|
+
 ---
 
 ###### 5. R 제공 샘플데이터
@@ -119,51 +122,6 @@ switch("name",id="kim",pwd="1234",name="홍길동") # 컬럼 search
 name<-c("kim","lee","choi")                  
 which(name=="lee")                              # 데이터 search
 ```
-* mpg 데이터를 이용한 실습
-
-```R
-mpg1 <- mpg
-avg_mileage <- (mpg1$cty+ mpg1$hwy) /2 
-avg_mileage
-length(avg_mileage)
-mpg1$avg_mileage <- avg_mileage 
-names(mpg1)
-summary(mpg1$avg_mileage)
-round(mean(mpg1$avg_mileage),3)
-table(mpg1$avg_mileage)
-hist(mpg1$avg_mileage)
-qplot(mpg1$avg_mileage)
-hist(mpg1$avg_mileage,xlim=c(0,50), ylim=c(0,100),main="테스트", border=2)
-mpg1$test_result <- ifelse(mpg1$avg_mileage >= 20, "pass", "fail")
-head(mpg1,10)
-mpg1$grade <- ifelse(mpg1$avg_mileage >= 30, "A", ifelse(mpg1$avg_mileage >=20,  "B","C"))
-table(mpg1$grade)
-```
-* midwest 데이터를 이용한 실습
-
-```R
-midwest
-nrow(midwest)
-ncol(midwest)
-help(midwest)
-names(midwest)
-midwest1 <- midwest
-midwest1 <- rename(midwest1, total=poptotal)
-midwest1 <- rename(midwest1, asian=popasian)
-names(midwest1)
-midwest1$total
-midwest1$asian
-a <- (midwest1$asian/midwest1$total) *100
-a <- round(a,2)
-hist(a)
-names(midwest1)
-mean(a)
-midwest1$ratio <- a
-b <- mean(a)
-midwest1$group <- ifelse(midwest1$ratio > b, "large", "small")
-head(midwest1,2)
-table(midwest1$group)
-qplot(midwest1$group)
 
 ```
 * MySQL 설치
