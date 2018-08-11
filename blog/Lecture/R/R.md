@@ -36,9 +36,6 @@ permalink: /Lecture/R
 |--:|:-:|:--|
 |0|[Install](#install)|환경설정|
 |1|[BasicCommand](#basic)|기초명령어|
-<!--|2|[Text Mining](#text)|텍스트 마이닝|
-|3|[Graph & Chart](#matplotlib)|그래프 & 차트|
-|4|[Word Cloud](#wordcloud)|워드 클라우드|-->
 
 ---
 
@@ -95,7 +92,8 @@ library(dplyr)    # 데이터 프레임 rename
 |0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/stringr.ipynb)|문자열 패키지(stringr)|
 |1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
 |2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
-
+|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/mpg.ipynb)|연비데이터|
+|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/midwest.ipynb)|중서부인고통계 데이터|
 ---
 
 ###### 5. R 제공 샘플데이터
