@@ -9,7 +9,7 @@ permalink: /Lecture/NLPDetail
 <!-- *template: gaia -->
 <!-- page_number: false -->
 
-# Introducing `NLP2` !!
+# Introducing NLP2 !!
 ##### (Natural Language Processing)
 ###### Created by [푸르지오 (@shpimit)](https://github.com/shpimit)
 

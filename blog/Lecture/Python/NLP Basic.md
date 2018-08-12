@@ -9,7 +9,7 @@ permalink: /Lecture/NLP
 <!-- *template: gaia -->
 <!-- page_number: false -->
 
-# Introducing `NLP` !!
+# Introducing NLP !!
 ##### (Natural Language Processing)
 ###### Created by [푸르지오 (@shpimit)](https://github.com/shpimit)
 
@@ -21,7 +21,7 @@ permalink: /Lecture/NLP
 ## Overview
 
 
-> 자연어 처리는 **KoNLpy**등의 처리를 통해서 형태소를 구별하여 단어/문장등에서 의미를 발견하는 작업이다. 
+> `자연어 처리`는 **KoNLpy**등의 처리를 통해서 형태소를 구별하여 단어/문장등에서 의미를 발견하는 작업이다. 
 >
 > <small>-- *[Gaia (mythology) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gaia_%28mythology%29)*</small>
 
@@ -35,7 +35,7 @@ permalink: /Lecture/NLP
 
 * **Table of Contents**   
 
-|No|Titile|Explain|
+|No|Title|Explain|
 |--:|:-:|:--|
 |0|[Install](#install)|환경설정|
 |1|[WebCrawling](#WebCrawling)|웹 크롤링|
@@ -85,7 +85,7 @@ permalink: /Lecture/NLP
 <!-- page_number: false -->
 
 
-## Introduce **WebCrawling** ll !!  
+## Introduce **WebCrawling** !!  
 # WebCrawling
 
 ---
@@ -116,6 +116,7 @@ print(len(tags))
 ```
 
 * 앵커의 href 속성값 뽑아오기  
+
 ```python
 url_header = 'https://movie.naver.com'    
 for tag in tags : 
@@ -213,7 +214,8 @@ for myitem in malist:
 
 <span style="font-size:18pt">
 
-* [참조사이트](https://matplotlib.org/gallery/index.html)  
+* [참조사이트](https://matplotlib.org/gallery/index.html)
+
 ```python
 # font_manager 글꼴 관리자
 # rc 함수 : 전역적으로 사용하고 싶을때
@@ -290,6 +292,7 @@ C:\Windows\Fonts\malgun.ttf외2   -> C:\ProgramData\Anaconda3\Lib\site-packages\
 <span style="font-size:18pt">
 
 *  정규 표현식을 실습해본다.
+
 ```python
 import re  # 정규표현식 regular
 
@@ -370,6 +373,7 @@ print(keyortByVals)
 <span style="font-size:6.5pt">
   
 * [참조하기](https://ithub.korean.go.kr/user/main.do)
+
 ```python
 import codecs # 파일의 인코딩과 디코딩을 위한 모듈
 import pytagcloud # 워드 클라우드를 만들어 주는 패키지
@@ -445,5 +449,6 @@ showGraph(wordInfo)
 
 print(wordInfo) 
 ```
+
 ###### <U>[Go to Contents](#contents)</U>
 

@@ -32,18 +32,19 @@ permalink: /Lecture/R
 
 * **Table of Contents**   
 
-|No|Titile|Explain|
+|No|Titile|Remarks|
 |--:|:-:|:--|
-|0|[Install](#install)|환경설정|
-|1|[BasicCommand](#basic)|기초명령어|
+|0|[환경설정](#install)|환경설정|
+|1|[R studio](#basic)|기초명령어|
 
 ---
 
 <!-- *template: invert -->
 <!-- page_number: true -->
-<a name="install"/>
 
 ##### 0. 설치
+
+<a name="install"/>
 
 * [R](http://www.r-project.org)
 * [RStudio](http://www.rstudio.com/)
@@ -94,8 +95,8 @@ library(dplyr)    # 데이터 프레임 rename
 |0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/stringr.ipynb)|문자열 패키지(stringr)|
 |1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
 |2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
-|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/mpg.ipynb)|연비데이터|
-|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/midwest.ipynb)|중서부인고통계 데이터|
+|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/mpg.ipynb)|연비데이터(ggplot2)|
+|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/midwest.ipynb)|중서부인구 통계 데이터(ggplot2)|
 
 ---
 
@@ -159,6 +160,7 @@ test <- dbGetQuery(conn,"select * from test1")
 
 * 우편주소 테스트 하기
 * MySQL 관리 화면 들어가기 http://127.0.0.1/myadmin/
+
 ```SQL
 create table post(
     unq     int not null,
@@ -173,6 +175,7 @@ create table post(
 ```
 * 관리화면 import에서 file 선택 csv 선택
 * CSV using LOAD DATA를 선택    Option에 필드 구분자 , 로 변경
+
 ```R
 query <- "select * from post"
 post <- dbGetQuery(conn,query)
@@ -510,6 +513,7 @@ plot(t1)
 #### https://www.slideshare.net/dahlmoon/20160623-63318427?next_slideshow=1
 
 ## 시험문제
+
 ```R
 empno <- c(101,102,103,104,105)
 bonus <- c(0.1,0.1,0.12,0.15,0)
