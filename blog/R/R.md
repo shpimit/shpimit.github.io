@@ -92,11 +92,11 @@ library(dplyr)    # 데이터 프레임 rename
 
 |No|Titile|Explain|
 |--:|:-:|:--|
-|0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/stringr.ipynb)|문자열 패키지(stringr)|
-|1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
-|2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
-|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/mpg.ipynb)|연비데이터(ggplot2)|
-|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Lecture/R/src/midwest.ipynb)|중서부인구 통계 데이터(ggplot2)|
+|0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/stringr.ipynb)|문자열 패키지(stringr)|
+|1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
+|2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
+|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/mpg.ipynb)|연비데이터(ggplot2)|
+|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/midwest.ipynb)|중서부인구 통계 데이터(ggplot2)|
 
 ---
 
