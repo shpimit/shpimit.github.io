@@ -57,7 +57,7 @@ python3 install.py --sys-prefix
 
 <a name="data"/>
 
-* **Table of Data & Source**   
+* **Table of Data & Source** 
 
 |No|Title|Remarks|
 |--:|:-:|:--|
