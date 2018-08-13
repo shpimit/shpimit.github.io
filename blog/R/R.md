@@ -88,9 +88,9 @@ library(dplyr)    # 데이터 프레임 rename
 
 <a name="data"/>
 
-* **Table of Data Explain**   
+* **Table of Data & Source**   
 
-|No|Titile|Explain|
+|No|Title|Remarks|
 |--:|:-:|:--|
 |0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/stringr.ipynb)|문자열 패키지(stringr)|
 |1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/dataframe.ipynb)|데이타프레임(dplyr)|

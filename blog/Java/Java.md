@@ -4,11 +4,77 @@ title: Java
 permalink: /Lecture/Java
 ---
 
-## Java
+<!-- *template: gaia -->
+<!-- page_number: false -->
+
+# Introducing Java !!
+##### (Universal Language)
+
+---
+
+<!-- *template: invert -->
+
+## Contents
+
+<a name="contents"/>
+
+* **Table of Contents**   
+
+|No|Titile|Remarks|
+|--:|:-:|:--|
+|0|[환경설정](#install)|환경설정|
+|1|[Syllabus](#syllabus)|기본학습|
+
+---
 
 ### 1. 개발환경 Setting
 
+<a name="install"/>
+
+* [OpenJDK9](http://jdk.java.net/java-se-ri/9)
+* [IJava](https://github.com/SpencerPark/IJava)
+
+> Jupyter에 Java Kernel을 설치하는 방법
+> IJava는 JDK >= 9 로 되어 있으나 실제 JDK=9에서만 돌아가는 것으로 보인다.
+> 설치하는 방법도 python 컴파일 방법으로는 잘 동작하지 않으니 실제 binary파일을 받고 설치하는것이 좋다.
+> jupyter kernelspec list
+
+* [IJava release](https://github.com/SpencerPark/IJava/releases)
+
+```python
+# Pass the -h option to see the help page
+python3 install.py -h
+
+# Otherwise a common install command is
+python3 install.py --sys-prefix
+```
+
+---
+
+<!-- *template: invert -->
+
+## Data & Source 
+
+<a name="data"/>
+
+* **Table of Data & Source**   
+
+|No|Title|Remarks|
+|--:|:-:|:--|
+|0|[jsoup.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Java/src/jsoup.ipynb)|WebCrawling|
+|1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
+|2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
+|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/mpg.ipynb)|연비데이터(ggplot2)|
+|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/midwest.ipynb)|중서부인구 통계 데이터(ggplot2)|
+
+---
+
+---
+
 ### 2. Syllabus
+
+<a name="syllabus"/>
+
 1. 지난 학습 정리
 * 코딩을 배워야 하는 이유(동영상)
 * 미래의 언어 코딩(동영상)
@@ -26,9 +92,13 @@ permalink: /Lecture/Java
 * Neural Network 예측(아라한 문서)
 * 링크 소프트웨어 세상(동영상)
 
+---
+
 ### 3. 기초
 ```Java
 ```
+
+---
 
 ### 4. [SpringBoot & Gradle 프로젝트 생성하기](http://jojoldu.tistory.com/250)
 1. elipse에서 Spring Starter를 선택
@@ -72,6 +142,8 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 ```
+
+---
 
 5. Spring boot 간단한 Java파일은 아래와 같습니다.
 
