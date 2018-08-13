@@ -12,7 +12,7 @@ permalink: /Lecture/Java
 
 ---
 
-<!-- *template: invert -->
+<!-- *template: invert -->  
 
 ## Contents
 
