@@ -24,9 +24,10 @@ permalink: /Lecture/DeepLearning
 
 |No|Titile|Remarks|
 |--:|:-:|:--|
-|0|[환경설정](#install)|환경설정|
-|1|[명강의](#syllabus)|명강의|
-|2|[Pytorch](#Pytorch)|Pytorch 딥러닝 소스|
+|1|[TensorFlow](/Lecture/TensorFlow)|텐서플로|
+|2|[PyTorch](/Lecture/PyTorch)|PyTorch|
+|3|[Keras](/Lecture/Keras)|케라스|
+|4|[Reference Site](#reference)|참조사이트|
 
 ---
 
@@ -43,28 +44,7 @@ permalink: /Lecture/DeepLearning
 
 ---
 
----
-
-<!-- *template: invert -->
-
-## Data & Source 
-
-<a name="data"/>
-
-* **Table of Data & Source**   
-
-|No|Source|Remarks|
-|--:|:-:|:--|
-|0|[Tensor](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/01_Tensor.ipynb)|Tensor|
-|1|[Autograd](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/02_Autograd.ipynb)|Autograd|
-|2|[DataLoader](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/03_Dataset_DataLoader.ipynb)|데이타로드|
-|3|[Feed-forward_Neural_Networks](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/04_Feed-forward_Neural_Networks_answer.ipynb)|Feed-forward|
-|4|[Convolutional_Neural_Networks](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/05_Convolutional_Neural_Networks_answer.ipynb)|CNN|
-|5|[Recurrent_Neural_Networks](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/06_Recurrent_Neural_Networks.ipynb)|RNN|
-
----
-
-<a name="syllabus"/>
+<a name="reference"/>
 
 ### 2. 명강의
 
