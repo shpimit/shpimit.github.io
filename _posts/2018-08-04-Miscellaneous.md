@@ -73,7 +73,7 @@ mathjax: true
 <!-- page_number: true -->
 <a name="jupyter"/>
 
-##### Jupyter Oracle연동
+##### Jupyter
 
 1. [Jupyter Oracle연동](https://db-blog.web.cern.ch/blog/luca-canali/2016-06-ipythonjupyter-notebooks-oracle)
 2. [github](https://github.com/LucaCanali/Miscellaneous/blob/master/Oracle_Jupyter/Oracle_IPython_cx_Oracle_pandas.ipynb)  
@@ -82,6 +82,8 @@ mathjax: true
 * jupyter_notebook_config.py 열기
 * #c.NotebookApp.notebook_dir = '' 열찾기 (179 번째 line 정도)
 * '' 란 안에 원하는 폴더의 절대 경로 삽입. 단 \ --> / 로 변경 (c:\temp --> c:/temp)
+4. [![허민석 Jupyter사용법](http://img.youtube.com/vi/SLPo0o_HArs/0.jpg)](https://youtu.be/SLPo0o_HArs) 
+5. [![주피터 노트북의 진화! 주피터랩 살펴보기](http://img.youtube.com/vi/70sRgL42c1w/0.jpg)](https://youtu.be/70sRgL42c1w) 
 
 ##### 마크다운 Table
 * 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables
