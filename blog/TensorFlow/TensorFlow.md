@@ -109,73 +109,17 @@ theano로 설정되어 있으면 이를 tensorflow로 변경
 |1|[XOR](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/XOR_Tensorflow.ipynb)|XOR문제|
 |2|[XOR해결](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/XOR-Solution.ipynb)|XOR해결|
 |3|[Regression](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/Regression.ipynb)|Regression|
-|4|[Regression](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/05_Convolutional_Neural_Networks_answer.ipynb)|CNN|
-|5|[Recurrent_Neural_Networks](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/06_Recurrent_Neural_Networks.ipynb)|RNN|
+
+* **Table of MNIST Best Model Source**  
+
+||[softmax](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/01_mnist_softmax.ipynb)|[Neural Network](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/02_mnist_nn.ipynb)|[NN(w/ Xavier)](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/03_mnist_xavier.ipynb)|[Deep NN](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/04_mnist_deep.ipynb)|[DNN(w/ dropout)](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/05_mnist_dropout.ipynb)|
+|--:|:-:|:-:|:-:|:-:|:-:|
+|활성화 함수1|W(softmax)|W1(Relu)|W1(Relu)|W1(Relu)|W1(Relu)|
+|활성화 함수2|-|W2(Relu)|W2(Relu)|W2(Relu)|W2(Relu)|
+|활성화 함수3|-|W3(softmax)|W3(softmax)|W3(Relu)|W3(Relu)|
+|활성화 함수4|-|-|-|W4(Relu)|W4(Relu)|
+|활성화 함수5|-|-|-|W5(softmax)|W5(softmax))|
+|xavier_initializer|미사용|미사용|사용(W최적화)|사용(W최적화)|사용(W최적화)|
+|Dropout|미사용|미사용|미사용|미사용|사용(훈련시:0.7,테스트시:1.0)|
 
 ---
-
-
-### 2. 기초
-```python
-import tensorflow as tf
-
-matrix1 = tf.constant([[1.,2.],[3.,4.]])
-matrix2 = tf.constant([[1.],[2.]])
-print("Matrix 1 shape", matrix1.shape)
-print("Matrix 2 shape", matrix2.shape)
-
-sess = tf.Session()
-result = sess.run(tf.matmul(matrix1, matrix2))
-print(result)
-```
-
-```python
-import numpy as np
-
-a = [1,2,3,4,5,1,2,6]
-print(a)
-a = np.array(a)   
-a.reshape(2,4)
-print(a)
-```
-* 엑셀 읽기
-
-```python
-import numpy as np
-import pandas as pd
-
-data = pd.read_excel("c:/r_temp/excel_exam.xlsx")
-data.head(5)
-
-import xlrd
-
-list_job = pd.read_excel('C:\\r_temp\\Koweps_Codebook.xlsx')
-```
-
-* MySQL 연결하기
-
-```python
-# python3
-conda install pymysql
-conda install sqlalchemy
-
-import pandas as pd
-from sqlalchemy import create_engine
-
-#engine = create_engine('mysql://root:apmsetup@localhost/abc', convert_unicode=True)
-# 우리가 설치한 mysql 모듈을 써주어야 정상 작동합니다.
-engine = create_engine('mysql+pymysql://root:apmsetup@localhost/abc', convert_unicode=True)
-
-conn = engine.connect()
-
-data = pd.read_sql_table('test1', conn)
-data.head()
-```
-
-* 데이터 프레임 합치기
-
-```python
-jumsu1 = pd.DataFrame({"name":("Kim","Lee"), "kor":(70,90)})
-jumsu2 = pd.DataFrame({"name":("Kim","Lee"), "eng":(80,90)})
-pd.merge(jumsu1,jumsu2,on="name")
-```
