@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Deep Learning
-permalink: /Lecture/PyTorch
+permalink: /Lecture/Keras
 ---
 
 ---
