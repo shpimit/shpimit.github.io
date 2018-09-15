@@ -50,9 +50,6 @@ permalink: /Lecture/BlockChain
 
 #### [Block Chain]
 
-> 자바 weka로  iris 동영상 보여주고.. 검증하기
-> Confusion Matrix 가능 유무
-> Naive Baisan, 유사도 측정 가능 유무
 > Solidity 실행
 
 * 송금

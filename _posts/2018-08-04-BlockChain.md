@@ -26,8 +26,9 @@ featured-img: Next
   
 |No|Titile|Explain|YMD|
 |--:|:--:|:-:|:--:|
-|1|[Block Chain](/Lecture/BlockChain)|서울대학교 도시연구소|18.7.23~7.27|
-|2|[Fin Tech](/Lecture/FinTech)|에이콘 아카데미|18.10.13~11.3|
+|1|[Block Chain 1](/Lecture/BlockChain)|서울대학교 도시연구소|18.7.23~7.27|
+|2|[Block Chain 2](/Lecture/BlockChainToken)|서울대학교 도시연구소|18.7.23~7.27|
+|4|[Fin Tech](/Lecture/FinTech)|에이콘 아카데미|18.10.13~11.3|
 
 ---
 

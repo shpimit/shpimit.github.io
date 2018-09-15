@@ -12,6 +12,15 @@ permalink: /Lecture/Keras
 # Introducing `Keras` !!
 ##### (Keras 이해)
 
+<!-- *template: invert -->
+<!-- page_number: true -->
+
+* **Table of Learning**
+
+|No|Titile|Educational Istitution|Term|
+|--:|:--:|:-:|:--:|
+|1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/Python)|IT이젠아카데미|18.8.4~9.1|
+
 ---
 
 <!-- *template: invert -->  

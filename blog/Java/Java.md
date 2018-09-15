@@ -62,12 +62,6 @@ python3 install.py --sys-prefix
 |No|Title|Remarks|
 |--:|:-:|:--|
 |0|[jsoup.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Java/src/jsoup.ipynb)|WebCrawling|
-|1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
-|2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
-|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/mpg.ipynb)|연비데이터(ggplot2)|
-|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/midwest.ipynb)|중서부인구 통계 데이터(ggplot2)|
-
----
 
 ---
 
@@ -95,6 +89,7 @@ python3 install.py --sys-prefix
 ---
 
 ### 3. 기초
+
 ```Java
 ```
 

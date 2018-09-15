@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: Block Chain Token
@@ -27,21 +26,12 @@ permalink: /Lecture/BlockChainToken
   
 |No|Titile|Explain|YMD|
 |--:|:--:|:-:|:--:|
-|1|[Reference Site](#site)|Reference|18-07-21|
-|2|[Block Chain Token](#block)|블록체인|18-07-24|
+|1|[Block Chain Token](#block)|블록체인|18-07-24|
 
 ---
 
 <!-- *template: invert -->
-<a name="site"/>
 
-#### [Reference Site]  
-* [jupyter](https://github.com/shpimit/shpimit.github.io/blob/master/_posts/Untitled.ipynb)
-
-
----
-
-<!-- *template: invert -->
 <a name="block"/>
 
 #### [Block Chain Token]

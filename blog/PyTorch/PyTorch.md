@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Deep Learning
+title: PyTorch(for Deep Learning)
 permalink: /Lecture/PyTorch
 ---
 
