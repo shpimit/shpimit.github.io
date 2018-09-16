@@ -12,6 +12,16 @@ permalink: /Lecture/TensorFlow
 # Introducing `TensorFlow` !!
 ##### (TensorFlow 이해)
 
+<!-- *template: invert -->
+<!-- page_number: true -->
+
+* **Table of Learning**
+
+|No|Titile|Educational Istitution|Term|
+|--:|:--:|:-:|:--:|
+|1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|18.8.4~9.1|
+|2|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|18.9.10~9.14|
+
 ---
 
 <!-- *template: invert -->  
@@ -26,7 +36,8 @@ permalink: /Lecture/TensorFlow
 |--:|:-:|:--|
 |0|[환경설정](#install)|환경설정|
 |1|[Tensorflow](#Tensorflow)|Tensorflow 소스|
-|2|[Reference Site](#reference)|참조사이트|
+|2|[Keara](/Lecture/Keras)|Keras 소스|
+|3|[Reference Site](#reference)|참조사이트|
 
 ---
 

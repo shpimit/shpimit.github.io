@@ -90,45 +90,6 @@ permalink: /Lecture/NLP
 |0|[WebCrawling.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/WebCrawling.ipynb)|웹크롤링|
 |1|[Konlpy.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/KonlpySamply.ipynb)|자연어처리|
 |2|[matplotlib.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/matplotlib.ipynb)|그래프라이브러리|
-|3|[WordCloud.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/mpg.ipynb)|워드클라우드|
-|4|[facebook.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/facebook.ipynb)|Facebook 크롤링|
-
-
----
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
-
-## Introduce **WebCrawling** !!  
-# WebCrawling
-
-
----
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
-
-## Introduce Text Mining !!  
-
-# Text Mining
-
----
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
-## Introduce Graph & Chart !!
-# matplotlib
-
----
-
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
-## Introduce word cloud !!  
-# Word Cloud
-
----
+|3|[WordCloud.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/WordCloud.ipynb)|워드클라우드|
+|4|[Pandas.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Pandas.ipynb)|Pandas예제|
+|5|[Series.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Series.ipynb)|Series예제|

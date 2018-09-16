@@ -20,7 +20,7 @@ permalink: /Lecture/Python
 
 |No|Titile|Educational Istitution|Term|
 |--:|:--:|:-:|:--:|
-|1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/Python)|IT이젠아카데미|18.8.4~9.1|
+|1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|18.8.4~9.1|
 |2|[파이썬 프로그램밍과 과학 계산](/Lecture/MachineLearning)|서울대학교 도시연구소|18.8.20~8.24|
 |3|[빅데이터 분석기초를 위한 Python](/Lecture/Python)|서울대학교 도시연구소|18.9.3~9.7|
 |4|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|18.9.10~9.14|
