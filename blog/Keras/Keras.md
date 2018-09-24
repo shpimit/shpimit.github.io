@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Deep Learning
+title: Keras
 permalink: /Lecture/Keras
 ---
 
@@ -56,13 +56,9 @@ permalink: /Lecture/Keras
 
 * **Table of Data & Source**   
 
-|No|Source|Remarks|
-|--:|:-:|:--|
-|0|[Tensor](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/01_Tensor.ipynb)|Tensor|
-|1|[Autograd](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/02_Autograd.ipynb)|Autograd|
-|2|[DataLoader](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/03_Dataset_DataLoader.ipynb)|데이타로드|
-|3|[Feed-forward_Neural_Networks](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/04_Feed-forward_Neural_Networks_answer.ipynb)|Feed-forward|
-|4|[Convolutional_Neural_Networks](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/05_Convolutional_Neural_Networks_answer.ipynb)|CNN|
-|5|[Recurrent_Neural_Networks](https://github.com/shpimit/shpimit.github.io/tree/master/blog/DeepLearning/src/06_Recurrent_Neural_Networks.ipynb)|RNN|
+|No|Source|From|Remarks|
+|--:|:-:|:--|:--|
+|0|[LinearRegression](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Keras/src/Krs_csvReaderEx01.ipynb)|IT이젠아카데미|선형회귀|
+|1|[보스턴집값](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Keras/src/Krs_bostonLinear.ipynb)|IT이젠아카데미|보스턴집값선형예측|
 
 
