@@ -18,12 +18,23 @@ permalink: /Lecture/Python
 
 * **Table of Learning**
 
-|No|Titile|Educational Istitution|Term|
-|--:|:--:|:-:|:--:|
+|No|Title|Educational Institution|Term|
+|--:|:-:|:-:|:--:|
 |1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|18.8.4~9.1|
 |2|[파이썬 프로그램밍과 과학 계산](/Lecture/MachineLearning)|서울대학교 도시연구소|18.8.20~8.24|
 |3|[빅데이터 분석기초를 위한 Python](/Lecture/Python)|서울대학교 도시연구소|18.9.3~9.7|
 |4|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|18.9.10~9.14|
+
+---
+
+<!-- $theme: gaia -->
+<!-- page_number: true -->
+
+## Overview
+
+> 파이썬(Python)은 1990년 암스테르담의 귀도 반 로섬(Guido Van Rossum)이 개발한 인터프리터 언어이다. 
+> 딥러닝 비전문가라도 각자 분야에서 손쉽게 딥러닝 모델을 개발하고 활용할 수 있도록 케라스는 직관적인 API를 제공하고 있습니다.    
+> <small>-- *귀도는 파이썬이라는 이름을 자신이 좋아하는 코미디 쇼인 "몬티 파이썬의 날아다니는 서커스(Monty Python’s Flying Circus)"에서 따왔다고 한다. 파이썬의 사전적인 의미는 고대 신화에 나오는 파르나소스 산의 동굴에 살던 큰 뱀을 뜻하며, 아폴로 신이 델파이에서 파이썬을 퇴치했다는 이야기가 전해지고 있다. * </small>
 
 ---
 
@@ -35,7 +46,7 @@ permalink: /Lecture/Python
 
 * **Table of Contents**   
 
-|No|Titile|Remarks|
+|No|Title|Remarks|
 |--:|:-:|:--|
 |0|[환경설정](#install)|환경설정|
 |2|[Reference Site](#reference)|참조사이트|
@@ -51,27 +62,26 @@ permalink: /Lecture/Python
 <!-- page_number: true -->
 <a name="install"/>
 
-#### 0. Install
+## Get Started(`Python`)
 
 <span style="font-size:16pt">
 
-###### **1. Pydev**
+* Installing Pydev
+  * [eclipse 설치](https://www.eclipse.org)  
+  * pydev 플러그인 설치(메뉴 help - eclipse marketplace)  
+  * pydev 입력후 검색  
+  * sysdm.cpl 명령어로 들어가기  
+  * 고급 탭 - 환경변수 버튼 클리  
+  * 시스템 변수의 path의 가장 앞 단에 다음 항목 추가 하기  
+  * 이클립스와 python 연동  
+  * 메뉴 window - preferences에서   
+    pydev - interpreters - python interpreter  
+  * 인코딩 설정  
+    General -> Workspace -> Textfile encoding -> Other 에서 utf-8로 설정      
+  * 프로젝트 생성  
+     메뉴  file - new - pydev project  
 
-* [eclipse 설치](https://www.eclipse.org)  
-* pydev 플러그인 설치(메뉴 help - eclipse marketplace)  
-* pydev 입력후 검색  
-* sysdm.cpl 명령어로 들어가기  
-* 고급 탭 - 환경변수 버튼 클리  
-* 시스템 변수의 path의 가장 앞 단에 다음 항목 추가 하기  
-* 이클립스와 python 연동  
-* 메뉴 window - preferences에서   
-   pydev - interpreters - python interpreter  
-* 인코딩 설정  
-  General -> Workspace -> Textfile encoding -> Other 에서 utf-8로 설정      
-* 프로젝트 생성  
-   메뉴  file - new - pydev project  
-
-##### **[2. Anaconda](https://www.anaconda.com/)**
+* Installing [Anaconda](https://www.anaconda.com/)**
 
 ---
 
@@ -81,14 +91,14 @@ permalink: /Lecture/Python
 
 * **Table of Data & Source**   
 
-|No|Source|Remarks|
+|No|Title|Educational Institution|Source|Remarks|
 |--:|:-:|:--|
-|0|[WebCrawling.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/WebCrawling.ipynb)|웹크롤링|
-|1|[Konlpy.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/KonlpySamply.ipynb)|자연어처리|
-|2|[matplotlib.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/matplotlib.ipynb)|그래프라이브러리|
-|3|[WordCloud.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/WordCloud.ipynb)|워드클라우드|
-|4|[Pandas.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Pandas.ipynb)|Pandas예제|
-|5|[Series.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Series.ipynb)|Series예제|
+|1|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[WebCrawling.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/WebCrawling.ipynb)|웹크롤링|
+|2|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[Konlpy.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/KonlpySamply.ipynb)|자연어처리|
+|3|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[matplotlib.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/matplotlib.ipynb)|그래프라이브러리|
+|4|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[WordCloud.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/WordCloud.ipynb)|워드클라우드|
+|5|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[Pandas.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Pandas.ipynb)|Pandas예제|
+|6|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[Series.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Series.ipynb)|Series예제|
 
 
 ---

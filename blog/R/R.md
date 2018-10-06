@@ -10,6 +10,10 @@ permalink: /Lecture/R
 # Introducing R !!
 ##### (Data Mining Language)
 
+|No|Title|Educational Institution|Term|
+|--:|:-:|:-:|:--:|
+|1|[통계패키지 R기본학습](/Lecture/R)|에이콘 아카데미|18.8.4~9.1|
+
 ---
 
 <!-- $theme: gaia -->
@@ -19,7 +23,7 @@ permalink: /Lecture/R
 
 
 > R은 오픈소스 프로그램으로 통계/데이터 마이닝 및 그래프를 위한 언어이다.
-> R은 주로 연구 및 산업별 응용 프로그램으로 많이 사용되고 있으며, 최근에는 기업들이 많이들 사용하기 시작했다. 
+> R은 주로 연구 및 산업별 응용 프로그램으로 많이 사용되고 있으며, 최근에는 기업들이 많이들 사용하기 시작했다.   
 > <small>-- *빅데이터 분석을 목적으로 주목을 받고 있으며, 5000개가 넘는 패키지(일종의 애플리케이션)들이 다양한 기능을 지원하고 있다.* </small>
 
 ---
@@ -32,7 +36,7 @@ permalink: /Lecture/R
 
 * **Table of Contents**   
 
-|No|Titile|Remarks|
+|No|Title|Remarks|
 |--:|:-:|:--|
 |0|[환경설정](#install)|환경설정|
 |1|[R studio](#basic)|기초명령어|
@@ -42,14 +46,39 @@ permalink: /Lecture/R
 <!-- *template: invert -->
 <!-- page_number: true -->
 
-##### 0. 설치
-
 <a name="install"/>
+
+## Get Started(`R`)
 
 * [R](http://www.r-project.org)
 * [RStudio](http://www.rstudio.com/)
+* [Anaconda 환경에서 R 설치하기](http://yahwang.tk/posts/27)
+
+> conda install r-irkernel
+
+* [주피터 설치가능 커널](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
 
 ---
+
+<!-- *template: invert -->
+
+<a name="data"/>
+
+## Data & Source 
+
+* **Table of Data & Source**   
+
+|No|Title|Educational Institution|Source|Remarks|
+|--:|:-:|:-:|:-:|:--|
+|0|<small>통계패키지 R기본학습</small>|<small>에이콘 아카데미</small>|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/stringr.ipynb)|문자열 패키지(stringr)|
+|1|<small>통계패키지 R기본학습</small>|<small>에이콘 아카데미</small>|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
+|2|<small>통계패키지 R기본학습</small>|<small>에이콘 아카데미</small>|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
+|3|<small>통계패키지 R기본학습</small>|<small>에이콘 아카데미</small>|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/mpg.ipynb)|연비데이터(ggplot2)|
+|4|<small>통계패키지 R기본학습</small>|<small>에이콘 아카데미</small>|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/midwest.ipynb)|중서부인구 통계 데이터(ggplot2)|
+
+---
+
+## Basic Source 
 
 ###### 1. 기초
 
@@ -82,23 +111,6 @@ library(dplyr)    # 데이터 프레임 rename
 
 ---
 
-<!-- *template: invert -->
-
-## Data & Source 
-
-<a name="data"/>
-
-* **Table of Data & Source**   
-
-|No|Title|Remarks|
-|--:|:-:|:--|
-|0|[stringr.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/stringr.ipynb)|문자열 패키지(stringr)|
-|1|[dataframe.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/dataframe.ipynb)|데이타프레임(dplyr)|
-|2|[excel_data.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/excel_data.ipynb)|외부파일 읽기(readxl)|
-|3|[mpg.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/mpg.ipynb)|연비데이터(ggplot2)|
-|4|[midwest.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/R/src/midwest.ipynb)|중서부인구 통계 데이터(ggplot2)|
-
----
 
 ###### 5. R 제공 샘플데이터
 

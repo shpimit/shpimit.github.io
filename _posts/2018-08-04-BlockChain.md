@@ -24,11 +24,11 @@ featured-img: Next
 
 <span style="font-size:16pt">
   
-|No|Titile|Explain|YMD|
+|No|Title|Educational Institution|Term|
 |--:|:--:|:-:|:--:|
 |1|[Block Chain 1](/Lecture/BlockChain)|서울대학교 도시연구소|18.7.23~7.27|
 |2|[Block Chain 2](/Lecture/BlockChainToken)|서울대학교 도시연구소|18.7.23~7.27|
-|4|[Fin Tech](/Lecture/FinTech)|에이콘 아카데미|18.10.13~11.3|
+|4|[실무에 적용하는 핀테크 블록체인 실전과정](/Lecture/FinTech)|에이콘 아카데미|18.10.13~11.3|
 
 ---
 

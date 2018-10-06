@@ -12,6 +12,16 @@ permalink: /Lecture/Java
 
 ---
 
+<!-- $theme: gaia -->
+<!-- page_number: true -->
+
+## Overview
+
+> 자바(영어: Java, 문화어: 자바)는 썬 마이크로시스템즈의 제임스 고슬링(James Gosling)과 다른 연구원들이 개발한 객체 지향적 프로그래밍 언어이다.
+> <small>-- *1991년 그린 프로젝트(Green Project)라는 이름으로 시작해 1995년에 발표했다.* </small>
+
+---
+
 <!-- *template: invert -->  
 
 ## Contents
