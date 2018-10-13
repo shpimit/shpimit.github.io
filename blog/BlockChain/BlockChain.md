@@ -18,7 +18,7 @@ permalink: /Lecture/BlockChain
 
 |No|Title|Educational Institution|Term|
 |--:|:--:|:-:|:--:|
-|1|[블록체인]((Lecture/BlockChain)|서울대학교 도시연구소|18.8.4~9.1|
+|1|[블록체인](/Lecture/BlockChain)|서울대학교 도시연구소|18.8.4~9.1|
 
 ---
 
