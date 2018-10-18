@@ -10,6 +10,12 @@ permalink: /Lecture/Java
 # Introducing Java !!
 ##### (Universal Language)
 
+* **Table of Learning**
+
+|No|Title|Educational Institution|Term|
+|--:|:--:|:-:|:--:|
+|1|[Java 개발자를 위한 Apach Spark2 빅데이터 분서과 처리](/Lecture/TensorFlow)|한국정보기술연구원|18.10.17~10.19|
+
 ---
 
 <!-- $theme: gaia -->
@@ -33,7 +39,8 @@ permalink: /Lecture/Java
 |No|Titile|Remarks|
 |--:|:-:|:--|
 |0|[환경설정](#install)|환경설정|
-|1|[Syllabus](#syllabus)|기본학습|
+|1|[기본실행](#execute)|기본실행|
+|2|[Syllabus](#syllabus)|기본학습|
 
 ---
 
@@ -61,6 +68,47 @@ python3 install.py --sys-prefix
 
 ---
 
+### 2. Scala 환경 Setting
+
+> eclipse plug in (scala IDE)
+> Help-Marketplace
+> find 검색창에 scala로 검색하고  검색결과중  4.7 scala IDE를 선택한다
+> Open perspective -> scala를 선택하면  s가 붙은 아이콘이 생성이 된다.
+> Window->prefereces->scala->installations 에 2.11이 선택되어 있는지 확인한다.
+
+---
+
+
+<a name="syllabus"/>
+
+### 기본 실행
+
+* SPARK_HOME /usr/local/spark
+* Hadoop Echo 실행하는 법
+  * start-all.sh
+* Hadoop 서비스 확인 하는법
+ * console에서 확인 하는법 : jps
+ * 브라우저에서 확인 하는법 : http://localhost:50070
+* Hive 실행하는법
+ * hive --service metastore
+* Spark alone으로 띄우고 싶으면 hive config를 주석 처리해야함
+```
+cd /usr/local/spark
+ls
+cd conf
+hive-site.xml
+gedit hive-site.xml
+comment -> standalone spark
+<!-- <property>
+  <name>hive.metastore.uris</name>
+  <value>thrift://localhost:9083</value>
+  </property>
+-->
+```
+
+
+---
+
 <!-- *template: invert -->
 
 ## Data & Source 
@@ -72,6 +120,17 @@ python3 install.py --sys-prefix
 |No|Title|Remarks|
 |--:|:-:|:--|
 |0|[jsoup.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Java/src/jsoup.ipynb)|WebCrawling|
+
+---
+
+* **Table of Data & Source for Scala** 
+
+|No|Title|Remarks|
+|--:|:-:|:--|
+|0|[Date](#srcdate)|주어진 데이터에는 일요일 갯수 확인|
+|1|[WC](#srcwordcount)|주어진 파일의 단어 갯수 계산|
+|2|[Top3](#srcwctop3)|주어진 파일의 Top3단어 추출|
+|3|[Join](#srcjoin)|RDD join 소스|
 
 ---
 
@@ -98,9 +157,196 @@ python3 install.py --sys-prefix
 
 ---
 
-### 3. 기초
+<a name="srcdate"/>
 
-```Java
+### 3. Scala 소스
+
+#### Date 소스
+
+> scala shell에서 돌리기
+> ./bin/spark-shell --master local --packages joda-time:joda-time:2.8.2
+
+```scala
+import org.joda.time.{DateTime, DateTimeConstants}
+import org.joda.time.format.DateTimeFormat
+import org.apache.spark.{SparkConf, SparkContext}
+
+val filePath = "file:///home/hadoop_user/scalasrc/data/date.txt"
+
+val textRDD = sc.textFile(filePath)
+
+val dateTimeRDD = textRDD.map { dateStr =>
+val pattern =
+  DateTimeFormat.forPattern("yyyyMMdd")
+  DateTime.parse(dateStr, pattern)
+}
+dateTimeRDD.foreach(println)
+
+val sundayRDD = dateTimeRDD.filter { dateTime =>
+dateTime.getDayOfWeek == DateTimeConstants.SUNDAY
+}
+
+val numOfSunday = sundayRDD.count
+println(s"주어진 데이터에는 일요일이 ${numOfSunday}개 들어 있습니다.")
+```
+
+---
+
+#### WordCount 소스
+
+> scala shell에서 돌리기
+> ./bin/spark-shell --master local
+
+```scala
+val filePath="file:///home/hadoop_user/scalasrc/data/README.md"
+
+// _는 case랑 같은거고, filter는 if, p{Alnum}은 특수문자 제거
+val wordAndCountRDD = sc.textFile(filePath).
+              flatMap(_.split("[ ,.]")).
+              filter(_.matches("""\p{Alnum}+""")).
+              map((_, 1)).
+              reduceByKey(_ + _)
+
+
+// 모든 단어의 등장횟수를 출력한다
+wordAndCountRDD.collect.foreach(println)
+
+val filePath="file:///home/hadoop_user/hanbit/README.md"
+val wordAndCountRDD = sc.textFile(filePath).
+              flatMap(_.split("[ ,.]")).
+              filter(_.matches("""[A-Za-z]+""")).
+              map((_, 1)).
+              reduceByKey(_ + _)
+
+
+// 모든 단어의 등장횟수를 출력한다
+wordAndCountRDD.collect.foreach(println)
+
+//conf [A-Za-z0-9]+===\p{Alnum}+  +1개이상
+//filter(_.matches("""[A-Za-z0-9]+""")).
+```
+
+---
+
+#### WordCount Top3 단어 추출 소스
+
+> scala shell에서 돌리기
+> ./bin/spark-shell --master local
+
+```scala
+import org.apache.spark.{SparkConf, SparkContext}
+
+val filePath="file:///home/hadoop_user/scalasrc/data/README.md"
+val wordAndCountRDD = sc.textFile(filePath).
+                      flatMap(_.split("[ ,.]")).
+                      filter(_.matches("""\p{Alnum}+""")).
+                      map((_, 1)).
+                      reduceByKey(_ + _)
+      
+// 등장횟수가 가장 많은 단어 세개를 찾는다
+val top3Words = wordAndCountRDD.map {
+case (word, count) => (count, word)
+}.sortByKey(false).map {
+case (count, word) => (word, count)
+}.take(3)
+
+// 등장횟수가 가장 많은 단어 톱쓰리를 표준출력으로 표시한다
+top3Words.foreach(println)
+```
+
+---
+
+
+#### RDD join 소스
+
+> scala shell에서 돌리기
+> ./bin/spark-shell --master local
+
+```scala
+
+import scala.collection.mutable.{HashMap, Map}
+import java.io.{BufferedReader, InputStreamReader, Reader}
+import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.fs.{FileSystem, Path}
+import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.broadcast.Broadcast
+import org.apache.spark.rdd.RDD
+
+// UML type : type이 뒤에 나옵니다.
+// record는 한줄씩 읽어드립니다.
+// (productId, numOfSold) 튜플 형식으로 바꾸어라
+def createSalesRDD(csvFile: String) = {
+    val logRDD = sc.textFile(csvFile)
+    logRDD.map { record =>
+      val splitRecord = record.split(",")
+      val productId = splitRecord(2)
+      val numOfSold = splitRecord(3).toInt
+      (productId, numOfSold)
+    }
+  }
+
+val salesOctRDD=createSalesRDD("file:///home/hadoop_user/scalasrc/data/sales-october.csv")
+salesOctRDD.foreach(println)
+salesOctRDD.count
+val salesNovRDD=createSalesRDD("file:///home/hadoop_user/scalasrc/data/sales-november.csv")
+salesNovRDD.foreach(println)
+
+def createOver50SoldRDD(rdd: RDD[(String, Int)]) = {
+    rdd.reduceByKey(_ + _).filter(_._2 >= 50)
+  }
+
+val octOver50SoldRDD=createOver50SoldRDD(salesOctRDD)
+octOver50SoldRDD.foreach(println)
+val novOver50SoldRDD=createOver50SoldRDD(salesNovRDD)
+novOver50SoldRDD.foreach(println)
+
+
+
+val bothOver50SoldRDD=octOver50SoldRDD.join(novOver50SoldRDD)
+bothOver50SoldRDD.foreach(println)
+
+
+val over50SoldAndAmountRDD = bothOver50SoldRDD.map {
+        case (productId, (amount1, amount2)) =>
+          (productId, amount1 + amount2)
+      }
+over50SoldAndAmountRDD.foreach(println)
+
+def createProductRDD(csvFile: String) = {
+    val logRDD = sc.textFile(csvFile)
+    logRDD.map { record =>
+      val splitRecord = record.split(",")
+      val productId = splitRecord(0)
+      val productName = splitRecord(1)
+      val unitPrice = splitRecord(2).toInt
+      (productId, (productName,unitPrice))
+    }
+  }
+
+val productRDD2=createProductRDD("file:///home/hadoop_user/scalasrc/data/products.csv")
+productRDD2.foreach(println)
+
+//(20,(인절미(4개),10000))
+
+over50SoldAndAmountRDD.foreach(println)
+//(8,140)
+//(15,131)
+
+val saleAndProdRDD=over50SoldAndAmountRDD.join(productRDD2)
+saleAndProdRDD.foreach(println)
+
+//(8,(140,(강정(10개),15000)))
+//(15,(131,(생과자(10개),17000)))
+
+val saprdd=saleAndProdRDD.map { case (productId,(numOfSold,(productName,unitPrice))) =>
+      (productName, numOfSold, numOfSold * unitPrice)
+    }
+saprdd.foreach(println)
+
+
+// 결과를 계산해 파일시스템이 출력한다
+saprdd.saveAsTextFile("file:///home/hadoop_user/scalasrc/data/results3")
+
 ```
 
 ---
