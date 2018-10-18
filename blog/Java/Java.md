@@ -131,6 +131,14 @@ comment -> standalone spark
 |1|[WC](#srcwordcount)|주어진 파일의 단어 갯수 계산|
 |2|[Top3](#srcwctop3)|주어진 파일의 Top3단어 추출|
 |3|[Join](#srcjoin)|RDD join 소스|
+|4|[Hive](#srchive)|Hive SQL 소스|
+|5|[Hive Groupby](#srGroupby)|Hive Groupby 소스|
+|6|[Hive Parquet](#srcParquet)|Parquet save examples|
+|7|[SparkSession](#srcSession)|SparkSession car examples|
+|8|[SparkSession1](#srcSession1)|SparkSession car1 examples|
+|9|[SparkSession2](#srcSession2)|SparkSession car2 examples|
+
+
 
 ---
 
@@ -349,6 +357,288 @@ saprdd.saveAsTextFile("file:///home/hadoop_user/scalasrc/data/results3")
 
 ```
 
+---
+
+#### Hive 쿼리 소스
+
+> scala shell에서 돌리기
+> /usr/local/spark/bin/spark-shell --master local
+
+```scala
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+
+  // register case class external to main
+  case class Employee(EmployeeID : Int, 
+    LastName : String, FirstName : String, Title : String,
+    BirthDate : String, HireDate : String,
+    City : String, State : String, Zip : String, Country : String,
+    ReportsTo : String)
+    
+    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    //import sqlContext.createSchemaRDD // to implicitly convert an RDD to a SchemaRDD.
+    import sqlContext.implicits._
+    //import sqlContext._
+    //import sqlContext.createDataFrame
+    //import sqlContext.createExternalTable
+    //
+    val employeeFile = sc.textFile("file:///home/hadoop_user/scalasrc/data/NW-Employees-NoHdr.csv")
+    println("Employee File has %d Lines.".format(employeeFile.count()))
+    val employees = employeeFile.map(_.split(",")).
+      map(e => Employee( e(0).trim.toInt,
+        e(1), e(2), e(3), 
+        e(4), e(5), 
+        e(6), e(7), e(8), e(9), e(10)))
+     println(employees.count)
+     employees.toDF().registerTempTable("Employees")
+     var result = sqlContext.sql("SELECT EmployeeID,LastName from Employees")
+     result.show()
+     result = sqlContext.sql("SELECT * from Employees WHERE State = 'WA'")
+     result.show()
+     System.out.println("** Done **")    
+```
+
+---
+
+#### Hive 쿼리1 소스
+
+> scala shell에서 돌리기
+> /usr/local/spark/bin/spark-shell --master local
+
+```scala
+case class Employee(EmployeeID : String, 
+   LastName : String, FirstName : String, Title : String,
+   BirthDate : String, HireDate : String,
+   City : String, State : String, Zip : String,  Country : String,
+   ReportsTo : String)
+//
+case class Order(OrderID : String, CustomerID : String, EmployeeID : String,
+  OrderDate : String, ShipCountry : String)
+//
+case class OrderDetails(OrderID : String, ProductID : String, UnitPrice : Double,
+  Qty : Int, Discount : Double)
+//
+val filePath = "file:///home/hadoop_user/scalasrc/"
+println(s"Running Spark Version ${sc.version}")
+//
+val employees = spark.read.option("header","true").
+	csv(filePath + "data/NW-Employees.csv").as[Employee]
+println("Employees has "+employees.count()+" rows")
+employees.show(5)
+employees.head()
+//
+employees.createOrReplaceTempView("EmployeesTable")
+
+var result = spark.sql("SELECT * from EmployeesTable")
+result.show(5)
+result.head(3)
+//
+employees.explain(true)
+//
+result = spark.sql("SELECT * from EmployeesTable WHERE State = 'WA'")
+result.show(5)
+result.head(3)
+//
+result.explain(true)
+//
+// Handling multiple tables with Spark SQL
+//
+val orders = spark.read.option("header","true").
+	csv(filePath + "data/NW-Orders.csv").as[Order]
+println("Orders has "+orders.count()+" rows")
+orders.show(5)
+orders.head()
+orders.dtypes
+//
+val orders = spark.read.option("header","true").
+	option("inferSchema","true").
+	csv(filePath + "data/NW-Orders.csv").as[Order]
+println("Orders has "+orders.count()+" rows")
+orders.show(5)
+orders.head()
+orders.dtypes // verify column types
+//
+val orderDetails = spark.read.option("header","true").
+	option("inferSchema","true").
+	csv(filePath + "data/NW-Order-Details.csv").as[OrderDetails]
+println("Order Details has "+orderDetails.count()+" rows")
+orderDetails.show(5)
+orderDetails.head()
+orderDetails.dtypes // verify column types
+//
+//orders.createTempView("OrdersTable")
+orders.createOrReplaceTempView("OrdersTable")
+result = spark.sql("SELECT * from OrdersTable")
+result.show(10)
+result.head(3)
+//
+orderDetails.createOrReplaceTempView("OrderDetailsTable")
+var result = spark.sql("SELECT * from OrderDetailsTable")
+result.show(10)
+result.head(3)
+//
+// Now the interesting part
+//
+result = spark.sql("SELECT OrderDetailsTable.OrderID,ShipCountry,UnitPrice,Qty,Discount FROM OrdersTable INNER JOIN OrderDetailsTable ON OrdersTable.OrderID = OrderDetailsTable.OrderID")
+result.show(10)
+result.head(3)
+//
+// Sales By Country
+//
+result = spark.sql("SELECT ShipCountry, SUM(OrderDetailsTable.UnitPrice * Qty * Discount) AS ProductSales FROM OrdersTable INNER JOIN OrderDetailsTable ON OrdersTable.OrderID = OrderDetailsTable.OrderID GROUP BY ShipCountry")
+result.count()
+result.show(10)
+result.head(3)
+result.orderBy($"ProductSales".desc).show(10) // Top 10 by Sales   
+```
+
+---
+
+#### Hive parquet 소스
+
+> scala shell에서 돌리기
+> /usr/local/spark/bin/spark-shell --master local
+
+```scala
+// register case class external to main
+case class Order(OrderID : String, CustomerID : String, EmployeeID : String,
+	OrderDate : String, ShipCountry : String)
+//
+case class OrderDetails(OrderID : String, ProductID : String, UnitPrice : Float,
+	Qty : Int, Discount : Float)
+//
+println(s"Running Spark Version ${spark.version}")
+//
+val filePath = "file:///home/hadoop_user/scalasrc/"
+val orders = spark.read.option("header","true").csv(filePath + "data/NW-Orders.csv")
+println("Orders has "+orders.count()+" rows")
+orders.show(3)
+//
+val orderDetails = spark.read.option("header","true").
+option("inferSchema","true").csv(filePath + "data/NW-Order-Details.csv")
+println("Order Details has "+orderDetails.count()+" rows")
+orderDetails.show(3)
+//
+println("Saving in Parquet Format ....")
+//
+// Parquet Operations
+//
+orders.write.parquet(filePath + "Orders_Parquet")
+//
+// Let us read back the file
+//
+println("Reading back the Parquet Format ....")
+val parquetOrders = spark.read.parquet(filePath + "Orders_Parquet")
+println("Orders_Parquet has "+parquetOrders.count()+" rows")
+parquetOrders.show(3)
+//
+// Save our Sales By Country Report as parquet
+//
+// Create views for tables
+//
+orders.createOrReplaceTempView("OrdersTable")
+orderDetails.createOrReplaceTempView("OrderDetailsTable")
+val result = spark.sql("SELECT ShipCountry, SUM(OrderDetailsTable.UnitPrice * Qty * Discount) AS ProductSales FROM OrdersTable INNER JOIN OrderDetailsTable ON OrdersTable.OrderID = OrderDetailsTable.OrderID GROUP BY ShipCountry")
+result.show(3)
+result.write.parquet(filePath + "SalesByCountry_Parquet")
+//
+println("** Done **");
+```
+---
+
+#### SparkSession Car 소스
+
+> scala shell에서 돌리기
+> /usr/local/spark/bin/spark-shell --master local
+
+```scala
+def getCurrentDirectory = new java.io.File( "." ).getCanonicalPath
+println(getCurrentDirectory)
+
+val startTime = System.nanoTime()
+//
+		// Read Data
+		//
+		val filePath = "file:///home/hadoop_user/scalasrc/"
+		val cars = spark.read.option("header","true").
+		  option("inferSchema","true").
+	    csv(filePath + "data/cars.csv")
+    println("Cars has "+cars.count()+" rows")
+    cars.show(5)
+    cars.printSchema()
+
+// Write data
+    // csv format with headers
+    cars.write.mode("overwrite").option("header","true").csv(filePath + "data/cars-out-csv.csv")
+    // Parquet format
+    cars.write.mode("overwrite").partitionBy("year").parquet(filePath + "data/cars-out-pqt")
+    //
+    val elapsedTime = (System.nanoTime() - startTime) / 1e9
+    println("Elapsed time: %.2f seconds".format(elapsedTime))
+    //
+    println("*** That's All Folks ! ***")
+    //
+    spark.stop()
+```
+---
+
+#### SparkSession Car1 소스
+
+> scala shell에서 돌리기
+> /usr/local/spark/bin/spark-shell --master local
+
+```scala
+val cars = spark.read.option("header","true").
+		  option("inferSchema","true").
+	    csv(filePath + "data/car-milage.csv")
+    println("Cars has "+cars.count()+" rows")
+    cars.show(5)
+    cars.printSchema()
+    //
+    cars.describe("mpg","hp","weight","automatic").show()
+    //
+    cars.groupBy("automatic").avg("mpg","torque","hp","weight").show()
+    //
+   cars.groupBy().avg("mpg","torque").show()
+   cars.agg( avg(cars("mpg")), mean(cars("torque")) ).show() 
+   //
+    //
+    val elapsedTime = (System.nanoTime() - startTime) / 1e9
+    println("Elapsed time: %.2f seconds".format(elapsedTime))
+    //
+    println("*** That's All Folks ! ***")
+    //
+    spark.stop()
+```
+---
+
+#### SparkSession Car2 소스
+
+> scala shell에서 돌리기
+> /usr/local/spark/bin/spark-shell --master local
+
+```scala
+val cars = spark.read.option("header","true").
+	  option("inferSchema","true").
+    csv(filePath + "data/car-data/car-milage.csv")
+    println("Cars has "+cars.count()+" rows")
+    // cars.show(5)
+    // cars.printSchema()
+    //
+    val cor = cars.stat.corr("hp","weight")
+    println("hp to weight : Correlation = %.4f".format(cor))
+    val cov = cars.stat.cov("hp","weight")
+		println("hp to weight : Covariance = %.4f".format(cov))
+		//
+		cars.stat.crosstab("automatic","NoOfSpeed").show()
+    //
+    val elapsedTime = (System.nanoTime() - startTime) / 1e9
+    println("Elapsed time: %.2f seconds".format(elapsedTime))
+    //
+    println("*** That's All Folks ! ***")
+    //
+    spark.stop()
+```
 ---
 
 ### 4. [SpringBoot & Gradle 프로젝트 생성하기](http://jojoldu.tistory.com/250)
