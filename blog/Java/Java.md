@@ -146,6 +146,9 @@ comment -> standalone spark
 |16|[MLlib](#srcMLliv)|MLlib 상품과 날씨 영향 소스example|
 |17|[ML](#srcML)|ML 상품과 날씨 영향 소스example|
 |18|[ML1](#srcML1)|ML 차 판매량 소스 example|
+|19|[ML Decision Tree](#srcMLDT)|ML Decision Tree titanic example|
+|20|[ML K-Means](#srcMLKmeans)|ML K-Means example|
+|21|[ML ALS](#srcMLALS)|ML ALS 추천 알고리즘 활용 example|
 
 ---
 
@@ -1434,6 +1437,336 @@ object ML01v2 {
     //
     println("** That's All Folks **");
 	}
+}
+```
+
+---
+
+#### ML Decision Tree 소스
+
+> scala> :load /home/hadoop_user/scalasrc/ML02v2.scala
+> ML02v2.main(Array("hello","world"))
+
+```scala
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.ml.feature.{VectorAssembler,StringIndexer}
+import org.apache.spark.ml.classification.DecisionTreeClassifier
+import org.apache.spark.sql.types.DoubleType
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+
+object ML02v2 {
+  //
+  def getCurrentDirectory = new java.io.File( "." ).getCanonicalPath
+  //
+  //  0 pclass,1 survived,2 l.name,3.f.name, 4 sex,5 age,6 sibsp,7 parch,8 ticket,9 fare,10 cabin,
+  // 11 embarked,12 boat,13 body,14 home.dest
+  //
+  //
+  def main(args: Array[String]): Unit = {
+    println(getCurrentDirectory)
+		val spark = SparkSession.builder
+      .master("local")
+      .appName("Chapter 11")
+      .config("spark.logConf","true")
+      .config("spark.logLevel","ERROR")
+      .getOrCreate()
+		println(s"Running Spark Version ${spark.version}")
+		//
+		val startTime = System.nanoTime()
+		//
+		val filePath = "file:///home/hadoop_user/scalasrc/"
+		val passengers = spark.read.option("header","true").
+		  option("inferSchema","true").
+	    csv(filePath + "data/titanic3_02.csv")
+    println("Passengers has "+passengers.count()+" rows")
+    passengers.show(5)
+    passengers.printSchema()
+    // $ 보다는 df() 이런식으로 써야 join같은것 할때 문제가 생기지 않는다.
+    val passengers1 = passengers.select(passengers("Pclass"),passengers("Survived").cast(DoubleType).as("Survived"),passengers("Gender"),passengers("Age"),passengers("SibSp"),passengers("Parch"),passengers("Fare"))
+    passengers1.show(5)
+    //
+    // VectorAssembler does not support the StringType type. So convert Gender to numeric
+    // Gender는 charater로 되어 있어서 숫자로 변경
+    val indexer = new StringIndexer()
+    indexer.setInputCol("Gender")
+    indexer.setOutputCol("GenderCat")
+    val passengers2 = indexer.fit(passengers1).transform(passengers1)
+    passengers2.show(5)
+    //
+    val passengers3 = passengers2.na.drop()
+    println("Orig = "+passengers2.count()+" Final = "+ passengers3.count() + " Dropped = "+ (passengers2.count() - passengers3.count()))
+    //
+    val assembler = new VectorAssembler()
+    assembler.setInputCols(Array("Pclass","GenderCat","Age","SibSp","Parch","Fare"))
+    assembler.setOutputCol("features")
+    val passengers4 = assembler.transform(passengers3)
+    passengers4.show(5)
+    //
+    // split data
+    // 9:1로 나누어서 훈련, 테스트 데이터로 나눈다.
+    val Array(train, test) = passengers4.randomSplit(Array(0.9, 0.1))
+    println("Train = "+train.count()+" Test = "+test.count())
+    //
+    // Train a DecisionTree model.
+    val algTree = new DecisionTreeClassifier()
+    algTree.setLabelCol("Survived")
+    algTree.setImpurity("gini") // could be "entropy"
+    algTree.setMaxBins(32) 
+    algTree.setMaxDepth(5)   // 많이 해봤자.... 정밀도가 높아지지 않기 때문에.
+    //
+    val mdlTree = algTree.fit(train)
+    println("The tree has %d nodes.".format(mdlTree.numNodes))
+    println(mdlTree.toDebugString)
+    println(mdlTree.toString)
+    println(mdlTree.featureImportances)
+    //
+    // predict test set and calculate accuracy
+    //
+    val predictions = mdlTree.transform(test)
+    predictions.show(5)
+    //
+    val evaluator = new MulticlassClassificationEvaluator()
+    evaluator.setLabelCol("Survived")
+    // 정확도를 보고 평가 하겠다.
+    evaluator.setMetricName("accuracy") // could be f1, "weightedPrecision" or "weightedRecall"
+    //
+    val accuracy = evaluator.evaluate(predictions)
+    println("Test Accuracy = %.2f%%".format(accuracy*100))
+    //
+    val elapsedTime = (System.nanoTime() - startTime) / 1e9
+    println("Elapsed time: %.2f seconds".format(elapsedTime))
+    //
+    println("*** That's All Folks ! ***")
+    //
+  }
+}
+```
+
+---
+
+#### ML KMean 소스
+
+> scala> :load /home/hadoop_user/scalasrc/ML03v2.scala
+> ML03v2.main(Array("hello","world"))
+
+```scala
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.ml.feature.VectorAssembler
+import org.apache.spark.ml.clustering.KMeans
+
+object ML03v2 {
+  //
+	def getCurrentDirectory = new java.io.File( "." ).getCanonicalPath
+	//
+  def main(args: Array[String]): Unit = {
+    println(getCurrentDirectory)
+		val spark = SparkSession.builder
+      .master("local")
+      .appName("Chapter 11")
+      .config("spark.logConf","true")
+      .config("spark.logLevel","ERROR")
+      .getOrCreate()
+		println(s"Running Spark Version ${spark.version}")
+		//
+		val startTime = System.nanoTime()
+		//
+		val filePath = "file:///home/hadoop_user/scalasrc/"
+
+// spark로 읽었으니까..df(데이터 프레임)
+		val data = spark.read.option("header","true").
+		  option("inferSchema","true").
+	    csv(filePath + "data/cluster-points-v2.csv")
+    println("Data has "+data.count()+" rows")
+    data.show(5)
+    data.printSchema()
+    //
+    val assembler = new VectorAssembler()
+    assembler.setInputCols(Array("X","Y"))
+    assembler.setOutputCol("features")
+    val data1 = assembler.transform(data)
+    data1.show(5)
+    //
+    // Create the Kmeans model
+    //
+    var algKMeans = new KMeans().setK(2)
+    var mdlKMeans = algKMeans.fit(data1)
+    // Evaluate clustering by computing Within Set Sum of Squared Errors.
+    var WSSSE = mdlKMeans.computeCost(data1)
+    println(s"Within Set Sum of Squared Errors (K=2) = %.3f".format(WSSSE))
+    // Shows the result.
+    println("Cluster Centers (K=2) : " + mdlKMeans.clusterCenters.mkString("<", ",", ">"))
+    println("Cluster Sizes (K=2) : " +  mdlKMeans.summary.clusterSizes.mkString("<", ",", ">"))
+    //
+    var predictions = mdlKMeans.transform(data1)
+    predictions.show(3)
+    //
+    predictions.write.mode("overwrite").option("header","true").csv(filePath + "data/cluster-2K.csv")
+    //
+    //
+    // Now let us try 4 centers
+    //
+    algKMeans = new KMeans().setK(4)
+    mdlKMeans = algKMeans.fit(data1)
+    // Evaluate clustering by computing Within Set Sum of Squared Errors.
+    WSSSE = mdlKMeans.computeCost(data1)
+    println(s"Within Set Sum of Squared Errors (K=4) = %.3f".format(WSSSE))
+    // Shows the result.
+    println("Cluster Centers (K=4) : " + mdlKMeans.clusterCenters.mkString("<", ",", ">"))
+    println("Cluster Sizes (K=4) : " +  mdlKMeans.summary.clusterSizes.mkString("<", ",", ">"))
+    //
+    predictions = mdlKMeans.transform(data1)
+    predictions.show(3)
+    //
+    predictions.write.mode("overwrite").option("header","true").csv(filePath + "data/cluster-4K.csv")
+    //
+    val elapsedTime = (System.nanoTime() - startTime) / 1e9
+    println("Elapsed time: %.2f seconds".format(elapsedTime))
+    //
+    println("*** That's All Folks ! ***")
+    //
+  }
+}
+```
+
+---
+
+#### ML ALS 추천 알고리즘 활용 소스
+
+> scala> :load /home/hadoop_user/scalasrc/ML04v2.scala
+> ML04v2.main(Array("hello","world"))
+
+```scala
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.functions.{split,pow,isnan}
+import org.apache.spark.mllib.recommendation.Rating
+import org.apache.spark.ml.recommendation.ALS
+import org.apache.spark.ml.evaluation.RegressionEvaluator
+import org.apache.log4j.{Level, Logger}
+
+object ML04v2 extends Serializable {
+  //
+	def getCurrentDirectory = new java.io.File( "." ).getCanonicalPath
+  //
+	def parseRating(row:Row) : Rating = {
+	  val aList = row.getList[String](0)
+	  Rating(aList.get(0).toInt,aList.get(1).toInt,aList.get(2).toDouble) //.getInt(0), row.getInt(1), row.getDouble(2))
+	}
+	// df.rdd -> dr[row]  row.getXXXX(2) row.getList   scala의 []는 java의 generic <T>
+	def rowSqDiff(row:Row) : Double = {
+	  math.pow( (row.getDouble(2) - row.getFloat(3).toDouble),2)
+	}
+	//
+  def main(args: Array[String]): Unit = {
+    println(getCurrentDirectory)
+		val spark = SparkSession.builder
+      .master("local")
+      .appName("Chapter 11")
+      .config("spark.logConf","true")
+      .config("spark.logLevel","ERROR")
+      .getOrCreate()
+		println(s"Running Spark Version ${spark.version}")
+		//
+		// To turn off INFO messages
+		//
+    val rootLogger = Logger.getRootLogger()
+    rootLogger.setLevel(Level.ERROR)		// INFO, TRACE,...
+		val startTime = System.nanoTime()
+		//
+		val filePath = "file:///home/hadoop_user/scalasrc/"
+		val movies = spark.read.text(filePath + "data/medium/movies.dat")
+		movies.show(5,truncate=false)
+    movies.printSchema()
+		val ratings = spark.read.text(filePath + "data/medium/ratings.dat")
+		ratings.show(5,truncate=false)
+		val users = spark.read.text(filePath + "data/medium/users.dat")
+		users.show(5,truncate=false)
+		//
+    println("Got %d ratings from %d users on %d movies.".format(ratings.count(), users.count(), movies.count()))
+    //
+    // Transformation
+    // This is a kludge. Let me know if there is a better way
+    // 1::A::V = Array[1,A,V]
+    val ratings1 = ratings.select(split(ratings("value"),"::")).as("values")
+    ratings1.show(5)
+// Dataset을 rdd로 해서 row
+
+    val ratings2 = ratings1.rdd.map(row => parseRating(row))
+    ratings2.take(3).foreach(println)
+    //
+    val ratings3 = spark.createDataFrame(ratings2)
+    ratings3.show(5)
+    //
+    // split data
+    //
+    val Array(train, test) = ratings3.randomSplit(Array(0.8, 0.2))
+    println("Train = "+train.count()+" Test = "+test.count())
+    //
+    // create algorithm object
+    //
+    val algALS = new ALS()
+    algALS.setItemCol("product") // Otherwise will get exception "Field "item" does not exist"
+    algALS.setRank(12)
+    algALS.setRegParam(0.1) // was regularization parameter, was lambda in MLlib
+    algALS.setMaxIter(20)
+// fit 해서 모델 만든다.
+    val mdlReco = algALS.fit(train)
+     //
+		// Now let us use the model to predict our test set
+		//
+    val predictions = mdlReco.transform(test)
+    predictions.show(5)
+    predictions.printSchema()
+    //
+    // some of the recommendation is NaN. 
+    // Running into https://issues.apache.org/jira/browse/SPARK-14489 = cold Start
+    // So filter them out before calculating MSE et al
+    // Test Code to find the NaN. Not used
+    /*
+    val nanState = predictions.na.fill(99999.0)
+    println(nanState.filter(nanState("prediction") > 99998).count())
+    nanState.filter(nanState("prediction") > 99998).show(5)
+    * 
+    */
+    //
+    val pred = predictions.na.drop()
+    println("Orig = "+predictions.count()+" Final = "+ pred.count() + " Dropped = "+ (predictions.count() - pred.count()))
+    // Calculate RMSE & MSE
+    val evaluator = new RegressionEvaluator()
+		evaluator.setLabelCol("rating")
+		var rmse = evaluator.evaluate(pred)
+		println("Root Mean Squared Error = "+"%.3f".format(rmse))
+		//
+		evaluator.setMetricName("mse")
+		var mse = evaluator.evaluate(pred)
+		println("Mean Squared Error = "+"%.3f".format(mse))
+// reduce는 모든 데이터를 1줄 단위로 더하는것.
+		mse = pred.rdd.map(r => rowSqDiff(r)).reduce(_+_) / predictions.count().toDouble
+		println("Mean Squared Error (Calculated) = "+"%.3f".format(mse))
+		//
+    //
+    val elapsedTime = (System.nanoTime() - startTime) / 1e9
+    println("Elapsed time: %.2f seconds".format(elapsedTime))
+    //
+    println("*** That's All Folks ! ***")
+    // MLlib
+    // 1.3.0 (2/18/15)
+    // *** Model Performance Metrics ***
+    // MSE = 0.87495
+    // RMSE = 0.93539
+    // 1.4.0 RC2 (5/24/15)
+    // *** Model Performance Metrics ***
+    // MSE = 0.87185
+    // RMSE = 0.93373
+    // 1.6.2 (6/22/16)
+    // MSE = 0.87423
+    // RMSE = 0.93500
+    // ML
+    // 2.0.0 (7/23/16)
+    // Root Mean Squared Error = 0.871
+    // Mean Squared Error = 0.759
+    //
+  }
 }
 ```
 
