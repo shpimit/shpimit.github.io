@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Deep Learning
-permalink: /Lecture/DeepLearning
 ---
 
 ---
