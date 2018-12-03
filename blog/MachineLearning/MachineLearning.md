@@ -80,7 +80,7 @@ permalink: /Lecture/MachineLearning
 <!-- *template: invert -->
 <a name="machine"/>
 
-## To do List
+## To Do List
 
 > 자바 weka로  iris 동영상 보여주고.. 검증하기  
 > Confusion Matrix 가능 유무  
