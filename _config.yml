@@ -39,7 +39,7 @@ exclude:
   - npm-debug.log
   - gulpfile.js
   - sleek.jpg
-  - RemarkJS
+  - ['RemarkJS']
 
 include: ['_pages']
 permalink: /:title/
