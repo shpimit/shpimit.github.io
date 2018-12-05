@@ -40,9 +40,10 @@ exclude:
   - gulpfile.js
   - sleek.jpg
   - cmd.htm
-  - test.htm
+  - cmd.html
+  - ['blog']
   - ['RemarkJS']
-  
+
 
 
 include: ['_pages']
