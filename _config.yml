@@ -39,6 +39,7 @@ exclude:
   - npm-debug.log
   - gulpfile.js
   - sleek.jpg
+  - cmd.htm
   - ['RemarkJS']
 
 include: ['_pages']
