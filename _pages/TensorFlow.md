@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tensor
-permalink: /:title/
+permalink: /Tensor/
 ---
 
 ---
