@@ -40,6 +40,7 @@ exclude:
   - gulpfile.js
   - sleek.jpg
   - cmd.htm
+  - test.htm
   - ['RemarkJS']
 
 
