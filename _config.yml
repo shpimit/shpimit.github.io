@@ -40,7 +40,6 @@ exclude:
   - gulpfile.js
   - sleek.jpg
   - cmd.htm
-  - ['RemarkJS']
 
 include: ['_pages']
 permalink: /:title/
