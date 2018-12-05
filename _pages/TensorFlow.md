@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Tensor
+permalink: /:title/
 ---
 
 ---
