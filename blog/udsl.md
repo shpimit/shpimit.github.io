@@ -1,4 +1,5 @@
 layout: page
+name: inverse
 title: AI
 summary: AI is space to learn block chain algorithm & theory.
 permalink: /Lecture/AI
