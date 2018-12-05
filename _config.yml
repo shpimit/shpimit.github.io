@@ -42,6 +42,7 @@ exclude:
   - cmd.htm
   - test.htm
   - ['RemarkJS']
+  
 
 
 include: ['_pages']
