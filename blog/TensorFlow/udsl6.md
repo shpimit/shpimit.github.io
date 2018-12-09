@@ -4,7 +4,9 @@ title: udslsssssssssssssss
 permalink: /remark/udsl6
 ---
 
-class: center, middle
+name: inverse
+class: center, middle, inverse
+layout: true
 
 # Introducing TensorFlow !!
 
