@@ -1,7 +1,6 @@
 ---
 layout: page
 title: TensorFlow
-permalink: /Lecture/TensorFlow
 ---
 
 ---
