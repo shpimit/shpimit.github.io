@@ -1,7 +1,6 @@
----
-layout: page
-title: TensorFlow
----
+name: inverse
+class: center, middle, inverse
+layout: true
 
 ---
 
