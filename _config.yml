@@ -43,7 +43,13 @@ exclude:
   - cmd.html
   - ['blog']
 
-
+defaults:
+  -
+    scope:
+      path: "blog" # 이 빈 문자열은 프로젝트의 모든 파일을 의미함
+      type: "" # 이전 Jekyll 2.2 에서는 `post`
+    values:
+      layout: "page"    
 
 include: ['_pages']
 permalink: /:title/
@@ -55,10 +61,4 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-defaults:
-  -
-    scope:
-      path: "blog" # 이 빈 문자열은 프로젝트의 모든 파일을 의미함
-      type: "" # 이전 Jekyll 2.2 에서는 `post`
-    values:
-      layout: "page"    
+
