@@ -8,6 +8,8 @@ name: inverse
 class: center, middle, inverse
 layout: true
 
+---
+
 # Introducing TensorFlow !!
 
 ##### (TensorFlow 이해)
