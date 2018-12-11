@@ -1,0 +1,76 @@
+---
+layout: page
+title: High Performance Computing
+summary: high-performance computing. 
+---
+name: inverse
+class: center, middle, inverse
+layout: true
+title: AI 고속처리 시스템
+---
+
+# Introducing AI 고속처리 시스템 !!
+
+#### (이재진 교수님)
+
+---
+
+## Overview
+
+> 우리나라 족보 컴퓨터(천둥 컴퓨터-2012년 전세계 227등)를 맛보게 하는 멋진 강의 였다.
+> GPU는 CPU처럼 똑똑하지 못하다는 것을 뼈저리게 느끼게 할수 있는 강의 였으며,
+> 더불어서 GPU는 CPU의 가상메모리 같은 기능이 없어, 따라서 메모리 오버 되면 죽는다.
+> 또한 함수 CALLBACK 되는 기능들이 없어, 프로그램 분리되어 있는 파일은 합쳐저서 compile 된다.
+> 또한 GPU는 점유 되어 있으면, 다른 프로그램이 실행될때 오류가 난다. GPU를 여러개를 공유하는것은 가능함.  
+> <small> *OpenCL 프로그램을 천둥컴퓨터에서 돌려 보는 멋진 수업이었음.* </small>
+
+---
+
+layout: false
+
+## Contents
+
+### Table of Contents 
+
+|No|Titile|Remarks|
+|--:|:-:|:--|
+|0|[환경설정](#install)|환경설정|
+|1|[Cache](#Cache)|Cache 프로그램 비교|
+|2|[OpenCL](#OpenCL)|OpenCL 프로그램|
+|3|[Reference Site](#reference)|참조사이트|
+
+---
+
+<a name="install"/>
+
+## Get Started(`chundoong`)
+
+* 천둥 연결하기 [개발환경 Setting](https://gist.github.com/nadavrot/5b35d44e8ba3dd718e595e40184d03f0/)
+
+> putty 다운로드
+> winscp 다운로드
+
+---
+
+template: inverse
+class: middle
+
+<a name="Cache"/>
+
+## Cache
+
+* Data Parallelism
+* Program Parallelism
+* Thread Parallelism
+
+## High-Performance
+
+* [High-Performance Matrix Multiplication](https://gist.github.com/nadavrot/5b35d44e8ba3dd718e595e40184d03f0/)
+
+---
+
+<a name="OpenCL"/>
+
+## OpenCL
+
+* OpenCL
