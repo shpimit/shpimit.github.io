@@ -92,7 +92,7 @@ permalink: /Lecture/Python
 * **Table of Data & Source**   
 
 |No|Title|Educational Institution|Source|Remarks|
-|--:|:-:|:--|
+|--:|:-:|:-:|:-:|:--|
 |1|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[WebCrawling.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/WebCrawling.ipynb)|웹크롤링|
 |2|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[Konlpy.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/KonlpySamply.ipynb)|자연어처리|
 |3|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[matplotlib.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/matplotlib.ipynb)|그래프라이브러리|
