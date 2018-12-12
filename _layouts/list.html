@@ -38,6 +38,16 @@ layout: compress
             </ul>
             <!-- {% include pagination.html %} -->
           </div>
+          <div class="page-list">
+            <ul>
+            {% for page in site.pages %}
+            <li>
+              <a href="{{ page.url }}">{{ page.title }}</a>
+            </li>
+            {% endfor %}
+            </ul>
+            <!-- {% include pagination.html %} -->
+          </div>          
         </div>
       </section>
     </main>    
