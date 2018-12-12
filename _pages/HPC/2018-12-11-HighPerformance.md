@@ -2,11 +2,14 @@
 layout: page
 title: High Performance Computing
 summary: high-performance computing. 
+categories: HPC
+tags: UDSL
 ---
 name: inverse
 class: center, middle, inverse
 layout: true
 title: AI 고속처리 시스템
+
 ---
 
 # Introducing AI 고속처리 시스템 !!
@@ -30,7 +33,7 @@ layout: false
 
 ## Contents
 
-### Table of Contents 
+### Table of Contents
 
 |No|Titile|Remarks|
 |--:|:-:|:--|
@@ -41,9 +44,9 @@ layout: false
 
 ---
 
-<a name="install"/>
+## Install
 
-## Get Started(`chundoong`)
+### Get Started(`chundoong`)
 
 * 천둥 연결하기 [개발환경 Setting](https://gist.github.com/nadavrot/5b35d44e8ba3dd718e595e40184d03f0/)
 
@@ -54,8 +57,6 @@ layout: false
 
 template: inverse
 class: middle
-
-<a name="Cache"/>
 
 ## Cache
 
@@ -68,8 +69,6 @@ class: middle
 * [High-Performance Matrix Multiplication](https://gist.github.com/nadavrot/5b35d44e8ba3dd718e595e40184d03f0/)
 
 ---
-
-<a name="OpenCL"/>
 
 ## OpenCL
 
