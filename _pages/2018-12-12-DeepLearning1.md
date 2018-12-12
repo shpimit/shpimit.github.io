@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Deep Learning
+title: Deep Learning1
 categories: AI
 tags: UDSL
 ---
