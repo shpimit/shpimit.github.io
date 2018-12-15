@@ -5,9 +5,9 @@ summary:  Blockchain to learn Blockchain.
 featured-img: block
 ---
 
-# Blockchain !!
+# Introducing Blockchain !!
 
-##### Blockchain Space to learn Blockchain.
+##### Blockchain Space to learn `Blockchain`.
 
 ---
 
