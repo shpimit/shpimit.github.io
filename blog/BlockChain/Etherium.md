@@ -1,19 +1,20 @@
 ## Genesis Block 생성
 
-```
+```shell
 geth --datadir data init Genesis.json
 ```
 
 ### 실행
 
-```
-geth --networkid 15 --nodiscover --maxpeers 3 --datadir data --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" console 
+```shell
+geth --networkid 15 --nodiscover --maxpeers 3 --datadir data --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" console
 2>> data/geth.log
 ```
-ABI : Application Binary Interface
-Solidity에서는 배열 return 이 안됨
 
-```
+> ABI : Application Binary Interface
+> Solidity에서는 배열 return 이 안됨
+
+```shell
 txpool
 personal.unlockAccount(eth.accounts[0],"1234")
 eth.mining
