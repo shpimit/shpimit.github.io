@@ -2,7 +2,7 @@
 layout: post
 title: Algorithm
 summary: Algorithm. 
-featured-img: learning
+featured-img: emile-perron-190221
 mathjax: true
 ---
 
