@@ -48,14 +48,6 @@ comments: 서울대학교 빅데이터 아카데미
 
 ---
 
-## Reference
-
-|No|Title|Educational Institution|Term|
-|--:|:--:|:-:|:--:|
-|1|[블록체인](/Blockchain)|서울대학교 도시연구소|18.8.4~9.1|
-
----
-
 ## Data & Source
 
 ### Table of Data & Source
@@ -66,6 +58,14 @@ comments: 서울대학교 빅데이터 아카데미
 |1|Basic|[경매](/2018-07-24-UDSL-solidity-auction)|Introduction to Solidity|
 |2|Basic|[투표](/2018-07-24-UDSL-solidity-vote)|Introduction to Solidity|
 |3|Smart Contract|[token](/2018-07-24-UDSL-solidity-token)|가상화폐계약|
-|1|[XOR](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/XOR_Tensorflow.ipynb)|XOR문제|
-|2|[XOR해결](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/XOR-Solution.ipynb)|XOR해결|
-|3|[Regression](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/Regression.ipynb)|Regression|
+|4|ICO|[ICO](/2018-07-24-UDSL-solidity-ICO)|Initial Coin Offering|
+|5|ESCROW|[ESCROW](/2018-07-24-UDSL-solidity-ICO)|스마트 컨트랙트 응용|
+|6|존재증명계약|[ESCROW](/2018-07-24-UDSL-solidity-ICO)|스마트 컨트랙트 응용|
+
+---
+
+## Reference
+
+|No|Title|Educational Institution|Term|
+|--:|:--:|:-:|:--:|
+|1|[블록체인](/Blockchain/2018-07-24-Blockchain)|서울대학교 도시연구소|18.8.4~9.1|
