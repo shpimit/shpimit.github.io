@@ -2,7 +2,7 @@
 layout: post
 title: Miscellaneous
 summary: Miscellaneous is my miscellaneous space about IT new technology. 
-featured-img: closing
+featured-img: miscellaneous
 mathjax: true
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Block Chain
 summary:  Block Chain to learn Block Chain. 
-featured-img: Next
+featured-img: block
 ---
 
 ---
