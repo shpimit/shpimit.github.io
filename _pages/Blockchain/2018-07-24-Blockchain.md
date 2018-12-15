@@ -54,13 +54,13 @@ comments: 서울대학교 빅데이터 아카데미
 
 |No|Type|Source|Remarks|
 |--:|:-:|:-:|:--|
-|0|Basic|[송금](/BlockChain/2018-07-24-UDSL-solidity-remit)|Introduction to Solidity|
-|1|Basic|[경매](/BlockChain/2018-07-24-UDSL-solidity-auction)|Introduction to Solidity|
-|2|Basic|[투표](/BlockChain/2018-07-24-UDSL-solidity-vote)|Introduction to Solidity|
-|3|Smart Contract|[token](/BlockChain/2018-07-24-UDSL-solidity-token)|가상화폐계약|
-|4|ICO|[ICO](/BlockChain/2018-07-24-UDSL-solidity-ICO)|Initial Coin Offering|
-|5|ESCROW|[ESCROW](/BlockChain/2018-07-24-UDSL-solidity-ICO)|스마트 컨트랙트 응용|
-|6|존재증명계약|[ESCROW](/BlockChain/2018-07-24-UDSL-solidity-ICO)|스마트 컨트랙트 응용|
+|0|Basic|[송금](/Blockchain/2018-07-24-UDSL-solidity-remit)|Introduction to Solidity|
+|1|Basic|[경매](/Blockchain/2018-07-24-UDSL-solidity-auction)|Introduction to Solidity|
+|2|Basic|[투표](/Blockchain/2018-07-24-UDSL-solidity-vote)|Introduction to Solidity|
+|3|Smart Contract|[token](/Blockchain/2018-07-24-UDSL-solidity-token)|가상화폐계약|
+|4|ICO|[ICO](/Blockchain/2018-07-24-UDSL-solidity-ICO)|Initial Coin Offering|
+|5|ESCROW|[ESCROW](/Blockchain/2018-07-24-UDSL-solidity-ICO)|스마트 컨트랙트 응용|
+|6|존재증명계약|[ESCROW](/Blockchain/2018-07-24-UDSL-solidity-ICO)|스마트 컨트랙트 응용|
 
 ---
 
