@@ -24,7 +24,7 @@ mathjax: true
 
 ---
 
-## Vsc
+## VSC
 
 ##### VSCode-GitHub 연동
 
