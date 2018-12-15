@@ -4,6 +4,7 @@ title: High Performance Computing
 summary: high-performance computing. 
 categories: HPC
 tags: UDSL
+featured-img: HPC
 comments: 서울대학교 빅데이터 아카데미 이재진 교수님
 ---
 name: inverse
