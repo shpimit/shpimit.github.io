@@ -25,7 +25,7 @@ comments: 서울대학교 빅데이터 아카데미
 
 |No|Titile|Remarks|
 |--:|:-:|:--|
-|1|[환경설정](#getstarted)|환경설정|
+|1|[환경설정](#installation)|환경설정|
 |2|[PyTorch](#pyTorch)|PyTorch 딥러닝 소스|
 
 ---
