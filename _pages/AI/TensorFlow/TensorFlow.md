@@ -4,16 +4,14 @@ layout: true
 
 ---
 
-<!-- *template: gaia -->
-<!-- page_number: false -->
-
 # Introducing TensorFlow !!
 ##### (TensorFlow 이해)
 
-<!-- *template: invert -->
-<!-- page_number: true -->
+--- 
 
-* **Table of Learning**
+## Contents
+
+### Table of Learning
 
 |No|Titile|Educational Istitution|Term|
 |--:|:--:|:-:|:--:|
@@ -22,9 +20,6 @@ layout: true
 |3|[Deep Learning의 이해](/Lecture/DeepLearning)|서울대학교 도시연구소|18.9.17~9.21|
 
 ---
-
-<!-- $theme: gaia -->
-<!-- page_number: true -->
 
 ## Overview
 
