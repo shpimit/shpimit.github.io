@@ -106,12 +106,27 @@ comment -> standalone spark
 -->
 ```
 
+---
+
+## Windows10 Spark 설치하기
+* https://guendouz.wordpress.com/2017/07/18/how-to-install-apache-spark-on-windows-10/
+
+```shell
+pip install --upgrade toree
+jupyter toree install
+### jupyter kernel 확인
+jupyter kernelspec list
+```
+
+https://joonyon.tistory.com/32
+https://blog.sicara.com/get-started-pyspark-jupyter-guide-tutorial-ae2fe84f594f
+
 
 ---
 
 <!-- *template: invert -->
 
-## Data & Source 
+## Data & Source
 
 <a name="data"/>
 
