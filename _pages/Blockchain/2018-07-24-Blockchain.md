@@ -24,7 +24,7 @@ comments: 서울대학교 빅데이터 아카데미
 
 ## Table of Contents
 
-|No|Title|Explain|YMD|
+|No|Title|Explain|Term|
 |--:|:--:|:-:|:--:|
 |1|[Reference Site](#site)|Reference|18-07-21|
 |2|[Blockchain](#block)|블록체인|18-07-24|

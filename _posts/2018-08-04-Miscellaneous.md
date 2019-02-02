@@ -12,7 +12,9 @@ mathjax: true
 
 ---
 
-## Table of Contents
+## Contents
+
+### Table of Contents
 
 |No|Titile|Explain|YMD|
 |--:|:--:|:-:|:--|

@@ -5,7 +5,8 @@ layout: true
 ---
 
 # Introducing TensorFlow !!
-##### (TensorFlow 이해)
+
+#### (TensorFlow 이해)
 
 --- 
 
@@ -13,7 +14,7 @@ layout: true
 
 ### Table of Learning
 
-|No|Titile|Educational Istitution|Term|
+|No|Title|Educational Institution|Term|
 |--:|:--:|:-:|:--:|
 |1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|18.8.4~9.1|
 |2|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|18.9.10~9.14|
@@ -33,7 +34,7 @@ layout: true
 
 ## Contents
 
-* **Table of Contents**   
+### Table of Contents   
 
 |No|Titile|Remarks|
 |--:|:-:|:--|
@@ -79,7 +80,7 @@ layout: true
 * Spyder 환경
 
 > http://rfriend.tistory.com/298  
-> Spyder는 Rstudio layout 과 동일한 형태의 layout 도 제공한답니다. (View > Windows layout > Rstudio layout 선택)  
+> Spyder는 Rstudio layout 과 동일한 형태의 layout 도 제공합니다. (View > Windows layout > Rstudio layout 선택)  
 > F9 한줄실행, F5 파일실행  
 
 ---
@@ -106,7 +107,7 @@ layout: true
 
 ## Data & Source 
 
-* **Table of Data & Source**   
+### Table of Data & Source**   
 
 |No|Source|Remarks|
 |--:|:-:|:--|
