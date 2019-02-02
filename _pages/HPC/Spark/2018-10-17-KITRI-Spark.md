@@ -1,22 +1,16 @@
 ---
 layout: page
-title: Java Performance Computing
-summary: Java performance computing. 
+title: Spark
+summary: Spark. 
 categories: HPC
 tags: Java
 featured-img: HPC
-comments: 자바 성능 튜닝 이야기
----
-name: inverse
-class: center, middle, inverse
-layout: true
-title: AI 고속처리 시스템
-
+comments: Spark 2.0으로 하는 고속 스마트 빅데이터 분석과 처리
 ---
 
-# Introducing Java Performance !!
+# Introducing Java Spark !!
 
-#### From. 자바 성능 튜닝 이야기
+#### With Spark 2.0으로 하는 고속 스마트 빅데이터 분석과 처리
 
 ---
 
@@ -26,44 +20,61 @@ title: AI 고속처리 시스템
 
 ---
 
-layout: false
-
 ## Contents
 
-### 1. web서버 access.log
+### Table of Contents
 
-### 2. 시스템 리소스 모니터링
+|No|Titile|Remarks|
+|--:|:-:|:--|
+|1|[환경설정](#installation)|환경설정|
+|2|[Spark](#spark)|Spark 소스|
 
-* ganglia
+---
 
-### 3. 부하생성
+## Get Started(`Spark`)
 
-* nGrinder
+### Installation
 
-### 4. 성능측정
+* Spark [Windows10에 Spark 설치하기](https://jjangjjong.tistory.com/24)
+  * 참고로 저는 Spark2.4를 설치 했음.
+* PySpark [Run PySpark in Jupyter Notebootk on Windows](https://changhsinlee.com/install-pyspark-windows-jupyter/)  
 
-* Response Time
-* TPS
+  * findspark를 설치하는것이 핵심
 
-### 5. 애플리케이션 서버
+```python
+python -m pip install findspark
+```
 
-* 1차 모니터 링 : 스레드의 수와 큐의길이, 유휴(Idle Thread)가 0이 되면 요청메시지가 앞단의 큐에 저장(JMX - Java Management Extension)
+  * 개인적으로는 Anaconda prompt에서 작업
 
-### 6. DB서버
+```shell
+pip install findspark
+```
 
-* [slow query](http://dev.mysql.com/doc/refman/5.6/end/slow-query-log.html)
-* [튜닝](http://dev.mysql.com/doc/refman/5.6/en/using-explain.html)
+```python
+import findspark
+findspark.init()
 
-### 7. 인프라
+import pyspark # only run after findspark.init()
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
 
-* CPU, 메모리, Disk IO : iostat, sar         * 로깅은 메시지큐를 사용하여 해결
+df = spark.sql('''select 'spark' as hello ''')
+df.show()
+```
 
-### 8. 성능 측정
+---
 
-* 프로파일링 : xhprof --php
-* ptrace : System Call     테스트 장비 안됨
-* pmap : 메모리 snap shot     ex) pmap -ooffset,rsz,name 19754
+## Data & Source
 
-### 9. JVM 튜닝
+### Table of Data & Source
 
-* Xverbosegc   Perm, Eden, Old  모든 영역에 대한 GC정보 보는법
+|No|Source|Remarks|
+|--:|:-:|:--|
+|0|[PySpark](https://github.com/shpimit/shpimit.github.io/tree/master/_pages/AI/PyTorch/src/01_Tensor.ipynb)|PySpark Jupyter 동작확인|
+
+---
+
+## Reference
+
+* [스파크 2.0으로 하는 고속 스마트 빅데이터 분석과 처리 3/3](https://github.com/PacktPublishing/Fast-Data-Processing-with-Spark-2)
