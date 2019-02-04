@@ -8,35 +8,32 @@ layout: true
 
 #### (TensorFlow 이해)
 
---- 
-
-## Contents
-
-### Table of Learning
-
-|No|Title|Educational Institution|Term|
-|--:|:--:|:-:|:--:|
-|1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|18.8.4~9.1|
-|2|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|18.9.10~9.14|
-|3|[Deep Learning의 이해](/Lecture/DeepLearning)|서울대학교 도시연구소|18.9.17~9.21|
-
 ---
 
 ## Overview
 
-> 텐서플로(TensorFlow)는 다양한 작업에대해 데이터 흐름 프로그래밍을 위한 오픈소스 소프트웨어 라이브러리이다.   
+> 텐서플로(TensorFlow)는 다양한 작업에대해 데이터 흐름 프로그래밍을 위한 오픈소스 소프트웨어 라이브러리이다.
 > <small>-- *텐서플로는 2015년에 오픈 소스로 공개된 을 수행하게 하는 CUDA 확장기능을 사용 구동될 수 있다.* </small>
 
 ---
 
-<!-- *template: invert -->  
-<a name="contents"/>
+## Learning
+
+### Table of Learning
+
+|No|Title|Educational Institution|Lecturer|Term|Remarks|
+|--:|:--:|:-:|:--:|:--:|:-|
+|1|[Deep Learning의 이해](/Lecture/PyTorch)|서울대학교 도시연구소|김건희교수님|Aug 6~10 2018|PyTorch|
+|2|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|[설진욱](https://cafe.naver.com/ugcadman)|Aug 4~ Sep 1 2018|TensorFlow, Keras|
+|3|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|김선교수님|Sep 10~14 2018|Python|
+
+---
 
 ## Contents
 
-### Table of Contents   
+### Table of Contents
 
-|No|Titile|Remarks|
+|No|Title|Remarks|
 |--:|:-:|:--|
 |0|[환경설정](#install)|환경설정|
 |1|[Tensorflow](#Tensorflow)|Tensorflow 소스|
@@ -105,9 +102,9 @@ layout: true
 <!-- *template: invert -->
 <a name="data"/>
 
-## Data & Source 
+## Data & Source
 
-### Table of Data & Source**   
+### Table of Data & Source
 
 |No|Source|Remarks|
 |--:|:-:|:--|

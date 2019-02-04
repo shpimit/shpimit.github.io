@@ -16,13 +16,14 @@ mathjax: true
 
 ### Table of Contents
 
-|No|Titile|Explain|YMD|
-|--:|:--:|:-:|:--|
-|1|[Java](/Lecture/Java)|Spring|18.8.4|
-|2|[Book](#book) |책|18-05-09|
-|3|[Visual Studio Code](#vsc) |Visual Studio Code|18-05-09|
-|4|[Python](#python) |파이썬|18-05-09|
-|5|[Jupyter](#jupyter) |주피터|18-05-09|
+|No|Titile|Explain|
+|--:|:--:|:-:|
+|1|[Python](#python) |파이썬|
+|2|[Jupyter](#jupyter) |주피터|
+|3|[Visual Studio Code](#vsc) |Visual Studio Code|
+|4|[Unix](/_pages/Miscellaneous/2018-12-22-StoryTelling)|Unix 꿀 Tip|
+|5|[VR](/_pages/Miscellaneous/2018-12-18-KIPFA-VRARMR)|Unity 가상 프로그램|
+|6|[Jekyll](/_pages/Miscellaneous/2018-12-13-Jekyll)|Jekyll 프로그램|
 
 ---
 
@@ -66,12 +67,9 @@ mathjax: true
 * '' 란 안에 원하는 폴더의 절대 경로 삽입. 단 \ --> / 로 변경 (c:\temp --> c:/temp)
 * #c.NotebookApp.notebook_dir = ''  → 주석 제거
 4. [![허민석 Jupyter사용법](http://img.youtube.com/vi/SLPo0o_HArs/0.jpg)](https://youtu.be/SLPo0o_HArs) 
-5. [![주피터 노트북의 진화! 주피터랩 살펴보기](http://img.youtube.com/vi/70sRgL42c1w/0.jpg)](https://youtu.be/70sRgL42c1w) 
-
-### 마크다운 Table
-* 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables
+5. [![주피터 노트북의 진화! 주피터랩 살펴보기](http://img.youtube.com/vi/70sRgL42c1w/0.jpg)](https://youtu.be/70sRgL42c1w)
 
 ---
 
-## Book
-* [Do it! 쉽게 배우는 R 데이터 분석](https://github.com/youngwoos/Doit_R/#4)
+### 마크다운 Table
+* 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables

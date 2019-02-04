@@ -44,7 +44,7 @@ permalink: /Lecture/Python
 
 <a name="contents"/>
 
-* **Table of Contents**   
+### Table of Contents
 
 |No|Title|Remarks|
 |--:|:-:|:--|
@@ -87,9 +87,9 @@ permalink: /Lecture/Python
 
 <!-- *template: invert -->
 
-## Data & Source 
+## Data & Source
 
-* **Table of Data & Source**   
+### Table of Data & Source
 
 |No|Title|Educational Institution|Source|Remarks|
 |--:|:-:|:-:|:-:|:--|
@@ -100,14 +100,14 @@ permalink: /Lecture/Python
 |5|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[Pandas.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Pandas.ipynb)|Pandas예제|
 |6|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[Series.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Series.ipynb)|Series예제|
 
-
 ---
 
 <!-- *template: gaia -->
 <!-- page_number: false -->
 
-## Introduce Facebook Crawling !!  
-# 페이스 북 크롤링
+## Introduce Facebook Crawling !!
+
+### 페이스 북 크롤링
 
 ---
 
