@@ -1,39 +1,29 @@
 ---
 layout: page
 title: 자연어 처리1
-permalink: /Lecture/NLP
+subtitle: Python National Language Processing
+categories: Language
+tags: Python
 ---
-
----
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
 
 # Introducing NLP !!
+
 ##### (Natural Language Processing)
 ###### Created by [푸르지오 (@shpimit)](https://github.com/shpimit)
 
 ---
 
-<!-- $theme: gaia -->
-<!-- page_number: true -->
-
 ## Overview
 
-
-> `자연어 처리`는 **KoNLpy**등의 처리를 통해서 형태소를 구별하여 단어/문장등에서 의미를 발견하는 작업이다. 
+> `자연어 처리`는 **KoNLpy**등의 처리를 통해서 형태소를 구별하여 단어/문장등에서 의미를 발견하는 작업이다.
 >
 > <small>-- *[Gaia (mythology) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gaia_%28mythology%29)*</small>
 
 ---
 
-<!-- *template: invert -->
-
 ## Contents
 
-<a name="contents"/>
-
-* **Table of Contents**   
+### Table of Contents
 
 |No|Title|Explain|
 |--:|:-:|:--|
@@ -41,17 +31,11 @@ permalink: /Lecture/NLP
 
 ---
 
-<!-- *template: gaia -->
-<!-- page_number: false -->
+## Introduce Install !!
 
-## Introduce Install !!  
 # 환경 설정
 
 ---
-
-<!-- *template: invert -->
-<!-- page_number: true -->
-<a name="install"/>
 
 #### 0. Install
 
@@ -79,11 +63,9 @@ permalink: /Lecture/NLP
 
 <!-- *template: invert -->
 
-## Data & Source 
+## Data & Source
 
-<a name="data"/>
-
-* **Table of Data & Source**   
+### Table of Data & Source
 
 |No|Source|Remarks|
 |--:|:-:|:--|

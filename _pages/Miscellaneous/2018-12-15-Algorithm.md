@@ -1,9 +1,15 @@
 ---
 layout: post
 title: Algorithm
+subtitle: Algorithm 심화 배우기
 summary: Algorithm. 
 featured-img: emile-perron-190221
 mathjax: true
+categories: Miscellaneous
+tags: Algorithm
+featured-img: learning
+mathjax: true
+comments: Algorithm 기초 부터 심화 까지
 ---
 
 # Introducing Algorithm !!

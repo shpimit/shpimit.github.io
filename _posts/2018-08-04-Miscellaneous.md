@@ -24,6 +24,7 @@ mathjax: true
 |4|[Unix](/_pages/Miscellaneous/2018-12-22-StoryTelling)|Unix 꿀 Tip|
 |5|[VR](/_pages/Miscellaneous/2018-12-18-KIPFA-VRARMR)|Unity 가상 프로그램|
 |6|[Jekyll](/_pages/Miscellaneous/2018-12-13-Jekyll)|Jekyll 프로그램|
+|7|[Algorithm](/_pages/Miscellaneous/2018-12-15-Algorithm)|Algorithm 심화|
 
 ---
 

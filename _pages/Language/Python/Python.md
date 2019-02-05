@@ -2,65 +2,57 @@
 layout: page
 title: Python 배우기
 subtitle: Python Language
+summary: Python 기초 배우기 
 categories: Language
 tags: Python
+featured-img: emile-perron-190221
+mathjax: true
+comments: Python 환경 부터 Jupyter를 통한 Oracle 연결
 ---
-
-<!-- $theme: gaia -->
-<!-- *template: gaia -->
-<!-- page_number: false -->
 
 # Introducing Python !!
+
 ##### (Easy Python)
 
-<!-- *template: invert -->
-<!-- page_number: true -->
-
-* **Table of Learning**
-
-|No|Title|Educational Institution|Term|
-|--:|:-:|:-:|:--:|
-|1|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|18.8.4~9.1|
-|2|[파이썬 프로그램밍과 과학 계산](/Lecture/MachineLearning)|서울대학교 도시연구소|18.8.20~8.24|
-|3|[빅데이터 분석기초를 위한 Python](/Lecture/Python)|서울대학교 도시연구소|18.9.3~9.7|
-|4|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|18.9.10~9.14|
-
 ---
-
-<!-- $theme: gaia -->
-<!-- page_number: true -->
 
 ## Overview
 
-> 파이썬(Python)은 1990년 암스테르담의 귀도 반 로섬(Guido Van Rossum)이 개발한 인터프리터 언어이다. 
-> 딥러닝 비전문가라도 각자 분야에서 손쉽게 딥러닝 모델을 개발하고 활용할 수 있도록 케라스는 직관적인 API를 제공하고 있습니다.    
-> <small>-- *귀도는 파이썬이라는 이름을 자신이 좋아하는 코미디 쇼인 "몬티 파이썬의 날아다니는 서커스(Monty Python’s Flying Circus)"에서 따왔다고 한다. 파이썬의 사전적인 의미는 고대 신화에 나오는 파르나소스 산의 동굴에 살던 큰 뱀을 뜻하며, 아폴로 신이 델파이에서 파이썬을 퇴치했다는 이야기가 전해지고 있다. * </small>
+> 파이썬(Python)은 1990년 암스테르담의 귀도 반 로섬(Guido Van Rossum)이 개발한 인터프리터 언어이다.  
+> 딥러닝 비전문가라도 각자 분야에서 손쉽게 딥러닝 모델을 개발하고 활용할 수 있도록 케라스는 직관적인 API를 제공하고 있습니다.  
+> <small>* 귀도는 파이썬이라는 이름을 자신이 좋아하는 코미디 쇼인 "몬티 파이썬의 날아다니는 서커스(Monty Python’s Flying Circus)"에서 따왔다고 한다. 파이썬의 사전적인 의미는 고대 신화에 나오는 파르나소스 산의 동굴에 살던 큰 뱀을 뜻하며, 아폴로 신이 델파이에서 파이썬을 퇴치했다는 이야기가 전해지고 있다. * </small>
 
 ---
 
-<!-- *template: invert -->  
-
 ## Contents
-
-<a name="contents"/>
 
 ### Table of Contents
 
 |No|Title|Remarks|
 |--:|:-:|:--|
-|0|[환경설정](#install)|환경설정|
-|2|[Reference Site](#reference)|참조사이트|
+|0|[환경설정](#Get)|환경설정|
 |1|[Facebook Crawling](#1)|페이스 북 크롤링|
 |2|[Gensim](#2)|유사도|
 |3|[Basian](#3)|베이지안 정리|
 |4|[Wikipedia](#4)|위키피디아 데이터 분석하기|
 |5|[XML](#5)|XML 데이터 분석하기|
+|6|[Pandas](/_pages/Language/Python/Pandas)|Pandas 기초|
+|7|[Oracle](/_pages/Language/Python/DB)|Python Oracle 연동|
+|8|[Oracle](/_pages/Language/Python/NLP)|자연어처리|
+|9|[Reference Site](#reference)|참조사이트|
 
 ---
 
-<!-- *template: invert -->
-<!-- page_number: true -->
-<a name="install"/>
+## Learning
+
+### Table of Learning
+
+|No|Title|Educational Institution|Lecturer|Term|Remarks|
+|--:|:--:|:-:|:--:|:--:|:-|
+|1|[빅데이터 분석기초를 위한 Python](/_pages/Language/Python/Python)|서울대학교 도시연구소|김태환교수님|Sep 3~7 2018|Python|
+|2|[소셜 빅데이터와 텍스트 마이닝](/_pages/Language/Python/2018-11-19-UDSL-Crawl)|서울대학교 도시연구소|박진수|Nov 19~23 2018|Python Crawling|
+
+---
 
 ## Get Started(`Python`)
 
@@ -85,8 +77,6 @@ tags: Python
 
 ---
 
-<!-- *template: invert -->
-
 ## Data & Source
 
 ### Table of Data & Source
@@ -101,9 +91,6 @@ tags: Python
 |6|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[Series.ipynb](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Python/src/Series.ipynb)|Series예제|
 
 ---
-
-<!-- *template: gaia -->
-<!-- page_number: false -->
 
 ## Introduce Facebook Crawling !!
 
@@ -794,4 +781,3 @@ print()
 ```
 
 ###### <U>[Go to Contents](#contents)</U>
-
