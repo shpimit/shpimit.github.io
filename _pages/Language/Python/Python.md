@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Python 배우기
-permalink: /Lecture/Python
----
-
+subtitle: Python Language
+categories: Language
+tags: Python
 ---
 
 <!-- $theme: gaia -->
