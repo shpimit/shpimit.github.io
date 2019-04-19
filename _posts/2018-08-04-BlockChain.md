@@ -2,7 +2,10 @@
 layout: post
 title: Blockchain
 summary:  Blockchain to learn Blockchain. 
+categories: Blockchain
+tags: Blockchain
 featured-img: block
+comments: 블록체인 개발
 ---
 
 # Introducing Blockchain !!
