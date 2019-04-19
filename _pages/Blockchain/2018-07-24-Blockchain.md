@@ -35,7 +35,7 @@ comments: 서울대학교 빅데이터 아카데미
 
 ### Blockchain [개발환경 Setting](https://tensorflow.blog/2018/04/25/pytorch-0-4-0-release)
 
-* [Radpid Miner](http://www.rapidminer.co.kr/rapidminer-studio)
+* [Rapid Miner](http://www.rapidminer.co.kr/rapidminer-studio)
 * [Remix IDE](https://remix.ethereum.org)
 
 ### Reference Site
