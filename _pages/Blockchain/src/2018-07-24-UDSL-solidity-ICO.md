@@ -1,3 +1,12 @@
+---
+layout: page
+title: Blockchain
+summary: Blockchain is space to learn blockchain algorithm & theory. 
+categories: Blockchain
+tags: Blockchain
+featured-img: block
+---
+
 # ICO(Initial Coin Offering)
 
 ```solidity

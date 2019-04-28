@@ -68,4 +68,4 @@ comments: 서울대학교 빅데이터 아카데미
 
 |No|Title|Educational Institution|Term|
 |--:|:--:|:-:|:--:|
-|1|[블록체인](/Blockchain/2018-07-24-Blockchain)|서울대학교 도시연구소|18.8.4~9.1|
+|1|블록체인|서울대학교 도시연구소|18.8.4~9.1|
