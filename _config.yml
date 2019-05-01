@@ -11,14 +11,14 @@ twitter_username: shpimit # replace with your_twitter_username or comment to rem
 github_username:  shpimit # replace with your_github_username or comment to remove link from footer
 instagram_username: shpimit # replace with your_instagram_username or comment to remove link from footer
 social:
-  name: Your Name
+  name: Prugio
   links:
-    - https://twitter.com/BenBalter
-    - https://www.facebook.com/ben.balter
-    - https://www.linkedin.com/in/BenBalter
-    - https://plus.google.com/+BenBalter
-    - https://github.com/benbalter
-    - https://keybase.io/benbalter
+    - https://twitter.com/shpimit
+    - https://www.facebook.com/shpimit
+    - https://www.linkedin.com/in/shpimit
+    - https://plus.google.com/+shpimit
+    - https://github.com/shpimit
+    - https://keybase.io/shpimit
 
 disqus:
   shortname: shpimit # to enable comments replace with your_disqus_shortname
@@ -47,7 +47,7 @@ exclude:
 defaults:
   -
     scope:
-      path: "blog" # 이 빈 문자열은 프로젝트의 모든 파일을 의미함
+      path: "" # 이 빈 문자열은 프로젝트의 모든 파일을 의미함
       type: "" # 이전 Jekyll 2.2 에서는 `post`
     values:
       layout: "page"    
