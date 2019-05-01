@@ -26,7 +26,7 @@ layout: true
 |1|[Deep Learning의 이해](/Lecture/PyTorch)|서울대학교 도시연구소|김건희교수님|Aug 6~10 2018|PyTorch|
 |2|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|[설진욱](https://cafe.naver.com/ugcadman)|Aug 4~ Sep 1 2018|TensorFlow, Keras|
 |3|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|김선교수님|Sep 10~14 2018|Python|
-|4|[텐서플로우 기반의 딥러닝 영상처리(CNN)](/_pages/AI/TensorFlow/2019-04-22-NCIA-CNN)|차세대융합콘텐츠산업협회|파이쿵|Apr 22~24 2019|TensorFlow|
+|4|[텐서플로우 기반의 딥러닝 영상처리(CNN)](/_pages/AI/TensorFlow/2019-04-22-NCIA-CNN)|차세대융합콘텐츠산업협회|[파이쿵](https://pythonkim.tistory.com/)|Apr 22~24 2019|TensorFlow|
 
 ---
 
