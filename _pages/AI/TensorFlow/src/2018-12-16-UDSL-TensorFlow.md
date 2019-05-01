@@ -1,7 +1,13 @@
-name: inverse
-class: center, middle, inverse
-layout: true
-
+---
+layout: page
+title: TensorFlow
+subtitle: TensorFlow All in One
+summary: TensorFlow is space to learn Deep Learning with TensorFlow
+categories: TensorFlow
+tags: TensorFlow
+featured-img: ai
+mathjax: true
+comments: 텐서플로우 기반의 딥러닝
 ---
 
 # Introducing TensorFlow !!
@@ -22,11 +28,11 @@ layout: true
 ### Table of Learning
 
 |No|Title|Educational Institution|Lecturer|Term|Remarks|
-|--:|:--:|:-:|:--:|:--:|:-|
-|1|[Deep Learning의 이해](/Lecture/PyTorch)|서울대학교 도시연구소|김건희교수님|Aug 6~10 2018|PyTorch|
+|-:|:--:|:-:|:--:|:--:|:-|
+|1|[Deep Learning의 이해](/_pages/AI/PyTorch/2018-12-16-UDSL-PyTorc)|서울대학교 도시연구소|김건희교수님|Aug 6~10 2018|PyTorch|
 |2|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|[설진욱](https://cafe.naver.com/ugcadman)|Aug 4~ Sep 1 2018|TensorFlow, Keras|
 |3|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|김선교수님|Sep 10~14 2018|Python|
-|4|[텐서플로우 기반의 딥러닝 영상처리(CNN)](/_pages/AI/TensorFlow/2019-04-22-NCIA-CNN)|차세대융합콘텐츠산업협회|[파이쿵](https://pythonkim.tistory.com/)|Apr 22~24 2019|TensorFlow|
+|4|[텐서플로우 기반의 딥러닝 영상처리(CNN)](/_pages/AI/TensorFlow/2019-04-22-NCIA-CNN)|차세대융합콘텐츠산업협회|김정훈[(파이쿵)](https://pythonkim.tistory.com/)|Apr 22~24 2019|TensorFlow|
 
 ---
 
@@ -35,7 +41,7 @@ layout: true
 ### Table of Contents
 
 |No|Title|Remarks|
-|--:|:-:|:--|
+|-:|:-:|:--|
 |0|[환경설정](#install)|환경설정|
 |1|[Tensorflow](#Tensorflow)|Tensorflow 소스|
 |2|[Keras](/Lecture/Keras)|Keras 소스|
@@ -43,9 +49,7 @@ layout: true
 
 ---
 
-<a name="install"/>
-
-## Get Started(`TensorFlow`)
+## Get Started
 
 * TensorFlow [개발환경 Setting](https://tensorflow.blog/윈도우즈에-아나콘다-텐서플로우-설치하기/)
 * [Anaconda3 5.2 설치(Python 3.6 기반)](https://www.anaconda.com/download/#windows)
@@ -107,15 +111,12 @@ layout: true
 
 ---
 
-<!-- *template: invert -->
-<a name="data"/>
-
 ## Data & Source
 
 ### Table of Data & Source
 
 |No|Source|Remarks|
-|--:|:-:|:--|
+|-:|:-:|:--|
 |0|[Basic](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/TensorFlowBasic.ipynb)|기초,활성화함수|
 |1|[XOR](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/XOR_Tensorflow.ipynb)|XOR문제|
 |2|[XOR해결](https://github.com/shpimit/shpimit.github.io/tree/master/blog/TensorFlow/src/XOR-Solution.ipynb)|XOR해결|
