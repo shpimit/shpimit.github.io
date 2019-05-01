@@ -1,9 +1,14 @@
 ---
 layout: post
 title: Miscellaneous
+subtitle: Miscellaneous
 summary: Miscellaneous is my miscellaneous space about IT new technology. 
+categories: Miscellaneous
+tags: Miscellaneous
 featured-img: miscellaneous
 mathjax: true
+comments: 분류하기 어려운 utility
+ Learning
 ---
 
 # Introducing `Miscellaneous` !!
@@ -16,8 +21,8 @@ mathjax: true
 
 ### Table of Contents
 
-|No|Titile|Explain|
-|--:|:--:|:-:|
+|No|Title|Remarks|
+|-:|:--:|:-:|
 |1|[Python](#python) |파이썬|
 |2|[Jupyter](#jupyter) |주피터|
 |3|[Visual Studio Code](#vsc) |Visual Studio Code|
@@ -73,4 +78,5 @@ mathjax: true
 ---
 
 ### 마크다운 Table
+
 * 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables
