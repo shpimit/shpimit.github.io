@@ -23,44 +23,78 @@ comments: 텐서플로우 기반의 딥러닝
 
 ---
 
-## Learning
-
-### Table of Learning
-
-|No|Title|Educational Institution|Lecturer|Term|Remarks|
-|-:|:--:|:-:|:--:|:--:|:-|
-|1|[Deep Learning의 이해](/_pages/AI/PyTorch/2018-12-16-UDSL-PyTorc)|서울대학교 도시연구소|김건희교수님|Aug 6~10 2018|PyTorch|
-|2|[텐서플로우 딥러닝 인공지능 개발](/Lecture/TensorFlow)|IT이젠아카데미|[설진욱](https://cafe.naver.com/ugcadman)|Aug 4~ Sep 1 2018|TensorFlow, Keras|
-|3|[기계학습의이해](/Lecture/MachineLearning)|서울대학교 도시연구소|김선교수님|Sep 10~14 2018|Python|
-|4|[텐서플로우 기반의 딥러닝 영상처리(CNN)](/_pages/AI/TensorFlow/2019-04-22-NCIA-CNN)|차세대융합콘텐츠산업협회|김정훈[(파이쿵)](https://pythonkim.tistory.com/)|Apr 22~24 2019|TensorFlow|
-
----
-
 ## Contents
 
 ### Table of Contents
 
 |No|Title|Remarks|
 |-:|:-:|:--|
-|0|[환경설정](#install)|환경설정|
+|0|[환경설정](#get-started)|환경설정|
 |1|[Tensorflow](#Tensorflow)|Tensorflow 소스|
 |2|[Keras](/Lecture/Keras)|Keras 소스|
 |3|[Reference Site](#reference)|참조사이트|
 
 ---
 
+## Learning
+
+### Table of Learning
+
+|No|Title|Educational Institution|Lecturer|Term|Remarks|
+|-:|:--:|:-:|:--:|:--:|:-|
+|1|텐서플로우 딥러닝 인공지능 개발|IT이젠아카데미|[설진욱](https://cafe.naver.com/ugcadman)|Aug 4~ Sep 1 2018|TensorFlow, Keras|
+|2|[Deep Learning의 이해](/_pages/AI/TensorFlow/2018-09-17-UDSL-DeepLearning)|서울대학교 도시연구소|오성회교수님|Sep 17~21 2018|`TensorFlow`|
+|3|[파이썬 및 텐서플로우 활용한 인공지능 실습](/_pages/AI/TensorFlow/2019-01-14-KIPFA-TensorFlow)|(사)한국인터넷전문가협회|최재규|Jan 14~18 2019|`TensorFlow`|
+|4|[텐서플로우 기반의 딥러닝 영상처리(CNN)](/_pages/AI/TensorFlow/2019-04-22-NCIA-CNN)|차세대융합콘텐츠산업협회|김정훈[(파이쿵)](https://pythonkim.tistory.com/)|Apr 22~24 2019|`TensorFlow`|
+
+---
+
 ## Get Started
 
-* TensorFlow [개발환경 Setting](https://tensorflow.blog/윈도우즈에-아나콘다-텐서플로우-설치하기/)
-* [Anaconda3 5.2 설치(Python 3.6 기반)](https://www.anaconda.com/download/#windows)
-* [TensorFlow 설치](https://www.tensorflow.org/install/install_windows)
+* ~~TensorFlow [개발환경 Setting](https://tensorflow.blog/윈도우즈에-아나콘다-텐서플로우-설치하기/)~~
+* ~~[Anaconda3 5.2 설치(Python 3.6 기반)](https://www.anaconda.com/download/#windows)~~ → Python 3.7 기반 설치를 하는것이 맞음
 
+```shell
 > conda create -n tensorflow pip python=3.6   
 > activate tensorflow   
 > pip install --ignore-installed --upgrade tensorflow  
+```
+
+* [TensorFlow 공식 홈페이지 설치](https://www.tensorflow.org/install/install_windows)
+
+---
+
+* [Anaconda TensorFlow 설치](https://tensorflow.blog/2018/10/24/pip-install-tensorflow-vs-conda-install-tensorflow/)
+
+
+* 콘다 업데이트
+
+```shell  
+> conda update -n base conda
+```
+
+* 파이썬 패키지 업데이트
+
+```shell
+> conda update --all
+```
+
+* Tensorflow GPU 설치
+
+```shell
+> conda install tensorflow-gpu
+```
+
+* [CUDA 라이브러리 설치](https://developer.nvidia.com/cuda-toolkit)
+* [CUDNN 라이브러리 설치](http://twinstarinfo.blogspot.com/2018/12/tensorflow-gpu-install-nvidia-cuda.htm)
+
+---
+
+* 아래는 필요한경우만 설치 하면 됨
  
 * Python 필요 패키지설치
 
+```shell
 > (tensorflow) $ conda install scikit-learn → 파이썬 대표 머신러닝 라이브러리  
 > (tensorflow) $ conda install pillow  
 > (tensorflow) $ conda install seaborn  
@@ -69,11 +103,14 @@ comments: 텐서플로우 기반의 딥러닝
 > (tensorflow) $ conda install cx_Oracle → Oracle 연동 라이브러리  
 > (tensorflow) $ conda install pymysql   → MySQL 연동 라이브러리  
 > (tensorflow) $ conda install xlrd      → Excel 연동 라이브러리  
+```
 
 * Jupyter Notebook 설치
 
+```shell
 > (tensorflow) $ conda install jupyter  
 > (tensorflow) $ conda install -c conda-forge jupyterlab  
+```
 
 * Theano -> Tensorflow 변경
 
@@ -87,29 +124,6 @@ comments: 텐서플로우 기반의 딥러닝
 
 ---
 
-* [Windows TensorFlow Install](https://tensorflow.blog/윈도우즈에-아나콘다-텐서플로우-설치하기/)
-
-  * 콘다 업데이트
-> conda update -n base conda
-
-  * 파이썬 패키지 업데이트
-> conda update --all
-
-  * Tensorflow 설치
-> python -m pip install --upgrade pip  
-> 아나콘다 배포판에는 텐서플로 최신 버전이 늦게 포함되므로 파이썬 기본 패키지 관리자인 pip로 텐서플로우를 설치합니다.  
-> pip install tensorflow  
-> 만약 AVX를 지원하지 않는 CPU를 사용하고 있다면 다음과 같이 1.5 버전을 설치합니다.  
-> pip install tensorflow==1.5.0
-
-* Tensorflow GPU 설치
-> conda install tensorflow-gpu
-* CUDA 라이브러리 설치
-> https://developer.nvidia.com/cuda-toolkit
-* CUDNN 라이브러리 설치
-> http://twinstarinfo.blogspot.com/2018/12/tensorflow-gpu-install-nvidia-cuda.htm
-
----
 
 ## Data & Source
 
@@ -137,3 +151,11 @@ comments: 텐서플로우 기반의 딥러닝
 |Dropout|미사용|미사용|미사용|미사용|사용(훈련시:0.7,테스트시:1.0)|
 
 ---
+
+## Reference
+
+* [강의자료](http://bit.ly/2RoWaQq)
+* [텐서플로한글문서](https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/)
+* [골빈해커의 3분 딥러닝](https://github.com/golbin/TensorFlow-Tutorials)
+
+##### [Go to Contents](#contents)

@@ -33,7 +33,7 @@ comments: 서울대학교 빅데이터 아카데미
 ## Get Started
 
 * [PyTorch](https://pytorch.org/)
-* PyTorch [개발환경 PyTorch](https://tensorflow.blog/2018/04/25/pytorch-0-4-0-release/)
+* ~~PyTorch [개발환경 PyTorch](https://tensorflow.blog/2018/04/25/pytorch-0-4-0-release/)~~
 
 ```shell
 # Windows GPU
@@ -41,6 +41,17 @@ conda install pytorch cuda91 -c pytorch
 pip3 install torchvision
 # Windows CPU
 conda install pytorch torchvision -c pytorch
+```
+
+* [PyTorch GPU](https://tensorflow.blog/2019/05/01/pytorch-1-1-0-release/)
+
+```shell
+# CUDA 9.0 or 10.0 for Linux, Windows
+$ conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
+$ conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
+
+# CPU for Linux, Windows
+$ conda install pytorch-cpu torchvision-cpu -c pytorch
 ```
 
 ---
