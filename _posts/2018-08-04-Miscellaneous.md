@@ -77,6 +77,16 @@ comments: 분류하기 어려운 utility
 
 ---
 
+## Data & Source
+
+### Table of Data & Source
+
+|No|Title|Educational Institution|Source|Remarks|
+|-:|:--:|:--:|:--:|:-|
+|1|Jupyter|허민석 github|[Jupyter](/_pages/Miscellaneous/src/Jupyter.ipynb)|`Jupyter`|
+
+---
+
 ### 마크다운 Table
 
 * 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요. http://www.tablesgenerator.com/markdown_tables
