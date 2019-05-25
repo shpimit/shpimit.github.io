@@ -86,7 +86,7 @@ comments: 텐서플로우 기반의 딥러닝
 ```
 
 * [CUDA 라이브러리 설치](https://developer.nvidia.com/cuda-toolkit)
-* [CUDNN 라이브러리 설치](http://twinstarinfo.blogspot.com/2018/12/tensorflow-gpu-install-nvidia-cuda.htm)
+* [CUDNN 라이브러리 설치](http://twinstarinfo.blogspot.com/2018/12/tensorflow-gpu-install-nvidia-cuda.html)
 
 ---
 
