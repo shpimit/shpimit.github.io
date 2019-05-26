@@ -131,16 +131,16 @@ comments: 텐서플로우 기반의 딥러닝
 
 |No|Source|Remarks|
 |-:|:-:|:--|
-|0|[Basic](/_pages/AI/TensorFlow/src/TensorFlowBasic.ipynb)|기초,활성화함수|
-|1|[XOR](/_pages/AI/TensorFlow/src/XOR_Tensorflow.ipynb)|XOR문제|
-|2|[XOR해결](/_pages/AI/TensorFlow/src/XOR-Solution.ipynb)|XOR해결|
-|3|[Regression](/_pages/AI/TensorFlow/src/Regression.ipynb)|Regression|
+|0|[Basic](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/TensorFlowBasic.ipynb)|기초,활성화함수|
+|1|[XOR](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/XOR_Tensorflow.ipynb)|XOR문제|
+|2|[XOR해결](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/XOR-Solution.ipynb)|XOR해결|
+|3|[Regression](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/Regression.ipynb)|Regression|
 
 ---
 
 * **Table of MNIST Best Model Source**  
 
-||[softmax](/_pages/AI/TensorFlow/src/EZEN-TensorFlow/01_mnist_softmax.ipynb)|[Neural Network](/_pages/AI/TensorFlow/src/EZEN-TensorFlow/02_mnist_nn.ipynb)|[NN(w/ Xavier)](/_pages/AI/TensorFlow/src/EZEN-TensorFlow/03_mnist_xavier.ipynb)|[Deep NN](/_pages/AI/TensorFlow/src/EZEN-TensorFlow/04_mnist_deep.ipynb)|[DNN(w/ dropout)](/_pages/AI/TensorFlow/src/EZEN-TensorFlow/05_mnist_dropout.ipynb)|
+||[softmax](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/EZEN-TensorFlow/01_mnist_softmax.ipynb)|[Neural Network](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/EZEN-TensorFlow/02_mnist_nn.ipynb)|[NN(w/ Xavier)](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/EZEN-TensorFlow/03_mnist_xavier.ipynb)|[Deep NN](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/EZEN-TensorFlow/04_mnist_deep.ipynb)|[DNN(w/ dropout)](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/TensorFlow/src/EZEN-TensorFlow/05_mnist_dropout.ipynb)|
 |--:|:-:|:-:|:-:|:-:|:-:|
 |활성화 함수1|W(softmax)|W1(Relu)|W1(Relu)|W1(Relu)|W1(Relu)|
 |활성화 함수2|-|W2(Relu)|W2(Relu)|W2(Relu)|W2(Relu)|
