@@ -65,12 +65,12 @@ $ conda install pytorch-cpu torchvision-cpu -c pytorch
 
 |No|Title|Educational Institution|Source|Remarks|
 |-:|:-:|:-:|:-:|:--|
-|1|Tensor|서울대학교 도시연구소|[Tensor](_pages/AI/PyTorch/src/01_Tensor.ipynb)|Pytorch기초|
-|2|Autograd|서울대학교 도시연구소|[Autograd](_pages/AI/PyTorch/src/01_Autograd.ipynb)|Autograd|
-|3|DataLoader|서울대학교 도시연구소|[DataLoader](_pages/AI/PyTorch/src/03_Dataset_DataLoader.ipynb)|DataLoader|
-|4|Feed-forward|서울대학교 도시연구소|[Feed-forward](_pages/AI/PyTorch/src/04_Feed-forward_Neural_Networks.ipynb)|Feed-forward|
-|5|CNN|서울대학교 도시연구소|[CNN](_pages/AI/PyTorch/src/05_Convolutional_Neural_Networks.ipynb)|Convolutional_Neural_Networks|
-|6|RNN|서울대학교 도시연구소|[RNN](_pages/AI/PyTorch/src/06_Recurrent_Neural_Networks.ipynb.ipynb)|Recurrent_Neural_Networks|
+|1|Tensor|서울대학교 도시연구소|[Tensor](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/PyTorch/src/01_Tensor.ipynb)|Pytorch기초|
+|2|Autograd|서울대학교 도시연구소|[Autograd](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/PyTorch/src/01_Autograd.ipynb)|Autograd|
+|3|DataLoader|서울대학교 도시연구소|[DataLoader](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/PyTorch/src/03_Dataset_DataLoader.ipynb)|DataLoader|
+|4|Feed-forward|서울대학교 도시연구소|[Feed-forward](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/PyTorch/src/04_Feed-forward_Neural_Networks.ipynb)|Feed-forward|
+|5|CNN|서울대학교 도시연구소|[CNN](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/PyTorch/src/05_Convolutional_Neural_Networks.ipynb)|Convolutional_Neural_Networks|
+|6|RNN|서울대학교 도시연구소|[RNN](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/PyTorch/src/06_Recurrent_Neural_Networks.ipynb.ipynb)|Recurrent_Neural_Networks|
 
 ---
 
