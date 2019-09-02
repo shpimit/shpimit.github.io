@@ -4,7 +4,7 @@
 
 ### 1. Curl, Docker 설치
 ```shell
-* sudo apt-get install curl
+* sudo apt-get install curl     # url에서 copy 해옴
 * sudo apt install docker.io
 * sudo apt install docker-compose
 * sudo apt install software-properties-common
@@ -40,8 +40,28 @@
 
 ### 5. Fabric Sample 설치, Docker Image 설치
 ```shell
-* sudo curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.1
+* sudo curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.1   # 1.4.1 을 명시하지 않으면 가장 최신 버전을 가져옴. 안될때 sudo bash -s
 * vi ~/.profile
 * export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:~/fabric-samples/bin
 * source ~/.profile
+```
+
+## Sample Fabric
+
+### 1. fabcar
+```shell
+cd ~/fabric-samples/basic_network
+./stop.sh
+./teardown.sh
+
+cd ~/fabric-samples/fabcar
+./startFabric.sh
+cd javascript
+npm install
+sudo apt install tree
+~/fabric-samples/fabcar/javascript
+node enrollAdmin.js
+tree wallet
+node registerUser.js
+node query.js
 ```
