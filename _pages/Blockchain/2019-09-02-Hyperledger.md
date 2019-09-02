@@ -56,12 +56,12 @@ cd ~/fabric-samples/basic_network
 
 cd ~/fabric-samples/fabcar
 ./startFabric.sh
-cd javascript
-npm install
+cd ~/fabric-samples/fabcar/javascript
+/fabric-samples/fabcar/javascript/npm install
 sudo apt install tree
 ~/fabric-samples/fabcar/javascript
-node enrollAdmin.js
-tree wallet
-node registerUser.js
-node query.js
+~/fabric-samples/fabcar/javascript/node enrollAdmin.js
+~/fabric-samples/fabcar/javascript/tree wallet
+~/fabric-samples/fabcar/javascript/node registerUser.js
+~/fabric-samples/fabcar/javascript/node query.js
 ```
