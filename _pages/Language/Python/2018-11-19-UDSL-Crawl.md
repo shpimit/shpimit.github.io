@@ -25,8 +25,10 @@ tags: Python
 ### Table of Contents
 
 |No|Title|Remarks|
-|--:|:-:|:--|
+|-:|:--:|:--|
 |1|[For문과 축약 기법](#1)|반복문|
+|2|[문자열 서식설정(String Formatting)](#2)|String Formatting|
+|3|[lambda 함수](#3)|lambda|
 
 ---
 
@@ -88,3 +90,19 @@ s = '파이썬을 배우면서 파이썬을 즐기자!!!'
 ```
 
 > '파이썬을 배우면서 파이썬을 '
+
+## 3. lambda 함수 사용법
+* lambda 는 함수를 생성할때 사용하는 예약어
+* def와 동일한 역할
+
+```python
+def square(x):
+    return x ** 2
+
+square(5)
+
+square = lambda x: x ** 2
+
+square(5)
+
+```
