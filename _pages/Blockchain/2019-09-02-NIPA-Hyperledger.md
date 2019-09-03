@@ -79,11 +79,12 @@ comments: NIPA
 ### 0. Docker 사용법
 
 ```shell
-docker ps -a                             #  사용중인 docker
+docker ps -a                             # 사용중인 docker
 docker rm -f $(docker ps -aq)            # 사용중인 docker 지우기
 docker images dev-*                      # 사용중인 docker image
 docker rmi -f $(docker images dev-* -q)  # 사용중인 docker image 지우기
 docker network prune                     # 사용중인 Network 지우기
+docker network ls                        # 사용중인 network 확인하기
 ```
 
 ### 1. fabcar
@@ -94,12 +95,12 @@ cd ~/fabric-samples/basic_network
 ./teardown.sh
 
 cd ~/fabric-samples/fabcar
-./startFabric.sh
+./startFabric.sh                                            # Fabcar 구동 script
 cd ~/fabric-samples/fabcar/javascript
-/fabric-samples/fabcar/javascript/npm install
+/fabric-samples/fabcar/javascript/npm install               # Node js 관련 파일 설치 package.json
 sudo apt install tree
 ~/fabric-samples/fabcar/javascript
-~/fabric-samples/fabcar/javascript/node enrollAdmin.js
+~/fabric-samples/fabcar/javascript/node enrollAdmin.js      # node 라는 명령어로.. node.js 파일 실행시킴
 ~/fabric-samples/fabcar/javascript/tree wallet
 ~/fabric-samples/fabcar/javascript/node registerUser.js
 ~/fabric-samples/fabcar/javascript/node query.js
