@@ -111,3 +111,7 @@ sudo apt install tree
 localhost:5984/_utils
 ```
 
+### 3. 사용중인 것 지우기
+```shell
+./teardown.sh
+```
