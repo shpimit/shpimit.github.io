@@ -106,4 +106,8 @@ sudo apt install tree
 ~/fabric-samples/fabcar/javascript/node query.js
 ```
 
+### 2. Couch DB 조회
+```shell
+localhost:5984/_utils
+```
 
