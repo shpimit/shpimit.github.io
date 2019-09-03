@@ -76,6 +76,16 @@ comments: NIPA
 
 ## Sample Fabric
 
+### 0. Docker 사용법
+
+```shell
+docker ps -a                             #  사용중인 docker
+docker rm -f $(docker ps -aq)            # 사용중인 docker 지우기
+docker images dev-*                      # 사용중인 docker image
+docker rmi -f $(docker images dev-* -q)  # 사용중인 docker image 지우기
+docker network prune                     # 사용중인 Network 지우기
+```
+
 ### 1. fabcar
 
 ```shell
@@ -94,3 +104,5 @@ sudo apt install tree
 ~/fabric-samples/fabcar/javascript/node registerUser.js
 ~/fabric-samples/fabcar/javascript/node query.js
 ```
+
+
