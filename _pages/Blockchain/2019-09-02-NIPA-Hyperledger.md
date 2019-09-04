@@ -66,7 +66,8 @@ comments: NIPA
 
 ### 5. Fabric Sample 설치, Docker Image 설치
 ```shell
-* sudo curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.1   # 1.4.1 을 명시하지 않으면 가장 최신 버전을 가져옴. 안될때 sudo bash -s
+# curl -sSL http://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version> <thirdparty_version>
+* sudo curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.1 1.4.1 0.4.15  # 1.4.1 을 명시하지 않으면 가장 최신 버전을 가져옴. 안될때 sudo bash -s
 * vi ~/.profile
 * export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:~/fabric-samples/bin
 * source ~/.profile
@@ -83,8 +84,8 @@ docker ps -a                             # 사용중인 docker
 docker rm -f $(docker ps -aq)            # 사용중인 docker 지우기
 docker images dev-*                      # 사용중인 docker image
 docker rmi -f $(docker images dev-* -q)  # 사용중인 docker image 지우기
+docker network ls                        # 사용중인 network 확인하기  3개는 기본으로 떠 있어야 한다.
 docker network prune                     # 사용중인 Network 지우기
-docker network ls                        # 사용중인 network 확인하기
 ```
 
 ### 1. fabcar
@@ -113,5 +114,18 @@ localhost:5984/_utils
 
 ### 3. 사용중인 것 지우기
 ```shell
-./teardown.sh
+.fabcar/teardown.sh
 ```
+
+
+### 4. Dapp Fabcar
+```shell
+cd fabcar
+cd javascript
+git clone https://github.com/saarc/fabric-front-end.git
+cd fabric-front-end
+npm install
+cp -R ../wallet ./
+node server.js
+```
+* VirtualBox PortFowarding 작업 필요
