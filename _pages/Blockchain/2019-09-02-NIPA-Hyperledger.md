@@ -129,3 +129,15 @@ cp -R ../wallet ./
 node server.js
 ```
 * VirtualBox PortFowarding 작업 필요
+
+
+### 5. MOnitor
+* https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html
+```shell
+commercial-paper .... /cli/ $ monitordocker.sh net_basic
+```
+```shell
+docker-compose -f docker-compose.yml up -d CliMagnetoCorp
+docker exec iit cliMagnetoCorp bash  
+```
+
