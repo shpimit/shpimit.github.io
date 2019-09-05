@@ -81,7 +81,7 @@ comments: NIPA
 
 ```shell
 docker ps -a                             # 사용중인 docker
-docker rm -f $(docker ps -aq)            # 사용중인 docker 지우기
+docker rm -f $(docker ps -aq)            # 사용중인 docker 지우기   -q는 id만 가져오겠다.
 docker images dev-*                      # 사용중인 docker image
 docker rmi -f $(docker images dev-* -q)  # 사용중인 docker image 지우기
 docker network ls                        # 사용중인 network 확인하기  3개는 기본으로 떠 있어야 한다.
@@ -222,3 +222,38 @@ go get -u "github.com/hyperledger/fabric/protos/peer"
 go build   # go compile 하는 법
 go version
 ```
+
+* basic-network 가동
+```shell
+$ cd ../../basic-network/
+$ ./start.sh
+```
+
+* cli 
+```shell
+$  docker-compose -f docker-compose.yml up -d cli
+$ docker exec -it cli bash
+# install
+root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode install -n mycc -v 1 -p github.com/mycc
+root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode list --installed # 등록된 chaincode 확인 
+# instantiate
+peer chaincode instantiate -n mycc -v 1 -C mychannel -c '{"Args":["a","100"]}' -P 'OR ("Org1MSP.member")'
+peer chaincode list --instantiated -C mychannel # 어느 channel에 instantiated 되었는지 확인
+# 데이터를 만들어 봄 invoke
+peer chaincode invoke -n mycc -C mychannel -c '{"Args":["set","b","200"]}'  # peer chaincode invoke 명령어 Invoke호출
+# Data를 조회함
+peer chaincode query -n mycc -C mychannel -c '{"Args":["get","a"]}'         # peer chaincode query 명령어 Data 호출
+```
+
+* WebServer
+```shell
+~/fabric-samples/fabcar$ cd javascript
+~/fabric-samples/fabcar/javascript$ cp package.json *.js ../application
+cd ../application/
+node enrollAdmin.js
+node registerUser.js
+node invoke.js
+node query.js
+```
+
+# w3schools.com
