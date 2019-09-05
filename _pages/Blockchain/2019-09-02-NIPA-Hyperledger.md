@@ -205,7 +205,20 @@ node issue.js
 ```shell
 (balaji)$ node buy.js
 ```
-* Redeem application
+
 ```shell
 (balaji)$ node redeem.js
+```
+
+* mycc
+```shell
+$ cd fabric-samples/chaincode
+$ mkdir mycc
+cd mycc
+code .  # mycc.go
+Ctrl+~
+go get -u "github.com/hyperledger/fabric/core/chaincode/shim"
+go get -u "github.com/hyperledger/fabric/protos/peer"
+go build   # go compile 하는 법
+go version
 ```
