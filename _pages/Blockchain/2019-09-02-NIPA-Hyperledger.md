@@ -131,13 +131,81 @@ node server.js
 * VirtualBox PortFowarding 작업 필요
 
 
-### 5. MOnitor
-* https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html
+### 5. [Commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html)
+* Create Network
+
 ```shell
-commercial-paper .... /cli/ $ monitordocker.sh net_basic
-```
-```shell
-docker-compose -f docker-compose.yml up -d CliMagnetoCorp
-docker exec iit cliMagnetoCorp bash  
+$ cd fabric-samples/basic-network
+$ ./start.sh
+$ docker network inspect net_basic
 ```
 
+* Working as MagnetoCorp
+```shell
+(magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
+(magnetocorp admin)$ ./monitordocker.sh net_basic
+```
+* 새로운 터미널을 띄워서
+```shell
+(magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
+(magnetocorp admin)$ docker-compose -f docker-compose.yml up -d cliMagnetoCorp
+```
+
+* Smart contract
+```shell
+(magnetocorp developer)$ cd commercial-paper/organization/magnetocorp/contract
+(magnetocorp developer)$ code .
+```
+
+* Install contract
+```shell
+(magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
+```
+* Instantiate contract
+```shell
+(magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P "AND ('Org1MSP.member')"
+(magnetocorp admin)$ docker ps
+```
+
+* Application structure
+  -  `addToWallet.js` is the program that Isabella is going to use to load her identity into her wallet.
+```shell
+(magnetocorp user)$ cd commercial-paper/organization/magnetocorp/application/
+(magnetocorp user)$ cd commercial-paper/organization/magnetocorp/application
+ npm install
+(isabella)$ node addToWallet.js
+(isabella)$ tree ../identity/user/isabella/wallet/
+```
+
+* Issue application
+```shell
+node issue.js
+```
+
+* Working as DigiBank
+```shell
+(digibank admin)$ cd commercial-paper/organization/digibank/configuration/cli/
+(digibank admin)$ docker-compose -f docker-compose.yml up -d cliDigiBank
+```
+
+* Digibank applications
+```shell
+(balaji)$ cd commercial-paper/organization/digibank/application/
+(balaji)$ code buy.js
+```
+
+* Run as DigiBank
+```shell
+(digibank admin)$ cd commercial-paper/organization/digibank/application/
+(digibank admin)$ npm install
+(balaji)$ node addToWallet.js
+```
+
+* Buy application
+```shell
+(balaji)$ node buy.js
+```
+* Redeem application
+```shell
+(balaji)$ node redeem.js
+```
