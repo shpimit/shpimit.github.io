@@ -257,3 +257,89 @@ node query.js
 ```
 
 # w3schools.com
+
+
+## Private Data
+* Private는 orderer를 사용하지 않고 private를 직접 Peer한테 전송함
+```shell
+$ ~/fabric-samples/chaincode/marbles02_private/code collections_config.json
+```
+```json
+[
+ {
+   "name": "collectionMarbles",
+   "policy": "OR('Org1MSP.member', 'Org2MSP.member')",
+   "requiredPeerCount": 0,
+   "maxPeerCount": 3,
+   "blockToLive":1000000,  # 0로 나두면 private data를 삭제 하지 않겠다.
+   "memberOnlyRead": true
+},
+ {
+   "name": "collectionMarblePrivateDetails",
+   "policy": "OR('Org1MSP.member')",
+   "requiredPeerCount": 0,
+   "maxPeerCount": 3,       # Private는 orderer를 사용하지 않고 private를 직접 Peer한테 전송함
+   "blockToLive":3,         # 몇개의 block이 생성된 후 삭제 가능 할수 있다. ex) 네트웍크 timeToLive
+   "memberOnlyRead": true   # 멤버만 읽을수 있도록 조치함.
+ }
+]
+```
+* First Network 가동
+```shell
+./byfn.sh up -c mychannel -s couchdb  # -s statedb에 대한 option
+```
+```shell
+docker exec -it cli bash # -it keyboard를 통해서 입력을 받겠다.  환경변수 하면서..... 다른 peer도 선해
+
+# 체인코드 설치   환경변수 하면서..... 다른 peer도 선해
+root@260f8b66d769:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+
+export CORE_PEER_LOCALMSPID=Org2MSP
+
+export PEER0_ORG2_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+
+export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
+
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+
+export CORE_PEER_ADDRESS=peer0.org2.example.com:9051
+```
+* chaincode Instantiate
+```shell
+export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile $ORDERER_CA -C mychannel -n marblesp -v 1.0 -c '{"Args":["init"]}' -P "OR('Org1MSP.member','Org2MSP.member')" --collections-config  $GOPATH/src/github.com/chaincode/marbles02_private/collections_config.json   # --collections-config    collections_config.json파일을 사용옵션
+```
+* Cli org1로 연결...private data 쓰기 위해
+```shell
+export CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+
+export CORE_PEER_LOCALMSPID=Org1MSP
+
+export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+
+export PEER0_ORG1_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+
+
+
+export MARBLE=$(echo -n "{\"name\":\"marble1\",\"color\":\"blue\",\"size\":35,\"owner\":\"tom\",\"price\":99}" | base64 | tr -d \\n)
+
+peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n marblesp -c '{"Args":["initMarble"]}'  --transient "{\"marble\":\"$MARBLE\"}"
+```
+* Read marble
+```shell
+peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarble","marble1"]}'
+```
+
+* Read org1에서만 저장 가능한 데이터 
+```shell
+peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarblePrivateDetails","marble1"]}'
+```
+
+* [couchDB 접근](http://localhost:5984/_utils)   # docker-composer.yaml couchdb id/pw 입력 받께끔 처리 해야 함.
+```
+Click mychannel_marblesp$$pcollection$marbles
+Click mychannel_marblesp$$pcollection$marble$private$details
+```
