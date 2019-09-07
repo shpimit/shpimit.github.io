@@ -18,7 +18,7 @@ comments: 차세대융합콘텐츠산업협회 블록체인 기반 Smart Contrac
 
 ## Table of Contents
 
-|No|Titile|Remarks|
+|No|Title|Remarks|
 |--:|:-:|:--|
 |0|[환경설정](#install)|이더리움환경셋팅|
 |1|[커리큘럼](#Syllabus)|커리큘럼 |
@@ -160,6 +160,8 @@ $ npm install -g nodemon
 * AWS에서 ubuntu 기반 제작 연동 → aws 가입 → 상용화 관점
   * 사설네트워크용, 서비스용 2개 구축
   * 리눅스 기반 세팅 주제
+
+---
 
 ## Practice
 
