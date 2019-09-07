@@ -47,7 +47,8 @@ comments: 블록체인 개발
 |1|[Blockchain](/_pages/Blockchain/2018-07-24-Blockchain)|서울대학교 도시연구소|장우진교수님|Jul 23~27 2018|`solidity`|
 |2|[실무에 적용하는 핀테크 블록체인 실전과정](/_pages/Blockchain/2018-11-03-AICON-Ethereum)|에이콘 아카데미|장성곤|Oct 13~ Nov 3 2018|`Geth`|
 |3|[블록체인 기반 Smart Contract DAPP 개발](/_pages/Blockchain/2019-04-18-NCIA-Blockchain)|차세대융합콘텐츠산업협회|익명|Apr 18~20 2019|`DApp`|
-|4|[하이퍼레저로 배우는 프라이빗 블록체인 입무](/_pages/Blockchain/2019-04-18-NCIA-Blockchain)|NIPA정보통신산업진흥원|익명|Sep 2~6 2019|`GO`|
+|4|[하이퍼레저로 배우는 프라이빗 블록체인 입무](/_pages/Blockchain/2019-09-02-NIPA-Hyperledger)|NIPA정보통신산업진흥원|김재훈교수님|Sep 2~6 2019|`GO`|
+
 ---
 
 ## Reference
