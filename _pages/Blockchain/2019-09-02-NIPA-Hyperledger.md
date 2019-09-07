@@ -20,8 +20,8 @@ comments: NIPA
 
 |No|Titile|Remarks|
 |--:|:-:|:--|
-|0|[환경설정](#install)|Hyperledger 환경셋팅|
-|1|[커리큘럼](#Syllabus)|커리큘럼 |
+|0|[환경설정](#Install)|Hyperledger 환경셋팅|
+|1|[교육과정](#Curriculum)|수업게시판|
 |2|[실습](#Practice)|실습|
 
 ---
@@ -29,6 +29,14 @@ comments: NIPA
 ## Install
 
 ### 1. Curl, Docker 설치
+
+> * apt : Ubuntu를 포함한 Debian 계열의 **리눅스에서 쓰이는 패키지 관리 명령어 도구**, APT(Advanced Packaging Tool) 
+>```shell
+>sudo apt-get install <패키지 이름>
+>```
+> * apt-get은 인덱스를 가지고 있는데 이 인덱스는 /etc/apt/sources.list 에 있으며 이곳에서 패키지의 저장소 정보를 얻게 된다. 
+> * curl 은 command line 용 data transfer tool 이다. download/upload 모두 가능하며 HTTP/HTTPS/FTP/LDAP/SCP/TELNET/SMTP/POP3 등 주요한 프로토콜을 지원하며 Linux/Unix 계열 및 Windows 등 주요한 OS 에서 구동
+
 ```shell
 * sudo apt-get install curl     # url에서 copy 해옴
 * sudo apt install docker.io
@@ -38,6 +46,15 @@ comments: NIPA
 ```
 
 ### 2. Node.js 설치
+> * sudo apt-get upgrade : 설치되어 있는 패키지를 모두 새버전으로 업그레이드
+>```shell
+>sudo apt-get upgrade
+>```
+> * curl -o : curl 은 remote 에서 받아온 데이타를 기본적으로는 콘솔에 출력한다. -o 옵션 뒤에 FILE 을 적어주면 해당 FILE 로 저장한다. 
+> * curl -s : --silent 진행 내역이나 메시지등을 출력하지 않는다. -o 옵션으로 remote data 도 /dev/null 로 보내면 결과물도 출력되지 않는다
+> * curl -L : --location 서버에서 HTTP 301 이나 HTTP 302 응답이 왔을 경우 redirection URL 로 따라간다.
+> * nvm : NVM은 여러 버전의 Node.js를 설치하고 관리하고 사용할 수 있게 해주는 **bash 스크립트 프로그램**, NVM (Node version manager) 
+
 ```shell
 * sudo apt-get update
 * sudo apt-get install build-essential libssl-dev
@@ -59,9 +76,12 @@ comments: NIPA
 * source ~/.profile
 ```
 ### 4. Python, Git 설치
+
+> * tree : 폴더의 하위 구조를 계층적으로 표시해 주는 유틸리티
 ```shell
 * sudo apt install -y python
 * sudo apt install -y git
+* sudo apt install tree # tree 는 폴더의 하위 구조를 계층적으로 표시해 주는 유틸리티
 ```
 
 ### 5. Fabric Sample 설치, Docker Image 설치
@@ -73,9 +93,23 @@ comments: NIPA
 * source ~/.profile
 ```
 
---
+---
 
-## Sample Fabric
+## Curriculum
+
+### Table of Curriculum
+
+|No|Title|Educational Institution|Lecturer|Day|Remarks|
+|-:|:--:|:-:|:--:|:--:|:-|
+|1|하이퍼레저 개론|NIPA|김기형교수님|Sep 2 2019|`fabcar`|
+|2|하이퍼레저 개론 및 패브릭의 이해|NIPA|[김재훈교수](jaikim@ajou.ac.kr)|Sep 3 2019|`first network`|
+|3|[DApp개발](ftp://202.30.3.201/hyper)|NIPA|[최광훈박사](https://github.com/saarc/class_material)|Sep 4 2019|`basic network`|
+|4|프라이빗블록체인 활용|NIPA|[김재훈교수](jaikim@ajou.ac.kr)|Sep 5 2019|`commpercial paper`|
+|5|프라이빗 데이터의 활용과 블록체인의 미래|NIPA|신운섭박사|Sep 6 2019|`Private Data`|
+
+---
+
+## Practice
 
 ### 0. Docker 사용법
 
@@ -90,48 +124,85 @@ docker network prune                     # 사용중인 Network 지우기
 
 ### 1. fabcar
 
-```shell
-cd ~/fabric-samples/basic_network
-./stop.sh
-./teardown.sh
+#### 1.1 Basic Network 가동
 
-cd ~/fabric-samples/fabcar
-./startFabric.sh                                            # Fabcar 구동 script
-cd ~/fabric-samples/fabcar/javascript
-/fabric-samples/fabcar/javascript/npm install               # Node js 관련 파일 설치 package.json
-sudo apt install tree
-~/fabric-samples/fabcar/javascript
-~/fabric-samples/fabcar/javascript/node enrollAdmin.js      # node 라는 명령어로.. node.js 파일 실행시킴
-~/fabric-samples/fabcar/javascript/tree wallet
-~/fabric-samples/fabcar/javascript/node registerUser.js
-~/fabric-samples/fabcar/javascript/node query.js
+* fabcar를 위한 basic_network 가동
+
+```shell
+$ cd ~/fabric-samples/basic_network
+$ ./start.sh
+$ ./stop.sh
 ```
 
-### 2. Couch DB 조회
+##### 1.1.1 Application을 통해서 fabcar 체인코드를 접근
+
+* basic network에 peer를 구성하고
+* 1. Create the channel     -c mychannel
+* 2. Join peer0.org1.example.com to the channel
+
+```shell
+$ cd ~/fabric-samples/fabcar
+$ ./startFabric.sh  
+```
+
+#### 1.1.2 Node JS를 통해서 fabcar 접근
+
+```shell
+$ cd ~/fabric-samples/fabcar/javascript
+```
+
+> * `package.json`은 프로젝트에 대한 명세라고 할 수 있다. 해당 프로젝트의 이름, 버전, 사용되는 모듈 등의 스펙이 정해져 있으며, 이 package.json을 통해 모듈 의존성 모듈 관리도 진행할 수 있다. 
+> * 만약 어떤 오픈 소스를 다운 받을 때 이 package.json만 있다면 해당 오픈 소스가 의존하고 있는 모듈이 어떤 것인지. 그리고 그 모듈들을 `npm install`로 한 번에 설치할 수 있다.
+
+```json
+# package.json 일부내용
+    "dependencies": {
+        "fabric-ca-client": "~1.4.0",
+        "fabric-network": "~1.4.0"
+    },
+```
+```shell
+$ ~/fabric-samples/fabcar/javascript/npm install              # Node js 관련 파일 설치 package.json
+$ ~/fabric-samples/fabcar/javascript/tree wallet
+$ ~/fabric-samples/fabcar/javascript/node enrollAdmin.js      # node 라는 명령어로.. node.js 파일 실행시킴
+$ ~/fabric-samples/fabcar/javascript/tree wallet
+$ ~/fabric-samples/fabcar/javascript/node registerUser.js
+$ ~/fabric-samples/fabcar/javascript/tree wallet
+$ ~/fabric-samples/fabcar/javascript/node query.js            # 블록체인에서 쿼리로 조회해옴
+```
+
+#### 1.2. Couch DB 조회
+
+* fabcar를 위한 Couch DB조회
+> * VirtualBox에서 사용시에는 PortFowarding 작업 필요
+
 ```shell
 localhost:5984/_utils
 ```
 
-### 3. 사용중인 것 지우기
+#### 1.3. 사용중인 것 지우기
+
 ```shell
-.fabcar/teardown.sh
+$ cd ~/fabric-samples/basic_network
+$ ./teardown.sh                          # docker 까지 모두 stop
 ```
 
+#### 1.4. DApp Fabcar
 
-### 4. Dapp Fabcar
+> * npm의 경우는 Node Package Manager이기 때문에 node.js를 설치하면 같이 설치된다.
+> * git clone [url] : Git 저장소를 복사하고 싶을 때 git clone 명령을 사용합니다
+
 ```shell
 cd fabcar
 cd javascript
 git clone https://github.com/saarc/fabric-front-end.git
 cd fabric-front-end
 npm install
-cp -R ../wallet ./
-node server.js
+cp -R ../wallet ./    # Key 복사 필요  
+node server.js   
 ```
-* VirtualBox PortFowarding 작업 필요
 
-
-### 5. [Commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html)
+### 2. [Commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html)
 * Create Network
 
 ```shell
@@ -259,7 +330,7 @@ node query.js
 # w3schools.com
 
 
-## Private Data
+## 3. Private Data
 * Private는 orderer를 사용하지 않고 private를 직접 Peer한테 전송함
 ```shell
 $ ~/fabric-samples/chaincode/marbles02_private/code collections_config.json
