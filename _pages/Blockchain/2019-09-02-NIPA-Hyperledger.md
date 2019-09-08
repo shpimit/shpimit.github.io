@@ -281,17 +281,29 @@ node issue.js
 (balaji)$ node redeem.js
 ```
 
-* mycc
+### 3. Basic Network + Node.js + Express + Ejs
+
+#### 3.1  내 첫 chaincode 만들기( 프리랜서 IT 인력 마켓플레이스 )
+
 ```shell
 $ cd fabric-samples/chaincode
-$ mkdir mycc
-cd mycc
-code .  # mycc.go
-Ctrl+~
-go get -u "github.com/hyperledger/fabric/core/chaincode/shim"
-go get -u "github.com/hyperledger/fabric/protos/peer"
-go build   # go compile 하는 법
-go version
+$ cp -R sacc jobMP
+$ cd jobMP
+$ code .         # visudaul studio에서 mycc.go를 연다. Oracle Virtual Machine에서 가능
+```
+
+* Visual Studio Code
+> Ctrl+~         # visual studio에서 터미널 여는 법
+
+* Go Third Party Package
+> go get 패키지명 명령 : 서드 파티 패키지를 내려 받고 설치할수 있다.
+> go get -u 패키지명과 같이 -u 옵션을 주면 최신 버전 패키지를 내려받아서 다시 설치한다.
+
+```shell
+$fabric-samples/chaincode/jobMP/go get -u "github.com/hyperledger/fabric/core/chaincode/shim"
+$fabric-samples/chaincode/jobMP/go get -u "github.com/hyperledger/fabric/protos/peer"
+$fabric-samples/chaincode/jobMP/go build       # go compile 하는 법
+$fabric-samples/chaincode/jobMP/go version
 ```
 
 * basic-network 가동
@@ -300,20 +312,31 @@ $ cd ../../basic-network/
 $ ./start.sh
 ```
 
-* cli 
+* CLI 실행
+
+> Docker compose : Docker 어플리케이션을 정의하고 멀티 컨테이너 어플리케이션을 실행시키기 위한 도구
+> 여러개의 컨테이너를 1번의 명령으로 실행 시킬 수 있다. 
+> docker exec : 외부에서 컨테이너에 특정 명령을 줄수 있습니다.
+> ` docker exec [OPTIONS] CONTAINER COMMAND [ARG...] `
+
 ```shell
-$  docker-compose -f docker-compose.yml up -d cli
+$ docker-compose -f docker-compose.yml up -d cli
 $ docker exec -it cli bash
+```
+
+* Chaincode Install → Instantiate 
+
+```shell
 # install
-root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode install -n mycc -v 1 -p github.com/mycc
+root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode install -n jobMP -v 1 -p github.com/jobMP
 root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode list --installed # 등록된 chaincode 확인 
 # instantiate
-peer chaincode instantiate -n mycc -v 1 -C mychannel -c '{"Args":["a","100"]}' -P 'OR ("Org1MSP.member")'
+peer chaincode instantiate -n jobMP -v 1 -C mychannel -c '{"Args":["a","100"]}' -P 'OR ("Org1MSP.member")'
 peer chaincode list --instantiated -C mychannel # 어느 channel에 instantiated 되었는지 확인
 # 데이터를 만들어 봄 invoke
-peer chaincode invoke -n mycc -C mychannel -c '{"Args":["set","b","200"]}'  # peer chaincode invoke 명령어 Invoke호출
+peer chaincode invoke -n jobMP -C mychannel -c '{"Args":["set","b","200"]}'  # peer chaincode invoke 명령어 Invoke호출
 # Data를 조회함
-peer chaincode query -n mycc -C mychannel -c '{"Args":["get","a"]}'         # peer chaincode query 명령어 Data 호출
+peer chaincode query -n jobMP -C mychannel -c '{"Args":["get","a"]}'         # peer chaincode query 명령어 Data 호출
 ```
 
 * WebServer
@@ -326,6 +349,22 @@ node registerUser.js
 node invoke.js
 node query.js
 ```
+
+```shell
+cd fabcar
+cd javascript
+git clone https://github.com/saarc/fabric-front-end.git
+cd fabric-front-end
+npm install
+cp -R ../wallet ./    # Key 복사 필요  
+node server.js   
+```
+
+ubuntu@ip-172-31-28-94:~/fabric-samples$ mkdir jobMP
+~/fabric-samples/fabcar$ cd javascript
+cp package.json *.js ../../jobMP
+cp -R ../../fabcar/javascript/wallet ./
+
 
 # w3schools.com
 
