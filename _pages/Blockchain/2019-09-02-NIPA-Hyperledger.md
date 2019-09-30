@@ -18,7 +18,7 @@ comments: NIPA
 
 ## Table of Contents
 
-|No|Titile|Remarks|
+|No|Title|Remarks|
 |--:|:-:|:--|
 |0|[환경설정](#Install)|Hyperledger 환경셋팅|
 |1|[교육과정](#Curriculum)|수업게시판|
@@ -314,9 +314,9 @@ $ ./start.sh
 
 * CLI 실행
 
-> Docker compose : Docker 어플리케이션을 정의하고 멀티 컨테이너 어플리케이션을 실행시키기 위한 도구
-> 여러개의 컨테이너를 1번의 명령으로 실행 시킬 수 있다. 
-> docker exec : 외부에서 컨테이너에 특정 명령을 줄수 있습니다.
+> * Docker compose : Docker 어플리케이션을 정의하고 멀티 컨테이너 어플리케이션을 실행시키기 위한 도구
+> * 여러개의 컨테이너를 1번의 명령으로 실행 시킬 수 있다. 
+> * docker exec : 외부에서 컨테이너에 특정 명령을 줄수 있습니다.  
 > ` docker exec [OPTIONS] CONTAINER COMMAND [ARG...] `
 
 ```shell
@@ -359,11 +359,14 @@ npm install
 cp -R ../wallet ./    # Key 복사 필요  
 node server.js   
 ```
+---
 
+```shell
 ubuntu@ip-172-31-28-94:~/fabric-samples$ mkdir jobMP
 ~/fabric-samples/fabcar$ cd javascript
 cp package.json *.js ../../jobMP
 cp -R ../../fabcar/javascript/wallet ./
+```
 
 
 # w3schools.com
