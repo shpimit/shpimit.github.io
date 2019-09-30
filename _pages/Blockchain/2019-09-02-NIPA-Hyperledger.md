@@ -212,27 +212,32 @@ $ docker network inspect net_basic
 ```
 
 * Working as MagnetoCorp
+
 ```shell
 (magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
 (magnetocorp admin)$ ./monitordocker.sh net_basic
 ```
 * 새로운 터미널을 띄워서
+
 ```shell
 (magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
 (magnetocorp admin)$ docker-compose -f docker-compose.yml up -d cliMagnetoCorp
 ```
 
 * Smart contract
+
 ```shell
 (magnetocorp developer)$ cd commercial-paper/organization/magnetocorp/contract
 (magnetocorp developer)$ code .
 ```
 
 * Install contract
+
 ```shell
 (magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
 ```
 * Instantiate contract
+
 ```shell
 (magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P "AND ('Org1MSP.member')"
 (magnetocorp admin)$ docker ps
@@ -240,6 +245,7 @@ $ docker network inspect net_basic
 
 * Application structure
   -  `addToWallet.js` is the program that Isabella is going to use to load her identity into her wallet.
+
 ```shell
 (magnetocorp user)$ cd commercial-paper/organization/magnetocorp/application/
 (magnetocorp user)$ cd commercial-paper/organization/magnetocorp/application
@@ -249,23 +255,27 @@ $ docker network inspect net_basic
 ```
 
 * Issue application
+
 ```shell
 node issue.js
 ```
 
 * Working as DigiBank
+
 ```shell
 (digibank admin)$ cd commercial-paper/organization/digibank/configuration/cli/
 (digibank admin)$ docker-compose -f docker-compose.yml up -d cliDigiBank
 ```
 
 * Digibank applications
+
 ```shell
 (balaji)$ cd commercial-paper/organization/digibank/application/
 (balaji)$ code buy.js
 ```
 
 * Run as DigiBank
+
 ```shell
 (digibank admin)$ cd commercial-paper/organization/digibank/application/
 (digibank admin)$ npm install
@@ -273,11 +283,9 @@ node issue.js
 ```
 
 * Buy application
-```shell
-(balaji)$ node buy.js
-```
 
 ```shell
+(balaji)$ node buy.js
 (balaji)$ node redeem.js
 ```
 
@@ -307,6 +315,7 @@ $fabric-samples/chaincode/jobMP/go version
 ```
 
 * basic-network 가동
+
 ```shell
 $ cd ../../basic-network/
 $ ./start.sh
@@ -340,6 +349,7 @@ peer chaincode query -n jobMP -C mychannel -c '{"Args":["get","a"]}'         # p
 ```
 
 * WebServer
+
 ```shell
 ~/fabric-samples/fabcar$ cd javascript
 ~/fabric-samples/fabcar/javascript$ cp package.json *.js ../application
@@ -360,17 +370,17 @@ cp -R ../wallet ./    # Key 복사 필요
 node server.js   
 ```
 
+```shell
 ubuntu@ip-172-31-28-94:~/fabric-samples$ mkdir jobMP
 ~/fabric-samples/fabcar$ cd javascript
 cp package.json *.js ../../jobMP
 cp -R ../../fabcar/javascript/wallet ./
-
-
-# w3schools.com
-
+```
 
 ## 3. Private Data
+
 * Private는 orderer를 사용하지 않고 private를 직접 Peer한테 전송함
+
 ```shell
 $ ~/fabric-samples/chaincode/marbles02_private/code collections_config.json
 ```
@@ -394,10 +404,13 @@ $ ~/fabric-samples/chaincode/marbles02_private/code collections_config.json
  }
 ]
 ```
+
 * First Network 가동
+
 ```shell
 ./byfn.sh up -c mychannel -s couchdb  # -s statedb에 대한 option
 ```
+
 ```shell
 docker exec -it cli bash # -it keyboard를 통해서 입력을 받겠다.  환경변수 하면서..... 다른 peer도 선해
 
@@ -414,13 +427,16 @@ export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/pee
 
 export CORE_PEER_ADDRESS=peer0.org2.example.com:9051
 ```
+
 * chaincode Instantiate
+
 ```shell
 export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
 peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile $ORDERER_CA -C mychannel -n marblesp -v 1.0 -c '{"Args":["init"]}' -P "OR('Org1MSP.member','Org2MSP.member')" --collections-config  $GOPATH/src/github.com/chaincode/marbles02_private/collections_config.json   # --collections-config    collections_config.json파일을 사용옵션
 ```
 * Cli org1로 연결...private data 쓰기 위해
+
 ```shell
 export CORE_PEER_ADDRESS=peer0.org1.example.com:7051
 
@@ -439,22 +455,26 @@ export MARBLE=$(echo -n "{\"name\":\"marble1\",\"color\":\"blue\",\"size\":35,\"
 peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n marblesp -c '{"Args":["initMarble"]}'  --transient "{\"marble\":\"$MARBLE\"}"
 ```
 * Read marble
+
 ```shell
 peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarble","marble1"]}'
 ```
 
 * Read org1에서만 저장 가능한 데이터 
+
 ```shell
 peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarblePrivateDetails","marble1"]}'
 ```
 
 * [couchDB 접근](http://localhost:5984/_utils)   # docker-composer.yaml couchdb id/pw 입력 받께끔 처리 해야 함. fist-network는 이름이 다름
+
 ```
 Click mychannel_marblesp$$pcollection$marbles
 Click mychannel_marblesp$$pcollection$marble$private$details
 ```
 
 * Private 권한확인
+
 ```shell
 export CORE_PEER_ADDRESS=peer0.org1.example.com:7051
 
@@ -487,7 +507,9 @@ peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarble","marble1
 
 peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarblePrivateDetails","marble1"]}'
 ```
+
 * 자동삭제 기능
+
 ```shell
 # org1으로 새로운 block을 생성하기위해
 export CORE_PEER_ADDRESS=peer0.org1.example.com:7051
@@ -503,22 +525,22 @@ export PEER0_ORG1_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/p
 ```
 
 * docker를 이용해서 로그 확인
+
 ```shell
 bstudent@saarc-VirtualBox$ docker logs peer0.org1.example.com 2>&1 | grep -i -a -E 'private|pvt|privdata'
 ```
 
 * marble 추가 생성
+
 ```shell
 export MARBLE=$(echo -n "{\"name\":\"marble2\",\"color\":\"blue\",\"size\":35,\"owner\":\"tom\",\"price\":99}" | base64 | tr -d \\n)
 
-
-
 peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n marblesp -c '{"Args":["initMarble"]}' --transient "{\"marble\":\"$MARBLE\"}" 
-
 
 ```
 
 * owner 정보 변경(block 생성, 3번)
+
 ```shell
 export MARBLE_OWNER=$(echo -n "{\"name\":\"marble2\",\"owner\":\"tom\"}" | base64 | tr -d \\n)
 
@@ -532,12 +554,16 @@ export MARBLE_OWNER=$(echo -n "{\"name\":\"marble2\",\"owner\":\"jerry\"}" | bas
 
 peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n marblesp -c '{"Args":["transferMarble"]}' --transient "{\"marble_owner\":\"$MARBLE_OWNER\"}"
 
-
 ```
 
 * 확인 Private Data 삭제
+
 ```shell
 $ peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarblePrivateDetails","marble1"]}'
 결과 : Error: endorsement failure during query. response: status:500 message:"{\"Error\":\"Marble private details does not exist: marble1\"}"
 couchdb에서 삭제 가능
 ```
+
+## Reference
+
+* [w3schools.com](http://w3schools.com)
