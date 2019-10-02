@@ -81,26 +81,6 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |-:|:--:|:--:|:-:|:--|
 |1|requests|<small>한국IT비즈니스진흥협회</small>|[requests.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/requests.ipynb)|`requests`|
 |2|urllib|<small>한국IT비즈니스진흥협회</small>|[urllib.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/urllib.ipynb)|`requests`|
-|3|Crawl|<small>한국IT비즈니스진흥협회</small>|[Crawl.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Crawl.ipynb)|`Crawl`|
-|4|Google Crawl|<small>한국IT비즈니스진흥협회</small>|[google.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/google.ipynb)|`웹크롤링`|
-|5|WebDriver|<small>한국IT비즈니스진흥협회</small>|[webdriver.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/webdriver.ipynb)|`selenium`|
-|6|NaverNews|<small>한국IT비즈니스진흥협회</small>|[NaverNews.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/NaverNews.ipynb)|`네이버뉴스에서 가장 많이 본 뉴스가져오기`|
-|7|KoNLPy|<small>한국IT비즈니스진흥협회</small>|[KoNLPy.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/KoNLPy.ipynb)|`KoNLPy`|
-|8|Lexicon|<small>한국IT비즈니스진흥협회</small>|[Lexicon.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Lexicon.ipynb)|`Lexicon`|
-|9|StopWord|<small>한국IT비즈니스진흥협회</small>|[Nomalization.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Nomalization.ipynb)|`불용어`|
-|10|Part-Of-Speech Tagging|<small>한국IT비즈니스진흥협회</small>|[POS.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/POS.ipynb)|`포스태깅이란 토큰의 품사정보를 할당하는 작업`|
-|11|RegexpParser|<small>한국IT비즈니스진흥협회</small>|[RegexpParser.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/RegexpParser.ipynb)|`정규식 토큰화`|
-|12|BagOfWords|<small>한국IT비즈니스진흥협회</small>|[BagOfWords.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/BagOfWords.ipynb)|`BagOfWords`|
-|13|TF-IDF|<small>한국IT비즈니스진흥협회</small>|[Posting.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Posting.ipynb)|`TF-IDF`|
-|14|TDM-DTM|<small>한국IT비즈니스진흥협회</small>|[Merge.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Merge.ipynb)|`TDM-DTM`|
-|15|KNN|<small>한국IT비즈니스진흥협회</small>|[knn.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/knn.ipynb)|`KNN`|
-|16|Naive Bayes|<small>한국IT비즈니스진흥협회</small>|[Naive.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Naive.ipynb)|`나이브 베이즈`|
-|17|Heaps' Law|<small>한국IT비즈니스진흥협회</small>|[Empirical Law.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Empirical Law.ipynb)|`Heaps' Law`|
-|18|ConfusionMatrix|<small>한국IT비즈니스진흥협회</small>|[confusion_matrix.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/confusion_matrix.ipynb)|`ConfusionMatrix`|
-|19|LSA|<small>한국IT비즈니스진흥협회</small>|[LSA.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/LSA.ipynb)|`LSA`|
-|20|LSA 연습|<small>한국IT비즈니스진흥협회</small>|[LSAExercise.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/LSAExercise.ipynb)|`LSA 연습`|
-|21|LDA|<small>한국IT비즈니스진흥협회</small>|[LDA.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/LDA.ipynb)|`LDA`|
-|22|MovieSentiment|<small>한국IT비즈니스진흥협회</small>|[MovieSentiment.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/MovieSentiment.ipynb)|`MovieSentiment`|
 
 ---
 
@@ -109,23 +89,40 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 * Convolution Filter : 3 * 3(대부분의 3 by 3 을 사용한다)
 * Feature Map : 컨볼류션을 거치고 나온 값은 0~1사이의 값이 아니고 그 범위를 넘어서 특징(Feature) 이라고 부른다
 * Subsampling : Max-Pooling을 의미 한다.
+* Back Propagation : 미분하면서 계속해서 값을 바꾸어 가면서 전달된다.
+* Lenet
+* Unet이 성능이 좋은 이유는 Skip Connection
 
+## 2. Fit vs Fit Generator 
+* step_per_epoch  =250
+* Image 100G 처럼 데이터 클경우 메모리에 올릴수 없으므로 미리 Batch를 만들어서 올린다.
 
-## 2. 사설네트워크 구축
-* 윈도우 환경 기반 구축
-* Geth 설치 → 네트워크 구축 가능 (기반 이더리움)
-* 명령어 
-  * 계좌 개설, 송금, 트렌젝션등등 기본적인 처리과정
+## 3. Segmentation
+* 정답 과 Prediction(모든 Pixel에 대하여 확률값)을 비교하는것
+
+## [4. Lung Segmentation, Cropping, & ResUNet (tf.keras)](https://www.kaggle.com/shpimit/lung-segmentation-cropping-resunet-tf-keras/edit)
+
+* `특징: MaxPooling이 없음`
+* Resdual Block : Conv2D → BN → ReLU → Conv → Addition
+
+```python
+def bn_act         # BN → ReLU 묶어 놓은 함수
+def conv_block     # BN → ReLU → Conv 묶어 놓은 함수
+def stem           # Conv2D → BN → ReLU → Conv + shortcut
+    shortcut =     # Input → Conv2D
+def resudual_block # BN → ReLU → Conv → res   
+def ResUNet        # f : Filter의 갯수를 리스트로 만들어 놓고 갖다가 씀.
+def dice_loss      # Loss = 1 - IOU(Interest of Unit : 관심지역)  cf : 변형 lnIOU
+def dsc            # dice similarity  IOU  교집합/합집합   Predition 0 1 1 1 0 3
+    intersection   # 2개 겹친 부분의 값을  reduce_sum      Y         0 1 1 0 0 2       
+    smooth         # 0 으로 나누어지 는 것을 방지하기 위해 
+```
+* CE(Cross Entropy) : -log(Pt)
+* FL(Focal Loss) : -(1-pt)r log(pt)  # r(감마)를 줌으로서 미분을 하면, 지수가 앞으로 나와서 에러의 값을 올려준다.
 
 ---
 
 ## Reference
 
 * [KoNLPy](https://konlpy-ko.readthedocs.io/)
-* [모델작업](http://www.cs.virginia.edu/~hw5x/Course/IR2015/_site/lectures/)
-* [Machine Learning](https://nlp.stanford.edu/IR-book/newslides.html)
-* [Nearest Neighbors](https://cs.stanford.edu/people/abisee/nn.pdf)
-* [English Dictionary](https://sourceforge.net/projects/mysqlenglishdictionary)
-* [TTA 정보통신용어사전](http://terms.tta.or.kr/main.do)
-* [미국 특허데이터](https://www.uspto.gov/)
-* [Sentimental Analysis](https://web.stanford.edu/class/cs124/lec)
+
