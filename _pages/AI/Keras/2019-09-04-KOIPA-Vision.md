@@ -43,14 +43,14 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |10|정규|Data Augmentation 및 CNN 모델 훈련|Sep 18 2019|`불참`|
 |11|정규|자기 부호화기 Autoencoder 활용하기|Sep 19 2019|`참석`|
 |12|정규|뉴럴 네트워크 훈련 기법|Sep 19 2019|`참석`|
-|13|정규|Python 활용: Scikit-learn, Scikit-Image 2 (프레임워크 활용하기1)|Sep 23 2019|`참석`|
-|14|정규|구문 분석 - 구, 언어, 시각화|Mar 21 2019|`참석`|
-|15|정규|정보검색 - 색인 기법|Mar 22 2019|`참석`|
-|16|특강|특강 - Keras 활용사례|Mar 25 2019|`참석`|
-|17|정규|정보검색 - 가중치 기법|Mar 26 2019|`참석`|
-|18|정규|정보검색 - 벡터 공간 모델|Mar 27 2019|`참석`|
-|19|정규|정보검색 - 유사도 판별, 순위화|Mar 28 2019|`참석`|
-|20|프로젝트|비정형 데이터를 이용한 검색엔진|Mar 29 2019|`불참`|
+|13|정규|CNN REVIEW|Sep 23 2019|`참석`|
+|14|특강|OPENCV-1|Sep 24 2019|`불참`|
+|15|정규|Kaggle Intel Image clasification|Sep 25 2019|`불참`|
+|16|특강|OPENCV-2|Sep 26 2019|`참석`|
+|17|정규|영상 분할(segmentation) 2|Sep 27 2019|`참석`|
+|18|정규|영상 분할segmentation 고급 1|Sep 30 2019|`참석`|
+|19|정규|영상 분할segmentation 고급 2|Oct 1 2019|`불참`|
+|20|정규|영상 분할segmentation 고급 3|Oct 2 2019|`참석`|
 |21|특강|딥러닝 활용사례 및 실습 (Tensorflow)|Apr 1 2019|`참석`|
 |22|정규|[문서분류 - knn](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/knn.ipynb)|Apr 2 2019|`참석`|
 |23|프로젝트|뉴스자동분류|Apr 3 2019|`불참`|
@@ -104,25 +104,18 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 
 ---
 
-## Sentiment Analysis
+## 1. Unet
+* Image : pixel(0~255) 값 / 255 (max normalization) 나누어서 0~1 사이의 값을 가진다.
+* Convolution Filter : 3 * 3(대부분의 3 by 3 을 사용한다)
+* Feature Map : 컨볼류션을 거치고 나온 값은 0~1사이의 값이 아니고 그 범위를 넘어서 특징(Feature) 이라고 부른다
+* Subsampling : Max-Pooling을 의미 한다.
 
-* 마이닝이랑 : Data상에서 의미 있는 값을 찾아내는것,
-* Opinion Mining(말한것에 의미있는것을 찾아내는것 예:권투하는것 재미, 지루 → 어떤 관점인지 찾는것)
-* → Sentiment Analysis(그 결과물 숫자로 의미있는것)  : 수치적으로 판단하는것 (Positive or Negative)
-* Opinion extraction  : 주관적인 내용을 뽑는것
-* Opinion mining      :
-* Sentiment mining
-* Subjectivity analysis  : 주관적인 감성에 대하여 분석
-* 감정은 내가 느끼는것
-* 감성은 외부대상에 대하여 내가 생각하는것
-* Sentiment는 굉장히 짧은 순간 느꼈다가 사라지는것
-* Emotion은   Happiness, Sadness, Fear, Anger, Supprise, Disgust 복합한 내용으로 지속되는것
 
-### 1. Pointwise Mutual Information
-
-* 서로 돕리적이라면 0,    joint Probality
-* Joint Probality / 개별 확률 * seed word(단어) 
-* Positive에서 멀어졌다고, Negative라고 생각하면 안된다.
+## 2. 사설네트워크 구축
+* 윈도우 환경 기반 구축
+* Geth 설치 → 네트워크 구축 가능 (기반 이더리움)
+* 명령어 
+  * 계좌 개설, 송금, 트렌젝션등등 기본적인 처리과정
 
 ---
 
