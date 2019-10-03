@@ -42,7 +42,7 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |9|정규|[Flicker api를 이용한 데이터 수집 및 VGG 네트워크 활용](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/NaverNews.ipynb)|Sep 17 2019|`참석`|
 |10|정규|Data Augmentation 및 CNN 모델 훈련|Sep 18 2019|`불참`|
 |11|정규|자기 부호화기 Autoencoder 활용하기|Sep 19 2019|`참석`|
-|12|정규|뉴럴 네트워크 훈련 기법|Sep 19 2019|`참석`|
+|12|정규|뉴럴 네트워크 훈련 기법|Sep 20 2019|`참석`|
 |13|정규|CNN REVIEW|Sep 23 2019|`참석`|
 |14|특강|OPENCV-1|Sep 24 2019|`불참`|
 |15|정규|Kaggle Intel Image clasification|Sep 25 2019|`불참`|
@@ -75,6 +75,8 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |9|자기 부호화기 Autoencoder 활용하기|<small>AI 이노베이션 스퀘어</small>|[AutoEncoder.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/AutoEncoder.ipynb)|`AutoEncoder`|
 |10|자기 부호화기 Autoencoder 활용하기|<small>AI 이노베이션 스퀘어</small>|[Augmentation.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Augmentation.ipynb)|`Augmentation`|
 |11|자기 부호화기 Autoencoder 활용하기|<small>AI 이노베이션 스퀘어</small>|[Convolutional_Autoencoder.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Convolutional_Autoencoder.ipynb)|`Convolutional_Autoencoder`|
+|12|뉴럴 네트워크 훈련 기법|<small>AI 이노베이션 스퀘어</small>|[Weight_Initialization.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Weight_Initialization.ipynb)|`Weight_Initialization`|
+|13|CNN REVIEW|<small>AI 이노베이션 스퀘어</small>|[MNIST_Dense_example.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/MNIST_Dense_example.ipynb)|`MNIST_Dense_example`|
 
 ---
 
