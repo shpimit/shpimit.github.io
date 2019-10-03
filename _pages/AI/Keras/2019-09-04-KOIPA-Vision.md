@@ -55,21 +55,6 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |22|정규|[문서분류 - knn](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/knn.ipynb)|Apr 2 2019|`참석`|
 |23|프로젝트|뉴스자동분류|Apr 3 2019|`불참`|
 |24|정규|[문서분류 - 나이브베이즈](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Naive.ipynb)|Apr 4 2019|`참석`|
-|25|프로젝트|스팸자동분류|Apr 5 2019|`참석`|
-|26|특강|딥러닝 및 기계학습 사례|Apr 8 2019|`참석`|
-|27|정규|[성능평가 - 정확율, 재현율](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/confusion_matrix.ipynb)|Apr 9 2019|`참석`|
-|28|프로젝트|자동분류 성능평가|Apr 10 2019|`불참`|
-|29|정규|군집화 - KMeans|Apr 11 2019|`불참`|
-|30|정규|군집화 - 어휘 클러스터, 시각화|Apr 12 2019|`불참`|
-|31|특강|영상인식 사례|Apr 15 2019|`참석`|
-|32|정규|[토픽분석 - LSA](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/LSA.ipynb)|Apr 16 2019|`참석`|
-|33|정규|[토픽분석 - LDA](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/LDA.ipynb)|Apr 17 2019|`참석`|
-|34|프로젝트|최신 트렌드 분석|Apr 19 2019|`참석`|
-|35|특강|항공등화시설 딥러닝 , 자연어처리 특허 가치 및 평가, 랜선웨어 탐지|Apr 22 2019|`참석`|
-|36|정규|[감성분석 - 감성사전](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/MovieSentiment.ipynb)|Apr 23 2019|`참석`|
-|37|정규|감성분석 - PMI, SO|Apr 24 2019|`참석`|
-|38|정규|단어 임베딩|Apr 25 2019|`참석`|
-|39|정규|Gensim 활용|Apr 26 2019|`참석`|
 
 ---
 
@@ -79,8 +64,17 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 
 |No|Title|Educational Institution|Source|Remarks|
 |-:|:--:|:--:|:-:|:--|
-|1|requests|<small>한국IT비즈니스진흥협회</small>|[requests.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/requests.ipynb)|`requests`|
-|2|urllib|<small>한국IT비즈니스진흥협회</small>|[urllib.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/urllib.ipynb)|`requests`|
+|1|Numpy 기초 및 CNN 기초|<small>AI 이노베이션 스퀘어</small>|[Activation_Function.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Activation_Function.ipynb)|`Activation_Function`|
+|2|CNN 기초 및 Python Open CV 실습|<small>AI 이노베이션 스퀘어</small>|[Introduction_to_convnets.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Introduction_to_convnets.ipynb)|`Introduction_to_convnets`|
+|3|CNN 기초 및 Python Open CV 실습|<small>AI 이노베이션 스퀘어</small>|[HelloCV.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/HelloCV.ipynb)|`HelloCV`|
+|4|이진분류, 값 예측 딥 러닝 네트워크 설계|<small>AI 이노베이션 스퀘어</small>|[Boston_House_price_prediction_실습.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Boston_House_price_prediction_실습.ipynb)|`보스턴집값`|
+|5|이진분류, 값 예측 딥 러닝 네트워크 설계|<small>AI 이노베이션 스퀘어</small>|[IMDB_classification_실습.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/IMDB_classification_실습.ipynb)|`영화평점`|
+|6|Flicker api를 이용한 데이터 수집 및 VGG 네트워크 활용|<small>AI 이노베이션 스퀘어</small>|[Flicker_application_실습.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Flicker_application_실습.ipynb)|`Flicker`|
+|7|Flicker api를 이용한 데이터 수집 및 VGG 네트워크 활용|<small>AI 이노베이션 스퀘어</small>|[VGG4smalldataset_실습.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/VGG4smalldataset_실습.ipynb)|`Flicker`|
+|8|Flicker api를 이용한 데이터 수집 및 VGG 네트워크 활용|<small>AI 이노베이션 스퀘어</small>|[VGG_application_실습.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/VGG_application_실습.ipynb)|`Flicker`|
+|9|자기 부호화기 Autoencoder 활용하기|<small>AI 이노베이션 스퀘어</small>|[AutoEncoder.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/AutoEncoder.ipynb)|`AutoEncoder`|
+|10|자기 부호화기 Autoencoder 활용하기|<small>AI 이노베이션 스퀘어</small>|[Augmentation.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Augmentation.ipynb)|`Augmentation`|
+|11|자기 부호화기 Autoencoder 활용하기|<small>AI 이노베이션 스퀘어</small>|[Convolutional_Autoencoder.ipynb](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/AI/Keras/src/KOIPA-Vision/Convolutional_Autoencoder.ipynb)|`Convolutional_Autoencoder`|
 
 ---
 
