@@ -321,12 +321,14 @@ $ cd ../../basic-network/
 $ ./start.sh
 ```
 
-* CLI 실행
+* CLI 실행(CLI를 통해서 chaincode 등록 하려고 함)
 
-> * Docker compose : Docker 어플리케이션을 정의하고 멀티 컨테이너 어플리케이션을 실행시키기 위한 도구
-> * 여러개의 컨테이너를 1번의 명령으로 실행 시킬 수 있다. 
-> * docker exec : 외부에서 컨테이너에 특정 명령을 줄수 있습니다.  
-> ` docker exec [OPTIONS] CONTAINER COMMAND [ARG...] `
+```
+* Docker compose : Docker 어플리케이션을 정의하고 멀티 컨테이너 어플리케이션을 실행시키기 위한 도구
+* 여러개의 컨테이너를 1번의 명령으로 실행 시킬 수 있다. 
+* docker exec : 외부에서 컨테이너에 특정 명령을 줄수 있습니다.  
+` docker exec [OPTIONS] CONTAINER COMMAND [ARG...] `
+```
 
 ```shell
 $ docker-compose -f docker-compose.yml up -d cli
