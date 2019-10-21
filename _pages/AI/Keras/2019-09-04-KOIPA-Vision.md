@@ -50,11 +50,17 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |17|정규|영상 분할(segmentation) 2|Sep 27 2019|`참석`|
 |18|정규|영상 분할segmentation 고급 1|Sep 30 2019|`참석`|
 |19|정규|영상 분할segmentation 고급 2|Oct 1 2019|`불참`|
-|20|정규|영상 분할segmentation 고급 3|Oct 2 2019|`참석`|
-|21|특강|딥러닝 활용사례 및 실습 (Tensorflow)|Apr 1 2019|`참석`|
-|22|정규|[문서분류 - knn](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/knn.ipynb)|Apr 2 2019|`참석`|
-|23|프로젝트|뉴스자동분류|Apr 3 2019|`불참`|
-|24|정규|[문서분류 - 나이브베이즈](https://github.com/shpimit/shpimit.github.io/blob/master/_pages/Language/Python/src/KOIPA-NLP/Naive.ipynb)|Apr 4 2019|`참석`|
+|20|정규|영상 분할 segmentation Review|Oct 2 2019|`참석`|
+|21|정규|Kaggle을 이용한 영상 분할 Kernel 분석1|Oct 7 2019|`참석`|
+|22|정규|OpenCV 3|Oct 8 2019|`불참`|
+|23|정규|GAN 기초 1|Oct 10 2019|`불참`|
+|24|정규|GAN 기초 2|Oct 11 2019|`참석`|
+|25|정규|Style Transfer|Oct 14 2019|`참석`|
+|26|정규|OpenCV 4|Oct 15 2019|`불참`|
+|26|정규|DCGAN|Oct 16 2019|`참석`|
+|27|정규|Cycle GAN|Oct 17 2019|`참석`|
+|28|정규|OpenCV 5|Oct 18 2019|`불참`|
+|29|정규|WGAN, WGAN-GP|Oct 21 2019|`참석`|
 
 ---
 
@@ -117,6 +123,21 @@ def dsc            # dice similarity  IOU  교집합/합집합   Predition 0 1 1
 * FL(Focal Loss) : -(1-pt)r log(pt)  # r(감마)를 줌으로서 미분을 하면, 지수가 앞으로 나와서 에러의 값을 올려준다.
 
 ---
+
+## 5. GAN
+* Discriminator
+* Generator
+* Linear → Keras 의 Dense
+* 출력 : 0 (가짜),  1(진짜)
+* Generator
+* 출력 : -1 ~ 1
+
+## 6. WGAN
+* GAN  → 1 : 진짜 /  0:가짜
+* WGAN → 1 : 진짜 / -1:가짜
+* GAN  → (D(x), 1) + (D(G(z)), 0)
+*      └ -log(D(x)) -log(1-D(G(z)))
+* WGAN → D(x~)) - D(x)   : 값의 범의를 두지 않음으로서, 차이를 2가 생기께끔 하여 더 구별이 잘되게끔 한다.
 
 ## Reference
 
