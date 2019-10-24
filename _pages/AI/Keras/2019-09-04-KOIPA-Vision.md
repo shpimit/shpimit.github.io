@@ -61,6 +61,9 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |27|정규|Cycle GAN|Oct 17 2019|`참석`|
 |28|정규|OpenCV 5|Oct 18 2019|`불참`|
 |29|정규|WGAN, WGAN-GP|Oct 21 2019|`참석`|
+|30|정규|GAN Review 1|Oct 22 2019|`참석`|
+|31|정규|Object segmentation review #1|Oct 23 2019|`불참`|
+|32|정규|Object segmentation review #2|Oct 24 2019|`참석`|
 
 ---
 
@@ -142,4 +145,23 @@ def dsc            # dice similarity  IOU  교집합/합집합   Predition 0 1 1
 ## Reference
 
 * [KoNLPy](https://konlpy-ko.readthedocs.io/)
+
+
+```shell
+for layer in pretrained_densenet.layers:
+    layer.trainable = True
+
+denseNetOutpu = pretrained_densenet.get_layer('relu').output
+
+Feature_Flatten = GlobalAveragePooling2D()(denseNetOutput)
+dense1 = Dense(1024, name='dense1', activation='relu', kernel_initializer='he_normal')(Feature_Flatten)
+dense1 = BatchNormalization()(dense1)
+dense2 = Dense(1024, name='dense2', activation='relu', kernel_initializer='he_normal')(dense1)
+dense2 = Dropout(0.3)(dense2)
+predictions = Dense(6, name='last', activation='softrmax')(dense2)
+
+New_DenseNet = Model(inputs=pretrained_densenet.input, outputs=predections)
+New_DenseNet.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+New_DenseNet.summary()
+```
 
