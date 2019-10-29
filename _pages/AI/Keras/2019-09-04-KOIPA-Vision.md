@@ -52,7 +52,7 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |19|정규|영상 분할segmentation 고급 2|Oct 1 2019|`불참`|
 |20|정규|영상 분할 segmentation Review|Oct 2 2019|`참석`|
 |21|정규|Kaggle을 이용한 영상 분할 Kernel 분석1|Oct 7 2019|`참석`|
-|22|정규|OpenCV 3|Oct 8 2019|`불참`|
+|22|특강|OpenCV 3|Oct 8 2019|`불참`|
 |23|정규|GAN 기초 1|Oct 10 2019|`불참`|
 |24|정규|GAN 기초 2|Oct 11 2019|`참석`|
 |25|정규|Style Transfer|Oct 14 2019|`참석`|
@@ -64,6 +64,8 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 |30|정규|GAN Review 1|Oct 22 2019|`참석`|
 |31|정규|Object segmentation review #1|Oct 23 2019|`불참`|
 |32|정규|Object segmentation review #2|Oct 24 2019|`참석`|
+|33|정규|강화학습 이론 및 실습|Oct 25 2019|`참석`|
+|34|특강|영상처리 및 현업에서의 딥러닝 수요 및 전망|Oct 28 2019|`참석`|
 
 ---
 
@@ -165,3 +167,51 @@ New_DenseNet.compile(optimizer='adam', loss='sparse_categorical_crossentropy', m
 New_DenseNet.summary()
 ```
 
+## 라즈베리 파이4 USB 웹캠 사용하기
+
+### 1. fswebcam 설치하기
+
+```shell
+sudo apt-get install fswebcam
+```
+
+### 2. 기본사용법
+
+```shell
+fswebcam image.jpg
+```
+
+* 결과
+```shell
+--- Opening /dev/video0...
+Trying source module v4l2...
+/dev/video0 opened.
+No input was specified, using the first.
+Adjusting resolution from 384x288 to 320x240.
+--- Capturing frame...
+Captured frame in 0.00 seconds.
+--- Processing captured image...
+Writing JPEG image to 'image.jpg'.
+```
+
+### 3. 해상도 지정하기
+
+```shell
+fswebcam -r 1280x720 image2.jpg
+```
+
+### 4. 배너 숨기기
+
+```shell
+fswebcam -r 1280x720 --no-banner image3.jpg
+```
+
+* 기본적으로 python3 프로그램이 설치 되어 있음.. python3로 실행함.
+
+## [라즈베리파이 OpenCV 4.10 설치하기](https://medium.com/@patrick_ryan/building-opencv-4-10-on-raspian-buster-and-raspberry-pi4-64669bd2eb74)
+
+### 1. OpenCV 예제 1. 얼굴 인식예제(https://blog.naver.com/roboholic84/221140338041)
+
+### 2. OpenDV 예제 4. 카메라로 동영상 촬영하기(https://blog.naver.com/roboholic84/221141086412)
+
+### 3. OpenCV 예제 1.1 동영상 예제와 얼굴인식 예제 합치기(https://m.blog.naver.com/PostView.nhn?blogId=roboholic84&logNo=221141959847&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
