@@ -72,3 +72,10 @@ fswebcam -r 1280x720 --no-banner image3.jpg
 #### ② OpenDV 예제 4. 카메라로 동영상 촬영하기(https://blog.naver.com/roboholic84/221141086412)
 
 #### ③ OpenCV 예제 1.1 동영상 예제와 얼굴인식 예제 합치기(https://m.blog.naver.com/PostView.nhn?blogId=roboholic84&logNo=221141959847&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+
+### 5. 라즈베리 파이 한글 입력
+* [https://westwoodforever.blogspot.com/2019/05/ibus.html](https://westwoodforever.blogspot.com/2019/05/ibus.html)
+
+```shell
+sudo apt-get install ibus ibus-hangul
+```
