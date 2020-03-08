@@ -166,10 +166,3 @@ New_DenseNet = Model(inputs=pretrained_densenet.input, outputs=predections)
 New_DenseNet.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 New_DenseNet.summary()
 ```
-
-## 7. 라즈베리 파이 한글 입력
-* [https://westwoodforever.blogspot.com/2019/05/ibus.html](https://westwoodforever.blogspot.com/2019/05/ibus.html)
-
-```shell
-sudo apt-get install ibus ibus-hangul
-```
