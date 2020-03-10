@@ -131,7 +131,25 @@ comments: 마이크로 서비스 (with SpringBoot)
 * DiscoveryClient
   * spring-cloud 에서 서비스 레지스트리 사용 부분을 추상화(Interface)
   * Eureka, Consul, Zookeeper, etcd 등의 구현체가 존재
-  
+
+### 5. Feign
+* Eureka + Ribbon + Hystrix
+
+### 6. JPA
+
+```SQL
+CREATE TABLE CUSTOMERS(
+   ID   INT              NOT NULL,
+   NAME VARCHAR (20)     NOT NULL,
+   AGE  INT              NOT NULL,
+   ADDRESS  CHAR (25) ,
+   SALARY   DECIMAL (18, 2),       
+   PRIMARY KEY (ID)
+);
+```
+* org.hibernate  5.3.7.Final  -> jpa 2.1 사용
+
+
 ## Reference
 
 * gradle 3.0 이 나오면서 compile 은 deprecated 되었고, implementation 또는 api 를 써야 한다.
