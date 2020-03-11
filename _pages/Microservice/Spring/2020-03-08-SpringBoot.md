@@ -149,6 +149,51 @@ CREATE TABLE CUSTOMERS(
 ```
 * org.hibernate  5.3.7.Final  -> jpa 2.1 사용
 
+### API 테스트코드
+```json
+POST http://localhost:8080/holder
+Content-Type: application/json
+
+{
+	"holderName" : "kevin",
+	"tel" : "02-1234-5678",
+	"address" : "OO시 OO구"
+}
+
+###
+
+POST http://localhost:8080/account
+Content-Type: application/json
+
+{
+  "holderID" : "계정 생성 후 반환되는 UUID"
+}
+
+###
+
+POST http://localhost:8080/deposit
+Content-Type: application/json
+
+{
+  "accountID" : "계좌 생성 후 반환되는 UUID",
+  "holderID" : "계정 생성 후 반환되는 UUID",
+  "amount" : 300
+}
+
+###
+
+POST http://localhost:8080/withdrawal
+Content-Type: application/json
+
+{
+  "accountID" : "계좌 생성 후 반환되는 UUID",
+  "holderID" : "계정 생성 후 반환되는 UUID",
+  "amount" : 10
+}
+
+###
+```
+
 
 ## Reference
 
