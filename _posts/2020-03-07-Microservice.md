@@ -5,7 +5,7 @@ subtitle: Microservice All in One
 summary: Microservice. 
 categories: Microservice
 tags: Microservice
-featured-img: emile-perron-190221
+featured-img: microservice
 mathjax: true
 comments: New Microservice, Back-End Microservice
 ---
@@ -18,7 +18,7 @@ comments: New Microservice, Back-End Microservice
 
 ## Overview
 
-> Front-End 단 Microservice 부터 Back-End 단 Microservice,  기타 신기술 Microservice와 관련된 내용을 파악 하기 위함이다.
+> Frontend 단 Microservice 부터 Backend 단 Microservice,  기타 신기술 Microservice와 관련된 내용을 파악 하기 위함이다.
 
 ---
 
@@ -28,8 +28,8 @@ comments: New Microservice, Back-End Microservice
 
 |No|Title|Remarks|
 |-:|:--:|:--|
-|1|[Java](/_pages/Microservice/R/2018-06-08-R)|`Backend`|
-|2|[React](/_pages/Microservice/Python/2018-08-04-Python)|`Frontend`|
+|1|[Java](/_pages/Microservice/Backend/2020-03-08-SpringBoot)|`Backend`|
+|2|[React](/_pages/Microservice/Fronntend/2020-03-08-React)|`Frontend`|
 
 ---
 
@@ -39,7 +39,10 @@ comments: New Microservice, Back-End Microservice
 
 |No|Title|Educational Institution|Lecturer|Term|Remarks|
 |--:|:--:|:-:|:--:|:--:|:-|
-|1|[도커와쿠버네티스](/_pages/Microservice/R/2018-06-08-R)|에이콘 아카데미|[조효은](https://cafe.naver.com/honeyjava)|Jun 8~30 2018|Java8|
+|1|[스프링 부트를 이용한 웹 서비스 개발](/_pages/Microservice/Spring/2020-03-08-SpringBoot)|T 아카데미|김지헌 개발자 (우아한형제들)|2019.12.17 ~ 2020.01.16|Spring|
+|2|[Spring Cloud를 활용한 MSA 기초](/_pages/Microservice/Spring/2020-03-08-SpringBoot)|T 아카데미|임성묵 (11번가)|2019.12.29 ~ 2020.01.28|Spring|
+|3|컨테이너 기반 가상화 플랫폼 ‘도커(Doker)’의 이해|T 아카데미|김대권(Docker Meetup Seoul운영자) / 김충섭(퍼플웍스)]|2020.01.13 ~ 2020.02.12|Docker|
+|4|[JPA 프로그래밍 기초](/_pages/Microservice/Spring/2020-03-08-SpringBoot)|T 아카데미|김영한 (우아한형제들) / 김충섭(퍼플웍스)]|2020.03.09 ~ 2020.04.08|JPA|
 
 ---
 
@@ -58,6 +61,6 @@ comments: New Microservice, Back-End Microservice
 
 
 * Book
-  * [점프 투 파이썬](https://wikidocs.net/book/1)
+  * [스프링 부트를 활용한 마이크로서비스 개발](https://github.com/wikibook/springboot-microservices)
 
 ##### [Go to Contents](#contents)

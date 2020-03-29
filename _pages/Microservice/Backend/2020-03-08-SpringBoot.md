@@ -4,7 +4,7 @@ title: Microservice SpringBoot
 summary: Microservice SpringBoot is space to learn with SpringBoot.
 categories: Java
 tags: Java
-featured-img: learning
+featured-img: microservice
 comments: 마이크로 서비스 (with SpringBoot)
 ---
 
@@ -32,7 +32,10 @@ comments: 마이크로 서비스 (with SpringBoot)
 
 |No|구분|Title|Day|Remarks|
 |--:|:-:|:--:|:-:|:--|
-|1|정규|사설네트워크 구축|Mar 18 2019|참석|
+|1|온라인|Spring Cloud를 활용한 MSA 기초 |2019.12.29 ~ 2020.01.28|참석|
+|2|온라인|스프링 부트를 이용한 웹 서비스 개발|2019.12.17 ~ 2020.01.16|Spring|
+|3|온라인|Spring Cloud를 활용한 MSA 기초|2019.12.29 ~ 2020.01.28|Spring|
+|4|온라인|JPA 프로그래밍 기초|김충섭(퍼플웍스)]|2020.03.09 ~ 2020.04.08|JPA|
 
 ---
 
@@ -149,6 +152,38 @@ CREATE TABLE CUSTOMERS(
 ```
 * org.hibernate  5.3.7.Final  -> jpa 2.1 사용
 
+#### 6-1. Gradle
+* build.gradle
+```gradle
+dependencies {
+    implementation 'com.h2database:h2:1.4.200'
+    implementation 'org.hibernate:hibernate-entitymanager:5.4.12.Final'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+compileJava.options.encoding = "UTF-8"
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Clas':'hellojpa.JpaMain'
+    }
+}
+```
+* jpa persistence.xml
+```xml
+    <persistence-unit name="hello">
+        <class>hellojpa.entity.Member</class>  // ㅎㄱ
+        <properties>
+```
+
 ### API 테스트코드
 ```json
 POST http://localhost:8080/holder
@@ -164,7 +199,6 @@ Content-Type: application/json
 
 POST http://localhost:8080/account
 Content-Type: application/json
-
 {
   "holderID" : "계정 생성 후 반환되는 UUID"
 }
@@ -201,6 +235,23 @@ compile 'io.springfox:springfox-swagger2:2.6.1'
 compile 'io.springfox:springfox-swagger-ui:2.6.1'
 ```
 
+### Kafka
+* 주키퍼 실행 ./bin/windows/zookeeper-server-start.bat config/zookeeper.properties
+* Kafka 실행 ./bin/windows/kafka-server-start.bat config/server.properties
+* 주키퍼 Consumer
+```shell
+./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic coffee --from-beginning
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic coffee --from-beginning
+```
+* 주키퍼 Producer
+```shell
+./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic coffee
+./bin/windows/kafka-console-producer.bat --broker-list localhost:9092 --topic coffee
+```
+* Topic 생성
+```shell
+./bin/windows/kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mytopic
+```
 
 ## Reference
 
@@ -212,3 +263,9 @@ compile 'io.springfox:springfox-swagger-ui:2.6.1'
 * [Git](https://git-scm.com)
 * [jQuery](http://jquery.com/download/)
 * [pm2](https://expressjs.com/ko/advanced/pm.html) : PM2는 Node.js 애플리케이션용 프로덕션 프로세스 관리자
+
+create table Member (
+  id bigint not null,
+  name varchar(255),
+  primary key(id)
+)
