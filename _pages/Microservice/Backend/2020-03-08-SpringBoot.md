@@ -43,15 +43,25 @@ comments: 마이크로 서비스 (with SpringBoot)
 
 ## Get Started(`SpringBoot`)
 
-### 1. SpringBoot 설치
-* [SpringBoot 다운로드](https://geth.ethereum.org/downloads/)
-* 설치 파일 : geth-windows-amd64-1.8.27-4bcc0a37.exe
-* 설치 경로 : C:\Geth
-* 설치 확인
+### 1. Intellij Multi Project 구성하기
+* [IntelliJ 자바 멀티 프로젝트(모듈) 생성하기](https://whitepaek.tistory.com/47)
 
-### 2. Node.js 설치
-* Web 서버 구축을 위한 Node.js 설치
-* [Node.js 다운로드](https://nodejs.org/ko/download/)
+### 2. Tiber JPA 셋팅하기
+* [Tibero + JPA](https://evohjo.wordpress.com/2019/10/04/jpa-project-crud-getting-started-with-java-only-in-intellij-ver-maven/)
+* [Spring boot + tibero + mybatis 연동하기](https://blog.naver.com/rlqud1125/221465850967)
+
+### 3. Swagger
+* [Swagger](https://yookeun.github.io/java/2017/02/26/java-swagger/)
+
+```gradle
+compile 'io.springfox:springfox-swagger2:2.6.1'
+compile 'io.springfox:springfox-swagger-ui:2.6.1'
+```
+
+### 4. Zipkin
+```shell
+java -jar zipkin-server-2.20.2-exec.jar
+```
 
 ---
 
@@ -84,17 +94,7 @@ comments: 마이크로 서비스 (with SpringBoot)
 
 ## Design
 
-### 1. DDD 설계
-
-
-#### a. 사설네트워크 가동 순서
-* 최초 블록생성 : 제네시스 블록
-* CustomGenesis.json 생성
-
-#### b. 제네시스 블록 파일
-* 블록 체인의 첫번째 블록
-
-### 2. Hystrix
+### 1. Hystrix
 
 #### a. Hystrix로 Timeout 처리하기
 * Hystrix를 통해 실행 되는 모든 메소드는 정해진 응답시간 내에 반환 되어야 한다.
@@ -104,7 +104,7 @@ comments: 마이크로 서비스 (with SpringBoot)
 * 모든 외부 연동은 최대 응답 시간을 가정할 수 있어야 한다.
 * 여러 연동을 사용하는 경우 최대 응답시간을 직접 Control하는 것은 불가능하다 (다양한timeout, 다양한 지연등..)
 
-### 3. Ribbon(Client LoadBalancer)
+### 2. Ribbon(Client LoadBalancer)
 * Client (API Caller) 에 탑재되는 S/W 모듈
 * 주어진 서버 목록에 대해서 Load Balancing 을 수행함
 * Ribbobn 의 장점 (단점도 있지만… )
@@ -126,7 +126,7 @@ comments: 마이크로 서비스 (with SpringBoot)
 - Ribbon에는 Retry기능이 내장 되어있다.
 - Eureka와 함께 사용될 때 강력하다 (뒤에 실습)
 
-### 4. Eureka
+### 3. Eureka
 * Service Registry
   * 서비스 탐색, 등록
   * 클라우드의 전화번호부
@@ -135,10 +135,10 @@ comments: 마이크로 서비스 (with SpringBoot)
   * spring-cloud 에서 서비스 레지스트리 사용 부분을 추상화(Interface)
   * Eureka, Consul, Zookeeper, etcd 등의 구현체가 존재
 
-### 5. Feign
+### 4. Feign
 * Eureka + Ribbon + Hystrix
 
-### 6. JPA
+### 5. JPA
 
 ```SQL
 CREATE TABLE CUSTOMERS(
@@ -152,7 +152,7 @@ CREATE TABLE CUSTOMERS(
 ```
 * org.hibernate  5.3.7.Final  -> jpa 2.1 사용
 
-#### 6-1. Gradle
+#### 5-1. Gradle
 * build.gradle
 ```gradle
 dependencies {
@@ -184,11 +184,10 @@ jar {
         <properties>
 ```
 
-### API 테스트코드
+### 6. API 테스트코드
 ```json
 POST http://localhost:8080/holder
 Content-Type: application/json
-
 {
 	"holderName" : "kevin",
 	"tel" : "02-1234-5678",
@@ -207,7 +206,6 @@ Content-Type: application/json
 
 POST http://localhost:8080/deposit
 Content-Type: application/json
-
 {
   "accountID" : "계좌 생성 후 반환되는 UUID",
   "holderID" : "계정 생성 후 반환되는 UUID",
@@ -218,7 +216,6 @@ Content-Type: application/json
 
 POST http://localhost:8080/withdrawal
 Content-Type: application/json
-
 {
   "accountID" : "계좌 생성 후 반환되는 UUID",
   "holderID" : "계정 생성 후 반환되는 UUID",
@@ -226,16 +223,10 @@ Content-Type: application/json
 }
 
 ###
+
 ```
 
-### Swagger
-* [Swagger](https://yookeun.github.io/java/2017/02/26/java-swagger/)
-```
-compile 'io.springfox:springfox-swagger2:2.6.1'
-compile 'io.springfox:springfox-swagger-ui:2.6.1'
-```
-
-### Kafka
+### 7. Kafka
 * 주키퍼 실행 ./bin/windows/zookeeper-server-start.bat config/zookeeper.properties
 * Kafka 실행 ./bin/windows/kafka-server-start.bat config/server.properties
 * 주키퍼 Consumer
@@ -256,16 +247,3 @@ compile 'io.springfox:springfox-swagger-ui:2.6.1'
 ## Reference
 
 * gradle 3.0 이 나오면서 compile 은 deprecated 되었고, implementation 또는 api 를 써야 한다.
-
-* [GO(구글)](https://geth.ethereum.org/downloads/)
-* [npmjs](https://www.npmjs.com/)
-* [node](https://nodejs.org/en/) → 일렉트론을 만나면 application으로 변경
-* [Git](https://git-scm.com)
-* [jQuery](http://jquery.com/download/)
-* [pm2](https://expressjs.com/ko/advanced/pm.html) : PM2는 Node.js 애플리케이션용 프로덕션 프로세스 관리자
-
-create table Member (
-  id bigint not null,
-  name varchar(255),
-  primary key(id)
-)
