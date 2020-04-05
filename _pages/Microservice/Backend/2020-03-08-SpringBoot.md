@@ -16,7 +16,7 @@ comments: 마이크로 서비스 (with SpringBoot)
 
 ## Contents
 
-## Table of Contents
+### Table of Contents
 
 |No|Title|Remarks|
 |--:|:-:|:--|
@@ -63,6 +63,9 @@ compile 'io.springfox:springfox-swagger-ui:2.6.1'
 java -jar zipkin-server-2.20.2-exec.jar
 ```
 
+### 5. GCP
+* [UEngine](https://workflowy.com/s/msa/27a0ioMCzlpV04Ib)
+
 ---
 
 ## Data & Source
@@ -78,7 +81,7 @@ java -jar zipkin-server-2.20.2-exec.jar
 ## Syllabus
 
 ### 1. DDD 설계
-* 특징, 키워드, 네트워크 구성, 노드구성, 블록연결, 작업증명, 분산원장
+* Event 설계
 
 ### 2. UI 구축
 * 윈도우 환경 기반 구축
