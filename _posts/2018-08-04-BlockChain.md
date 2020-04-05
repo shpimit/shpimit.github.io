@@ -16,19 +16,20 @@ comments: 블록체인 개발
 
 ## Overview
 
-> 사람과 유사한 지능을 가지도록, 인간의 학습능력, 추론능력, 지각능력, 자연어 이해능력 등을 컴퓨터 프로그램으로 실현하는 기술이다.
-> <small> '18년도 서울대학교 빅데이터 아카데미에서 내용 발췌함 </small>
+> 블록체인(영어: Blockchain, blockchain)은 관리 대상 데이터를 '블록'이라고 하는 소규모 데이터들이 P2P 방식을 기반으로 생성된 체인 형태의 연결고리 기반 분산 데이터 저장환경에 저장되어 누구라도 임의로 수정할 수 없고 누구나 변경의 결과를 열람할 수 있는 분산 컴퓨팅 기술 기반의 데이터 위변조 방지 기술이다
+> 딥러닝 비전문가라도 각자 분야에서 손쉽게 딥러닝 모델을 개발하고 활용할 수 있도록 케라스는 직관적인 API를 제공하고 있습니다.
+> <small> 블록체인 기술은 비트코인을 비롯한 대부분의 암호화폐 거래에 사용된다. </small>
 
 ---
 
 ## Contents
 
-## Table of Contents
+### Table of Contents
 
 |No|Title|Remarks|
 |-:|:-:|:--|
 |1|[Etherium](/_pages/Blockchain/2018-07-24-Blockchain)|Public Blockchain|
-|2|[Hyper ledger](/_pages/Blockchain/2019-09-02-NIPA-Hyperledger)|Private Blockchain|
+|2|[Hyperledger](/_pages/Blockchain/2019-09-02-NIPA-Hyperledger)|Private Blockchain|
 
 ---
 
