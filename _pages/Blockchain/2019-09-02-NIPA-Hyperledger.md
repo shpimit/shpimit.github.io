@@ -16,44 +16,70 @@ comments: NIPA
 
 ## Contents
 
-## Table of Contents
+### Table of Contents
 
 |No|Title|Remarks|
-|--:|:-:|:--|
-|0|[환경설정](#Install)|Hyperledger 환경셋팅|
-|1|[교육과정](#Curriculum)|수업게시판|
-|2|[실습](#Practice)|실습|
+|-:|:-:|:--|
+|0|[환경설정](#install)|Hyperledger 환경셋팅|
+|1|[교육과정](#curriculum)|수업게시판|
+|2|[실습](#practice)|실습|
 
 ---
 
 ## Install
 
+* Public Cloud(예:AWS, Ubuntu 16.04.6 LTS)에 구축 時, 진행해야 할일
+
 ### 1. Curl, Docker 설치
 
-> * apt : Ubuntu를 포함한 Debian 계열의 **리눅스에서 쓰이는 패키지 관리 명령어 도구**, APT(Advanced Packaging Tool) 
->```shell
->sudo apt-get install <패키지 이름>
->```
-> * apt-get은 인덱스를 가지고 있는데 이 인덱스는 /etc/apt/sources.list 에 있으며 이곳에서 패키지의 저장소 정보를 얻게 된다. 
-> * curl 은 command line 용 data transfer tool 이다. download/upload 모두 가능하며 HTTP/HTTPS/FTP/LDAP/SCP/TELNET/SMTP/POP3 등 주요한 프로토콜을 지원하며 Linux/Unix 계열 및 Windows 등 주요한 OS 에서 구동
+* apt : Ubuntu를 포함한 Debian 계열의 **리눅스에서 쓰이는 패키지 관리 명령어 도구**, APT(Advanced Packaging Tool) 
+```shell
+sudo apt-get install <패키지 이름>
+```
+ * apt-get은 인덱스를 가지고 있는데 이 인덱스는 /etc/apt/sources.list 에 있으며 이곳에서 패키지의 저장소 정보를 얻게 된다. 
+ * curl 은 command line 용 data transfer tool 이다. download/upload 모두 가능하며 HTTP/HTTPS/FTP/LDAP/SCP/TELNET/SMTP/POP3 등 주요한 프로토콜을 지원하며 Linux/Unix 계열 및 Windows 등 주요한 OS 에서 구동
 
 ```shell
-* sudo apt-get install curl     # url에서 copy 해옴
-* sudo apt install docker.io
-* sudo apt install docker-compose
-* sudo apt install software-properties-common
+* sudo apt-get install curl     # url에서 copy 해옴, 보통 설치되어 있음
+```
+* ~~sudo apt install docker.io~~
+* ~~sudo apt install docker-compose~~
+* ~~sudo apt install software-properties-common~~
+
+* 위 docker 설치방법 취소하고, [docker ce 설치](https://hiseon.me/linux/ubuntu/install-docker/)
+> Community Edition (CE) : 개발자나 작은 팀들에게 이상적인 버전이며 무료로 사용할 수 있습니다
+
+```shell
+# 준비
+$ sudo apt-get remove docker docker-engine docker.io  
+$ sudo apt-get update && sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+# 패키지 저장소 추가
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+# 도커 패키지 검색
+$ sudo apt-get update && sudo apt-cache search docker-ce
+# 도커 CE 설치
+$ sudo apt-get update && sudo apt-get install docker-ce
 * sudo usermod -aG docker $USER # 현재 접속중인 사용자에게 권한주기
+# 권한을 주어도 실행 오류가 발생하면, 로그아웃하고 다시 터미널 접속한다.
 ```
 
 ### 2. Node.js 설치
-> * sudo apt-get upgrade : 설치되어 있는 패키지를 모두 새버전으로 업그레이드
->```shell
->sudo apt-get upgrade
->```
-> * curl -o : curl 은 remote 에서 받아온 데이타를 기본적으로는 콘솔에 출력한다. -o 옵션 뒤에 FILE 을 적어주면 해당 FILE 로 저장한다. 
-> * curl -s : --silent 진행 내역이나 메시지등을 출력하지 않는다. -o 옵션으로 remote data 도 /dev/null 로 보내면 결과물도 출력되지 않는다
-> * curl -L : --location 서버에서 HTTP 301 이나 HTTP 302 응답이 왔을 경우 redirection URL 로 따라간다.
-> * nvm : NVM은 여러 버전의 Node.js를 설치하고 관리하고 사용할 수 있게 해주는 **bash 스크립트 프로그램**, NVM (Node version manager) 
+* sudo apt-get upgrade : 설치되어 있는 패키지를 모두 새버전으로 업그레이드
+```shell
+sudo apt-get upgrade
+```
+* curl -o : curl 은 remote 에서 받아온 데이타를 기본적으로는 콘솔에 출력한다. -o 옵션 뒤에 FILE 을 적어주면 해당 FILE 로 저장한다. 
+* curl -s : --silent 진행 내역이나 메시지등을 출력하지 않는다. -o 옵션으로 remote data 도 /dev/null 로 보내면 결과물도 출력되지 않는다
+* curl -L : --location 서버에서 HTTP 301 이나 HTTP 302 응답이 왔을 경우 redirection URL 로 따라간다.
+* nvm : NVM은 여러 버전의 Node.js를 설치하고 관리하고 사용할 수 있게 해주는 **bash 스크립트 프로그램**, NVM (Node version manager) 
 
 ```shell
 * sudo apt-get update
@@ -77,7 +103,7 @@ comments: NIPA
 ```
 ### 4. Python, Git 설치
 
-> * tree : 폴더의 하위 구조를 계층적으로 표시해 주는 유틸리티
+* tree : 폴더의 하위 구조를 계층적으로 표시해 주는 유틸리티
 ```shell
 * sudo apt install -y python
 * sudo apt install -y git
@@ -104,7 +130,7 @@ comments: NIPA
 |1|하이퍼레저 개론|NIPA|김기형교수님|Sep 2 2019|`fabcar`|
 |2|하이퍼레저 개론 및 패브릭의 이해|NIPA|[김재훈교수](jaikim@ajou.ac.kr)|Sep 3 2019|`first network`|
 |3|[DApp개발](ftp://202.30.3.201/hyper)|NIPA|[최광훈박사](https://github.com/saarc/class_material)|Sep 4 2019|`basic network`|
-|4|프라이빗블록체인 활용|NIPA|[김재훈교수](jaikim@ajou.ac.kr)|Sep 5 2019|`commpercial paper`|
+|4|프라이빗블록체인 활용|NIPA|[김재훈교수](https://github.com/saarc)|Sep 5 2019|`commpercial paper`|
 |5|프라이빗 데이터의 활용과 블록체인의 미래|NIPA|신운섭박사|Sep 6 2019|`Private Data`|
 
 ---
