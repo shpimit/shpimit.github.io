@@ -21,8 +21,8 @@ comments: 마이크로 서비스 (with SpringBoot)
 |No|Title|Remarks|
 |--:|:-:|:--|
 |0|[환경설정](#install)|SpringBoot환경셋팅|
-|1|[커리큘럼](#Syllabus)|커리큘럼 |
-|2|[설계](#Design)|실습|
+|1|[커리큘럼](#syllabus)|커리큘럼 |
+|2|[설계](#design)|실습|
 
 ---
 
@@ -31,11 +31,10 @@ comments: 마이크로 서비스 (with SpringBoot)
 ### Table of Learning
 
 |No|구분|Title|Day|Remarks|
-|--:|:-:|:--:|:-:|:--|
-|1|온라인|Spring Cloud를 활용한 MSA 기초 |2019.12.29 ~ 2020.01.28|참석|
-|2|온라인|스프링 부트를 이용한 웹 서비스 개발|2019.12.17 ~ 2020.01.16|Spring|
-|3|온라인|Spring Cloud를 활용한 MSA 기초|2019.12.29 ~ 2020.01.28|Spring|
-|4|온라인|JPA 프로그래밍 기초|김충섭(퍼플웍스)]|2020.03.09 ~ 2020.04.08|JPA|
+|-:|:-:|:--:|:-:|:--|
+|1|온라인|스프링 부트를 이용한 웹 서비스 개발|2019.12.17 ~ 2020.01.16|`STS`|
+|2|온라인|Spring Cloud를 활용한 MSA 기초|2019.12.29 ~ 2020.01.28|`Netflix OSS`|
+|2|온라인|JPA 프로그래밍 기초|2020.03.09 ~ 2020.04.08|`JPA`|
 
 ---
 
@@ -46,7 +45,7 @@ comments: 마이크로 서비스 (with SpringBoot)
 ### 1. Intellij Multi Project 구성하기
 * [IntelliJ 자바 멀티 프로젝트(모듈) 생성하기](https://whitepaek.tistory.com/47)
 
-### 2. Tiber JPA 셋팅하기
+### 2. Tibero JPA 셋팅하기
 * [Tibero + JPA](https://evohjo.wordpress.com/2019/10/04/jpa-project-crud-getting-started-with-java-only-in-intellij-ver-maven/)
 * [Spring boot + tibero + mybatis 연동하기](https://blog.naver.com/rlqud1125/221465850967)
 
@@ -93,6 +92,8 @@ java -jar zipkin-server-2.20.2-exec.jar
   * 사설네트워크용, 서비스용 2개 구축
   * 리눅스 기반 세팅 주제
 
+##### [Go to Contents](#contents)
+
 ---
 
 ## Design
@@ -122,6 +123,7 @@ java -jar zipkin-server-2.20.2-exec.jar
 로. 실패하지는 않는다. (실패한 서버로의 호출은 특정 시간동안 Skip 되고 그 간격은 조정된
 다 - BackOff)
 - classpath 에 retry 가 존재해야 한다는 점 주의
+
 #### b. 정리
 - Ribbon은 여러 Component에 내장되어있으며, 이를 통해 Client Load Balancing이
 수행 가능하다.
@@ -157,7 +159,8 @@ CREATE TABLE CUSTOMERS(
 
 #### 5-1. Gradle
 * build.gradle
-```gradle
+
+```xml
 dependencies {
     implementation 'com.h2database:h2:1.4.200'
     implementation 'org.hibernate:hibernate-entitymanager:5.4.12.Final'
@@ -180,6 +183,7 @@ jar {
     }
 }
 ```
+
 * jpa persistence.xml
 ```xml
     <persistence-unit name="hello">
@@ -196,17 +200,17 @@ Content-Type: application/json
 	"tel" : "02-1234-5678",
 	"address" : "OO시 OO구"
 }
+```
 
-###
-
+```json
 POST http://localhost:8080/account
 Content-Type: application/json
 {
   "holderID" : "계정 생성 후 반환되는 UUID"
 }
+```
 
-###
-
+```json
 POST http://localhost:8080/deposit
 Content-Type: application/json
 {
@@ -214,9 +218,9 @@ Content-Type: application/json
   "holderID" : "계정 생성 후 반환되는 UUID",
   "amount" : 300
 }
+```
 
-###
-
+```json
 POST http://localhost:8080/withdrawal
 Content-Type: application/json
 {
@@ -224,9 +228,6 @@ Content-Type: application/json
   "holderID" : "계정 생성 후 반환되는 UUID",
   "amount" : 10
 }
-
-###
-
 ```
 
 ### 7. Kafka
@@ -250,3 +251,5 @@ Content-Type: application/json
 ## Reference
 
 * gradle 3.0 이 나오면서 compile 은 deprecated 되었고, implementation 또는 api 를 써야 한다.
+
+##### [Go to Contents](#contents)

@@ -24,9 +24,9 @@ comments: Spark 2.0으로 하는 고속 스마트 빅데이터 분석과 처리
 
 ### Table of Contents
 
-|No|Titile|Remarks|
-|--:|:-:|:--|
-|1|[환경설정](#installation)|환경설정|
+|No|Title|Remarks|
+|-:|:--:|:-|
+|1|[환경설정](#get-started)|환경설정|
 |2|[Spark](#spark)|Spark 소스|
 
 ---

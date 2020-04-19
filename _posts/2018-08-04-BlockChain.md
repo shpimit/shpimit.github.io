@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Blockchain
-summary:  Blockchain to learn Blockchain. 
+summary: Space to study Etherium, Hyperledger  
 categories: Blockchain
 tags: Blockchain
-featured-img: block
+featured-img: blockchain
 comments: 블록체인 개발
 ---
 
