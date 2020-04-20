@@ -25,7 +25,7 @@ comments: 서울대학교 빅데이터 아카데미
 ## Table of Contents
 
 |No|Title|Explain|Term|
-|--:|:--:|:-:|:--:|
+|-:|:--:|:-:|:--:|
 |1|[Reference Site](#site)|Reference|18-07-21|
 |2|[Blockchain](#block)|블록체인|18-07-24|
 
@@ -53,7 +53,7 @@ comments: 서울대학교 빅데이터 아카데미
 ### Table of Data & Source
 
 |No|Type|Source|Remarks|
-|--:|:-:|:-:|:--|
+|-:|:-:|:-:|:--|
 |0|Basic|[송금](/_pages/Blockchain/src/2018-07-24-UDSL-solidity-remit)|Introduction to Solidity|
 |1|Basic|[경매](/_pages/Blockchain/src/2018-07-24-UDSL-solidity-auction)|Introduction to Solidity|
 |2|Basic|[투표](/_pages/Blockchain/src/2018-07-24-UDSL-solidity-vote)|Introduction to Solidity|
@@ -67,5 +67,5 @@ comments: 서울대학교 빅데이터 아카데미
 ## Reference
 
 |No|Title|Educational Institution|Term|
-|--:|:--:|:-:|:--:|
+|-:|:--:|:-:|:--:|
 |1|블록체인|서울대학교 도시연구소|18.8.4~9.1|

@@ -23,9 +23,9 @@ comments: 텐서플로우 기반의 딥러닝
 
 ---
 
-## Data & Source 
+## Data & Source
 
-* **Table of Data & Source**   
+### Table of Data & Source
 
 |No|Title|Educational Institution|Source|Remarks|
 |-:|:--:|:--:|:-:|:-|

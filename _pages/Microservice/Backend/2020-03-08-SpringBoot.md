@@ -19,7 +19,7 @@ comments: 마이크로 서비스 (with SpringBoot)
 ### Table of Contents
 
 |No|Title|Remarks|
-|--:|:-:|:--|
+|-:|:--:|:--|
 |0|[환경설정](#install)|SpringBoot환경셋팅|
 |1|[커리큘럼](#syllabus)|커리큘럼 |
 |2|[설계](#design)|실습|
@@ -145,7 +145,7 @@ java -jar zipkin-server-2.20.2-exec.jar
 
 ### 5. JPA
 
-```SQL
+```sql
 CREATE TABLE CUSTOMERS(
    ID   INT              NOT NULL,
    NAME VARCHAR (20)     NOT NULL,
@@ -160,7 +160,7 @@ CREATE TABLE CUSTOMERS(
 #### 5-1. Gradle
 * build.gradle
 
-```xml
+```gradle
 dependencies {
     implementation 'com.h2database:h2:1.4.200'
     implementation 'org.hibernate:hibernate-entitymanager:5.4.12.Final'
@@ -185,9 +185,10 @@ jar {
 ```
 
 * jpa persistence.xml
+  
 ```xml
     <persistence-unit name="hello">
-        <class>hellojpa.entity.Member</class>  // ㅎㄱ
+        <class>hellojpa.entity.Member</class>  # 추가 해야 class 찾음
         <properties>
 ```
 
@@ -196,9 +197,9 @@ jar {
 POST http://localhost:8080/holder
 Content-Type: application/json
 {
-	"holderName" : "kevin",
-	"tel" : "02-1234-5678",
-	"address" : "OO시 OO구"
+  "holderName" : "kevin",
+  "tel" : "02-1234-5678",
+  "address" : "OO시 OO구"
 }
 ```
 

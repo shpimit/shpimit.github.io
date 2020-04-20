@@ -14,12 +14,14 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 
 ---
 
-## Table of Contents
+## Contents
+
+### Table of Contents
 
 |No|Title|Remarks|
 |-:|:--:|:-|
-|1|[교육과정](#Curriculum)|수업게시판|
-|2|[Keras](#Keras)|Keras Computer Vision 소스|
+|1|[교육과정](#curriculum)|수업게시판|
+|2|[Keras](#keras)|Keras Computer Vision 소스|
 
 ---
 
@@ -29,7 +31,7 @@ comments: 한국IT비즈니스진흥협회 ICT이노베이션 인공지능센터
 
 ### Table of Curriculum
 
-|No|구분|Title|Day|Remarks|
+|No|Type|Title|Day|Remarks|
 |-:|:-:|:--:|:-:|:--|
 |1|정규|[컴퓨터 비전과 딥러닝을 이용한 영상처리 개론](/_pages/Language/Python/data/Blockchain.pptx)|Sep 2 2019|`불참`|
 |2|정규|[Single Neuron Training](/_pages/Language/Python/data/HTTP.pptx)|Sep 3 2019|`불참`|
@@ -147,7 +149,6 @@ def dsc            # dice similarity  IOU  교집합/합집합   Predition 0 1 1
 ## Reference
 
 * [KoNLPy](https://konlpy-ko.readthedocs.io/)
-
 
 ```shell
 for layer in pretrained_densenet.layers:
