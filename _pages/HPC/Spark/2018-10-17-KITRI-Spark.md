@@ -251,7 +251,6 @@ top3Words.foreach(println)
 
 ---
 
-
 #### RDD join 소스
 
 > scala shell에서 돌리기
@@ -382,7 +381,7 @@ import org.apache.spark.SparkContext._
      result.show()
      result = sqlContext.sql("SELECT * from Employees WHERE State = 'WA'")
      result.show()
-     System.out.println("** Done **")    
+     System.out.println("** Done **")
 ```
 
 ---
@@ -476,7 +475,7 @@ result = spark.sql("SELECT ShipCountry, SUM(OrderDetailsTable.UnitPrice * Qty * 
 result.count()
 result.show(10)
 result.head(3)
-result.orderBy($"ProductSales".desc).show(10) // Top 10 by Sales   
+result.orderBy($"ProductSales".desc).show(10) // Top 10 by Sales
 ```
 
 ---
@@ -531,6 +530,7 @@ result.write.parquet(filePath + "SalesByCountry_Parquet")
 //
 println("** Done **");
 ```
+
 ---
 
 #### SparkSession Car 소스
@@ -567,6 +567,7 @@ val startTime = System.nanoTime()
     //
     spark.stop()
 ```
+
 ---
 
 #### SparkSession Car1 소스
@@ -597,6 +598,7 @@ val cars = spark.read.option("header","true").
     //
     spark.stop()
 ```
+
 ---
 
 #### SparkSession Car2 소스
@@ -626,6 +628,7 @@ val cars = spark.read.option("header","true").
     //
     spark.stop()
 ```
+
 ---
 
 #### DS1 소스
@@ -1746,84 +1749,3 @@ object ML04v2 extends Serializable {
   }
 }
 ```
-
----
-
-### 4. [SpringBoot & Gradle 프로젝트 생성하기](http://jojoldu.tistory.com/250)
-1. elipse에서 Spring Starter를 선택
-2. 빌드툴은 Maven이 아닌 Gradle을 선택
-3. Core의 Lombok, Web의 Web, SQL의 JPA, H2 , OPS의 Actuators 를 선택합니다.
-4. build.gradle은 아래와 같습니다.
-
-```gradle
-buildscript {
-	ext {
-		springBootVersion = '2.0.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
-}
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-
-repositories {
-	mavenCentral()
-}
-
-
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('com.h2database:h2')
-	compileOnly('org.projectlombok:lombok')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-}
-```
-
----
-
-5. Spring boot 간단한 Java파일은 아래와 같습니다.
-
-```java
-package com.example.simpletest;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import lombok.extern.slf4j.Slf4j;
-
-@SpringBootApplication
-public class SimpleTestApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SimpleTestApplication.class, args);
-	}
-	
-	@Slf4j
-	@Controller
-	public static class AIController {
-		
-		@GetMapping("/hello")
-		@ResponseBody
-		public String helloworld() {
-			return "hello world";
-		}
-	}
-}
-```
-

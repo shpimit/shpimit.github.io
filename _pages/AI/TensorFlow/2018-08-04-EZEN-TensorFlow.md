@@ -66,7 +66,6 @@ comments: 텐서플로우 기반의 딥러닝
 
 * [Anaconda TensorFlow 설치](https://tensorflow.blog/2018/10/24/pip-install-tensorflow-vs-conda-install-tensorflow/)
 
-
 * 콘다 업데이트
 
 ```shell  
@@ -91,7 +90,6 @@ comments: 텐서플로우 기반의 딥러닝
 ---
 
 * 아래는 필요한경우만 설치 하면 됨
- 
 * Python 필요 패키지설치
 
 ```shell
@@ -123,7 +121,6 @@ comments: 텐서플로우 기반의 딥러닝
 > F9 한줄실행, F5 파일실행  
 
 ---
-
 
 ## Data & Source
 

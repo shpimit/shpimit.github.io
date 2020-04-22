@@ -33,20 +33,24 @@ comments: NIPA
 ### 1. Curl, Docker 설치
 
 * apt : Ubuntu를 포함한 Debian 계열의 **리눅스에서 쓰이는 패키지 관리 명령어 도구**, APT(Advanced Packaging Tool) 
+  
 ```shell
 sudo apt-get install <패키지 이름>
 ```
- * apt-get은 인덱스를 가지고 있는데 이 인덱스는 /etc/apt/sources.list 에 있으며 이곳에서 패키지의 저장소 정보를 얻게 된다. 
- * curl 은 command line 용 data transfer tool 이다. download/upload 모두 가능하며 HTTP/HTTPS/FTP/LDAP/SCP/TELNET/SMTP/POP3 등 주요한 프로토콜을 지원하며 Linux/Unix 계열 및 Windows 등 주요한 OS 에서 구동
+
+* apt-get은 인덱스를 가지고 있는데 이 인덱스는 /etc/apt/sources.list 에 있으며 이곳에서 패키지의 저장소 정보를 얻게 된다.
+* curl 은 command line 용 data transfer tool 이다. download/upload 모두 가능하며 HTTP/HTTPS/FTP/LDAP/SCP/TELNET/SMTP/POP3 등 주요한 프로토콜을 지원하며 Linux/Unix 계열 및 Windows 등 주요한 OS 에서 구동
 
 ```shell
 * sudo apt-get install curl     # url에서 copy 해옴, 보통 설치되어 있음
 ```
+
 * ~~sudo apt install docker.io~~
 * ~~sudo apt install docker-compose~~
 * ~~sudo apt install software-properties-common~~
 
 * 위 docker 설치방법 취소하고, [docker ce 설치](https://hiseon.me/linux/ubuntu/install-docker/)
+
 > Community Edition (CE) : 개발자나 작은 팀들에게 이상적인 버전이며 무료로 사용할 수 있습니다
 
 ```shell
@@ -72,14 +76,17 @@ $ sudo apt-get update && sudo apt-get install docker-ce
 ```
 
 ### 2. Node.js 설치
+
 * sudo apt-get upgrade : 설치되어 있는 패키지를 모두 새버전으로 업그레이드
+
 ```shell
 sudo apt-get upgrade
 ```
+
 * curl -o : curl 은 remote 에서 받아온 데이타를 기본적으로는 콘솔에 출력한다. -o 옵션 뒤에 FILE 을 적어주면 해당 FILE 로 저장한다. 
 * curl -s : --silent 진행 내역이나 메시지등을 출력하지 않는다. -o 옵션으로 remote data 도 /dev/null 로 보내면 결과물도 출력되지 않는다
 * curl -L : --location 서버에서 HTTP 301 이나 HTTP 302 응답이 왔을 경우 redirection URL 로 따라간다.
-* nvm : NVM은 여러 버전의 Node.js를 설치하고 관리하고 사용할 수 있게 해주는 **bash 스크립트 프로그램**, NVM (Node version manager) 
+* nvm : NVM은 여러 버전의 Node.js를 설치하고 관리하고 사용할 수 있게 해주는 **bash 스크립트 프로그램**, NVM (Node version manager)
 
 ```shell
 * sudo apt-get update
@@ -91,6 +98,7 @@ sudo apt-get upgrade
 ```
 
 ### 3. Go 언어 설치
+
 ```shell
 * curl -O https://storage.googleapis.com/golang/go1.11.2.linux-amd64.tar.gz
 * tar -xvf go1.11.2.linux-amd64.tar.gz
@@ -101,9 +109,11 @@ sudo apt-get upgrade
 * export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 * source ~/.profile
 ```
+
 ### 4. Python, Git 설치
 
 * tree : 폴더의 하위 구조를 계층적으로 표시해 주는 유틸리티
+
 ```shell
 * sudo apt install -y python
 * sudo apt install -y git
@@ -111,6 +121,7 @@ sudo apt-get upgrade
 ```
 
 ### 5. Fabric Sample 설치, Docker Image 설치
+
 ```shell
 # curl -sSL http://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version> <thirdparty_version>
 * sudo curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.1 1.4.1 0.4.15  # 1.4.1 을 명시하지 않으면 가장 최신 버전을 가져옴. 안될때 sudo bash -s
@@ -187,6 +198,7 @@ $ cd ~/fabric-samples/fabcar/javascript
         "fabric-network": "~1.4.0"
     },
 ```
+
 ```shell
 $ ~/fabric-samples/fabcar/javascript/npm install              # Node js 관련 파일 설치 package.json
 $ ~/fabric-samples/fabcar/javascript/tree wallet
@@ -200,6 +212,7 @@ $ ~/fabric-samples/fabcar/javascript/node query.js            # 블록체인에�
 #### 1.2. Couch DB 조회
 
 * fabcar를 위한 Couch DB조회
+  
 > * VirtualBox에서 사용시에는 PortFowarding 작업 필요
 
 ```shell
@@ -225,10 +238,11 @@ git clone https://github.com/saarc/fabric-front-end.git
 cd fabric-front-end
 npm install
 cp -R ../wallet ./    # Key 복사 필요  
-node server.js   
+node server.js
 ```
 
 ### 2. [Commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html)
+
 * Create Network
 
 ```shell
@@ -243,6 +257,7 @@ $ docker network inspect net_basic
 (magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
 (magnetocorp admin)$ ./monitordocker.sh net_basic
 ```
+
 * 새로운 터미널을 띄워서
 
 ```shell
@@ -262,6 +277,7 @@ $ docker network inspect net_basic
 ```shell
 (magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
 ```
+
 * Instantiate contract
 
 ```shell
@@ -270,7 +286,7 @@ $ docker network inspect net_basic
 ```
 
 * Application structure
-  -  `addToWallet.js` is the program that Isabella is going to use to load her identity into her wallet.
+  * `addToWallet.js` is the program that Isabella is going to use to load her identity into her wallet.
 
 ```shell
 (magnetocorp user)$ cd commercial-paper/organization/magnetocorp/application/
@@ -327,9 +343,11 @@ $ code .         # visudaul studio에서 mycc.go를 연다. Oracle Virtual Machi
 ```
 
 * Visual Studio Code
+
 > Ctrl+~         # visual studio에서 터미널 여는 법
 
 * Go Third Party Package
+
 > go get 패키지명 명령 : 서드 파티 패키지를 내려 받고 설치할수 있다.
 > go get -u 패키지명과 같이 -u 옵션을 주면 최신 버전 패키지를 내려받아서 다시 설치한다.
 
@@ -366,7 +384,7 @@ $ docker exec -it cli bash
 ```shell
 # install
 root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode install -n jobMP -v 1 -p github.com/jobMP
-root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode list --installed # 등록된 chaincode 확인 
+root@2f9f2dd49c99:/opt/gopath/src/github.com/hyperledger/fabric/peer#peer chaincode list --installed # 등록된 chaincode 확인
 # instantiate
 peer chaincode instantiate -n jobMP -v 1 -C mychannel -c '{"Args":["a","100"]}' -P 'OR ("Org1MSP.member")'
 peer chaincode list --instantiated -C mychannel # 어느 channel에 instantiated 되었는지 확인
@@ -395,8 +413,9 @@ git clone https://github.com/saarc/fabric-front-end.git
 cd fabric-front-end
 npm install
 cp -R ../wallet ./    # Key 복사 필요  
-node server.js   
+node server.js
 ```
+
 ---
 
 ```shell
@@ -413,6 +432,7 @@ cp -R ../../fabcar/javascript/wallet ./
 ```shell
 $ ~/fabric-samples/chaincode/marbles02_private/code collections_config.json
 ```
+
 ```json
 [
  {
@@ -464,6 +484,7 @@ export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orde
 
 peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile $ORDERER_CA -C mychannel -n marblesp -v 1.0 -c '{"Args":["init"]}' -P "OR('Org1MSP.member','Org2MSP.member')" --collections-config  $GOPATH/src/github.com/chaincode/marbles02_private/collections_config.json   # --collections-config    collections_config.json파일을 사용옵션
 ```
+
 * Cli org1로 연결...private data 쓰기 위해
 
 ```shell
@@ -483,6 +504,7 @@ export MARBLE=$(echo -n "{\"name\":\"marble1\",\"color\":\"blue\",\"size\":35,\"
 
 peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n marblesp -c '{"Args":["initMarble"]}'  --transient "{\"marble\":\"$MARBLE\"}"
 ```
+
 * Read marble
 
 ```shell
@@ -498,6 +520,7 @@ peer chaincode query -C mychannel -n marblesp -c '{"Args":["readMarblePrivateDet
 * [couchDB 접근](http://localhost:5984/_utils)   # docker-composer.yaml couchdb id/pw 입력 받께끔 처리 해야 함. fist-network는 이름이 다름
 
 ```
+
 Click mychannel_marblesp$$pcollection$marbles
 Click mychannel_marblesp$$pcollection$marble$private$details
 ```

@@ -49,7 +49,6 @@ comments: 케라스 기반의 딥러닝
 
 ---
 
-
 ## Data & Source
 
 ### Table of Data & Source
@@ -62,6 +61,5 @@ comments: 케라스 기반의 딥러닝
 ## Reference
 
 * [강의자료](http://bit.ly/2RoWaQq)
-
 
 ##### [Go to Contents](#contents)

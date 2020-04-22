@@ -19,6 +19,7 @@ tags: Miscellaneous
 ### 2. [Firmaware Update](https://jamesachambers.com/raspberry-pi-4-ubuntu-server-desktop-18-04-3-image-unofficial/)
 
 * 우분투 비공식 버전 설치를 위한 Firmware Update
+
 ```shell
 $ sudo apt-get update && sudo apt-get dist-upgrade -y
 $ sudo rpi-update
@@ -39,6 +40,7 @@ fswebcam image.jpg
 ```
 
 * 결과
+
 ```shell
 --- Opening /dev/video0...
 Trying source module v4l2...
@@ -74,6 +76,7 @@ fswebcam -r 1280x720 --no-banner image3.jpg
 #### ③ OpenCV 예제 1.1 동영상 예제와 얼굴인식 예제 합치기(https://m.blog.naver.com/PostView.nhn?blogId=roboholic84&logNo=221141959847&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
 
 ### 5. 라즈베리 파이 한글 입력
+
 * [https://westwoodforever.blogspot.com/2019/05/ibus.html](https://westwoodforever.blogspot.com/2019/05/ibus.html)
 
 ```shell

@@ -40,10 +40,10 @@ permalink: /Lecture/Keras
 
 <a name="contents"/>
 
-* **Table of Contents**   
+### Table of Contents
 
 |No|Titile|Remarks|
-|--:|:-:|:--|
+|-:|:--:|:--|
 |1|[환경설정](#install)|환경설정|
 |2|[Keras](#Keras)|Keras 딥러닝 소스|
 
@@ -64,11 +64,9 @@ permalink: /Lecture/Keras
 
 ## Data & Source 
 
-* **Table of Data & Source**   
+### Table of Data & Source  
 
 |No|Title|Educational Institution|Source|Remarks|
-|--:|:-:|:-:|:-:|:--|
-|1|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[LinearRegression](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Keras/src/Krs_csvReaderEx01.ipynb)|선형회귀|
-|2|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[보스턴집값](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Keras/src/Krs_bostonLinear.ipynb)|보스턴집값선형예측|
-
-
+|-:|:--:|:--:|:-:|:--|
+|1|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[LinearRegression](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Keras/src/Krs_csvReaderEx01.ipynb)|`선형회귀`|
+|2|<small>텐서플로우 딥러닝 인공지능 개발</small>|<small>IT이젠아카데미</small>|[보스턴집값](https://github.com/shpimit/shpimit.github.io/tree/master/blog/Keras/src/Krs_bostonLinear.ipynb)|`보스턴집값선형예측`|

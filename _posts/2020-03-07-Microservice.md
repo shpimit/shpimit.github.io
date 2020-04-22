@@ -57,7 +57,7 @@ comments: New Microservice, Back-End Microservice
   3. [MSA Architecture](https://waspro.tistory.com/432?category=857035) : MSA 아키텍처 패턴
   4. [MSA Architecture 심화](https://12bme.tistory.com/519?category=791106) : MSA 아키텍처 심화
   6. [MSA 설계문제점](https://cyberx.tistory.com/101) : MSA 설계문제점
-  7. [Spring-JPA](https://github.com/cheese10yun/spring-jpa-best-practices/blob/master/doc/step-01.md) 
+  7. [Spring-JPA](https://github.com/cheese10yun/spring-jpa-best-practices/blob/master/doc/step-01.md)
   8. [Mock 기반 테스트](https://www.popit.kr/spring-resttemplate-mock-기반-테스트-하기/)
   9. [Spring OAuth2](https://medium.com/@kevin_park/springboot-oauth2-0-reative-client-with-spring-security-a30fe3f7e386)
   10. [DDD in Golang](https://dev.to/stevensunflash/using-domain-driven-design-ddd-in-golang-3ee5)
