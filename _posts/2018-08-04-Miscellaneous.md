@@ -76,6 +76,81 @@ comments: 분류하기 어려운 utility Learning
 1. [![허민석 Jupyter사용법](http://img.youtube.com/vi/SLPo0o_HArs/0.jpg)](https://youtu.be/SLPo0o_HArs) 
 2. [![주피터 노트북의 진화! 주피터랩 살펴보기](http://img.youtube.com/vi/70sRgL42c1w/0.jpg)](https://youtu.be/70sRgL42c1w)
 
+## 영상 촬영
+
+* [촬영기본](https://youtu.be/CD0pRAx0LHc)
+* [FPS](https://youtu.be/cBvZJRwLvfI)
+* [화각](https://youtu.be/jiqphhL4RlE)
+* [화소에 대한 내용](https://youtu.be/NTyfr5iLrTE)
+* [구도](https://youtu.be/6PvPFdrk6Cg)
+
+## Lightroom Classic
+
+* 현상에서 작업함
+  
+> 화이트 밸런스 작업(스포이드) 후 대부분의 색조절
+> 그래프에서 S자곡선
+
+## Premiere Pro
+
+> Layer 개념으로 영상/텍스트/효과음을 넣고 진행함
+ 
+* [크로마키 효과](https://www.youtube.com/watch?v=B_fNqhiwCJQ)
+
+https://github.com/fluent/fluentd-kubernetes-daemonset 
+
+출처: https://arisu1000.tistory.com/27852 [아리수]
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/8/$basearch/
+gpgcheck=0
+enabled=1
+
+firewall-cmd --permanent --zone=public --add-port=8089/tcp
+[root@localhost ~]# firewall-cmd --permanent --zone=public --add-port=8089/tcp[root@localhost ~]# firewall-cmd --reload
+[root@localhost ~]# firewall-cmd --list-ports 
+21/tcp 5000/tcp 5001/tcp 8089/tcp
+
+https://luke-tofu.tistory.com/entry/code-server-구동하기-with-Oracle-Cloud-Infrastructure
+
+server {
+    listen       80;
+    listen       [::]:80;
+
+    server_name  146.56.154.192; # 도메인 주소
+
+    #charset koi8-r;
+    #access_log /var/log/nginx/host.access.log  
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;              
+        #proxy_pass       http://127.0.0.1:3100;  # backend url
+        #proxy_set_header Host       $http_host;
+        #proxy_set_header X-Real-IP  $remote_addr;
+    }      
+
+    #root /usr/share/nginx/frontend; # 배포된 프로젝트 경로
+    #index index.html index.htm;
+
+    #error_page 404 /404.html;  # redirect server error pages to the static page
+
+    # error_page 500 502 503 504 /50x.html;
+    location = /50x.html { 
+        root /usr/share/nginx/html; 
+    }       
+
+    client_max_body_size 100M;
+
+    # deny access to .htaccess files, if Apache's document root 
+    # concurs with nginx's one 
+    # 
+    #location ~ /\.ht { 
+    #   deny all; 
+    #}    
+}
+
+
 ---
 
 ## Data & Source
