@@ -69,11 +69,11 @@ fswebcam -r 1280x720 --no-banner image3.jpg
 
 ### 4. [라즈베리파이 OpenCV 4.10 설치하기](https://medium.com/@patrick_ryan/building-opencv-4-10-on-raspian-buster-and-raspberry-pi4-64669bd2eb74)
 
-#### ① OpenCV 예제 1. 얼굴 인식예제(https://blog.naver.com/roboholic84/221140338041)
+#### ① [OpenCV 예제 1. 얼굴 인식예제](https://blog.naver.com/roboholic84/221140338041)
 
-#### ② OpenDV 예제 4. 카메라로 동영상 촬영하기(https://blog.naver.com/roboholic84/221141086412)
+#### ② [OpenDV 예제 4. 카메라로 동영상 촬영하기](https://blog.naver.com/roboholic84/221141086412)
 
-#### ③ OpenCV 예제 1.1 동영상 예제와 얼굴인식 예제 합치기(https://m.blog.naver.com/PostView.nhn?blogId=roboholic84&logNo=221141959847&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+#### ③ [OpenCV 예제 1.1 동영상 예제와 얼굴인식 예제 합치기](https://m.blog.naver.com/PostView.nhn?blogId=roboholic84&logNo=221141959847&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
 
 ### 5. 라즈베리 파이 한글 입력
 

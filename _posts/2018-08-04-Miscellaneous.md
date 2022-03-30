@@ -25,10 +25,12 @@ comments: 분류하기 어려운 utility Learning
 |1|[Python](#python) |파이썬|
 |2|[Jupyter](#jupyter) |주피터|
 |3|[Visual Studio Code](#vsc) |Visual Studio Code|
-|4|[Unix](/_pages/Miscellaneous/2018-12-22-StoryTelling)|Unix 꿀 Tip|
-|5|[VR](/_pages/Miscellaneous/2018-12-18-KIPFA-VRARMR)|Unity 가상 프로그램|
-|6|[Jekyll](/_pages/Miscellaneous/2018-12-13-Jekyll)|Jekyll 프로그램|
-|7|[Algorithm](/_pages/Miscellaneous/2018-12-15-Algorithm)|Algorithm 심화|
+|4|[VR](/_pages/Miscellaneous/2018-12-18-KIPFA-VRARMR)|Unity 가상 프로그램|
+|5|[Jekyll](/_pages/Miscellaneous/2018-12-13-Jekyll)|Jekyll 프로그램|
+|6|[Algorithm](/_pages/Miscellaneous/2018-12-15-Algorithm)|Algorithm 심화|
+|7|[ETC](/_pages/Miscellaneous/2018-12-15-ETC)|기타 꿀 Tip|
+|8|[OracleCloud](/_pages/Miscellaneous/2021-11-15-OracleCloud)|오라클클라우드|
+|9|[MariaDB](/_pages/Miscellaneous/2022-03-09-MariaDB)|마리아DB|
 
 ---
 
@@ -167,5 +169,6 @@ server {
 
 * [마크다운 문법](https://eungbean.github.io/2018/06/11/How-to-use-markdown/)
 * [마크다운 Table](http://www.tablesgenerator.com/markdown_tables) : 표는 수작업으로 만들기 힘드니까 표를 만들어주는 사이트를 쓰세요.
+* [짱블로그](https://zzsza.github.io/category/mlops/)
 
 ##### [Go to Contents](#contents)

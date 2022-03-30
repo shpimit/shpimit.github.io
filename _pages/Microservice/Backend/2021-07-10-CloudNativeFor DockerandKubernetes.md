@@ -32,12 +32,12 @@ comments: Cloud Native를 위한 도커와 쿠버네티스(에이콘 아카데�
 |   No | 구분  |                    Title                    |    Day     | Remarks |
 | --: | :---: | :-----------------------------------------: | :--------: | :------ |
 |    1 | 강의  | [Docker 기본다지기](https://github.com/chungsju/CloudNative/blob/main/Docker-HandsOn.md) | 2021.07.10 | * 도커기본 다지기 <br> * 쿠버네티스 간단하게 맛보기     |
-|    2 | 강의  | [쿠버네티스의 시작](https://github.com/chungsju/CloudNative/blob/main/K8S%20%EC%84%A4%EC%B9%98.md) | 2021.07.17 | * Pod 생성 및 Kubectl 사용법 <br> * Annotation/Namespace <br> * Liveness Porbes    |
-|    3 | 강의  | [쿠버네티스로 서비스하기](https://github.com/chungsju/CloudNative/blob/main/K8S%20%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%20%EB%B0%8F%20%EC%84%9C%EB%B9%84%EC%8A%A4.md) | 2021.07.24 | * Deployment <br> * Service <br> ClusterIP <br> NodePort <br> LoadBalancer <br> Ingress     |
-|    4 | 강의  | [쿠버네티스 고급 설정](https://github.com/chungsju/CloudNative/blob/main/K8S%20%EB%B3%BC%EB%A5%A8.md) | 2021.07.31 | * Readiness Probe <br> * Volume <br> * ConfigMap <br> * Secret    |
+|    2 | 강의  | [쿠버네티스의 시작](https://github.com/chungsju/CloudNative/blob/main/K8S%20설치.md) | 2021.07.17 | * Pod 생성 및 Kubectl 사용법 <br> * Annotation/Namespace <br> * Liveness Porbes    |
+|    3 | 강의  | [쿠버네티스로 서비스하기](https://github.com/chungsju/CloudNative/blob/main/K8S%20컨트롤러%20및%20서비스.md) | 2021.07.24 | * Deployment <br> * Service <br> ClusterIP <br> NodePort <br> LoadBalancer <br> Ingress     |
+|    4 | 강의  | [쿠버네티스 고급 설정](https://github.com/chungsju/CloudNative/blob/main/K8S%20볼륨.md) | 2021.07.31 | * Readiness Probe <br> * Volume <br> * ConfigMap <br> * Secret    |
 |    5 | 강의  | [쿠버네티스 가용성 개선 및 보안](https://github.com/chungsju/CloudNative/blob/main/K8S%20Pod.md) | 2021.08.07 | * StatefullSet <br> * 리소스 제어 <br> * 계정/인증 및 보안     |
 ---
-https://github.com/chungsju/CloudNative/blob/main/K8S%20%EB%B3%BC%EB%A5%A8.md
+
 ## Get Started
 
 ### 1. [Docker 설치](https://docs.docker.com/docker-for-windows/install/)
