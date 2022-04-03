@@ -153,8 +153,8 @@ $ npm install react-i18next i18next — save
 
 ### Table of Data & Source
 
-|   No | Title | Educational Institution |                        Source                         | Remarks |
-| ---: | :---: | :---------------------: | :---------------------------------------------------: | :------ |
+|   No |    Title    | Educational Institution |                        Source                         | Remarks |
+| ---: | :---------: | :---------------------: | :---------------------------------------------------: | :------ |
 |    1 | supermarket | <small>개인개발</small> | [supermarket](https://github.com/shpimit/jobmp-front) | `React` |
 
 ---
