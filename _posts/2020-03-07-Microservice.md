@@ -28,10 +28,11 @@ comments: New Microservice, Back-End Microservice
 
 ### Table of Contents
 
-|No|Title|Remarks|
-|-:|:---:|:-|
-|1|[Java](/_pages/Microservice/Backend/2020-03-08-SpringBoot)|`Backend`|
-|2|[React](/_pages/Microservice/Frontend/2020-03-08-React)|`Frontend`|
+|   No |                           Title                            | Remarks    |
+| ---: | :--------------------------------------------------------: | :--------- |
+|    1 | [Java](/_pages/Microservice/Backend/2020-03-08-SpringBoot) | `Backend`  |
+|    2 |  [React](/_pages/Microservice/Frontend/2020-03-08-React)   | `Frontend` |
+|    3 |  [React](/_pages/Microservice/Frontend/2022-04-01-React)   | `Mobx`     |
 
 ---
 
@@ -39,14 +40,14 @@ comments: New Microservice, Back-End Microservice
 
 ### Table of Learning
 
-|No|Title|Educational Institution|Lecturer|Term|Remarks|
-|--:|:--:|:-:|:--:|:--:|:-|
-|1|[스프링 부트를 이용한 웹 서비스 개발](/_pages/Microservice/Backend/2020-03-08-SpringBoot)|T 아카데미|김지헌 개발자 (우아한형제들)|2019.12.17 ~ 2020.01.16|`Spring`|
-|2|[Spring Cloud를 활용한 MSA 기초](/_pages/Microservice/Backend/2020-03-08-SpringBoot)|T 아카데미|임성묵 (11번가)|2019.12.29 ~ 2020.01.28|`Spring`|
-|3|컨테이너 기반 가상화 플랫폼 ‘도커(Doker)’의 이해|T 아카데미|김대권(Docker Meetup Seoul운영자) / 김충섭(퍼플웍스)|2020.01.13 ~ 2020.02.12|`Docker`|
-|4|[JPA 프로그래밍 기초](/_pages/Microservice/Backend/2020-03-08-SpringBoot)|T 아카데미|김영한 (우아한형제들)|2020.03.09 ~ 2020.04.08|`JPA`|
-|5|[컨테이너 오케스트레이션 쿠버네티스 살펴보기](/_pages/Microservice/Backend/2020-04-19-K3S)|T 아카데미|김충섭(퍼플웍스)|2020.04.15 ~ 2020.05.15|`k3s`|
-|6|[Cloud Native를 위한 도커와 쿠버네티스](/_pages/Microservice/Backend/2021-07-10-CloudNativeFor DockerandKubernetes)|에이콘아카데미|정승재(tipco)|2021.07.10 ~ 2021.08.07|`k8s`|
+|   No |                                                        Title                                                        | Educational Institution |                       Lecturer                       |          Term           | Remarks  |
+| ---: | :-----------------------------------------------------------------------------------------------------------------: | :---------------------: | :--------------------------------------------------: | :---------------------: | :------- |
+|    1 |              [스프링 부트를 이용한 웹 서비스 개발](/_pages/Microservice/Backend/2020-03-08-SpringBoot)              |       T 아카데미        |             김지헌 개발자 (우아한형제들)             | 2019.12.17 ~ 2020.01.16 | `Spring` |
+|    2 |                [Spring Cloud를 활용한 MSA 기초](/_pages/Microservice/Backend/2020-03-08-SpringBoot)                 |       T 아카데미        |                   임성묵 (11번가)                    | 2019.12.29 ~ 2020.01.28 | `Spring` |
+|    3 |                                  컨테이너 기반 가상화 플랫폼 ‘도커(Doker)’의 이해                                   |       T 아카데미        | 김대권(Docker Meetup Seoul운영자) / 김충섭(퍼플웍스) | 2020.01.13 ~ 2020.02.12 | `Docker` |
+|    4 |                      [JPA 프로그래밍 기초](/_pages/Microservice/Backend/2020-03-08-SpringBoot)                      |       T 아카데미        |                김영한 (우아한형제들)                 | 2020.03.09 ~ 2020.04.08 | `JPA`    |
+|    5 |             [컨테이너 오케스트레이션 쿠버네티스 살펴보기](/_pages/Microservice/Backend/2020-04-19-K3S)              |       T 아카데미        |                   김충섭(퍼플웍스)                   | 2020.04.15 ~ 2020.05.15 | `k3s`    |
+|    6 | [Cloud Native를 위한 도커와 쿠버네티스](/_pages/Microservice/Backend/2021-07-10-CloudNativeFor DockerandKubernetes) |     에이콘아카데미      |                    정승재(tipco)                     | 2021.07.10 ~ 2021.08.07 | `k8s`    |
 
 ---
 
