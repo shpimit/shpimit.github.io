@@ -427,6 +427,7 @@ function print(hero) {
 print(ironMan);
 print(captainAmerica);
 ```
+
 ```javascript
 # 비구조화 할당 일때..
 const ironMan = {
