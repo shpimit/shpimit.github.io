@@ -144,8 +144,8 @@ $ npm install react-i18next i18next — save
 * [자바스크립트 비구조](https://tocomo.tistory.com/28)
 * * https://www.samsungsds.com/kr/insights/TypeScript.html
 * https://twojobui.tistory.com/25
-* https://jinminkim-50502.medium.com/react-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-i18n-%EB%8B%A4%EA%B5%AD%EC%96%B4-%EC%A7%80%EC%9B%90%ED%95%98%EA%B8%B0-a92bd5539e1d
-* https://medium.com/@jsh901220/mobx-%EC%B2%98%EC%9D%8C-%EC%8B%9C%EC%9E%91%ED%95%B4%EB%B3%B4%EA%B8%B0-a768f4aaa73e
+* [React 다국어](https://jinminkim-50502.medium.com/react-프로젝트-i18n-다국어-지원하기-a92bd5539e1d)
+* [React Mobx](https://medium.com/@jsh901220/mobx-처음-시작해보기-a768f4aaa73e)
 
 ---
 
