@@ -32,8 +32,8 @@ comments: New Microservice, Back-End Microservice
 | ---: | :--------------------------------------------------------: | :--------- |
 |    1 | [Java](/_pages/Microservice/Backend/2020-03-08-SpringBoot) | `Backend`  |
 |    2 |  [React](/_pages/Microservice/Frontend/2020-03-08-React)   | `Frontend` |
-|    3 |  [React](/_pages/Microservice/Frontend/2022-04-01-React)   | `Mobx`     |
-|    4 |  [React](/_pages/Microservice/Frontend/2022-04-17-Nextjs)  | `Next.js`  |
+|    3 |   [Mobx](/_pages/Microservice/Frontend/2022-04-01-React)   | `Mobx`     |
+|    4 |  [Next](/_pages/Microservice/Frontend/2022-04-17-Nextjs)   | `Next.js`  |
 
 ---
 
