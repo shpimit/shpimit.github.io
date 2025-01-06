@@ -24,6 +24,10 @@ tags: Miscellaneous
 
 * nginx default.conf
 
+```shell
+$ vi /etc/nginx/conf.d/default.conf
+```
+
 ```sh
 server {
     listen       80;
