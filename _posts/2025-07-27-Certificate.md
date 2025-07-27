@@ -29,7 +29,7 @@ comments: 자격증(기술사, 기사 포함)
 |No|Title|Remarks|
 |-:|:-:|:--|
 |1|[정보보안기사](/_pages/Certificate/Security/2025-07-27-3month-handwriting)|`25년 3월 필기`|
-|2|[Hyperledger](/_pages/Certificate/Security/2025-07-27-6month-handwriting)|`25년 6월 필기`|
+|2|[정보보안기사](/_pages/Certificate/Security/2025-07-27-6month-handwriting)|`25년 6월 필기`|
 
 ---
 
