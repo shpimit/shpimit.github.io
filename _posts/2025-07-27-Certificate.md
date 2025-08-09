@@ -8,9 +8,9 @@ featured-img: certificate
 comments: 자격증(기술사, 기사 포함)
 ---
 
-# Introducing Certificate !!
+# Introducing Certificate
 
-##### Certificate Space to learn `Certificate`.
+##### Certificate Space to learn `Certificate`
 
 ---
 
