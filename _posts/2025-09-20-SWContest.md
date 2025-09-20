@@ -4,7 +4,7 @@ title: SW Contest
 summary: Space to study SW Contest  
 categories: SW Contest
 tags: SW Contest
-featured-img: SW Contest
+featured-img: swcontest
 comments: 자격증(기술사, 기사 포함)
 ---
 
