@@ -92,6 +92,20 @@ df['취소유무'] = np.where(df['주문번호'].str[0] == 'C', '취소','주문
 train['Attrition_Flag'] = train['Attrition_Flag'].map({'Existing Customer': 0, 'Attrited Customer':1})
 ```
 
+## 📊 제2 유형
+
+### 평가 지표별 코드와 주의 사항
+
+- ROC-AUC 평가지표일때는 predict()가 아니라 predict_proba()[:,1]을 사용해야 한다
+
+| 평가지표 | 유형 | 코드                                     | 방향                |
+| -------- | ---- | ---------------------------------------- | ------------------- |
+| Accuracy | 분류 | accuracy_score(y_val, y_pred)            | 1에 가까울수록 좋음 |
+| Macro F1 | 분류 | f1_score(y_val, y_pred, average='macro') | 1에 가까울수록 좋음 |
+| ROC-AUC  | 분류 | roc_auc_score(y_val, y_pred_proba)       | 1에 가까울수록 좋음 |
+| RMSE     | 회귀 | root_mean_squared_error(y_val, y_pred)   | 0에 가까울수록 좋음 |
+| R2       | 회귀 | r2_score(y_val, y_pred)                  | 1에 가까울수록 좋음 |
+
 
 ## 📊 제1 유형
 
@@ -701,13 +715,13 @@ df.groupby('region')['sales'].sum().nlargest(10)
 
 #### ⚠️ 요약 비교
 
-| 방법 | 사용 상황 |
-|---|---|
-| `head(10)` | 단순히 처음 10행 |
-| `nlargest(10, col)` | 단일 컬럼 기준 상위 10개 |
-| `sort_values().head(10)` | 다중 컬럼 정렬 후 상위 10개 |
-| `value_counts().head(10)` | 빈도(카운트) 기준 상위 10개 |
-| `groupby().sum().nlargest(10)` | 그룹 집계 후 상위 10개 |
+| 방법                           | 사용 상황                   |
+| ------------------------------ | --------------------------- |
+| `head(10)`                     | 단순히 처음 10행            |
+| `nlargest(10, col)`            | 단일 컬럼 기준 상위 10개    |
+| `sort_values().head(10)`       | 다중 컬럼 정렬 후 상위 10개 |
+| `value_counts().head(10)`      | 빈도(카운트) 기준 상위 10개 |
+| `groupby().sum().nlargest(10)` | 그룹 집계 후 상위 10개      |
 
 **가장 일반적인 추천**: 숫자 기준 Top 10이라면 `nlargest()`, 정렬 조건이 복잡하면 `sort_values().head(10)`을 사용하세요!
 

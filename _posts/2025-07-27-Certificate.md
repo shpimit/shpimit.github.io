@@ -26,10 +26,12 @@ comments: 자격증(기술사, 기사 포함)
 
 ### Table of Contents
 
-|No|Title|Remarks|
-|-:|:-:|:--|
-|1|[정보보안기사](/_pages/Certificate/Security/2025-07-27-3month-handwriting)|`25년 3월 필기`|
-|2|[정보보안기사](/_pages/Certificate/Security/2025-07-27-6month-handwriting)|`25년 6월 필기`|
+|   No |                                   Title                                    | Remarks         |
+| ---: | :------------------------------------------------------------------------: | :-------------- |
+|    1 | [정보보안기사](/_pages/Certificate/Security/2025-07-27-3month-handwriting) | `25년 3월 필기` |
+|    2 | [정보보안기사](/_pages/Certificate/Security/2025-07-27-6month-handwriting) | `25년 6월 실기` |
+|    3 | [빅데이터분석기사](/_pages/Certificate/BIG/2026-04-04-BIG-Written) | `26년 3월 필기` |
+|    4 | [빅데이터분석기사](/_pages/Certificate/BIG/2026-04-13-BIG-Practical) | `26년 6월 실기` |
 
 ---
 
@@ -37,8 +39,8 @@ comments: 자격증(기술사, 기사 포함)
 
 ### Table of Learning
 
-|No|Title|Educational Institution|Lecturer|Term|Remarks|
-|-:|:--:|:-:|:--:|:--:|:-|
+|   No | Title | Educational Institution | Lecturer | Term  | Remarks |
+| ---: | :---: | :---------------------: | :------: | :---: | :------ |
 
 ---
 
