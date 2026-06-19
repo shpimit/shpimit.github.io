@@ -52,6 +52,8 @@ df['GUGU'] = df['STATION_ADDR1'].str.extract(r'([가-힣]+구)')
 ```python
 #문자열 → 날짜 전환
 df['date'] = pd.to_datetime[df['date']]
+# 분리되어 있는것을  합쳐서 → 날짜 전환
+df['date'] = pd.to_datetime(dict(year=df.year, month=df.month, day=df.day))
 
 # 년/월/일/요일 추출
 df['year'] = df['date'].dt.year
@@ -106,6 +108,73 @@ train['Attrition_Flag'] = train['Attrition_Flag'].map({'Existing Customer': 0, '
 | RMSE     | 회귀 | root_mean_squared_error(y_val, y_pred)   | 0에 가까울수록 좋음 |
 | R2       | 회귀 | r2_score(y_val, y_pred)                  | 1에 가까울수록 좋음 |
 
+### 모델 성능 향상
+
+```python
+# stratify는 소수 클래스이 데이터가 특정 셍(Train 또는 Test)에 몰리거나 빠지는 현상을 막아줌
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=500,class_weight='balanced',random_state=42)
+
+```
+
+## 📊 제3 유형
+
+### 가설검정 유형
+
+![가설검정](./img/ttest.png)
+
+| 유형                 |    핵심함수     |                     치트키                     |
+| -------------------- | :-------------: | :--------------------------------------------: |
+| 1. 독립표본 T검정    |   ttest_ind()   |          A그룹 vs B그룹, 남자 vs 여자          |
+| 2. 대응표본 T검정    |   ttest_rel()   |      다이어트 전후, 교육 전후, 투약 전후       |
+| 3. 단일표본 T검정    |  ttest_1samp()  |       평균이 OO인지 검정, 기준값과 비교        |
+| 4. 카이제곱 적합도   |   chisquare()   |        동일한 비율인지, 기대빈도와 비교        |
+| 5. 카이제곱 독립성   | chi2_contigency | 성별과 생존여부의 관련성, 연령대와 선호도 차이 |
+| 6. 일원배치 분산분석 |    f_oneway     |            3개그룹 차이, A/B/C 비교            |
+
+- 독립표본 T검정 - 등분산 검정 (소문제)
+
+```python
+stat, p = stats.levene(group_a, group_b)
+# p > 0.05 등분산(분산이 같음)
+
+# 등분산 가정
+stat, p = stats.ttest_ind(group_a, group_b, equal_var=True)
+
+# 등분산이 아닐때
+stat, p = stats.ttest_ind(group_a, group_b, equal_var=False)
+```
+
+- 단일표본 T검정
+
+```python
+stat, p = stats.ttest_1samp(df['col'], popmean=50, alternative='greater')
+```
+
+- 기타 검정
+  - 부호 순위 검정 : wilcoxon
+  - K-S 검정 : kstest
+
+- 상관관계
+
+```python
+from scipy.stats import pearsonr
+```
+
+### 분류 모델 검증
+
+```python
+from sklearn.metircs import roc_auc_score, accurcy_score, precision_score, recall_score
+accuracy = accuracy_score(y, y_pred)  # 정확도 (TP+TN)/(TP+TN+FP+FN)
+precision = precision_score(y, y_pred) # 정밀도 (TP/TP+FP)
+recll = recall_score(y, y_pred) # 재현율= 민감도 (TP/TP+FN)
+f1 = f1_score(y, y_pred)
+auc = roc_auc_score(y,y_pred_proba)
+```
+---
 
 ## 📊 제1 유형
 
