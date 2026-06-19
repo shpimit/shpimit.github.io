@@ -1,5 +1,98 @@
 # ◎ 빅데이터분석 기사 실기
 
+## 기출 패턴
+
+### 📊 제1 유형
+
+#### 1️⃣  IQR 기반 이상치
+
+```python
+Q1 = df['col'].quantile(0.25)
+Q3 = df['col'].quantile(0.75)
+
+IQR = Q3-Q1
+
+lower = Q1 - 1.5 * IQR
+upper = Q2 + 1.5 * IQR
+
+# 이상치 갯수
+outliers = df[(df['col'] < lower) | (df['col'] > upper)]
+len(outliers)
+
+# Z score 기반 이상치 갯수
+mean_val = df['col'].mean()
+std_val  = df['col'].std()
+df['z'] = (df['col'] - mean_val) / std_val
+outliers = df[(df['z'] > 1.5) | (df['z'] < -1.5)]
+
+```
+
+#### 2️⃣ 결측치 처리(대체/제거)
+
+```python
+# 결측치가 많은 컬럼 최빈값 대체
+freq = df['col'].mode()[0]
+df= df.fillna(freq)
+
+df= df.dropna(subset=['col']) #특정열의 결측치만 제거
+```
+
+#### 3️⃣ 문자열 처리
+
+```python
+# 특수문자 제거
+dat['conventional'] = dat['conventional'].replace(r'[^a-zA-Z0-9가-힣]',np.nan,regex=True)
+
+# 서울시 OO구
+df['GUGU'] = df['STATION_ADDR1'].str.extract(r'([가-힣]+구)')
+```
+
+#### 4️⃣ 날짜/시간 데이터 처리
+
+```python
+#문자열 → 날짜 전환
+df['date'] = pd.to_datetime[df['date']]
+
+# 년/월/일/요일 추출
+df['year'] = df['date'].dt.year
+df['month'] = df['date'].dt.month
+df['day'] = df['date'].dt.day
+df['weekday'] = df['date'].dt.dayofweek # 0이 월요일
+```
+
+#### 5️⃣ 그룹 집계
+
+```python
+sumdf= df.groupby(['year','지역코드','gender'])['tot'].sum()
+pivot_table = sumdf.unstack(fill_value=0) # gender가 컬럼이 됨
+max_code = pivot_table['abs'].idxmax()
+```
+
+#### 6️⃣ 데이터 스케일링 (표준화/정규화)
+
+```python
+# Min-Max 정규화
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df['col'] = scaler.fit_transform(df['col'])
+
+# 표준화
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+df['col'] = scaler.fit_transform(df['col'])
+```
+
+#### 7️⃣ 파생변수 생성 + 조건계산
+
+```python
+df['grade'] = np.where(df['score'] >= 80, 'Pass', 'Fail')
+df['취소유무'] = np.where(df['주문번호'].str[0] == 'C', '취소','주문')
+
+# Target 컬럼이 문자열일 경우  숫자형으로 변형하는것이 좋다'
+train['Attrition_Flag'] = train['Attrition_Flag'].map({'Existing Customer': 0, 'Attrited Customer':1})
+```
+
+
 ## 📊 제1 유형
 
 ### 4️⃣ 1유형 체험 환경문제('24년)
